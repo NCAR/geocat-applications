@@ -18,7 +18,7 @@ Here's the first card.
 Here's the second card.
 :::
 
-:::{grid-item-card} [Plot Types](notebooks/plot_types)
+:::{grid-item-card} [Plot Types](plot_types/plot_types)
 [Contour](plot_types/contour) <br>
 Line
 :::
