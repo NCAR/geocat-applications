@@ -1,3 +1,5 @@
+# Contributor's Guide
+
 `conda env update -f environment.yml`
 
 `conda activate geocat-applications`
