@@ -7,5 +7,20 @@ It does not go in-depth into any particular topic - check out [the Jupyter Book 
 
 Check out the content pages bundled with this sample book to see more.
 
-```{tableofcontents}
-```
+::::{grid}
+:gutter: 3
+
+:::{grid-item-card} File I/O
+Here's the first card.
+:::
+
+:::{grid-item-card} Data Analysis
+Here's the second card.
+:::
+
+:::{grid-item-card} [Plot Types](notebooks/plot_types)
+[Contour](plot_types/contour) <br>
+Line
+:::
+
+::::
