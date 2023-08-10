@@ -11,14 +11,15 @@ jobs:
       - name: Install dependencies
         run: |
           pip install jupyter-book
+
       - name: Jupyter Book Build
         run: |
           jupyter-book build .
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
-        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        # if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         with:
-          publish_branch: gh-pages
+          publish_branch:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: _build/
+          publish_dir: _build/html/
           force_orphan: true
