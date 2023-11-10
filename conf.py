@@ -181,7 +181,7 @@ language = "en"
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = []
+exclude_patterns = ['README.md', '_build', '.DS_Store', 'ipynb_checkpoints']
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
@@ -200,6 +200,9 @@ exclude_patterns = []
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
+# from pygments.styles import get_all_styles
+# styles = list(get_all_styles())
+# print(f'STYLES: {styles}')
 
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
