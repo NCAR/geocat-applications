@@ -156,7 +156,7 @@ source_suffix = {
 master_doc = 'index'
 
 # General information about the project.
-project = u'GeoCAT-comp'
+project = u'GeoCAT-applications'
 
 import datetime
 
@@ -243,9 +243,6 @@ html_theme_options = dict(
 # Add any paths that contain custom themes here, relative to this directory.
 #html_theme_path = []
 
-# The name for this set of Sphinx documents.
-# "<project> v<release> documentation" by default.
-#html_title = u'geocat-comp v0.1'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #html_short_title = None
