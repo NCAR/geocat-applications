@@ -21,7 +21,7 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-jobs:      
+jobs:
   deploy:
     environment:
       name: github-pages
@@ -30,12 +30,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v3
-      - name: install dependencies
+      - name: Install dependencies
         run: |
-          pip install jupyter-book
-      - name: jupyter-book build .
+          python -m pip install --upgrade pip
+          pip install sphinx-book-theme myst-nb sphinx-design nbsphinx
+      - name: make html
         run: |
-          jupyter-book build .
+          make html
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: what do we have in here
