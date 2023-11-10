@@ -1,5 +1,4 @@
-.. geocat-comp documentation master file, created by
-   sphinx-quickstart on Mon Aug 19 14:29:04 2019.
+.. geocat-applications documentation master file
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
@@ -38,14 +37,11 @@ GeoCAT Applications is a community resource managed by the GeoCAT team. Inspired
         .. grid:: 1
             :gutter: 1
 
-            .. card:: Card Title 1
+            .. card:: `Plot Types <applications/plot_types/plot_types.rst>`_
 
-                Card content goes here. This is the first card in the first column.
-
-            .. card:: Card Title 2
-                :link: your-link-here.html
-
-                Card content goes here. This is the second card in the first column.
+                - `Contour <applications/plot_types/contour.ipynb>`_
+                - Plot type 2
+                - Plot type 3
 
 
     .. grid-item::
@@ -53,48 +49,55 @@ GeoCAT Applications is a community resource managed by the GeoCAT team. Inspired
         .. grid:: 1
             :gutter: 1
 
-            .. card:: Card Title 1
-                :link: your-link-here.html
+            .. card:: `Data Analysis <applications/data_analysis/data_analysis>`_
 
-                Card content goes here. This is the first card in the second column.
-
-    .. grid-item::
-
-        .. grid:: 1
-            :gutter: 1
-
-            .. card:: Card Title 2
-                :link: your-link-here.html
-
-            .. card:: Short
-                :link: your-link-here.html
-
+                - `Data Analysis 1 <applications/data_analysis/sample.ipynb>`_
 
     .. grid-item::
 
         .. grid:: 1
             :gutter: 1
 
-            .. card:: Card Title 5
-                :link: your-link-here.html
+            .. card:: `File I/O <applications/file_io/file_io>`_
 
-                Card content goes here. This is the first card in the second column.
+                - `File I/O 1 <applications/file_io/sample.ipynb>`_
+
+            .. card:: Date Time Routines
+
+
+    .. grid-item::
+
+        .. grid:: 1
+            :gutter: 1
+
+            .. card:: Regridding
+
+            .. card:: Interpolation
+
+
 
 
 
 .. toctree::
-   :maxdepth: 2
-   :hidden:
-   :caption: Applications
+    :maxdepth: 2
+    :hidden:
+    :caption: Applications
 
-   plot_types/plot_types
-   data_analysis/data_analysis
-   file_io/file_io
+    Plot Types <applications/plot_types/plot_types>
+    Data Analysis <applications/data_analysis/data_analysis>
+    File I/O <applications/file_io/file_io>
 
 .. toctree::
-   :maxdepth: 2
-   :hidden:
-   :caption: Getting Support
+    :maxdepth: 2
+    :hidden:
+    :caption: NCL Index
 
-   GitHub Issues <https://github.com/NCAR/geocat-applications/issues>
-   Feature Request Form <https://forms.gle/6DTo3ELLri4DAGfG8>
+    NCL Index <ncl/ncl_index>
+
+.. toctree::
+    :maxdepth: 2
+    :hidden:
+    :caption: Getting Support
+
+    GitHub Issues <https://github.com/NCAR/geocat-applications/issues>
+    Feature Request Form <https://forms.gle/6DTo3ELLri4DAGfG8>

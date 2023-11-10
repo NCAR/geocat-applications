@@ -233,7 +233,6 @@ html_theme_options = dict(
     use_repository_button=True,
     use_issues_button=True,
     home_page_in_toc=False,
-    navbar_footer_text="",
     extra_footer=
     "<em>The National Center for Atmospheric Research is sponsored by the National Science Foundation. Any opinions, findings and conclusions or recommendations expressed in this material do not necessarily reflect the views of the National Science Foundation.</em>",
 )

@@ -1,12 +1,12 @@
 .. currentmodule:: geocat.applications
 
-.. _applications_plot_types::
+.. _applications_file_io:
 
-Plot Types
-==========
+File I/O
+========
 
 .. toctree::
    :maxdepth: 1
    :hidden:
 
-   contour.ipynb
+   sample.ipynb
