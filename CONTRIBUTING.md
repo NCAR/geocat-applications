@@ -4,6 +4,6 @@
 
 `conda activate geocat-applications`
 
-`jupyter-book build .`
+`make clean html`
 
 `open _build/html/index.html`
