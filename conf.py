@@ -13,12 +13,26 @@
 # -- Project information -----------------------------------------------------
 
 import sys
+import os
 from sphinx.util import logging
-
-print("sys.path:", sys.path)
-
+import pandas as pd
 
 LOGGER = logging.getLogger("conf")
+
+LOGGER.info("sys.path: " + str(sys.path))
+
+# create temp directory
+tmp_dir = 'tmp'  # must match the directory in Makefile and make.bat
+os.makedirs(tmp_dir, exist_ok=True)
+
+# sort ncl/ncl-index-table.csv
+df = pd.read_csv('ncl/ncl-index-table.csv')
+df['sort_column'] = df['NCL Function'].apply(lambda x: x[1] if len(x) > 1 else x)
+df = df.sort_values(by='sort_column')
+df = df.drop(columns=['sort_column'])
+df.to_csv(tmp_dir + '/ncl-index-table.csv', index=False)
+
+LOGGER.info("sorted ncl-index-table.csv")
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
