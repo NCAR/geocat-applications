@@ -1,5 +1,8 @@
 .. This keeps the page from being included in the TOC, but allows it to be included in the build.
+
 :orphan:
+
+.. _receipts:
 
 Receipts List
 =============

@@ -19,7 +19,7 @@ There are two paths to adding something to the NCL index:
 
 #### After creating a new applications entry
 To add a new entry to the NCL Index after creating a new geocat-applications entry:
-1. Add a new line to the `ncl/ncl-index-table.csv` file
+1. Add a new line to the `ncl/ncl_index/ncl-index-table.csv` file
 
 #### Adding an entry that does not have a corresponding applications entry
 We include entries in the NCL Index that do not have corresponding geocat-applications entries for the purpose of
@@ -30,4 +30,4 @@ To add an entry that does not have a corresponding geocat-applications entry:
 1. Create a "receipt" file in the `ncl/receipts` directory following the naming convention
    `ncl/receipts/<ncl-function-or-category-name>.rst`
 
-2. Add a new line to the `ncl/ncl-index-table.csv` file
+2. Add a new line to the `ncl/ncl_index/ncl-index-table.csv` file
