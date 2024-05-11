@@ -20,6 +20,6 @@ jobs:
     if: github.event.workflow_run.conclusion == 'success'
     uses: './.github/workflows/build.yml'
     with:
-      artifact_name: docs-zip-${{ steps.get-pr-number.outputs.PR_NUMBER }}
+      artifact_name: docs-zip-${{ needs.get-pr-number.outputs.PR_NUMBER }}
       build_from_code_artifact: true
-      code_artifact_name: code-zip-${{ steps.get-pr-number.outputs.PR_NUMBER }}
+      code_artifact_name: code-zip-${{ needs.get-pr-number.outputs.PR_NUMBER }}
