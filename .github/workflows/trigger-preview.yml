@@ -1,10 +1,11 @@
 name: trigger-preview
 on:
   workflow_run:
-    workflows: ['trigger-build']
+    workflows:
+      - trigger-build
     types:
-      - completed
       - requested
+      - completed
 
 jobs:
   build-for-preview:
