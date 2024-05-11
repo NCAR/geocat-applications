@@ -1,7 +1,7 @@
 name: trigger-preview
 on:
   workflow_run:
-    workflows: trigger-build
+    workflows: ['trigger-build']
     types:
       - completed
       - requested
@@ -9,7 +9,7 @@ on:
 jobs:
   build-for-preview:
     if: github.event.workflow_run.conclusion == 'success'
-    uses: .github/workflows/build.yml@main
+    uses: './.github/workflows/build.yml'
     with:
       artifact_name: docs-zip-${{ steps.pr-number.outputs.PR_NUMBER }}
       build_from_code_artifact: true
