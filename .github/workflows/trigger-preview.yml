@@ -14,6 +14,7 @@ jobs:
         id: get_pr_number
         run: echo "PR_NUMBER=${{ github.event.workflow_run.payload.inputs.pr_number }}" >> $GITHUB_OUTPUT
   build-for-preview:
+    needs: get-pr-number
     uses: './.github/workflows/build.yml'
     with:
       artifact_name: docs-zip-${{ needs.get-pr-number.outputs.PR_NUMBER }}
