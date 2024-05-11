@@ -1,11 +1,10 @@
 name: trigger-preview
 on:
   workflow_run:
-    workflows:
-      - trigger-build
-    types:
-      - requested
-      - completed
+    workflows: ["trigger-build"]
+    types: [requested, completed]
+    branches:
+      - "*"
 
 jobs:
   get-pr-number:
