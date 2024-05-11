@@ -10,7 +10,7 @@ on:
 jobs:
   build-for-preview:
     if: github.event.workflow_run.conclusion == 'success'
-    uses: './build.yml'
+    uses: './.github/workflows/build.yml'
     with:
       artifact_name: docs-zip-${{ steps.pr-number.outputs.PR_NUMBER }}
       build_from_code_artifact: true
