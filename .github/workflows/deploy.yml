@@ -1,51 +1,75 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Build and Deploy
+name: deploy
 
 on:
-  # Runs on pushes targeting the default branch
-  push:
-    branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  workflow_call:
+    inputs:
+      artifact_name:
+        description: 'Name of the artifact (zipped book) created by previous build step'
+        required: false
+        default: book-zip
+        type: string
+      is_preview:
+        description: 'Is this a preview deployment?'
+        required: false
+        default: false
+        type: string
+      cname:
+        description: 'Custom domain name'
+        required: false
+        default: 'None'
+        type: string
 
 jobs:
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -l {0}
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v3
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install sphinx-book-theme myst-nb sphinx-design nbsphinx pandas
-      - name: make html
-        run: |
-          make html
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-      - name: what do we have in here
-        run: |
-          tree .
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+      - name: Download merged artifact
+        if: inputs.is_preview != 'true'
+        uses: actions/download-artifact@v4
         with:
-          path: './_build/html/'
+          name: ${{ inputs.artifact_name }}
+
+      # For the preview, the official download-artifact action doesn't work
+      # because the artifact is created by a different workflow
+      - name: Download preview artifact
+        if: inputs.is_preview == 'true'
+        uses: dawidd6/action-download-artifact@v3.1.4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          workflow: build-book.yaml
+          run_id: ${{ github.event.workflow_run.id }}
+          name: ${{ inputs.artifact_name }}
+
+      - name: Unzip the book
+        run: |
+          rm -rf _build/html
+          unzip book.zip
+          rm -f book.zip
+
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
+        uses: peaceiris/actions-gh-pages@v3.9.3
+        if: |
+          (github.ref == 'refs/heads/main'
+          && inputs.cname == 'None')
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ${{ inputs.publish_dir }}
+          enable_jekyll: false
+          keep_files: true  # This preserves existing previews from open PRs
+          destination_dir: ${{ inputs.destination_dir }}
+
+      - name: Deploy to GitHub Pages with custom domain
+        uses: peaceiris/actions-gh-pages@v3.9.3
+        if: |
+          (github.ref == 'refs/heads/main'
+          && inputs.cname != 'None')
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ${{ inputs.publish_dir }}
+          enable_jekyll: false
+          keep_files: true  # This preserves existing previews from open PRs
+          destination_dir: ${{ inputs.destination_dir }}
+          cname: ${{ inputs.cname }}
