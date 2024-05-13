@@ -1,0 +1,82 @@
+name: build
+
+on:
+  workflow_call:
+    inputs:
+      artifact_name:
+        description: 'The name to assign to the built book artifact.'
+        required: false
+        default: 'book-zip'
+        type: string
+      build_from_code_artifact:
+        description: 'Should we try to build from a previously uploaded code artifact?'
+        required: false
+        default: 'false'
+        type: string
+      workflow:
+        description: 'The name of the workflow that created the code artifact.'
+        required: false
+        default: 'trigger-build'
+        type: string
+      code_artifact_name:
+        description: 'The name of the code artifact to download.'
+        required: false
+        default: 'code-zip'
+        type: string
+      workflow_conclusion:
+        description: 'The conclusion of the workflow that created the code artifact.'
+        required: false
+        default: success
+        type: string
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -l {0}
+    steps:
+      - name: Checkout code
+        if: inputs.build_from_code_artifact != 'true'
+        uses: actions/checkout@v4
+
+      - name: Download code artifact
+        id: get_code_artifact
+        if: inputs.build_from_code_artifact == 'true'
+        uses: dawidd6/action-download-artifact@v3.1.4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          workflow: ${{ inputs.workflow }}
+          run_id: ${{ github.event.workflow_run.id }}
+          name: ${{ inputs.code_artifact_name }}
+          workflow_conclusion: ${{ inputs.workflow_conclusion }}
+
+      - name: Unzip code artifact
+        if: inputs.build_from_code_artifact == 'true'
+        run: |
+          unzip pr_code.zip
+          rm -f pr_code.zip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install sphinx-book-theme myst-nb sphinx-design nbsphinx pandas
+
+      - name: make html
+        run: |
+          make html
+
+      - name: Zip the book
+        run: |
+          set -x
+          set -e
+          if [ -f book.zip ]; then
+              rm -rf book.zip
+          fi
+          zip -r book.zip ./_build/html/
+
+      - name: Upload zipped book artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.artifact_name }}
+          path: ./book.zip
