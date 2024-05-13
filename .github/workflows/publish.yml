@@ -1,0 +1,15 @@
+name: publish
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    uses: './.github/workflows/build.yml'
+
+  deploy:
+    needs: build
+    uses: './.github/workflows/gh-pages.yml'
