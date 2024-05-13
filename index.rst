@@ -22,9 +22,8 @@
 ..   :align: right
 
 
-
-GeoCAT Applications
-===================
+GeoCAT Applications!!!
+======================
 
 GeoCAT Applications is a community resource managed by the GeoCAT team. Inspired by the
 `NCL Applications <https://www.ncl.ucar.edu/Applications/>`_ page, this is designed to be a quick reference
