@@ -23,6 +23,7 @@
             .. card:: `Data Analysis <applications/data_analysis/data_analysis.rst>`_
 
                 - `Data Analysis 1 <applications/data_analysis/sample.ipynb>`_
+                - `Wavelets <applications/data_analysis/wavelet_python.ipynb>`_
 
     .. grid-item::
 
