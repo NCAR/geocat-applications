@@ -1,0 +1,47 @@
+name: trigger build
+on:
+  pull_request:
+
+jobs:
+  get-code:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -l {0}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Remove .github directory
+        id: remove_directory
+        run: |
+          rm -rf .github/
+
+      - name: Zip the code
+        run: |
+          set -x
+          set -e
+          if [ -f pr_code.zip ]; then
+              rm -rf pr_code.zip
+          fi
+          zip -r pr_code.zip .
+
+      - name: Upload zipped code artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: code-zip-${{ github.event.number }}
+          path: ./pr_code.zip
+
+      - name: Save the PR number and sha in an artifact
+        shell: bash
+        env:
+          PR_NUMBER: ${{ github.event.number }}
+          SHA: ${{ github.sha }}
+        run: |
+          echo $PR_NUMBER > pr_number.txt
+          echo $SHA >> pr_number.txt
+
+      - name: Upload PR number and sha artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr_number
+          path: ./pr_number.txt
