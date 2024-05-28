@@ -2,3 +2,5 @@
 
 NCL Applications
 ================
+
+- `Sine Trigonometry <ncl/receipts/sine_trigonometry.ipynb>`_
