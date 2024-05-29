@@ -1,6 +1,6 @@
 .. _applications:
 
-.. grid:: 4
+.. grid:: 3
     :gutter: 2
 
     .. grid-item::
@@ -8,12 +8,11 @@
         .. grid:: 1
             :gutter: 1
 
-            .. card:: `Plot Types <applications/plot_types/plot_types.rst>`_
+            .. card:: :ref:`applications_datetime`
 
-                - `Contour <applications/plot_types/contour.ipynb>`_
-                - Plot type 2
-                - Plot type 3
+                - `Working with Date and Time <applications/date_time/datetime.ipynb>`_
 
+            .. card:: :ref:`applications_plot_types`
 
     .. grid-item::
 
@@ -30,12 +29,7 @@
         .. grid:: 1
             :gutter: 1
 
-            .. card:: `File I/O <applications/file_io/file_io.rst>`_
-
-                - `File I/O 1 <applications/file_io/sample.ipynb>`_
-
-            .. card:: Date Time Routines
-
+            .. card:: :ref:`applications_data_analysis`
 
     .. grid-item::
 
@@ -43,5 +37,3 @@
             :gutter: 1
 
             .. card:: Regridding
-
-            .. card:: Interpolation
