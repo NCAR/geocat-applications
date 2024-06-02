@@ -63,13 +63,13 @@ than waiting for a full **NCL Entry** to be completed.
 
 1. If the content is primarily visualization, create a new file in the
    appropriate directory in `applications/` based off of
-   the `templates/plot_template.ipynb`
+   the `templates/viz_template.ipynb`
 
 1. If the content is primarily computational (even if it includes
    visualization), create a new file in the appropriate directory
    in `applications/` based off of the `templates/computational_template.ipynb`
 
-1. If relevant, link to corresponding NCL content at the bottom of the file,
+1. If relevant, link to corresponding NCL content at the bottom of the file
 
 1. [INTEND TO AUTOMATE IN THE FUTURE] Add the new file to the `.rst` file in the
    same directory in `applications/` as your new file to add it to the webpage's
@@ -78,6 +78,8 @@ than waiting for a full **NCL Entry** to be completed.
 1. [INTEND TO AUTOMATE IN THE FUTURE] Add the new file to
    the `applications/applications.rst` file to add it to the cards on the main
    page of the website.
+
+1. Make sure to clear and run all outputs before asking for a review
 
 ### NCL Entry
 
@@ -88,9 +90,16 @@ than waiting for a full **NCL Entry** to be completed.
 
 1. See below for adding the covered functions to the NCL Index
 
+1. Make sure to clear and run all outputs before asking for a review
+
 ### Receipt
 
-TO DO
+1. Create a new file in `ncl/ncl_receipts/` based off of the
+   `templates/receipt_template.ipynb` template.
+
+1. See below for adding the covered functions to the NCL Index
+
+1. Make sure to clear and run all outputs before asking for a review
 
 ### Adding to the NCL Index
 
