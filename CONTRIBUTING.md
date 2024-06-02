@@ -86,7 +86,7 @@ than waiting for a full **NCL Entry** to be completed.
 
 1. Add the file to the `ncl/ncl_entries/ncl_entries.rst` file
 
-1. Add the covered NCL functions to the [NCL Index](#adding-to-the-ncl-index)
+1. See below for adding the covered functions to the NCL Index
 
 ### Receipt
 
