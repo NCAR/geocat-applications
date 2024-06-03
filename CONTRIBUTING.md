@@ -3,24 +3,25 @@
 ## Create the docs locally
 
 ``` python
-conda env update -f environment.yml
+conda env create --file environment.yml
 conda activate geocat-applications
 make clean html
 open _build/html/index.html
 ```
+If the `_build` folder is generated, but `open` command cannot open the html, you can navigate to the `index.html` document and right-click to `Open With` your desired browser.
 
 ## Types of Content
 
-There are several ways to contribute content to this repository.
+There are several ways to contribute content to this repository
 
 ### Python Entry
 
 Python entries are the content on the main page of the website. These entries
-are python-first content that do not require any knowledge of or reference NCL.
+are Python-first content that do not require any knowledge of or reference NCL.
 
 In general, we should lean towards providing links to external resources where
 possible and aim to only directly host content that is not readily available
-elsewhere, content that contextualizes python functionality in a way that is
+elsewhere, content that contextualizes Python functionality in a way that is
 unique to geoscience applications, or content that create a curated list of
 external resources.
 
@@ -30,15 +31,15 @@ NCL-specific content.*
 ### NCL Entry
 
 NCL entries are pages that explain specifically how to achieve something that
-was possible in NCL in python, including any algorithmic differences, guidance
+was possible in NCL in Python, including any algorithmic differences, guidance
 about the best Python replication for the NCL function in various circumstances,
-and any other relevant comparisons between the aNCL and Python functionality.
+and any other relevant comparisons between the NCL and Python functionality.
 
 These pages assume that the user has a working knowledge of NCL and are looking
 for transitional resources for specific functions. They also are not intended to
-be a comprehensive explanation of the python recommendations, but rather a guide
+be a comprehensive explanation of the Python recommendations, but rather a guide
 for users who are already familiar with the NCL function and are looking for
-"equivalent" python code. Any content that is designed to explain the NCL should
+"equivalent" Python code. Any content that is designed to explain the NCL should
 be linked instead of included directly, whether that content is in the form of a
 **Python Entry** on geocat-applications or external resources.
 
@@ -104,3 +105,7 @@ than waiting for a full **NCL Entry** to be completed.
 ### Adding to the NCL Index
 
 Add a new line to the `ncl/ncl_index/ncl-index-table.csv` file
+
+| NCL Function       | Description                 | Python Equivalent | Notes                          |
+|--------------------|-----------------------------|-------------------|--------------------------------|
+| `example_function <https://www.ncl.ucar.edu/>`__ | Description of the function | `python_function` | Link to `ncl_entries` notebook |
