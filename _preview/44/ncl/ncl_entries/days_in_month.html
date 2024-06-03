@@ -399,7 +399,12 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grab-and-go">Grab and Go</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-calendar-module">Using the <code class="docutils literal notranslate"><span class="pre">calendar</span></code> module</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-cftime">Using <code class="docutils literal notranslate"><span class="pre">cftime</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differences-between-cftime-and-ncl-s-days-in-month">Differences between <code class="docutils literal notranslate"><span class="pre">cftime</span></code> and NCL’s <code class="docutils literal notranslate"><span class="pre">days_in_month</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differences-between-cftime-and-ncl-s-days-in-month">Differences between <code class="docutils literal notranslate"><span class="pre">cftime</span></code> and NCL’s <code class="docutils literal notranslate"><span class="pre">days_in_month</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calendars">Calendars</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-differences">Numerical Differences</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-type">Input type</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-resources">Python Resources</a></li>
 </ul>
             </nav>
@@ -490,12 +495,22 @@ Julian calendar: 				 month 2 in 1500 has 29 days
 </section>
 <section id="differences-between-cftime-and-ncl-s-days-in-month">
 <h2>Differences between <code class="docutils literal notranslate"><span class="pre">cftime</span></code> and NCL’s <code class="docutils literal notranslate"><span class="pre">days_in_month</span></code><a class="headerlink" href="#differences-between-cftime-and-ncl-s-days-in-month" title="Link to this heading">#</a></h2>
+<section id="calendars">
+<h3>Calendars<a class="headerlink" href="#calendars" title="Link to this heading">#</a></h3>
 <p>The calendars available in <code class="docutils literal notranslate"><span class="pre">cftime</span></code> and NCL’s <code class="docutils literal notranslate"><span class="pre">days_in_month</span></code>, while both based on the CF Conventions calendars, are slightly different.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">cftime</span></code> does support using <code class="docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code> as a calendar type, but not for this particular function.</p></li>
 <li><p>NCL’s <code class="docutils literal notranslate"><span class="pre">days_in_month</span></code> does not support the <code class="docutils literal notranslate"><span class="pre">proleptic_gregorian</span></code> calendar.</p></li>
 </ul>
+</section>
+<section id="numerical-differences">
+<h3>Numerical Differences<a class="headerlink" href="#numerical-differences" title="Link to this heading">#</a></h3>
 <p>Additionally, the <code class="docutils literal notranslate"><span class="pre">&quot;standard&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;gregorian&quot;</span></code> calendars seem to disagree for some historical dates.</p>
+</section>
+<section id="input-type">
+<h3>Input type<a class="headerlink" href="#input-type" title="Link to this heading">#</a></h3>
+<p>Notably, <code class="docutils literal notranslate"><span class="pre">cftime.datetime(),daysinmonth</span></code> only takes in integer values for <code class="docutils literal notranslate"><span class="pre">year</span></code>, <code class="docutils literal notranslate"><span class="pre">month</span></code>, and <code class="docutils literal notranslate"><span class="pre">day</span></code>, while NCL’s <code class="docutils literal notranslate"><span class="pre">days_in_month</span></code> can take in multidimensional integer arrays, given that the <code class="docutils literal notranslate"><span class="pre">year</span></code> and <code class="docutils literal notranslate"><span class="pre">month</span></code> arrays have the same dimensions.</p>
+</section>
 </section>
 <section id="python-resources">
 <h2>Python Resources<a class="headerlink" href="#python-resources" title="Link to this heading">#</a></h2>
@@ -547,7 +562,12 @@ Julian calendar: 				 month 2 in 1500 has 29 days
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grab-and-go">Grab and Go</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-calendar-module">Using the <code class="docutils literal notranslate"><span class="pre">calendar</span></code> module</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-cftime">Using <code class="docutils literal notranslate"><span class="pre">cftime</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differences-between-cftime-and-ncl-s-days-in-month">Differences between <code class="docutils literal notranslate"><span class="pre">cftime</span></code> and NCL’s <code class="docutils literal notranslate"><span class="pre">days_in_month</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differences-between-cftime-and-ncl-s-days-in-month">Differences between <code class="docutils literal notranslate"><span class="pre">cftime</span></code> and NCL’s <code class="docutils literal notranslate"><span class="pre">days_in_month</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calendars">Calendars</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-differences">Numerical Differences</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-type">Input type</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-resources">Python Resources</a></li>
 </ul>
   </nav></div>
