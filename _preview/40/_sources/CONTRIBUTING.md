@@ -8,7 +8,6 @@ conda activate geocat-applications
 make clean html
 open _build/html/index.html
 ```
-If the `_build` folder is generated, but `open` command cannot open the html, you can navigate to the `index.html` document and right-click to `Open With` your desired browser.
 
 ## Types of Content
 
