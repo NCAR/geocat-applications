@@ -58,11 +58,11 @@ Python Examples
     NCL Applications <applications/ncl_applications.rst>
 
 .. toctree::
-   :maxdepth: 2
-   :hidden:
-   :caption: For Developers
+    :maxdepth: 2
+    :hidden:
+    :caption: For Developers
 
-   Contributor's Guide <CONTRIBUTING.md>
+    Contributor's Guide <CONTRIBUTING.md>
 
 .. toctree::
     :maxdepth: 2
