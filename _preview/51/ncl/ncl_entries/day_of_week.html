@@ -429,7 +429,9 @@ document.write(`
 <span class="n">month</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="n">year</span> <span class="o">=</span> <span class="mi">2024</span>
 
-<span class="n">dow</span> <span class="o">=</span> <span class="n">cftime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">calendar</span><span class="o">=</span><span class="s1">&#39;proleptic_gregorian&#39;</span><span class="p">,</span> <span class="n">has_year_zero</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">dayofwk</span>
+<span class="n">dow</span> <span class="o">=</span> <span class="n">cftime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span>
+    <span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">calendar</span><span class="o">=</span><span class="s1">&#39;proleptic_gregorian&#39;</span><span class="p">,</span> <span class="n">has_year_zero</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span><span class="o">.</span><span class="n">dayofwk</span>
 </pre></div>
 </div>
 </div>
@@ -438,7 +440,7 @@ document.write(`
 <hr class="docutils" />
 <section id="using-the-datetime-module">
 <h2>Using the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module<a class="headerlink" href="#using-the-datetime-module" title="Link to this heading">#</a></h2>
-<p>The <a class="reference external" href="https://docs.python.org/3/library/datetime.html"><code class="docutils literal notranslate"><span class="pre">datetime</span></code></a> module is part of the Python Standard Library and could be sufficent to calculate the day of the week.</p>
+<p>The <a class="reference external" href="https://docs.python.org/3/library/datetime.html"><code class="docutils literal notranslate"><span class="pre">datetime</span></code></a> module is part of the Python Standard Library and could be sufficient to calculate the day of the week.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
@@ -474,7 +476,9 @@ document.write(`
 <span class="n">month</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="n">year</span> <span class="o">=</span> <span class="mi">2024</span>
 
-<span class="n">dow</span> <span class="o">=</span> <span class="n">cftime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">calendar</span><span class="o">=</span><span class="s1">&#39;proleptic_gregorian&#39;</span><span class="p">,</span> <span class="n">has_year_zero</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">dayofwk</span>
+<span class="n">dow</span> <span class="o">=</span> <span class="n">cftime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span>
+    <span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">calendar</span><span class="o">=</span><span class="s1">&#39;proleptic_gregorian&#39;</span><span class="p">,</span> <span class="n">has_year_zero</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span><span class="o">.</span><span class="n">dayofwk</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Proleptic Gregorian calendar: </span><span class="se">\t\t</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">month</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">day</span><span class="si">}</span><span class="s2"> is a </span><span class="si">{</span><span class="n">days</span><span class="p">[</span><span class="n">dow</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="n">dow</span> <span class="o">=</span> <span class="n">cftime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">calendar</span><span class="o">=</span><span class="s1">&#39;standard&#39;</span><span class="p">,</span> <span class="n">has_year_zero</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">dayofwk</span>
@@ -522,7 +526,7 @@ Julian calendar: 			2024-4-6 is a Friday
 </section>
 <section id="input-type">
 <h3>Input Type<a class="headerlink" href="#input-type" title="Link to this heading">#</a></h3>
-<p>Notably, <code class="docutils literal notranslate"><span class="pre">cftime.datetime().dayofwk</span></code> only takes integer values for <code class="docutils literal notranslate"><span class="pre">year</span></code>, <code class="docutils literal notranslate"><span class="pre">month</span></code>, and <code class="docutils literal notranslate"><span class="pre">day</span></code>, while NCL’s <code class="docutils literal notranslate"><span class="pre">day_of_week</span></code> can take in multi-dimentional arrays, given that the <code class="docutils literal notranslate"><span class="pre">year</span></code>, <code class="docutils literal notranslate"><span class="pre">month</span></code>, and <code class="docutils literal notranslate"><span class="pre">day</span></code> arrays all have the same dimentions.</p>
+<p>Notably, <code class="docutils literal notranslate"><span class="pre">cftime.datetime().dayofwk</span></code> only takes integer values for <code class="docutils literal notranslate"><span class="pre">year</span></code>, <code class="docutils literal notranslate"><span class="pre">month</span></code>, and <code class="docutils literal notranslate"><span class="pre">day</span></code>, while NCL’s <code class="docutils literal notranslate"><span class="pre">day_of_week</span></code> can take in multi-dimentional arrays, given that the <code class="docutils literal notranslate"><span class="pre">year</span></code>, <code class="docutils literal notranslate"><span class="pre">month</span></code>, and <code class="docutils literal notranslate"><span class="pre">day</span></code> arrays all have the same dimensions.</p>
 </section>
 </section>
 <section id="python-resources">
