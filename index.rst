@@ -55,7 +55,7 @@ Python Examples
     :caption: NCL
 
     NCL Index <ncl/ncl_index/ncl_index>
-    NCL Applications <applications/ncl_applications.rst>
+    NCL Applications <ncl/ncl_entries/ncl_entries.rst>
 
 .. toctree::
     :maxdepth: 2
