@@ -3,8 +3,8 @@
 NCL Applications
 ================
 
-Date and Time
--------------
+Dates and Times
+---------------
 .. toctree::
     :maxdepth: 1
 
