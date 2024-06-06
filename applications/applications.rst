@@ -8,7 +8,7 @@
         .. grid:: 1
             :gutter: 1
 
-            .. card:: :ref:`applications_datetime`
+            .. card:: Dates and Times
 
                 - `Working with Date and Time <applications/date_time/datetime.ipynb>`_
 
