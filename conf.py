@@ -139,7 +139,6 @@ source_suffix = {
     '.rst': 'restructuredtext',
     '.ipynb': 'myst-nb',
     '.myst': 'myst-nb',
-    '.md': 'myst-nb',
 }
 
 # The encoding of source files.
@@ -180,6 +179,7 @@ exclude_patterns = [
     'ipynb_checkpoints',
     '.github',
     'ci',
+    'CONTRIBUTING.md',
     'LICENSE.md',
 ]
 
