@@ -25,13 +25,60 @@ If you do not have one yet, new contributors will need to create a [free GitHub 
 The [GitHub Quickstart Guide](https://docs.github.com/en/get-started/start-your-journey) is a great place to get
 started with git and GitHub.
 
+Code in the `geocat-applications` reposisitory is managed through [`git`](https://git-scm.com/). [Install git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and verify git is installed locally by opening a local terminal:
+
+```
+git --version
+```
 #### Fork and Clone the Repository
 
-To get started, first fork the NCAR/geocat-applications repository on Github. A "fork" creates a copy of repository on your local account that you can edit. Any changes made on a repo can be submitted back to the "main" NCAR/geocat-applications repo to be merged through a Pull Request
+To get started, first fork the NCAR/geocat-applications repository on Github. A "fork" creates a copy of repository on your local account that you can edit. Any changes made on a repo can be submitted back to the "main" NCAR/geocat-applications repo to be merged through a Pull Request ([more information about forking repositories](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo#forking-a-repository))
 
-#### Setup Conda Environment
+Once the repository has been forked, clone new forked repositiroy to have them stored locally on your computer ([more information about cloning a forked repository](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo#cloning-your-forked-repository))
+```
+git clone https://github.com/<github-username>/geocat-applications.git
+```
 
-First, [install Miniconda](https://docs.anaconda.com/free/miniconda/miniconda-install/)
+#### Configure Git Name and Email
+When running git commands on a repository, git will prompt you each time for a username, email, and password. By configuring git, the username and email can be saved locally so it will no longer continually prompt you.
+
+##### Configure git name
+You can configure your name in git as your GitHub username. You can check your GitHub username by selecting your profile and checking the url.
+
+On an open terminal: (replace `<github-username>` with your Github username)
+```
+git config --global user.name "<github-username>"
+```
+Verify the username has been set correctly
+```
+git config --global user.name
+```
+If the command prints out the username provided then the username has been set correctly.
+
+##### Configure git email
+GitHub associates all changes to a repository to a user's email address, but GitHub has the option to keep the email private. Using GitHub's `noreply` email address when committing changes protects privacy and hides a developer's personal email, while still associating all changes in a commit to the correct user.
+
+To find the `noreply` email that Github has generated for your specific Github account
+
+1. Open Profile > Settings
+2. Select "Emails"
+3. Select "Keep my email address private"
+4. Select "Block command line pushes that expose my email"
+5. Copy the `<username>@users.noreply.github.com` that GitHub provides
+
+On an open terminal:
+```
+git config --global user.email "<username>@users.noreply.github.com"
+```
+Verify the email has been set correctly
+```
+git config --global user.email
+```
+If the command prints out the email provided then the email has been set correctly.
+
+### Setup Environment
+
+First, [install Miniconda](https://docs.anaconda.com/free/miniconda/miniconda-install/). Conda is the command line interface for Miniconda and is a useful tool to manage environments and dependencies. A conda environment is created from the `environment.yml` that contains a list of required dependencies.
 
 ```
 # Create a new conda environment with required dependencies
@@ -40,21 +87,30 @@ conda env create -f environment.yml
 # Activate your new environment
 conda activate geocat-applications
 ```
+If the environment has been activated, then the terminal will be preceded by `(geocat-applications) user@user-os:~$`
 
-## Create the docs locally
+### Create Branch for Changes
+We recommend creating a new branch on your fork reposisitory for the new feature or bug fix
 
-### Make Documentation Locally
-
+To create a new branch:
 ```
-make clean html
+git checkout -b <new-branch-name>
 ```
-Open on `localhost` to view changes locally
+Track changes made on the original repo to keep forked repository up to date
+```
+git branch --set-upstream-to=origin/<new-branch-name> <new-branch-name>
+```
+You can see all the branches that are on your local repository:
+```
+git branch
+```
+[For more information about Git Branches](https://learngitbranching.js.org/)
 
-```
-firefox _build/html/index.html
-```
+## Install pre-commit Hooks
 
-## Types of geocat-applications Pages
+## Create a new `geocat-applications` Page
+
+### Types of geocat-applications Pages
 
 There are several ways to contribute content to this repository.
 
@@ -141,3 +197,29 @@ than waiting for a full **NCL Entry** to be completed.
 1. Make sure to clear and run all outputs before asking for a review
 
 1. Add a new line to the `ncl/ncl_index/ncl-index-table.csv` file
+
+### Generate the Documentation Locally
+At the base of the reposistory (`geocat-applications/`)
+
+Build the documentation
+```
+make clean html
+```
+Open `index.html` generated under `_build/html/index.html` on a local browser
+
+### Contribute the Code
+
+#### Check Files Changed
+Open a terminal and run:
+```
+git status
+```
+Files listed as the output are files that have been changed locally
+
+For a Python Entry, the files changed should be:
+- New page
+
+#### Push Change to Your Fork
+#### Open a new Pull Request
+#### Address Feedback
+#### (Optional) Delete Branch

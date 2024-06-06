@@ -402,19 +402,32 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-free-github-account">Creating a free Github Account</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fork-and-clone-the-repository">Fork and Clone the Repository</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-conda-environment">Setup Conda Environment</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-git-name-and-email">Configure Git Name and Email</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-git-name">Configure git name</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-git-email">Configure git email</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-the-docs-locally">Create the docs locally</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-documentation-locally">Make Documentation Locally</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-environment">Setup Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-branch-for-changes">Create Branch for Changes</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-geocat-applications-pages">Types of geocat-applications Pages</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-pre-commit-hooks">Install pre-commit Hooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-geocat-applications-page">Create a new <code class="docutils literal notranslate"><span class="pre">geocat-applications</span></code> Page</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-geocat-applications-pages">Types of geocat-applications Pages</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-entry">Python Entry</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ncl-entry">NCL Entry</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#receipts">Receipts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-the-documentation-locally">Generate the Documentation Locally</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contribute-the-code">Contribute the Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#check-files-changed">Check Files Changed</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#push-change-to-your-fork">Push Change to Your Fork</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#open-a-new-pull-request">Open a new Pull Request</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#address-feedback">Address Feedback</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-delete-branch">(Optional) Delete Branch</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -453,14 +466,61 @@ document.write(`
 <p>If you do not have one yet, new contributors will need to create a <a class="reference external" href="https://github.com/signup%3E">free GitHub account</a>.
 The <a class="reference external" href="https://docs.github.com/en/get-started/start-your-journey">GitHub Quickstart Guide</a> is a great place to get
 started with git and GitHub.</p>
+<p>Code in the <code class="docutils literal notranslate"><span class="pre">geocat-applications</span></code> reposisitory is managed through <a class="reference external" href="https://git-scm.com/"><code class="docutils literal notranslate"><span class="pre">git</span></code></a>. <a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Install git</a> and verify git is installed locally by opening a local terminal:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="o">--</span><span class="n">version</span>
+</pre></div>
+</div>
 </section>
 <section id="fork-and-clone-the-repository">
 <h4>Fork and Clone the Repository<a class="headerlink" href="#fork-and-clone-the-repository" title="Link to this heading">#</a></h4>
-<p>To get started, first fork the NCAR/geocat-applications repository on Github. A “fork” creates a copy of repository on your local account that you can edit. Any changes made on a repo can be submitted back to the “main” NCAR/geocat-applications repo to be merged through a Pull Request</p>
+<p>To get started, first fork the NCAR/geocat-applications repository on Github. A “fork” creates a copy of repository on your local account that you can edit. Any changes made on a repo can be submitted back to the “main” NCAR/geocat-applications repo to be merged through a Pull Request (<a class="reference external" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo#forking-a-repository">more information about forking repositories</a>)</p>
+<p>Once the repository has been forked, clone new forked repositiroy to have them stored locally on your computer (<a class="reference external" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo#cloning-your-forked-repository">more information about cloning a forked repository</a>)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/&lt;</span><span class="n">github</span><span class="o">-</span><span class="n">username</span><span class="o">&gt;/</span><span class="n">geocat</span><span class="o">-</span><span class="n">applications</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
 </section>
-<section id="setup-conda-environment">
-<h4>Setup Conda Environment<a class="headerlink" href="#setup-conda-environment" title="Link to this heading">#</a></h4>
-<p>First, <a class="reference external" href="https://docs.anaconda.com/free/miniconda/miniconda-install/">install Miniconda</a></p>
+<section id="configure-git-name-and-email">
+<h4>Configure Git Name and Email<a class="headerlink" href="#configure-git-name-and-email" title="Link to this heading">#</a></h4>
+<p>When running git commands on a repository, git will prompt you each time for a username, email, and password. By configuring git, the username and email can be saved locally so it will no longer continually prompt you.</p>
+<section id="configure-git-name">
+<h5>Configure git name<a class="headerlink" href="#configure-git-name" title="Link to this heading">#</a></h5>
+<p>You can configure your name in git as your GitHub username. You can check your GitHub username by selecting your profile and checking the url.</p>
+<p>On an open terminal: (replace <code class="docutils literal notranslate"><span class="pre">&lt;github-username&gt;</span></code> with your Github username)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="k">global</span> <span class="n">user</span><span class="o">.</span><span class="n">name</span> <span class="s2">&quot;&lt;github-username&gt;&quot;</span>
+</pre></div>
+</div>
+<p>Verify the username has been set correctly</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="k">global</span> <span class="n">user</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+</div>
+<p>If the command prints out the username provided then the username has been set correctly.</p>
+</section>
+<section id="configure-git-email">
+<h5>Configure git email<a class="headerlink" href="#configure-git-email" title="Link to this heading">#</a></h5>
+<p>GitHub associates all changes to a repository to a user’s email address, but GitHub has the option to keep the email private. Using GitHub’s <code class="docutils literal notranslate"><span class="pre">noreply</span></code> email address when committing changes protects privacy and hides a developer’s personal email, while still associating all changes in a commit to the correct user.</p>
+<p>To find the <code class="docutils literal notranslate"><span class="pre">noreply</span></code> email that Github has generated for your specific Github account</p>
+<ol class="arabic simple">
+<li><p>Open Profile &gt; Settings</p></li>
+<li><p>Select “Emails”</p></li>
+<li><p>Select “Keep my email address private”</p></li>
+<li><p>Select “Block command line pushes that expose my email”</p></li>
+<li><p>Copy the <code class="docutils literal notranslate"><span class="pre">&lt;username&gt;&#64;users.noreply.github.com</span></code> that GitHub provides</p></li>
+</ol>
+<p>On an open terminal:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="k">global</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span> <span class="s2">&quot;&lt;username&gt;@users.noreply.github.com&quot;</span>
+</pre></div>
+</div>
+<p>Verify the email has been set correctly</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="k">global</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span>
+</pre></div>
+</div>
+<p>If the command prints out the email provided then the email has been set correctly.</p>
+</section>
+</section>
+</section>
+<section id="setup-environment">
+<h3>Setup Environment<a class="headerlink" href="#setup-environment" title="Link to this heading">#</a></h3>
+<p>First, <a class="reference external" href="https://docs.anaconda.com/free/miniconda/miniconda-install/">install Miniconda</a>. Conda is the command line interface for Miniconda and is a useful tool to manage environments and dependencies. A conda environment is created from the <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> that contains a list of required dependencies.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a new conda environment with required dependencies</span>
 <span class="n">conda</span> <span class="n">env</span> <span class="n">create</span> <span class="o">-</span><span class="n">f</span> <span class="n">environment</span><span class="o">.</span><span class="n">yml</span>
 
@@ -468,25 +528,35 @@ started with git and GitHub.</p>
 <span class="n">conda</span> <span class="n">activate</span> <span class="n">geocat</span><span class="o">-</span><span class="n">applications</span>
 </pre></div>
 </div>
+<p>If the environment has been activated, then the terminal will be preceded by <code class="docutils literal notranslate"><span class="pre">(geocat-applications)</span> <span class="pre">user&#64;user-os:~$</span></code></p>
 </section>
-</section>
-</section>
-<section id="create-the-docs-locally">
-<h2>Create the docs locally<a class="headerlink" href="#create-the-docs-locally" title="Link to this heading">#</a></h2>
-<section id="make-documentation-locally">
-<h3>Make Documentation Locally<a class="headerlink" href="#make-documentation-locally" title="Link to this heading">#</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">clean</span> <span class="n">html</span>
+<section id="create-branch-for-changes">
+<h3>Create Branch for Changes<a class="headerlink" href="#create-branch-for-changes" title="Link to this heading">#</a></h3>
+<p>We recommend creating a new branch on your fork reposisitory for the new feature or bug fix</p>
+<p>To create a new branch:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="o">&lt;</span><span class="n">new</span><span class="o">-</span><span class="n">branch</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>Open on <code class="docutils literal notranslate"><span class="pre">localhost</span></code> to view changes locally</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">firefox</span> <span class="n">_build</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">html</span>
+<p>Track changes made on the original repo to keep forked repository up to date</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">branch</span> <span class="o">--</span><span class="nb">set</span><span class="o">-</span><span class="n">upstream</span><span class="o">-</span><span class="n">to</span><span class="o">=</span><span class="n">origin</span><span class="o">/&lt;</span><span class="n">new</span><span class="o">-</span><span class="n">branch</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">new</span><span class="o">-</span><span class="n">branch</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
 </pre></div>
 </div>
+<p>You can see all the branches that are on your local repository:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">branch</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://learngitbranching.js.org/">For more information about Git Branches</a></p>
 </section>
 </section>
+<section id="install-pre-commit-hooks">
+<h2>Install pre-commit Hooks<a class="headerlink" href="#install-pre-commit-hooks" title="Link to this heading">#</a></h2>
+</section>
+<section id="create-a-new-geocat-applications-page">
+<h2>Create a new <code class="docutils literal notranslate"><span class="pre">geocat-applications</span></code> Page<a class="headerlink" href="#create-a-new-geocat-applications-page" title="Link to this heading">#</a></h2>
 <section id="types-of-geocat-applications-pages">
-<h2>Types of geocat-applications Pages<a class="headerlink" href="#types-of-geocat-applications-pages" title="Link to this heading">#</a></h2>
+<h3>Types of geocat-applications Pages<a class="headerlink" href="#types-of-geocat-applications-pages" title="Link to this heading">#</a></h3>
 <p>There are several ways to contribute content to this repository.</p>
+</section>
 <section id="python-entry">
 <h3>Python Entry<a class="headerlink" href="#python-entry" title="Link to this heading">#</a></h3>
 <p>Python entries are the content on the main page of the website. These entries
@@ -558,6 +628,42 @@ than waiting for a full <strong>NCL Entry</strong> to be completed.</p>
 <li><p>Add a new line to the <code class="docutils literal notranslate"><span class="pre">ncl/ncl_index/ncl-index-table.csv</span></code> file</p></li>
 </ol>
 </section>
+<section id="generate-the-documentation-locally">
+<h3>Generate the Documentation Locally<a class="headerlink" href="#generate-the-documentation-locally" title="Link to this heading">#</a></h3>
+<p>At the base of the reposistory (<code class="docutils literal notranslate"><span class="pre">geocat-applications/</span></code>)</p>
+<p>Build the documentation</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">clean</span> <span class="n">html</span>
+</pre></div>
+</div>
+<p>Open <code class="docutils literal notranslate"><span class="pre">index.html</span></code> generated under <code class="docutils literal notranslate"><span class="pre">_build/html/index.html</span></code> on a local browser</p>
+</section>
+<section id="contribute-the-code">
+<h3>Contribute the Code<a class="headerlink" href="#contribute-the-code" title="Link to this heading">#</a></h3>
+<section id="check-files-changed">
+<h4>Check Files Changed<a class="headerlink" href="#check-files-changed" title="Link to this heading">#</a></h4>
+<p>Open a terminal and run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+<p>Files listed as the output are files that have been changed locally</p>
+<p>For a Python Entry, the files changed should be:</p>
+<ul class="simple">
+<li><p>New page</p></li>
+</ul>
+</section>
+<section id="push-change-to-your-fork">
+<h4>Push Change to Your Fork<a class="headerlink" href="#push-change-to-your-fork" title="Link to this heading">#</a></h4>
+</section>
+<section id="open-a-new-pull-request">
+<h4>Open a new Pull Request<a class="headerlink" href="#open-a-new-pull-request" title="Link to this heading">#</a></h4>
+</section>
+<section id="address-feedback">
+<h4>Address Feedback<a class="headerlink" href="#address-feedback" title="Link to this heading">#</a></h4>
+</section>
+<section id="optional-delete-branch">
+<h4>(Optional) Delete Branch<a class="headerlink" href="#optional-delete-branch" title="Link to this heading">#</a></h4>
+</section>
+</section>
 </section>
 </section>
 
@@ -611,19 +717,32 @@ than waiting for a full <strong>NCL Entry</strong> to be completed.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-free-github-account">Creating a free Github Account</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fork-and-clone-the-repository">Fork and Clone the Repository</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-conda-environment">Setup Conda Environment</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-git-name-and-email">Configure Git Name and Email</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-git-name">Configure git name</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-git-email">Configure git email</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-the-docs-locally">Create the docs locally</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-documentation-locally">Make Documentation Locally</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-environment">Setup Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-branch-for-changes">Create Branch for Changes</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-geocat-applications-pages">Types of geocat-applications Pages</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-pre-commit-hooks">Install pre-commit Hooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-geocat-applications-page">Create a new <code class="docutils literal notranslate"><span class="pre">geocat-applications</span></code> Page</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-geocat-applications-pages">Types of geocat-applications Pages</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-entry">Python Entry</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ncl-entry">NCL Entry</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#receipts">Receipts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-the-documentation-locally">Generate the Documentation Locally</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contribute-the-code">Contribute the Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#check-files-changed">Check Files Changed</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#push-change-to-your-fork">Push Change to Your Fork</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#open-a-new-pull-request">Open a new Pull Request</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#address-feedback">Address Feedback</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-delete-branch">(Optional) Delete Branch</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
