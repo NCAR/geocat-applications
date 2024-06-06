@@ -1,0 +1,686 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Contributor’s Guide</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/theme_overrides.css?v=7691835d" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="_static/style.css?v=b6986961" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'CONTRIBUTING';</script>
+    <link rel="icon" href="_static/GeoCAT_square.svg"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Code of Conduct" href="CODE_OF_CONDUCT.html" />
+    <link rel="prev" title="NCL Index" href="ncl/ncl_index/ncl_index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/GeoCAT_nsf.svg" class="logo__image only-light" alt=" - Home"/>
+    <script>document.write(`<img src="_static/GeoCAT_nsf.svg" class="logo__image only-dark" alt=" - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Applications</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="applications/plot_types/plot_types.html">Plot Types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="applications/data_analysis/data_analysis.html">Data Analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="applications/date_time/date_time.html">Date and Time</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="applications/date_time/datetime.html">Working with Date and Time</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NCL</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ncl/ncl_index/ncl_index.html">NCL Index</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">For Developers</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Contributor's Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CODE_OF_CONDUCT.html">Code of Conduct</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Support</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://github.com/NCAR/geocat-applications/issues">GitHub Issues</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://forms.gle/6DTo3ELLri4DAGfG8">Feature Request Form</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NCAR/geocat-applications" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NCAR/geocat-applications/edit/main/docs/CONTRIBUTING.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NCAR/geocat-applications/issues/new?title=Issue%20on%20page%20%2FCONTRIBUTING.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/CONTRIBUTING.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Contributor’s Guide</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-contribute">How to Contribute</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-time-contributor-s">First-Time Contributor’s</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-free-github-account">Creating a free Github Account</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fork-and-clone-the-repository">Fork and Clone the Repository</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-conda-environment">Setup Conda Environment</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-the-docs-locally">Create the docs locally</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-documentation-locally">Make Documentation Locally</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-geocat-applications-pages">Types of geocat-applications Pages</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-entry">Python Entry</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ncl-entry">NCL Entry</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#receipts">Receipts</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="contributor-s-guide">
+<h1>Contributor’s Guide<a class="headerlink" href="#contributor-s-guide" title="Link to this heading">#</a></h1>
+<p>Welcome to <code class="docutils literal notranslate"><span class="pre">geocat-applications</span></code>! Thank you for your interest in contributing to geocat-applications! This contributor’s guide describes how to contribute to geocat-applications and help us expand this reference for others</p>
+<p>If you have any questions, you can also reach us by email at <a class="reference internal" href="#geocat&#64;ucar.edu"><span class="xref myst">geocat&#64;ucar.edu</span></a></p>
+<section id="how-to-contribute">
+<h2>How to Contribute<a class="headerlink" href="#how-to-contribute" title="Link to this heading">#</a></h2>
+<p>There are many ways to contribute:</p>
+<ul class="simple">
+<li><p>Contribute a new <a class="reference internal" href="#python-entry"><span class="std std-ref">Python Entry</span></a> page</p></li>
+<li><p>Contribute a new <a class="reference internal" href="#ncl-entry"><span class="std std-ref">NCL to Python transition</span></a> page</p></li>
+<li><p>Contribute a new <a class="reference internal" href="#receipts"><span class="std std-ref">NCL receipt</span></a> page</p></li>
+<li><p><a class="reference external" href="https://github.com/NCAR/geocat-applications/issues">Reporting Bugs</a> 🐞</p></li>
+<li><p><a class="reference external" href="https://github.com/NCAR/geocat-applications/issues">Requesting New Features</a> 💡</p></li>
+</ul>
+<p>Contributions are made to <a class="reference external" href="https://github.com/NCAR/geocat-applications">geocat-applications Github repository</a></p>
+</section>
+<section id="first-time-contributor-s">
+<h2>First-Time Contributor’s<a class="headerlink" href="#first-time-contributor-s" title="Link to this heading">#</a></h2>
+<section id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h3>
+<section id="creating-a-free-github-account">
+<h4>Creating a free Github Account<a class="headerlink" href="#creating-a-free-github-account" title="Link to this heading">#</a></h4>
+<p>If you do not have one yet, new contributors will need to create a <a class="reference external" href="https://github.com/signup%3E">free GitHub account</a>.
+The <a class="reference external" href="https://docs.github.com/en/get-started/start-your-journey">GitHub Quickstart Guide</a> is a great place to get
+started with git and GitHub.</p>
+</section>
+<section id="fork-and-clone-the-repository">
+<h4>Fork and Clone the Repository<a class="headerlink" href="#fork-and-clone-the-repository" title="Link to this heading">#</a></h4>
+<p>To get started, first fork the NCAR/geocat-applications repository on Github. A “fork” creates a copy of repository on your local account that you can edit. Any changes made on a repo can be submitted back to the “main” NCAR/geocat-applications repo to be merged through a Pull Request</p>
+</section>
+<section id="setup-conda-environment">
+<h4>Setup Conda Environment<a class="headerlink" href="#setup-conda-environment" title="Link to this heading">#</a></h4>
+<p>First, <a class="reference external" href="https://docs.anaconda.com/free/miniconda/miniconda-install/">install Miniconda</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a new conda environment with required dependencies</span>
+<span class="n">conda</span> <span class="n">env</span> <span class="n">create</span> <span class="o">-</span><span class="n">f</span> <span class="n">environment</span><span class="o">.</span><span class="n">yml</span>
+
+<span class="c1"># Activate your new environment</span>
+<span class="n">conda</span> <span class="n">activate</span> <span class="n">geocat</span><span class="o">-</span><span class="n">applications</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="create-the-docs-locally">
+<h2>Create the docs locally<a class="headerlink" href="#create-the-docs-locally" title="Link to this heading">#</a></h2>
+<section id="make-documentation-locally">
+<h3>Make Documentation Locally<a class="headerlink" href="#make-documentation-locally" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">clean</span> <span class="n">html</span>
+</pre></div>
+</div>
+<p>Open on <code class="docutils literal notranslate"><span class="pre">localhost</span></code> to view changes locally</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">firefox</span> <span class="n">_build</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">html</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="types-of-geocat-applications-pages">
+<h2>Types of geocat-applications Pages<a class="headerlink" href="#types-of-geocat-applications-pages" title="Link to this heading">#</a></h2>
+<p>There are several ways to contribute content to this repository.</p>
+<section id="python-entry">
+<h3>Python Entry<a class="headerlink" href="#python-entry" title="Link to this heading">#</a></h3>
+<p>Python entries are the content on the main page of the website. These entries
+are Python-first content that do not require any knowledge of or references to NCL.</p>
+<p>In general, we should lean towards providing links to external resources where
+possible and aim to only directly host content that is not readily available
+elsewhere, content that contextualizes python functionality in a way that is
+unique to geoscience applications, or content that create a curated list of
+external resources.</p>
+<p><em>These pages should not be added to the NCL Index, as they should not have any
+NCL-specific content.</em></p>
+<ol class="arabic simple">
+<li><p>If the content is primarily visualization, create a new file in the
+appropriate directory in <code class="docutils literal notranslate"><span class="pre">applications/</span></code> based off of
+the <code class="docutils literal notranslate"><span class="pre">templates/viz_template.ipynb</span></code></p></li>
+<li><p>If the content is primarily computational (even if it includes
+visualization), create a new file in the appropriate directory
+in <code class="docutils literal notranslate"><span class="pre">applications/</span></code> based off of the <code class="docutils literal notranslate"><span class="pre">templates/computational_template.ipynb</span></code></p></li>
+<li><p>If relevant, link to corresponding NCL content at the bottom of the file</p></li>
+<li><p>[INTEND TO AUTOMATE IN THE FUTURE] Add the new file to the <code class="docutils literal notranslate"><span class="pre">.rst</span></code> file in the
+same directory in <code class="docutils literal notranslate"><span class="pre">applications/</span></code> as your new file to add it to the webpage’s
+TOC.</p></li>
+<li><p>[INTEND TO AUTOMATE IN THE FUTURE] Add the new file to
+the <code class="docutils literal notranslate"><span class="pre">applications/applications.rst</span></code> file to add it to the cards on the main
+page of the website.</p></li>
+<li><p>Make sure to clear and run all outputs before asking for a review</p></li>
+</ol>
+</section>
+<section id="ncl-entry">
+<h3>NCL Entry<a class="headerlink" href="#ncl-entry" title="Link to this heading">#</a></h3>
+<p>NCL entries are pages that explain specifically how to achieve something that
+was possible in NCL in python, including any algorithmic differences, guidance
+about the best Python replication for the NCL function in various circumstances,
+and any other relevant comparisons between the aNCL and Python functionality.</p>
+<p>These pages assume that the user has a working knowledge of NCL and are looking
+for transitional resources for specific functions. They also are not intended to
+be a comprehensive explanation of the python recommendations, but rather a guide
+for users who are already familiar with the NCL function and are looking for
+“equivalent” python code. Any content that is designed to explain the NCL should
+be linked instead of included directly, whether that content is in the form of a
+<strong>Python Entry</strong> on geocat-applications or external resources.</p>
+<p><em>These pages should be added to the NCL Index and do not require an additional
+<strong>Receipt</strong> entry.</em></p>
+<ol class="arabic simple">
+<li><p>Create a new file in <code class="docutils literal notranslate"><span class="pre">ncl/ncl_entries/</span></code> based off of the
+<code class="docutils literal notranslate"><span class="pre">templates/ncl_template.ipynb</span></code> template.</p></li>
+<li><p>Add the file to the <code class="docutils literal notranslate"><span class="pre">ncl/ncl_entries/ncl_entries.rst</span></code> file</p></li>
+<li><p>See below for adding the covered functions to the NCL Index</p></li>
+<li><p>Make sure to clear and run all outputs before asking for a review</p></li>
+<li><p>Add a new line to the <code class="docutils literal notranslate"><span class="pre">ncl/ncl_index/ncl-index-table.csv</span></code> file</p></li>
+</ol>
+</section>
+<section id="receipts">
+<h3>Receipts<a class="headerlink" href="#receipts" title="Link to this heading">#</a></h3>
+<p>Receipt files are small files with little to no narrative content that are for
+the purpose of adding an entry to the NCL Index without the need for a full
+<strong>NCL Entry</strong>. These files are accessible from the geocat-applications webpage,
+but are not listed on TOCs or intended to be read as standalone or
+comprehensive]
+guides. They are intended to be the minimal amount of documentation necessary to
+add an entry to the NCL Index in cases where a full <strong>NCL Entry</strong> is not
+necessary or where providing an initial entry to the NCL Index is more important
+than waiting for a full <strong>NCL Entry</strong> to be completed.</p>
+<ol class="arabic simple">
+<li><p>Create a new file in <code class="docutils literal notranslate"><span class="pre">ncl/ncl_receipts/</span></code> based off of the
+<code class="docutils literal notranslate"><span class="pre">templates/receipt_template.ipynb</span></code> template.</p></li>
+<li><p>See below for adding the covered functions to the NCL Index</p></li>
+<li><p>Make sure to clear and run all outputs before asking for a review</p></li>
+<li><p>Add a new line to the <code class="docutils literal notranslate"><span class="pre">ncl/ncl_index/ncl-index-table.csv</span></code> file</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ncl/ncl_index/ncl_index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">NCL Index</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="CODE_OF_CONDUCT.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Code of Conduct</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-contribute">How to Contribute</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-time-contributor-s">First-Time Contributor’s</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-free-github-account">Creating a free Github Account</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fork-and-clone-the-repository">Fork and Clone the Repository</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-conda-environment">Setup Conda Environment</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-the-docs-locally">Create the docs locally</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-documentation-locally">Make Documentation Locally</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-geocat-applications-pages">Types of geocat-applications Pages</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-entry">Python Entry</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ncl-entry">NCL Entry</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#receipts">Receipts</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By GeoCAT
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, University Corporation for Atmospheric Research.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <em>The National Center for Atmospheric Research is sponsored by the National Science Foundation. Any opinions, findings and conclusions or recommendations expressed in this material do not necessarily reflect the views of the National Science Foundation.</em>
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
