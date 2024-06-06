@@ -401,9 +401,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-cftime">Using <code class="docutils literal notranslate"><span class="pre">cftime</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differences-between-cftime-and-ncl-s-day-of-week">Differences between <code class="docutils literal notranslate"><span class="pre">cftime</span></code> and NCL’s <code class="docutils literal notranslate"><span class="pre">day_of_week</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calendars">Calendars</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-type">Input Type</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#return-value">Return Value</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#year-0">Year 0</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-type">Input Type</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-resources">Python Resources</a></li>
@@ -437,6 +437,13 @@ document.write(`
 <span class="n">dow</span> <span class="o">=</span> <span class="n">cftime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span>
     <span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">calendar</span><span class="o">=</span><span class="s1">&#39;proleptic_gregorian&#39;</span><span class="p">,</span> <span class="n">has_year_zero</span><span class="o">=</span><span class="kc">True</span>
 <span class="p">)</span><span class="o">.</span><span class="n">dayofwk</span>
+
+<span class="n">dow</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
 </pre></div>
 </div>
 </div>
@@ -467,11 +474,11 @@ document.write(`
 </div>
 </div>
 <p>However, the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module does not support year 0. If you need to work with year 0, <code class="docutils literal notranslate"><span class="pre">datetime</span></code> will not be sufficient.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module also only uses the proleptic Gregorian calendar. If you need to work with other calendars, the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module will not be sufficient</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module also only uses the proleptic Gregorian calendar. If you need to work with other calendars, the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module will not be sufficient.</p>
 </section>
 <section id="using-cftime">
 <h2>Using <code class="docutils literal notranslate"><span class="pre">cftime</span></code><a class="headerlink" href="#using-cftime" title="Link to this heading">#</a></h2>
-<p><a class="reference external" href="https://unidata.github.io/cftime/index.html"><code class="docutils literal notranslate"><span class="pre">cftime</span></code></a> offers a solution to these potential issues by supporting year 0 and all of the <a class="reference external" href="https://cfconventions.org/cf-conventions/cf-conventions#calendar">CF convention calendars</a>. Here is how you can use <code class="docutils literal notranslate"><span class="pre">cftime</span></code> to calculate the day of the week.</p>
+<p><a class="reference external" href="https://unidata.github.io/cftime/index.html"><code class="docutils literal notranslate"><span class="pre">cftime</span></code></a> offers a solution to these potential issues by supporting year 0 and all of the <a class="reference external" href="https://cfconventions.org/cf-conventions/cf-conventions#calendar">CF Convention calendars</a>. Here is how you can use <code class="docutils literal notranslate"><span class="pre">cftime</span></code> to calculate the day of the week.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cftime</span>
@@ -513,12 +520,16 @@ Julian calendar: 			2024-4-6 is a Friday
 <h3>Calendars<a class="headerlink" href="#calendars" title="Link to this heading">#</a></h3>
 <p>NCL’s <code class="docutils literal notranslate"><span class="pre">day_of_week</span></code> only supports the proleptic Gregorian calendar, while the <code class="docutils literal notranslate"><span class="pre">cftime</span></code> module supports all CF conventions calendars, including the <code class="docutils literal notranslate"><span class="pre">proleptic_gregorian</span></code> calendar.</p>
 </section>
+<section id="input-type">
+<h3>Input Type<a class="headerlink" href="#input-type" title="Link to this heading">#</a></h3>
+<p>Notably, using <code class="docutils literal notranslate"><span class="pre">cftime</span></code> to calculate the day of the week works by getting a <code class="docutils literal notranslate"><span class="pre">dayofwk</span></code> value from a <code class="docutils literal notranslate"><span class="pre">cftime.datetime</span></code> object, which means that the calculations for the day of the week have to be collected through each date individually, while NCL’s <code class="docutils literal notranslate"><span class="pre">days_in_month</span></code> can take in multidimensional integer arrays, given that the <code class="docutils literal notranslate"><span class="pre">year</span></code> and <code class="docutils literal notranslate"><span class="pre">month</span></code> arrays have the same dimensions.</p>
+</section>
 <section id="return-value">
 <h3>Return Value<a class="headerlink" href="#return-value" title="Link to this heading">#</a></h3>
 <p>There is a slight difference in the resulting value between NCL’s <code class="docutils literal notranslate"><span class="pre">day_of_week</span></code> and <code class="docutils literal notranslate"><span class="pre">cftime</span></code>/<code class="docutils literal notranslate"><span class="pre">datetime</span></code>.</p>
 <ul class="simple">
-<li><p>NCL’s <code class="docutils literal notranslate"><span class="pre">day_of_week</span></code> returns an integer between 0 and 6 where 0=Sunday, 1=Monday, …</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">cftime</span></code> and <code class="docutils literal notranslate"><span class="pre">datetime</span></code> also return an integer between 0 and 6, however 0=Monday, 1=Tuesday, …</p></li>
+<li><p>NCL’s <code class="docutils literal notranslate"><span class="pre">day_of_week</span></code> returns an integer array of the same size as <code class="docutils literal notranslate"><span class="pre">year</span></code> with values between 0 and 6 where, 0=Sunday, 1=Monday, …</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cftime</span></code> and <code class="docutils literal notranslate"><span class="pre">datetime</span></code> return an integer between 0 and 6, however, 0=Monday, 1=Tuesday, …</p></li>
 </ul>
 </section>
 <section id="year-0">
@@ -528,10 +539,6 @@ Julian calendar: 			2024-4-6 is a Friday
 <li><p>NCL’s <code class="docutils literal notranslate"><span class="pre">day_of_week</span></code> supports all positive years by default, including year 0.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">cftime</span></code> module also supports all positive years including year 0, as long as you specify <code class="docutils literal notranslate"><span class="pre">has_year_zero=True</span></code>.</p></li>
 </ul>
-</section>
-<section id="input-type">
-<h3>Input Type<a class="headerlink" href="#input-type" title="Link to this heading">#</a></h3>
-<p>Notably, <code class="docutils literal notranslate"><span class="pre">cftime.datetime().dayofwk</span></code> only takes integer values for <code class="docutils literal notranslate"><span class="pre">year</span></code>, <code class="docutils literal notranslate"><span class="pre">month</span></code>, and <code class="docutils literal notranslate"><span class="pre">day</span></code>, while NCL’s <code class="docutils literal notranslate"><span class="pre">day_of_week</span></code> can take in multi-dimentional arrays, given that the <code class="docutils literal notranslate"><span class="pre">year</span></code>, <code class="docutils literal notranslate"><span class="pre">month</span></code>, and <code class="docutils literal notranslate"><span class="pre">day</span></code> arrays all have the same dimensions.</p>
 </section>
 </section>
 <section id="python-resources">
@@ -586,9 +593,9 @@ Julian calendar: 			2024-4-6 is a Friday
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-cftime">Using <code class="docutils literal notranslate"><span class="pre">cftime</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differences-between-cftime-and-ncl-s-day-of-week">Differences between <code class="docutils literal notranslate"><span class="pre">cftime</span></code> and NCL’s <code class="docutils literal notranslate"><span class="pre">day_of_week</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calendars">Calendars</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-type">Input Type</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#return-value">Return Value</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#year-0">Year 0</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-type">Input Type</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-resources">Python Resources</a></li>
