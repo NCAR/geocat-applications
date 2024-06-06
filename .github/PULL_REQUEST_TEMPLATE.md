@@ -7,6 +7,10 @@ Closes #XXX
 **General**
 - [ ] PR includes a summary of changes
 - [ ] Link relevant issues, make one if none exist
+- If adding a new page, select which type:
+  - [ ] Python Entry
+  - [ ] NCL Entry
+  - [ ] Receipt Entry
 
 <!--
 Thank you so much for your PR!  To help us review your contribution, please
