@@ -431,9 +431,9 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cftime</span>
 
-<span class="n">day</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="n">month</span> <span class="o">=</span> <span class="mi">6</span>
-<span class="n">year</span> <span class="o">=</span> <span class="mi">2024</span>
+<span class="n">day</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">month</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">year</span> <span class="o">=</span> <span class="o">-</span><span class="mi">100</span>
 
 <span class="n">dow</span> <span class="o">=</span> <span class="n">cftime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span>
     <span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">calendar</span><span class="o">=</span><span class="s1">&#39;proleptic_gregorian&#39;</span><span class="p">,</span> <span class="n">has_year_zero</span><span class="o">=</span><span class="kc">True</span>
@@ -443,7 +443,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
 </pre></div>
 </div>
 </div>
@@ -472,8 +472,8 @@ document.write(`
 </div>
 </div>
 </div>
-<p>However, the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module does not support year 0. If you need to work with year 0, <code class="docutils literal notranslate"><span class="pre">datetime</span></code> will not be sufficient.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module also only uses the proleptic Gregorian calendar. If you need to work with other calendars, the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module will not be sufficient.</p>
+<p>However, the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module does not support year 0. If you need to work with year 0, we suggest using <code class="docutils literal notranslate"><span class="pre">cftime</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module also only uses the proleptic Gregorian calendar. If you need to work with other calendars, we suggest using <code class="docutils literal notranslate"><span class="pre">cftime</span></code>.</p>
 </section>
 <section id="using-cftime">
 <h2>Using <code class="docutils literal notranslate"><span class="pre">cftime</span></code><a class="headerlink" href="#using-cftime" title="Link to this heading">#</a></h2>
@@ -526,7 +526,7 @@ Julian calendar: 			2024-6-4 is a Monday
 </section>
 <section id="input-type">
 <h3>Input Type<a class="headerlink" href="#input-type" title="Link to this heading">#</a></h3>
-<p>Notably, using <code class="docutils literal notranslate"><span class="pre">cftime</span></code> to calculate the day of the week works by getting a <code class="docutils literal notranslate"><span class="pre">dayofwk</span></code> value from a <code class="docutils literal notranslate"><span class="pre">cftime.datetime</span></code> object, which means that the calculations for the day of the week have to be collected through each date individually, while NCL’s <code class="docutils literal notranslate"><span class="pre">days_in_month</span></code> can take in multidimensional integer arrays, given that the <code class="docutils literal notranslate"><span class="pre">year</span></code> and <code class="docutils literal notranslate"><span class="pre">month</span></code> arrays have the same dimensions.</p>
+<p>Notably, using <code class="docutils literal notranslate"><span class="pre">cftime</span></code> to calculate the day of the week works by getting a <code class="docutils literal notranslate"><span class="pre">strftime()</span></code> value from a <code class="docutils literal notranslate"><span class="pre">cftime.datetime</span></code> object, which means that the calculations for the day of the week have to be collected through each date individually, while NCL’s <code class="docutils literal notranslate"><span class="pre">days_in_month</span></code> can take in multidimensional integer arrays, given that the <code class="docutils literal notranslate"><span class="pre">year</span></code> and <code class="docutils literal notranslate"><span class="pre">month</span></code> arrays have the same dimensions.</p>
 </section>
 <section id="return-value">
 <h3>Return Value<a class="headerlink" href="#return-value" title="Link to this heading">#</a></h3>
@@ -544,8 +544,8 @@ Julian calendar: 			2024-6-4 is a Monday
 <h3>Year 0<a class="headerlink" href="#year-0" title="Link to this heading">#</a></h3>
 <p>There is a slight difference in the way that NCL’s <code class="docutils literal notranslate"><span class="pre">day_of_week</span></code> and the <code class="docutils literal notranslate"><span class="pre">cftime</span></code> module handle the year 0.</p>
 <ul class="simple">
-<li><p>NCL’s <code class="docutils literal notranslate"><span class="pre">day_of_week</span></code> supports all positive years by default, including year 0.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">cftime</span></code> module also supports all positive years including year 0, as long as you specify <code class="docutils literal notranslate"><span class="pre">has_year_zero=True</span></code>.</p></li>
+<li><p>NCL’s <code class="docutils literal notranslate"><span class="pre">day_of_week</span></code> supports all positive years and year 0 by default.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">cftime</span></code> module supports all years, but handling for year 0 is dependent upon the calendar and/or the <code class="docutils literal notranslate"><span class="pre">has_year_zero</span></code> keyword argument.</p></li>
 </ul>
 </section>
 </section>
@@ -554,7 +554,7 @@ Julian calendar: 			2024-6-4 is a Monday
 <ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module <a class="reference external" href="https://docs.python.org/3/library/datetime.html">documentation</a>.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">cftime.datetime</span></code> <a class="reference external" href="https://unidata.github.io/cftime/api.html#cftime.datetime">documentation</a>.</p></li>
-<li><p><a class="reference external" href="https://ncar.github.io/geocat-applications/applications/date_time/datetime.html">Working with Date and Time</a> GeoCAT Applications notebook.</p></li>
+<li><p><a class="reference external" href="https://ncar.github.io/geocat-applications/applications/date_time/datetime.html">Working with Dates and Times</a> GeoCAT Applications notebook.</p></li>
 </ul>
 </section>
 </section>
