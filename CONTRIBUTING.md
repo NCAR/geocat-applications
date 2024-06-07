@@ -121,7 +121,7 @@ are Python-first content that do not require any knowledge of or references to N
 
 In general, we should lean towards providing links to external resources where
 possible and aim to only directly host content that is not readily available
-elsewhere, content that contextualizes python functionality in a way that is
+elsewhere, content that contextualizes Python functionality in a way that is
 unique to geoscience applications, or content that create a curated list of
 external resources.
 
@@ -151,15 +151,15 @@ NCL-specific content.*
 ### NCL Entry
 
 NCL entries are pages that explain specifically how to achieve something that
-was possible in NCL in python, including any algorithmic differences, guidance
+was possible in NCL in Python, including any algorithmic differences, guidance
 about the best Python replication for the NCL function in various circumstances,
-and any other relevant comparisons between the aNCL and Python functionality.
+and any other relevant comparisons between the NCL and Python functionality.
 
 These pages assume that the user has a working knowledge of NCL and are looking
 for transitional resources for specific functions. They also are not intended to
-be a comprehensive explanation of the python recommendations, but rather a guide
+be a comprehensive explanation of the Python recommendations, but rather a guide
 for users who are already familiar with the NCL function and are looking for
-"equivalent" python code. Any content that is designed to explain the NCL should
+"equivalent" Python code. Any content that is designed to explain the NCL should
 be linked instead of included directly, whether that content is in the form of a
 **Python Entry** on geocat-applications or external resources.
 
@@ -217,9 +217,11 @@ git status
 Files listed as the output are files that have been changed locally
 
 For a Python Entry, the files changed should be:
-- New page
+- New Python page (
+  -
 
 #### Push Change to Your Fork
 #### Open a new Pull Request
+When a new Pull Request is created (either as a Draft or Ready for Review) a Deployment Preview will be generated with your changes. Follow the link to view and confirm your changes are being generated as expected. Any new changes made to the branch will be automatically added to the Pull Request. The Deployment Preview link will also be update to display the most recent preview.
 #### Address Feedback
 #### (Optional) Delete Branch
