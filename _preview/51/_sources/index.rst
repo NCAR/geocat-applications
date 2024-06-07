@@ -52,7 +52,7 @@ Python Examples
 .. toctree::
     :maxdepth: 2
     :hidden:
-    :caption: NCL
+    :caption: NCL to Python
 
     NCL Index <ncl/ncl_index/ncl_index>
     NCL Applications <ncl/ncl_entries/ncl_entries.rst>
