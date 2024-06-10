@@ -403,7 +403,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differences-between-cftime-and-ncl-s-day-of-week">Differences between <code class="docutils literal notranslate"><span class="pre">cftime</span></code> and NCL’s <code class="docutils literal notranslate"><span class="pre">day_of_week</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calendars">Calendars</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-type">Input Type</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#return-value">Return Value</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#year-0">Year 0</a></li>
 </ul>
 </li>
@@ -517,6 +516,7 @@ Julian calendar: 			2024-6-4 is a Monday
 </div>
 </div>
 </div>
+<p>Using the <a class="reference external" href="https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior"><code class="docutils literal notranslate"><span class="pre">strftime()</span></code></a> method allows you to format the output of <code class="docutils literal notranslate"><span class="pre">cftime.datetime</span></code>. If you desire an output equivalent to that of NCL’s <code class="docutils literal notranslate"><span class="pre">day_of_week</span></code>, we suggest using <code class="docutils literal notranslate"><span class="pre">.strftime('%w')</span></code>.</p>
 </section>
 <section id="differences-between-cftime-and-ncl-s-day-of-week">
 <h2>Differences between <code class="docutils literal notranslate"><span class="pre">cftime</span></code> and NCL’s <code class="docutils literal notranslate"><span class="pre">day_of_week</span></code><a class="headerlink" href="#differences-between-cftime-and-ncl-s-day-of-week" title="Link to this heading">#</a></h2>
@@ -527,18 +527,6 @@ Julian calendar: 			2024-6-4 is a Monday
 <section id="input-type">
 <h3>Input Type<a class="headerlink" href="#input-type" title="Link to this heading">#</a></h3>
 <p>Notably, using <code class="docutils literal notranslate"><span class="pre">cftime</span></code> to calculate the day of the week works by getting a <code class="docutils literal notranslate"><span class="pre">strftime()</span></code> value from a <code class="docutils literal notranslate"><span class="pre">cftime.datetime</span></code> object, which means that the calculations for the day of the week have to be collected through each date individually, while NCL’s <code class="docutils literal notranslate"><span class="pre">days_in_month</span></code> can take in multidimensional integer arrays, given that the <code class="docutils literal notranslate"><span class="pre">year</span></code> and <code class="docutils literal notranslate"><span class="pre">month</span></code> arrays have the same dimensions.</p>
-</section>
-<section id="return-value">
-<h3>Return Value<a class="headerlink" href="#return-value" title="Link to this heading">#</a></h3>
-<p>There is a slight difference in the resulting value between NCL’s <code class="docutils literal notranslate"><span class="pre">day_of_week</span></code> and <code class="docutils literal notranslate"><span class="pre">cftime</span></code>/<code class="docutils literal notranslate"><span class="pre">datetime</span></code>.</p>
-<ul class="simple">
-<li><p>NCL’s <code class="docutils literal notranslate"><span class="pre">day_of_week</span></code> returns an integer array of the same size as <code class="docutils literal notranslate"><span class="pre">year</span></code> with values between 0 and 6 where, 0=Sunday, 1=Monday, …</p></li>
-<li><p>By default, <code class="docutils literal notranslate"><span class="pre">cftime</span></code> and <code class="docutils literal notranslate"><span class="pre">datetime</span></code> return an integer between 0 and 6, where, 0=Monday, 1=Tuesday, …</p>
-<ul>
-<li><p>This can be corrected for by changing the <code class="docutils literal notranslate"><span class="pre">strftime</span></code> representation, which adjusts the result to agree with NCL’s <code class="docutils literal notranslate"><span class="pre">day_of_week</span></code>.</p></li>
-</ul>
-</li>
-</ul>
 </section>
 <section id="year-0">
 <h3>Year 0<a class="headerlink" href="#year-0" title="Link to this heading">#</a></h3>
@@ -602,7 +590,6 @@ Julian calendar: 			2024-6-4 is a Monday
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differences-between-cftime-and-ncl-s-day-of-week">Differences between <code class="docutils literal notranslate"><span class="pre">cftime</span></code> and NCL’s <code class="docutils literal notranslate"><span class="pre">day_of_week</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calendars">Calendars</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-type">Input Type</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#return-value">Return Value</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#year-0">Year 0</a></li>
 </ul>
 </li>
