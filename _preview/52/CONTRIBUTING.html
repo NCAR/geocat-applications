@@ -403,7 +403,13 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-contribute">How to Contribute</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-time-contributor-s">First-Time Contributor’s</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#development-workflow-overview">Development Workflow Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-repo-and-local-development-environment">Setting up Repo and Local Development Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-changes">Code Changes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contribute-code-and-review">Contribute Code and Review</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-time-contributors">First-Time Contributors</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-free-github-account">Creating a free Github Account</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fork-and-clone-the-repository">Fork and Clone the Repository</a></li>
@@ -416,23 +422,25 @@ document.write(`
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-environment">Setup Environment</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-branch-for-changes">Create Branch for Changes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-pre-commit-hooks">Install Pre-Commit Hooks</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-pre-commit-hooks">Install pre-commit Hooks</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-geocat-applications-page">Create a new <code class="docutils literal notranslate"><span class="pre">geocat-applications</span></code> Page</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-geocat-applications-pages">Types of geocat-applications Pages</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-entry">Python Entry</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ncl-entry">NCL Entry</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#receipts">Receipts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-your-changes">Making Your Changes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-the-repository">Understanding the Repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-new-geocat-applications-pages">Types of New <code class="docutils literal notranslate"><span class="pre">geocat-applications</span></code> Pages</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#python-entry">Python Entry</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ncl-entry">NCL Entry</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#receipts">Receipts</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-the-documentation-locally">Generate the Documentation Locally</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contribute-the-code">Contribute the Code</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#check-files-changed">Check Files Changed</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#push-change-to-your-fork">Push Change to Your Fork</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#open-a-new-pull-request">Open a new Pull Request</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#address-feedback">Address Feedback</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-delete-branch">(Optional) Delete Branch</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contribute-the-code">Contribute the Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-files-changed">Check Files Changed</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-a-new-pull-request">Open a new Pull Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#address-feedback">Address Feedback</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-delete-branch">(Optional) Delete Branch</a></li>
 </ul>
 </li>
 </ul>
@@ -454,16 +462,44 @@ document.write(`
 <h2>How to Contribute<a class="headerlink" href="#how-to-contribute" title="Link to this heading">#</a></h2>
 <p>There are many ways to contribute:</p>
 <ul class="simple">
+<li><p>Contribute a new <a class="reference internal" href="#ncl-entry"><span class="std std-ref">NCL to Python</span></a> page</p></li>
 <li><p>Contribute a new <a class="reference internal" href="#python-entry"><span class="std std-ref">Python Entry</span></a> page</p></li>
-<li><p>Contribute a new <a class="reference internal" href="#ncl-entry"><span class="std std-ref">NCL to Python transition</span></a> page</p></li>
-<li><p>Contribute a new <a class="reference internal" href="#receipts"><span class="std std-ref">NCL receipt</span></a> page</p></li>
 <li><p><a class="reference external" href="https://github.com/NCAR/geocat-applications/issues">Reporting Bugs</a> 🐞</p></li>
 <li><p><a class="reference external" href="https://github.com/NCAR/geocat-applications/issues">Requesting New Features</a> 💡</p></li>
 </ul>
 <p>Contributions are made to <a class="reference external" href="https://github.com/NCAR/geocat-applications">geocat-applications Github repository</a></p>
 </section>
-<section id="first-time-contributor-s">
-<h2>First-Time Contributor’s<a class="headerlink" href="#first-time-contributor-s" title="Link to this heading">#</a></h2>
+<section id="development-workflow-overview">
+<h2>Development Workflow Overview<a class="headerlink" href="#development-workflow-overview" title="Link to this heading">#</a></h2>
+<section id="setting-up-repo-and-local-development-environment">
+<h3>Setting up Repo and Local Development Environment<a class="headerlink" href="#setting-up-repo-and-local-development-environment" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#first-time-contributors"><span class="std std-ref">First Time Contributor: setup Github Account and fork repo</span></a></p></li>
+<li><p><a class="reference internal" href="#setup-environment"><span class="std std-ref">Setup Environment</span></a></p></li>
+<li><p><a class="reference internal" href="#create-branch-for-changes"><span class="std std-ref">Create Branch for Changes</span></a></p></li>
+<li><p><a class="reference internal" href="#install-pre-commit-hooks"><span class="std std-ref">Install Pre-Commit Hooks</span></a></p></li>
+</ol>
+</section>
+<section id="code-changes">
+<h3>Code Changes<a class="headerlink" href="#code-changes" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#understanding-the-repository"><span class="std std-ref">Understanding the Repository</span></a></p></li>
+<li><p><a class="reference internal" href="#types-of-new-geocat-applications-pages"><span class="std std-ref">Types of New geocat-applications Pages</span></a></p></li>
+<li><p><a class="reference internal" href="#generate-the-documentation-locally"><span class="std std-ref">Generate the Documentation Locally</span></a></p></li>
+</ol>
+</section>
+<section id="contribute-code-and-review">
+<h3>Contribute Code and Review<a class="headerlink" href="#contribute-code-and-review" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#check-files-changed"><span class="std std-ref">Check Files Changed</span></a></p></li>
+<li><p><a class="reference internal" href="#open-a-new-pull-request"><span class="std std-ref">Open a new Pull Request</span></a></p></li>
+<li><p><a class="reference internal" href="#address-feedback"><span class="std std-ref">Address Feedback</span></a></p></li>
+<li><p><a class="reference internal" href="#optional-delete-branch"><span class="std std-ref">(Optional) Delete Branch</span></a></p></li>
+</ol>
+</section>
+</section>
+<section id="first-time-contributors">
+<h2>First-Time Contributors<a class="headerlink" href="#first-time-contributors" title="Link to this heading">#</a></h2>
 <section id="prerequisites">
 <h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h3>
 <section id="creating-a-free-github-account">
@@ -471,15 +507,15 @@ document.write(`
 <p>If you do not have one yet, new contributors will need to create a <a class="reference external" href="https://github.com/signup%3E">free GitHub account</a>.
 The <a class="reference external" href="https://docs.github.com/en/get-started/start-your-journey">GitHub Quickstart Guide</a> is a great place to get
 started with git and GitHub.</p>
-<p>Code in the <code class="docutils literal notranslate"><span class="pre">geocat-applications</span></code> reposisitory is managed through <a class="reference external" href="https://git-scm.com/"><code class="docutils literal notranslate"><span class="pre">git</span></code></a>. <a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Install git</a> and verify git is installed locally by opening a local terminal:</p>
+<p>Code in the <code class="docutils literal notranslate"><span class="pre">geocat-applications</span></code> reposisitory is managed through <a class="reference external" href="https://git-scm.com/"><code class="docutils literal notranslate"><span class="pre">git</span></code></a>. <a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Install git</a> and verify git is installed locally by opening a local terminal and running:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="o">--</span><span class="n">version</span>
 </pre></div>
 </div>
 </section>
 <section id="fork-and-clone-the-repository">
 <h4>Fork and Clone the Repository<a class="headerlink" href="#fork-and-clone-the-repository" title="Link to this heading">#</a></h4>
-<p>To get started, first fork the NCAR/geocat-applications repository on Github. A “fork” creates a copy of repository on your local account that you can edit. Any changes made on a repo can be submitted back to the “main” NCAR/geocat-applications repo to be merged through a Pull Request (<a class="reference external" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo#forking-a-repository">more information about forking repositories</a>)</p>
-<p>Once the repository has been forked, clone new forked repositiroy to have them stored locally on your computer (<a class="reference external" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo#cloning-your-forked-repository">more information about cloning a forked repository</a>)</p>
+<p>To get started, first fork the <a class="reference external" href="https://github.com/NCAR/geocat-applications">NCAR/geocat-applications</a> repository on Github. A “fork” creates a copy of repository on your local account that you can edit (<a class="reference external" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo#forking-a-repository">more information about forking repositories</a>). Any changes made on a repo can be submitted back to the “main” NCAR/geocat-applications repo to be merged through a Pull Request</p>
+<p>Once the repository has been forked, clone new forked repositiroy to have it stored locally on your computer (<a class="reference external" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo#cloning-your-forked-repository">more information about cloning a forked repository</a>)</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/&lt;</span><span class="n">github</span><span class="o">-</span><span class="n">username</span><span class="o">&gt;/</span><span class="n">geocat</span><span class="o">-</span><span class="n">applications</span><span class="o">.</span><span class="n">git</span>
 </pre></div>
 </div>
@@ -533,16 +569,23 @@ started with git and GitHub.</p>
 <span class="n">conda</span> <span class="n">activate</span> <span class="n">geocat</span><span class="o">-</span><span class="n">applications</span>
 </pre></div>
 </div>
-<p>If the environment has been activated, then the terminal will be preceded by <code class="docutils literal notranslate"><span class="pre">(geocat-applications)</span> <span class="pre">user&#64;user-os:~$</span></code></p>
+<p>If the environment has been activated, then the terminal will be preceded by</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(geocat-applications) user@user-os:~$
+</pre></div>
+</div>
+<p>To view all conda environments created locally:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">env</span> <span class="nb">list</span>
+</pre></div>
+</div>
 </section>
 <section id="create-branch-for-changes">
 <h3>Create Branch for Changes<a class="headerlink" href="#create-branch-for-changes" title="Link to this heading">#</a></h3>
 <p>We recommend creating a new branch on your fork reposisitory for the new feature or bug fix</p>
-<p>To create a new branch:</p>
+<p>To create a new branch: (replace <code class="docutils literal notranslate"><span class="pre">&lt;new-branch-name&gt;</span></code> with your new branch name)</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="o">&lt;</span><span class="n">new</span><span class="o">-</span><span class="n">branch</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>Track changes made on the original repo to keep forked repository up to date</p>
+<p>Track changes made on the original repo to keep forked repository up to date. Any changes made to the main repo can be retrieved via a <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">branch</span> <span class="o">--</span><span class="nb">set</span><span class="o">-</span><span class="n">upstream</span><span class="o">-</span><span class="n">to</span><span class="o">=</span><span class="n">origin</span><span class="o">/&lt;</span><span class="n">new</span><span class="o">-</span><span class="n">branch</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">new</span><span class="o">-</span><span class="n">branch</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
 </pre></div>
 </div>
@@ -552,18 +595,54 @@ started with git and GitHub.</p>
 </div>
 <p><a class="reference external" href="https://learngitbranching.js.org/">For more information about Git Branches</a></p>
 </section>
-</section>
 <section id="install-pre-commit-hooks">
-<h2>Install pre-commit Hooks<a class="headerlink" href="#install-pre-commit-hooks" title="Link to this heading">#</a></h2>
+<h3>Install Pre-Commit Hooks<a class="headerlink" href="#install-pre-commit-hooks" title="Link to this heading">#</a></h3>
+<p>Pre-commit hooks are scripts that are set to automatically run when <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code> is run in the <code class="docutils literal notranslate"><span class="pre">geocat-applications</span></code> conda environment. The hooks can be used for a number of helpful things. Hooks can reformat the code before it is added to the repo or check for spelling mistakes. All pre-commit hooks need to pass before code can be fully committed into the repo.</p>
+<p>Pre-commit hooks will be run before <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code> is fully committed and make small modifications to your code and check for any spelling mistakes. Any changes will need to be re-added and then committed again</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ruff</span><span class="o">.....................................................................</span><span class="n">Passed</span>
+<span class="n">ruff</span><span class="o">-</span><span class="nb">format</span><span class="o">..............................................................</span><span class="n">Passed</span>
+<span class="n">docformatter</span><span class="o">.............................................................</span><span class="n">Passed</span>
+<span class="n">codespell</span><span class="o">................................................................</span><span class="n">Passed</span>
+<span class="n">check</span> <span class="n">yaml</span><span class="o">...............................................................</span><span class="n">Passed</span>
+<span class="n">fix</span> <span class="n">end</span> <span class="n">of</span> <span class="n">files</span><span class="o">.........................................................</span><span class="n">Passed</span>
+<span class="n">trim</span> <span class="n">trailing</span> <span class="n">whitespace</span><span class="o">.................................................</span><span class="n">Passed</span>
+<span class="n">check</span> <span class="n">docstring</span> <span class="ow">is</span> <span class="n">first</span><span class="o">.................................................</span><span class="n">Passed</span>
+</pre></div>
+</div>
+<p>Most pre-commit hooks will reformat the code structure, so will not impact any functionality. However, <code class="docutils literal notranslate"><span class="pre">codespell</span></code> will fail if a word appears to be misspelled. If the spelling mistake is a false positive or jagon specific term, the word can be added to <code class="docutils literal notranslate"><span class="pre">ignore-words-list</span></code> to ignore in <code class="docutils literal notranslate"><span class="pre">.codespellrc</span></code>.  Any words added to the <code class="docutils literal notranslate"><span class="pre">ignore-words-list</span></code> should be lower-case.</p>
+<p><a class="reference external" href="https://pre-commit.com/">For more information about pre-commit hooks</a></p>
 </section>
-<section id="create-a-new-geocat-applications-page">
-<h2>Create a new <code class="docutils literal notranslate"><span class="pre">geocat-applications</span></code> Page<a class="headerlink" href="#create-a-new-geocat-applications-page" title="Link to this heading">#</a></h2>
-<section id="types-of-geocat-applications-pages">
-<h3>Types of geocat-applications Pages<a class="headerlink" href="#types-of-geocat-applications-pages" title="Link to this heading">#</a></h3>
+</section>
+<section id="making-your-changes">
+<h2>Making Your Changes<a class="headerlink" href="#making-your-changes" title="Link to this heading">#</a></h2>
+<section id="understanding-the-repository">
+<h3>Understanding the Repository<a class="headerlink" href="#understanding-the-repository" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">geocat-applications</span></code> directory is organized as:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">applications</span></code>: Python Applications</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">data_analysis</span></code>: notebooks for data analysis</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">date_time</span></code>: notebooks for working with date and time applications</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">plot_types</span></code>: notebooks for working with plots</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ncl</span></code>: NCL to Python</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">ncl_entries</span></code>: NCL to Python notebooks for <a class="reference external" href="https://ncar.github.io/geocat-applications/ncl/ncl_entries/ncl_entries.html">NCL Applications</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ncl_index</span></code>: <code class="docutils literal notranslate"><span class="pre">ncl-index-table.csv</span></code> for <a class="reference external" href="https://ncar.github.io/geocat-applications/ncl/ncl_index/ncl_index.html">NCL index</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ncl_raw</span></code>: raw NCL code</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">receipts</span></code>: NCL receipts</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">templates</span></code>: example templates for working with computational, NCL, visualization, or receipt pages</p></li>
+<li></li>
+</ul>
+</section>
+<section id="types-of-new-geocat-applications-pages">
+<h3>Types of New <code class="docutils literal notranslate"><span class="pre">geocat-applications</span></code> Pages<a class="headerlink" href="#types-of-new-geocat-applications-pages" title="Link to this heading">#</a></h3>
 <p>There are several ways to contribute content to this repository.</p>
-</section>
 <section id="python-entry">
-<h3>Python Entry<a class="headerlink" href="#python-entry" title="Link to this heading">#</a></h3>
+<h4>Python Entry<a class="headerlink" href="#python-entry" title="Link to this heading">#</a></h4>
 <p>Python entries are the content on the main page of the website. These entries
 are Python-first content that do not require any knowledge of or references to NCL.</p>
 <p>In general, we should lean towards providing links to external resources where
@@ -591,7 +670,7 @@ page of the website.</p></li>
 </ol>
 </section>
 <section id="ncl-entry">
-<h3>NCL Entry<a class="headerlink" href="#ncl-entry" title="Link to this heading">#</a></h3>
+<h4>NCL Entry<a class="headerlink" href="#ncl-entry" title="Link to this heading">#</a></h4>
 <p>NCL entries are pages that explain specifically how to achieve something that
 was possible in NCL in Python, including any algorithmic differences, guidance
 about the best Python replication for the NCL function in various circumstances,
@@ -615,7 +694,7 @@ be linked instead of included directly, whether that content is in the form of a
 </ol>
 </section>
 <section id="receipts">
-<h3>Receipts<a class="headerlink" href="#receipts" title="Link to this heading">#</a></h3>
+<h4>Receipts<a class="headerlink" href="#receipts" title="Link to this heading">#</a></h4>
 <p>Receipt files are small files with little to no narrative content that are for
 the purpose of adding an entry to the NCL Index without the need for a full
 <strong>NCL Entry</strong>. These files are accessible from the geocat-applications webpage,
@@ -633,6 +712,7 @@ than waiting for a full <strong>NCL Entry</strong> to be completed.</p>
 <li><p>Add a new line to the <code class="docutils literal notranslate"><span class="pre">ncl/ncl_index/ncl-index-table.csv</span></code> file</p></li>
 </ol>
 </section>
+</section>
 <section id="generate-the-documentation-locally">
 <h3>Generate the Documentation Locally<a class="headerlink" href="#generate-the-documentation-locally" title="Link to this heading">#</a></h3>
 <p>At the base of the reposistory (<code class="docutils literal notranslate"><span class="pre">geocat-applications/</span></code>)</p>
@@ -642,34 +722,45 @@ than waiting for a full <strong>NCL Entry</strong> to be completed.</p>
 </div>
 <p>Open <code class="docutils literal notranslate"><span class="pre">index.html</span></code> generated under <code class="docutils literal notranslate"><span class="pre">_build/html/index.html</span></code> on a local browser</p>
 </section>
+</section>
 <section id="contribute-the-code">
-<h3>Contribute the Code<a class="headerlink" href="#contribute-the-code" title="Link to this heading">#</a></h3>
+<h2>Contribute the Code<a class="headerlink" href="#contribute-the-code" title="Link to this heading">#</a></h2>
+<p>Once you have completed your changes or notebooks and they are ready for review by the GeoCAT team, you can open a new Pull Request. This section describes how to open a pull request and what to expect after you open it.</p>
 <section id="check-files-changed">
-<h4>Check Files Changed<a class="headerlink" href="#check-files-changed" title="Link to this heading">#</a></h4>
+<h3>Check Files Changed<a class="headerlink" href="#check-files-changed" title="Link to this heading">#</a></h3>
 <p>Open a terminal and run:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
 </pre></div>
 </div>
 <p>Files listed as the output are files that have been changed locally</p>
-<p>For a Python Entry, the files changed should be:</p>
-<ul>
-<li><h2 class="rubric" id="new-python-page">New Python page (</h2>
-</li>
+<p>For a Python Entry, the files changed should include:</p>
+<ul class="simple">
+<li><p>New Python page under <code class="docutils literal notranslate"><span class="pre">applications</span></code></p></li>
+</ul>
+<p>For a NCL to Python entry, the files changes should include:</p>
+<ul class="simple">
+<li><p>A new receipts entry under <code class="docutils literal notranslate"><span class="pre">receipts</span></code></p></li>
+<li><p>A NCL to Python notebook under <code class="docutils literal notranslate"><span class="pre">ncl_entries</span></code></p></li>
+<li><p>A new row in <code class="docutils literal notranslate"><span class="pre">ncl-index-table.csv</span></code></p></li>
 </ul>
 </section>
-<section id="push-change-to-your-fork">
-<h4>Push Change to Your Fork<a class="headerlink" href="#push-change-to-your-fork" title="Link to this heading">#</a></h4>
-</section>
 <section id="open-a-new-pull-request">
-<h4>Open a new Pull Request<a class="headerlink" href="#open-a-new-pull-request" title="Link to this heading">#</a></h4>
-<p>When a new Pull Request is created (either as a Draft or Ready for Review) a Deployment Preview will be generated with your changes. Follow the link to view and confirm your changes are being generated as expected. Any new changes made to the branch will be automatically added to the Pull Request. The Deployment Preview link will also be update to display the most recent preview.</p>
+<h3>Open a new Pull Request<a class="headerlink" href="#open-a-new-pull-request" title="Link to this heading">#</a></h3>
+<p>A Pull Request is a request to merge code from your local fork to the main repository. GitHub has extensive <a class="reference external" href="https://docs.github.com/en/pull-requests">pull request guides and documentation</a> if you’d like more information</p>
+<p>On your local fork of the <code class="docutils literal notranslate"><span class="pre">geocat-applications</span></code> repo, open “Contribute” tab and select “Open Pull Request”. and select “New Pull Request” button. This will open page to compare your local changes to the main repository. Make sure that the <code class="docutils literal notranslate"><span class="pre">base</span> <span class="pre">reposittory</span></code> is <code class="docutils literal notranslate"><span class="pre">NCAR/geocat-applications</span></code> and the <code class="docutils literal notranslate"><span class="pre">base</span></code> branch is set to <code class="docutils literal notranslate"><span class="pre">main</span></code>. This will generate a pull request comparing your local changes to the  main branch of the main <code class="docutils literal notranslate"><span class="pre">geocat-applications</span></code> repository. The <code class="docutils literal notranslate"><span class="pre">head</span> <span class="pre">repository</span></code> and <code class="docutils literal notranslate"><span class="pre">compare</span></code> branch should be your forked repo and the branch that contains your changes respectively.</p>
+<p>The pull request form will display all the changes you’ve made on the branch compared to the main repo. We recommend adding a short descriptive title to the pull request (e.g. “Add Python datetime and days_in_month”). In the body of the pull request please list out the NCL or Python functions being covered with a short description of the notebooks.</p>
+<p>When opening a pull request, we recommend selecting the default “Draft Pull Request”. This will open the pull request as a draft, so you can fully review your changes before submitting the code for review by the GeoCAT team. When a new Pull Request is created (either as a Draft or Ready for Review) a Deployment Preview will be generated with your changes. Follow the link to view and confirm your changes are being generated as expected. Any new changes made to the branch will be automatically added to the Pull Request. The Deployment Preview link will also be update to display the most recent preview on a draft <code class="docutils literal notranslate"><span class="pre">geocat-applications</span></code> website.</p>
+<p>Once you have had a change to review the changes on the draft website and all checks are passing, you can select “Ready for review”. This will alert the GeoCAT to the new pull request to review.</p>
 </section>
 <section id="address-feedback">
-<h4>Address Feedback<a class="headerlink" href="#address-feedback" title="Link to this heading">#</a></h4>
+<h3>Address Feedback<a class="headerlink" href="#address-feedback" title="Link to this heading">#</a></h3>
+<p>After a pull request has been moved from a Draft to Ready for Review, the GeoCAT will review it and provide feedback like asking for changes or suggesting improvements. You can address this feedback by making changes to your branch and pushing them to your local fork. This will automatically update the pull requests with your changes and the Deployment Preview will be updated to reflect the newest changes in your branch.</p>
+<p>The GeoCAT team appreciates your contributions and the interactive process of reviewing pull requests, and will do our best to review your pull request in a timely manner. It is totally normal to have to make several rounds of changes to your pull request before it is ready to be merged, especially if you are new to the project.</p>
+<p>Once your pull request is approved by a core maintainer and passes the relevant checks, it will be merged into the main repository!</p>
 </section>
 <section id="optional-delete-branch">
-<h4>(Optional) Delete Branch<a class="headerlink" href="#optional-delete-branch" title="Link to this heading">#</a></h4>
-</section>
+<h3>(Optional) Delete Branch<a class="headerlink" href="#optional-delete-branch" title="Link to this heading">#</a></h3>
+<p>We recommend deleting your branch after your pull request is merged. This will help keep your local fork clean, but is not is not required.</p>
 </section>
 </section>
 </section>
@@ -720,7 +811,13 @@ than waiting for a full <strong>NCL Entry</strong> to be completed.</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-contribute">How to Contribute</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-time-contributor-s">First-Time Contributor’s</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#development-workflow-overview">Development Workflow Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-repo-and-local-development-environment">Setting up Repo and Local Development Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-changes">Code Changes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contribute-code-and-review">Contribute Code and Review</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-time-contributors">First-Time Contributors</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-free-github-account">Creating a free Github Account</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fork-and-clone-the-repository">Fork and Clone the Repository</a></li>
@@ -733,23 +830,25 @@ than waiting for a full <strong>NCL Entry</strong> to be completed.</p>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-environment">Setup Environment</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-branch-for-changes">Create Branch for Changes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-pre-commit-hooks">Install Pre-Commit Hooks</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-pre-commit-hooks">Install pre-commit Hooks</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-geocat-applications-page">Create a new <code class="docutils literal notranslate"><span class="pre">geocat-applications</span></code> Page</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-geocat-applications-pages">Types of geocat-applications Pages</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-entry">Python Entry</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ncl-entry">NCL Entry</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#receipts">Receipts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-your-changes">Making Your Changes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-the-repository">Understanding the Repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-new-geocat-applications-pages">Types of New <code class="docutils literal notranslate"><span class="pre">geocat-applications</span></code> Pages</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#python-entry">Python Entry</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ncl-entry">NCL Entry</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#receipts">Receipts</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-the-documentation-locally">Generate the Documentation Locally</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contribute-the-code">Contribute the Code</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#check-files-changed">Check Files Changed</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#push-change-to-your-fork">Push Change to Your Fork</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#open-a-new-pull-request">Open a new Pull Request</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#address-feedback">Address Feedback</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-delete-branch">(Optional) Delete Branch</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contribute-the-code">Contribute the Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-files-changed">Check Files Changed</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-a-new-pull-request">Open a new Pull Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#address-feedback">Address Feedback</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-delete-branch">(Optional) Delete Branch</a></li>
 </ul>
 </li>
 </ul>
