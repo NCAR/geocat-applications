@@ -60,9 +60,9 @@ Python Examples
 .. toctree::
     :maxdepth: 2
     :hidden:
-    :caption: For Developers
+    :caption: Contributing
 
-    Contributor's Guide <CONTRIBUTING.md>
+    Contributor Guide <CONTRIBUTING.md>
     Code of Conduct <CODE_OF_CONDUCT.md>
 
 .. toctree::
