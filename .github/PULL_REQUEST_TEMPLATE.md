@@ -10,6 +10,7 @@ Closes #XXX
 - If adding a new page, select which type:
   - [ ] Python Entry
   - [ ] NCL Entry
+  - [ ] Receipt
 
 <!--
 Thank you so much for your PR!  To help us review your contribution, please
