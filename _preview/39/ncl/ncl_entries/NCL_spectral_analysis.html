@@ -46,10 +46,11 @@
     <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ncl/receipts/NCL_receipt_spectral_analysis';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ncl/ncl_entries/NCL_spectral_analysis';</script>
     <link rel="icon" href="../../_static/GeoCAT_square.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="day_of_week" href="day_of_week.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -169,12 +170,12 @@
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">NCL to Python</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../ncl_index/ncl_index.html">NCL Index</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../ncl_entries/ncl_entries.html">NCL Applications</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../ncl_entries/days_in_month.html">days_in_month</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ncl_entries/day_of_week.html">day_of_week</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ncl_entries/NCL_spectral_analysis.html">Spectral Analysis</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="ncl_entries.html">NCL Applications</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="days_in_month.html">days_in_month</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day_of_week.html">day_of_week</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Spectral Analysis</a></li>
 </ul>
 </details></li>
 </ul>
@@ -253,7 +254,7 @@
       
       
       
-      <li><a href="https://github.com/NCAR/geocat-applications/edit/main/docs/ncl/receipts/NCL_receipt_spectral_analysis.ipynb" target="_blank"
+      <li><a href="https://github.com/NCAR/geocat-applications/edit/main/docs/ncl/ncl_entries/NCL_spectral_analysis.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -270,7 +271,7 @@
       
       
       
-      <li><a href="https://github.com/NCAR/geocat-applications/issues/new?title=Issue%20on%20page%20%2Fncl/receipts/NCL_receipt_spectral_analysis.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/NCAR/geocat-applications/issues/new?title=Issue%20on%20page%20%2Fncl/ncl_entries/NCL_spectral_analysis.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -300,7 +301,7 @@
       
       
       
-      <li><a href="../../_sources/ncl/receipts/NCL_receipt_spectral_analysis.ipynb" target="_blank"
+      <li><a href="../../_sources/ncl/ncl_entries/NCL_spectral_analysis.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -405,12 +406,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot">Plot</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-to-ncl-output">Comparison to NCL Output</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-ncl-output">Read in NCL output</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Plot</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-without-tapering">Comparison without Tapering</a></li>
 </ul>
             </nav>
         </div>
@@ -612,120 +607,6 @@ document.write(`
 </div>
 </section>
 </section>
-<section id="comparison-to-ncl-output">
-<h2>Comparison to NCL Output<a class="headerlink" href="#comparison-to-ncl-output" title="Link to this heading">#</a></h2>
-<section id="read-in-ncl-output">
-<h3>Read in NCL output<a class="headerlink" href="#read-in-ncl-output" title="Link to this heading">#</a></h3>
-<p>We’ll read in data from <code class="docutils literal notranslate"><span class="pre">spec_1.nc</span></code> data with and without tapering applied.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ncl</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;applications_files/ncl_outputs/spec_1_output.nc&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">spec</span>
-
-<span class="n">frq</span> <span class="o">=</span> <span class="n">ncl</span><span class="o">.</span><span class="n">frq</span>
-<span class="n">spcx</span> <span class="o">=</span> <span class="n">ncl</span><span class="o">.</span><span class="n">spcx</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="id1">
-<h3>Plot<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
-<p>We’ll see that the plots are very similar, but with some differences at the lowest frequencies.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq_soi</span><span class="p">,</span> <span class="n">normalized_psd</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Python&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">frq</span><span class="p">,</span> <span class="n">spcx</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;NCL&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency (Cycles / Month)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Variance (Pressure$^2$ / Frequency)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Darwin Southern Oscillation Index (1882 - 1998) - Power Spectral Density&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">frq</span><span class="p">,</span> <span class="n">normalized_psd</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">spcx</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Python - NCL&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency (Cycles / Month)&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="comparison-without-tapering">
-<h2>Comparison without Tapering<a class="headerlink" href="#comparison-without-tapering" title="Link to this heading">#</a></h2>
-<p>It is important to remember that Periodograms are estimates of a spctra, and the math for performing this analysis, as well as for various window operations, have changed over the decades since NCL was written.</p>
-<p>We have demonstrated to the best of our ability how to follow the decisions made by the NCL function and have results similar enough to be confident that this approach in Python is correct. This is especially true considering that a scientist will be consciously making consistent tapering, smoothing, detrending, and normalization options regardless of platform.</p>
-<p>However, in the interest of tracking down the differences we will investigate the output from Python and NCL without tapering.</p>
-<p>Because Tukey tapering can refer to split-bell-cosine or cosine tapering, this is the step of our workflow where NCL’s decisions are the least clear.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ncl_notaper</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
-    <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;applications_files/ncl_outputs/spec_1_output_notaper.nc&#39;</span><span class="p">)</span>
-<span class="p">)</span><span class="o">.</span><span class="n">spec</span>
-<span class="n">spcx_nt</span> <span class="o">=</span> <span class="n">ncl_notaper</span><span class="o">.</span><span class="n">spcx</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute Periodogram without tapering and with mean removed</span>
-<span class="n">freq_soi</span><span class="p">,</span> <span class="n">psd_soi_nt</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">periodogram</span><span class="p">(</span>
-    <span class="n">soi_detrended</span><span class="p">,</span>
-    <span class="n">fs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>  <span class="c1"># sample monthly</span>
-    <span class="n">detrend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="p">)</span>
-
-<span class="c1"># Smooth with the same modified Daniel kernel as before</span>
-<span class="n">smoothed_psd_nt</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">psd_soi_nt</span><span class="p">,</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">)</span>
-
-<span class="c1"># Normalize</span>
-<span class="n">variance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">soi_detrended</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">current_area</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
-    <span class="n">smoothed_psd_nt</span> <span class="o">*</span> <span class="n">df</span> <span class="o">*</span> <span class="n">frac</span>
-<span class="p">)</span>  <span class="c1"># Calculate the current area under the curve</span>
-<span class="n">normalization_factor</span> <span class="o">=</span> <span class="n">variance</span> <span class="o">/</span> <span class="n">current_area</span>  <span class="c1"># Find the factor to adjust this area</span>
-
-<span class="n">normalized_psd_nt</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="n">smoothed_psd_nt</span> <span class="o">*</span> <span class="n">normalization_factor</span>
-<span class="p">)</span>  <span class="c1"># Apply the normalization factor to the smoothed power spectrum</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq_soi</span><span class="p">,</span> <span class="n">normalized_psd_nt</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Python&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">frq</span><span class="p">,</span> <span class="n">spcx_nt</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;NCL No Tapering&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency (Cycles / Month)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Variance (Pressure$^2$ / Frequency)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span>
-    <span class="s1">&#39;Darwin Southern Oscillation Index (1882 - 1998) - Power Spectral Density (No Tapering)&#39;</span>
-<span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">frq</span><span class="p">,</span> <span class="n">normalized_psd_nt</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">spcx_nt</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Python - NCL (No Tapering)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.00</span><span class="p">,</span> <span class="mf">0.005</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency (Cycles / Month)&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>The remaining difference seems minimal, with an artifact at the smallest frequencies possibly due to more modernized ways of computing fourier transforms.</p>
-</section>
 </section>
 
 
@@ -739,6 +620,15 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="day_of_week.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">day_of_week</p>
+      </div>
+    </a>
 </div>
                 </footer>
               
@@ -766,12 +656,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot">Plot</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-to-ncl-output">Comparison to NCL Output</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-ncl-output">Read in NCL output</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Plot</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-without-tapering">Comparison without Tapering</a></li>
 </ul>
   </nav></div>
 
