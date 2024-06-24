@@ -8,4 +8,4 @@ Data Analysis
 .. toctree::
    :maxdepth: 1
    :hidden:
-   spectral_analysis
+   spectral_analysis.ipynb

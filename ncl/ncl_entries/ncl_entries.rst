@@ -11,3 +11,4 @@ Dates and Times
 
     days_in_month.ipynb
     day_of_week.ipynb
+    NCL_spectral_analysis.ipynb

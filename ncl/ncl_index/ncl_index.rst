@@ -13,5 +13,3 @@ NCL Index
 
 .. note::
     For more information on how we verify these recommendations, see the :ref:`receipts`.
-
-NCL_spectral_analysis
