@@ -10,3 +10,4 @@ Data Analysis
    :hidden:
 
    sample.ipynb
+   spectral_analysis
