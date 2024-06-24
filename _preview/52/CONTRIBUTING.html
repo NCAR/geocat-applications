@@ -463,7 +463,7 @@ describes how to contribute to <code class="docutils literal notranslate"><span 
 expand on an existing page:</p>
 <p><strong>Setting up Repo and Local Development Environment</strong></p>
 <ol class="arabic simple">
-<li><p>Setup GitHub Account and Fork Repo</p></li>
+<li><p><a class="reference internal" href="#creating-a-free-github-account"><span class="std std-ref">Setup GitHub Account and Fork Repo</span></a></p></li>
 <li><p><a class="reference internal" href="#setup-environment"><span class="std std-ref">Setup Environment</span></a></p></li>
 <li><p><a class="reference internal" href="#create-branch-for-changes"><span class="std std-ref">Create Branch for Changes</span></a></p></li>
 <li><p><a class="reference internal" href="#install-pre-commit-hooks"><span class="std std-ref">Install Pre-Commit Hooks</span></a></p></li>
@@ -656,9 +656,9 @@ than waiting for a full <strong>NCL Entry</strong> to be completed.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">clean</span> <span class="n">html</span>
 </pre></div>
 </div>
-<p>This will build the documentation locally.</p>
+<p>This will build the documentation locally so you can view your changes.</p>
 <p>New documentation can be viewed by opening <code class="docutils literal notranslate"><span class="pre">index.html</span></code> generated under
-<code class="docutils literal notranslate"><span class="pre">_build/html/index.html</span></code> on a local browser</p>
+<code class="docutils literal notranslate"><span class="pre">_build/html/index.html</span></code> on a local browser:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># on Mac</span>
 <span class="nb">open</span> <span class="n">_build</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">html</span>
 
@@ -666,6 +666,11 @@ than waiting for a full <strong>NCL Entry</strong> to be completed.</p>
 <span class="n">firefox</span> <span class="n">_build</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">html</span>
 </pre></div>
 </div>
+<p>Running this commands on the terminal will open a new browser tab with the
+changes you have made to the repository. The webpage runs on your local host,
+but all the pages are linked together and act as they will on the
+<code class="docutils literal notranslate"><span class="pre">geocat-applications</span></code> website. You can browse your changes, navigate with links,
+and view images as you would on the official website.</p>
 </section>
 </section>
 <section id="contribute-the-code">
@@ -690,23 +695,20 @@ to open a pull request and what to expect after you open it.</p>
 </section>
 <section id="open-a-new-pull-request">
 <h3>Open a New Pull Request<a class="headerlink" href="#open-a-new-pull-request" title="Link to this heading">#</a></h3>
-<p>A Pull Request is a request to merge code from your local fork to the main repository.
-GitHub has extensive <a class="reference external" href="https://docs.github.com/en/pull-requests">pull request guides and documentation</a>
+<p>A Pull Request is a request to merge code from your fork of <code class="docutils literal notranslate"><span class="pre">geocat-applications</span></code>
+on GitHub to the main repository. GitHub has extensive
+<a class="reference external" href="https://docs.github.com/en/pull-requests">pull request guides and documentation</a>
 if you’d like more information</p>
 <p>On your fork of the <code class="docutils literal notranslate"><span class="pre">geocat-applications</span></code> on GitHub:</p>
 <ol class="arabic simple">
-<li><p>Open “Contribute” tab</p></li>
+<li><p>Select “Contribute”</p></li>
 <li><p>Select “Open Pull Request”</p></li>
-<li><p>Select “New Pull Request” button</p></li>
 </ol>
 <p>This will open page to compare your local changes to the main repository. Make sure that
 the <code class="docutils literal notranslate"><span class="pre">base</span> <span class="pre">repository</span></code> is <code class="docutils literal notranslate"><span class="pre">NCAR/geocat-applications</span></code> and the <code class="docutils literal notranslate"><span class="pre">base</span></code> branch is set to <code class="docutils literal notranslate"><span class="pre">main</span></code>.
 This will generate a pull request comparing your local changes to the  main branch of the
 main <code class="docutils literal notranslate"><span class="pre">geocat-applications</span></code> repository. The <code class="docutils literal notranslate"><span class="pre">head</span> <span class="pre">repository</span></code> and <code class="docutils literal notranslate"><span class="pre">compare</span></code> branch should
 be your forked repo and the branch that contains your changes respectively.</p>
-<p>The pull request form will display all the changes you’ve made on the branch compared to
-the main repo. We recommend adding a short descriptive title to the pull request (e.g.
-“Add Python datetime and days_in_month”).</p>
 <p>When opening a pull request, if you want to open a pull request but are not ready for it
 to be reviewed, you can open the pull request as a draft. This is also a good way to get
 feedback on your work that might not be ready to contribute yet.</p>
@@ -735,7 +737,8 @@ main repository!</p>
 </section>
 <section id="delete-branch">
 <h3>Delete Branch<a class="headerlink" href="#delete-branch" title="Link to this heading">#</a></h3>
-<p>We recommend deleting your branch after your pull request is merged. This will help keep your local fork clean, but is not required.</p>
+<p>Once the Pull Request is closed and merged you can <a class="reference external" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository">delete your working branch</a>.
+This will help keep your fork of <code class="docutils literal notranslate"><span class="pre">geocat-applications</span></code> clean, but is not required.</p>
 </section>
 </section>
 </section>

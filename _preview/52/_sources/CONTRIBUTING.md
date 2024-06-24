@@ -19,7 +19,7 @@ expand on an existing page:
 
 **Setting up Repo and Local Development Environment**
 
-1. [Setup GitHub Account and Fork Repo](#First-Time-Contributors)
+1. [Setup GitHub Account and Fork Repo](#creating-a-free-github-account)
 2. [Setup Environment](#Setup-Environment)
 3. [Create Branch for Changes](#Create-Branch-for-Changes)
 4. [Install Pre-Commit Hooks](#Install-Pre-Commit-Hooks)
@@ -219,10 +219,10 @@ At the base of the reposistory `geocat-applications/`, run
 ```
 make clean html
 ```
-This will build the documentation locally.
+This will build the documentation locally so you can view your changes.
 
 New documentation can be viewed by opening `index.html` generated under
- `_build/html/index.html` on a local browser
+ `_build/html/index.html` on a local browser:
 
 ```
 # on Mac
@@ -231,6 +231,11 @@ open _build/html/index.html
 # Otherwise, open with a specific browser, like Firefox
 firefox _build/html/index.html
 ```
+Running this commands on the terminal will open a new browser tab with the
+changes you have made to the repository. The webpage runs on your local host,
+but all the pages are linked together and act as they will on the
+`geocat-applications` website. You can browse your changes, navigate with links,
+and view images as you would on the official website.
 
 ## Contribute the Code
 Once you have completed your changes on notebooks and they are ready for review
@@ -250,24 +255,20 @@ For a NCL to Python entry, the files changes should include:
 - A new row in `ncl-index-table.csv`
 
 ### Open a New Pull Request
-A Pull Request is a request to merge code from your local fork to the main repository.
-GitHub has extensive [pull request guides and documentation](https://docs.github.com/en/pull-requests)
+A Pull Request is a request to merge code from your fork of `geocat-applications`
+on GitHub to the main repository. GitHub has extensive
+[pull request guides and documentation](https://docs.github.com/en/pull-requests)
 if you'd like more information
 
 On your fork of the `geocat-applications` on GitHub:
-1. Open "Contribute" tab
+1. Select "Contribute"
 2. Select "Open Pull Request"
-3. Select "New Pull Request" button
 
 This will open page to compare your local changes to the main repository. Make sure that
 the `base repository` is `NCAR/geocat-applications` and the `base` branch is set to `main`.
 This will generate a pull request comparing your local changes to the  main branch of the
 main `geocat-applications` repository. The `head repository` and `compare` branch should
 be your forked repo and the branch that contains your changes respectively.
-
-The pull request form will display all the changes you've made on the branch compared to
-the main repo. We recommend adding a short descriptive title to the pull request (e.g.
-"Add Python datetime and days_in_month").
 
 When opening a pull request, if you want to open a pull request but are not ready for it
 to be reviewed, you can open the pull request as a draft. This is also a good way to get
@@ -301,4 +302,5 @@ Once your pull request is approved by a core maintainer and passes the relevant 
 main repository!
 
 ### Delete Branch
-We recommend deleting your branch after your pull request is merged. This will help keep your local fork clean, but is not required.
+Once the Pull Request is closed and merged you can [delete your working branch](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository).
+This will help keep your fork of `geocat-applications` clean, but is not required.
