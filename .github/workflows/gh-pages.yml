@@ -41,7 +41,7 @@ jobs:
       # because the artifact is created by a different workflow
       - name: Download preview artifact
         if: inputs.is_preview == 'true'
-        uses: dawidd6/action-download-artifact@v3.1.4
+        uses: dawidd6/action-download-artifact@v6
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           workflow: build-book.yaml
