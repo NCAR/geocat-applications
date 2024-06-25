@@ -161,15 +161,15 @@ NCL-specific content.*
 
 1. If relevant, link to corresponding NCL content at the bottom of the file
 
-1. [INTEND TO AUTOMATE IN THE FUTURE] Add the new file to the `.rst` file in the
-   same directory in `applications/` as your new file to add it to the webpage's
-   TOC.
+1. Add the new file to the `.rst` file in the same directory in `applications/`
+as your new file to add it to the webpage's table of contents
 
-1. [INTEND TO AUTOMATE IN THE FUTURE] Add the new file to
-   the `applications/applications.rst` file to add it to the cards on the main
-   page of the website.
+1. Add the new file to the `applications/applications.rst` file to add it to
+the cards on the main page of the website
 
 1. Make sure to clear and run all outputs before asking for a review
+
+[Example of a Python Entry](https://ncar.github.io/geocat-applications/applications/date_time/datetime.html)
 
 #### NCL Entry
 
@@ -195,6 +195,8 @@ be linked instead of included directly, whether that content is in the form of a
 
 1. Make sure to clear and run all outputs before asking for a review
 
+[Example of a NCL Entry](https://ncar.github.io/geocat-applications/ncl/ncl_entries/days_in_month.html)
+
 #### Receipts
 
 Receipt files are small files with little to no narrative content that are for
@@ -213,6 +215,8 @@ than waiting for a full **NCL Entry** to be completed.
 1. Make sure to clear and run all outputs before asking for a review
 
 1. Add a new line to the `ncl/ncl_index/ncl-index-table.csv` file
+
+[Example of a NCL Receipt](https://ncar.github.io/geocat-applications/ncl/receipts/days_in_month.html)
 
 ### Generate the Documentation Locally
 At the base of the reposistory `geocat-applications/`, run
