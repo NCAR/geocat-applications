@@ -245,14 +245,17 @@ to open a pull request and what to expect after you open it.
 ### Check Files Changed
 
 For a Python Entry, the files changed should include:
-- New Python page under `applications`
-- Link to directory in `.rst` file in the same directory as `applications/`
-- Link new file in `applications/applications.rst` file
+- New Python page under relevant `applications` folder
+- Link to notebook in `.rst` file in the same directory as `applications/` (for
+example: if new notebook is part of `data_analysis`, add link to
+`applications/data_analysis/data_analysis.rst`)
+- Link new notebook in `applications/applications.rst` file
 
 For a NCL to Python entry, the files changes should include:
-- A new receipts entry under `receipts`
-- A NCL to Python notebook under `ncl_entries`
-- A new row in `ncl-index-table.csv`
+- New NCL to Python notebook under `ncl/ncl_entries`
+- Link to new `ncl_entries` notebook in `ncl/ncl_index/ncl_entries.rst`
+- A new row in `nncl/ncl_index/ncl-index-table.csv` for each NCL function
+- A new receipts entry under `ncl/receipts`
 
 ### Open a New Pull Request
 A Pull Request is a request to merge code from your fork of `geocat-applications`
