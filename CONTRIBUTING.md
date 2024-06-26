@@ -212,6 +212,11 @@ than waiting for a full **NCL Entry** to be completed.
 1. Create a new file in `ncl/ncl_receipts/` based off of the
    `templates/receipt_template.ipynb` template.
 
+1. Create raw `.ncl` script within `ncl/ncl_raw/` to store `NCL Code` section
+
+1. Remove placeholder and descriptive text below `NCL Code`,
+`Python Functionality`, `Comparison`
+
 1. Make sure to clear and run all outputs before asking for a review
 
 1. Add a new line to the `ncl/ncl_index/ncl-index-table.csv` file
@@ -258,8 +263,9 @@ example: if new notebook is part of `data_analysis`, add link to
 For a NCL to Python entry, the files changes should include:
 - New NCL to Python notebook under `ncl/ncl_entries`
 - Link to new `ncl_entries` notebook in `ncl/ncl_index/ncl_entries.rst`
-- A new row in `nncl/ncl_index/ncl-index-table.csv` for each NCL function
-- A new receipts entry under `ncl/receipts`
+- A new row in `ncl/ncl_index/ncl-index-table.csv` for each NCL function
+- A new receipts entry under `ncl/receipts/`
+- A new raw `.ncl` script to store `NCL Code` for receipt within `ncl/ncl_raw/`
 
 ### Open a New Pull Request
 A Pull Request is a request to merge code from your fork of `geocat-applications`
