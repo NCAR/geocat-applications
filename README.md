@@ -5,7 +5,7 @@
 
 ## What is [GeoCAT Applications](https://ncar.github.io/geocat-applications/)?
 
-GeoCAT Applications is a community resource managed by the GeoCAT team. Inspired by the
+GeoCAT Applications is a community resource managed by the GeoCAT team. Inspired by
 [NCL Applications](https://www.ncl.ucar.edu/Applications/).
 
 GeoCAT Applications is broken into two main sections:
@@ -17,8 +17,8 @@ Applications is designed to be a quick reference to demonstrate capabilities wit
 Python Ecosystem that may be relevant to your geoscience workflows
 
 ### NCL to Python
-NCL to Python are pages that explain specifically how to achieve something that was possible in NCL
-in Python, including any algorithmic differences, guidance regarding replication under different
+NCL to Python consists of pages that explain specifically how to achieve something that was possible
+in NCL in Python, including any algorithmic differences, guidance regarding replication under different
 conditions or circumstances, and any other relevant comparisons between the NCL and Python functionality
 
 These pages assume that the user has a working knowledge of NCL and are looking for transitional

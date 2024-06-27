@@ -224,7 +224,7 @@ than waiting for a full **NCL Entry** to be completed.
 [Example of a NCL Receipt](https://ncar.github.io/geocat-applications/ncl/receipts/days_in_month.html)
 
 ### Generate the Documentation Locally
-At the base of the reposistory `geocat-applications/`, run
+From the `geocat-applications/` directory, run:
 ```
 make clean html
 ```
@@ -240,14 +240,14 @@ open _build/html/index.html
 # Otherwise, open with a specific browser, like Firefox
 firefox _build/html/index.html
 ```
-Running this commands on the terminal will open a new browser tab with the
+Running these commands from the terminal will open a new browser tab with the
 changes you have made to the repository. The webpage runs on your local host,
 but all the pages are linked together and act as they will on the
 `geocat-applications` website. You can browse your changes, navigate with links,
 and view images as you would on the official website.
 
 ## Contribute the Code
-Once you have completed your changes on notebooks and they are ready for review
+Once you have made your changes on notebooks and they are ready for review
 by the GeoCAT team, you can open a new Pull Request. This section describes how
 to open a pull request and what to expect after you open it.
 
@@ -297,7 +297,7 @@ can take a few minutes to update, but any new changes made to the branch will be
 added to the Pull Request. The deployment preview link will also be update to display the most
 recent preview on a draft `geocat-applications` website.
 
-Follow the  deployment preview link to view and confirm your changes are being generated as expected.
+Follow the deployment preview link to view and confirm your changes are being generated as expected.
 The preview can take a few minutes to generate, and will update to include the most recent changes
 on the PR.
 
