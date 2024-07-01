@@ -1,6 +1,6 @@
 # Contributor Guide
 Welcome to `geocat-applications`! Thank you for your interest in contributing to this project! This guide
-describes how to contribute to `geocat-applications` and help us expand this reference for others
+describes how to contribute to `geocat-applications` and help us expand this reference for others.
 
 If you have any questions, you can also reach us by email at [geocat@ucar.edu](geocat@ucar.edu)
 
@@ -19,10 +19,9 @@ expand on an existing page:
 
 **Setting up Repo and Local Development Environment**
 
-1. [Setup GitHub Account and Fork Repo](#creating-a-free-github-account)
-2. [Setup Environment](#Setup-Environment)
-3. [Create Branch for Changes](#Create-Branch-for-Changes)
-4. [Install Pre-Commit Hooks](#Install-Pre-Commit-Hooks)
+1. [Setup GitHub and Repo](#Setup-Github-and-Repo)
+2. [Setup the Environment](#Setup-the-Environment)
+3. [Install Pre-Commit Hooks](#Install-Pre-Commit-Hooks)
 
 **Making Your Changes**
 
@@ -39,49 +38,29 @@ expand on an existing page:
 
 ## Setting up Repo and Local Development Environment
 
-### Creating a free GitHub Account
+### Setup Github and Repo
 
-If you do not have one yet, new contributors will need to create a
-[free GitHub account](https://github.com/signup). The
-[GitHub Quickstart Guide](https://docs.github.com/en/get-started/start-your-journey)
-is a great place to get started with git and GitHub.
+To get started working with `geocat-applications`, you'll need to setup a GitHub
+account and a local copy of `geocat-applications` to work from.
 
-Code in the `geocat-applications` reposisitory is managed through
-[`git`](https://git-scm.com/). [Install git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-and verify git is correctly installed locally by opening a local terminal and running:
+[Project Pythia includes detailed tutorials for working with and understanding GitHub](https://foundations.projectpythia.org/foundations/github/what-is-github.html).
+This will be useful to reference if you are unfamiliar with any terminology referenced here like
+[submitting a Pull Request](https://foundations.projectpythia.org/foundations/github/github-pull-request.html),
+[working with git](https://foundations.projectpythia.org/foundations/github/basic-git.html),
+or [maintaining a forked repository](https://foundations.projectpythia.org/foundations/github/github-cloning-forking.html)
 
-```
-git --version
-```
-If a version number if returned without an error, git has been installed correctly
+- If you do not have one yet, [new contributors will need a free GitHub account](https://foundations.projectpythia.org/foundations/github/what-is-github.html#register-for-a-free-github-account)
+  - New users should also [configure their GitHub accounts](https://foundations.projectpythia.org/foundations/github/github-setup-advanced.html)
+- [Fork and clone the `NCAR/geocat-applications` repository](https://foundations.projectpythia.org/foundations/github/github-cloning-forking.html#forking-a-repository)
+- We recommend [creating a new branch on your fork reposisitory for the new feature or bug fix](https://foundations.projectpythia.org/foundations/github/git-branches.html#creating-a-new-branch)
 
-### Fork and Clone the Repository
+### Setup the Environment
 
-To get started, first fork the `[NCAR/geocat-applications](https://github.com/NCAR/geocat-applications)`
-repository on GitHub. A "fork" creates a copy of the repository on your local account that you can edit
-([more information about forking repositories](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo#forking-a-repository)).
-Any changes made on a forked repo can be submitted back to the "main" `NCAR/geocat-applications` repo to
-be merged through a Pull Request.
-
-Once the repository has been forked, clone the new forked repository to have it stored locally on your
-computer ([more information about cloning a forked repository](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo#cloning-your-forked-repository))
-```
-git clone https://github.com/<github-username>/geocat-applications.git
-```
-
-### Configure Git Name and Email
-When running git commands on a repository, git will prompt you each time for a username,
-email, and password. By configuring your git
-[username](https://docs.github.com/en/get-started/getting-started-with-git/setting-your-username-in-git)
-and [email](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address)
-your information can be saved locally so it will no longer prompt you each time.
-
-### Setup Environment
-
-To run Jupyter notebooks locally and make changes to `geocat-applications`, you will need to
+To run [Jupyter notebooks](https://foundations.projectpythia.org/foundations/jupyter.html)
+locally and make changes to `geocat-applications`, you will need to
 create a local development environment. We recommend installing and using
-[`conda`](https://docs.anaconda.com/miniconda/). Conda is the command line interface for
-Miniconda and is a useful tool to manage environments and dependencies. A conda
+[`conda`](https://foundations.projectpythia.org/foundations/conda.html). Conda is the command
+line interface for Miniconda and is a useful tool to manage environments and dependencies. A conda
 environment is created from the `environment.yml` that contains a list of required dependencies.
 
 You can use the following commands to create a new conda environment:
@@ -93,20 +72,6 @@ conda env create -f environment.yml
 # Activate your new environment
 conda activate geocat-applications
 ```
-
-### Create Branch for Changes
-We recommend creating a new branch on your fork reposisitory for the new feature or bug fix.
-
-To create a new branch (replace `<new-branch-name>` with your new branch name):
-```
-git checkout -b <new-branch-name>
-```
-You can see all the branches that are on your local repository:
-```
-git branch
-```
-[To learn more about git branches, check out this interactive tool](https://learngitbranching.js.org/)
-
 ### Install Pre-Commit Hooks
 
 Pre-commit hooks are scripts that are set to automatically run when `git commit` is called in
@@ -269,19 +234,9 @@ For a NCL to Python entry, the files changes should include:
 
 ### Open a New Pull Request
 A Pull Request is a request to merge code from your fork of `geocat-applications`
-on GitHub to the main repository. GitHub has extensive
-[pull request guides and documentation](https://docs.github.com/en/pull-requests)
+on GitHub to the main repository. Project Pythia has extensive
+[pull request guides and documentation](https://foundations.projectpythia.org/foundations/github/github-pull-request.html)
 if you'd like more information
-
-On your fork of the `geocat-applications` on GitHub:
-1. Select "Contribute"
-2. Select "Open Pull Request"
-
-This will open page to compare your local changes to the main repository. Make sure that
-the `base repository` is `NCAR/geocat-applications` and the `base` branch is set to `main`.
-This will generate a pull request comparing your local changes to the  main branch of the
-main `geocat-applications` repository. The `head repository` and `compare` branch should
-be your forked repo and the branch that contains your changes respectively.
 
 When opening a pull request, if you want to open a pull request but are not ready for it
 to be reviewed, you can open the pull request as a draft. This is also a good way to get
@@ -315,5 +270,5 @@ Once your pull request is approved by a core maintainer and passes the relevant 
 main repository!
 
 ### Delete Branch
-Once the Pull Request is closed and merged you can [delete your working branch](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository).
+Once the Pull Request is closed and merged you can [delete your working branch](https://foundations.projectpythia.org/foundations/github/git-branches.html#deleting-branches).
 This will help keep your fork of `geocat-applications` clean, but is not required.

@@ -408,11 +408,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-contribute">How to Contribute</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#development-workflow-overview">Development Workflow Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-repo-and-local-development-environment">Setting up Repo and Local Development Environment</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-free-github-account">Creating a free GitHub Account</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fork-and-clone-the-repository">Fork and Clone the Repository</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-git-name-and-email">Configure Git Name and Email</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-environment">Setup Environment</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-branch-for-changes">Create Branch for Changes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-github-and-repo">Setup Github and Repo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-the-environment">Setup the Environment</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-pre-commit-hooks">Install Pre-Commit Hooks</a></li>
 </ul>
 </li>
@@ -448,7 +445,7 @@ document.write(`
   <section id="contributor-guide">
 <h1>Contributor Guide<a class="headerlink" href="#contributor-guide" title="Link to this heading">#</a></h1>
 <p>Welcome to <code class="docutils literal notranslate"><span class="pre">geocat-applications</span></code>! Thank you for your interest in contributing to this project! This guide
-describes how to contribute to <code class="docutils literal notranslate"><span class="pre">geocat-applications</span></code> and help us expand this reference for others</p>
+describes how to contribute to <code class="docutils literal notranslate"><span class="pre">geocat-applications</span></code> and help us expand this reference for others.</p>
 <p>If you have any questions, you can also reach us by email at <a class="reference internal" href="#geocat&#64;ucar.edu"><span class="xref myst">geocat&#64;ucar.edu</span></a></p>
 <section id="how-to-contribute">
 <h2>How to Contribute<a class="headerlink" href="#how-to-contribute" title="Link to this heading">#</a></h2>
@@ -466,9 +463,8 @@ describes how to contribute to <code class="docutils literal notranslate"><span 
 expand on an existing page:</p>
 <p><strong>Setting up Repo and Local Development Environment</strong></p>
 <ol class="arabic simple">
-<li><p><a class="reference internal" href="#creating-a-free-github-account"><span class="std std-ref">Setup GitHub Account and Fork Repo</span></a></p></li>
-<li><p><a class="reference internal" href="#setup-environment"><span class="std std-ref">Setup Environment</span></a></p></li>
-<li><p><a class="reference internal" href="#create-branch-for-changes"><span class="std std-ref">Create Branch for Changes</span></a></p></li>
+<li><p><a class="reference internal" href="#setup-github-and-repo"><span class="std std-ref">Setup GitHub and Repo</span></a></p></li>
+<li><p><a class="reference internal" href="#setup-the-environment"><span class="std std-ref">Setup the Environment</span></a></p></li>
 <li><p><a class="reference internal" href="#install-pre-commit-hooks"><span class="std std-ref">Install Pre-Commit Hooks</span></a></p></li>
 </ol>
 <p><strong>Making Your Changes</strong></p>
@@ -487,47 +483,32 @@ expand on an existing page:</p>
 </section>
 <section id="setting-up-repo-and-local-development-environment">
 <h2>Setting up Repo and Local Development Environment<a class="headerlink" href="#setting-up-repo-and-local-development-environment" title="Link to this heading">#</a></h2>
-<section id="creating-a-free-github-account">
-<h3>Creating a free GitHub Account<a class="headerlink" href="#creating-a-free-github-account" title="Link to this heading">#</a></h3>
-<p>If you do not have one yet, new contributors will need to create a
-<a class="reference external" href="https://github.com/signup">free GitHub account</a>. The
-<a class="reference external" href="https://docs.github.com/en/get-started/start-your-journey">GitHub Quickstart Guide</a>
-is a great place to get started with git and GitHub.</p>
-<p>Code in the <code class="docutils literal notranslate"><span class="pre">geocat-applications</span></code> reposisitory is managed through
-<a class="reference external" href="https://git-scm.com/"><code class="docutils literal notranslate"><span class="pre">git</span></code></a>. <a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Install git</a>
-and verify git is correctly installed locally by opening a local terminal and running:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="o">--</span><span class="n">version</span>
-</pre></div>
-</div>
-<p>If a version number if returned without an error, git has been installed correctly</p>
+<section id="setup-github-and-repo">
+<h3>Setup Github and Repo<a class="headerlink" href="#setup-github-and-repo" title="Link to this heading">#</a></h3>
+<p>To get started working with <code class="docutils literal notranslate"><span class="pre">geocat-applications</span></code>, you’ll need to setup a GitHub
+account and a local copy of <code class="docutils literal notranslate"><span class="pre">geocat-applications</span></code> to work from.</p>
+<p><a class="reference external" href="https://foundations.projectpythia.org/foundations/github/what-is-github.html">Project Pythia includes detailed tutorials for working with and understanding GitHub</a>.
+This will be useful to reference if you are unfamiliar with any terminology referenced here like
+<a class="reference external" href="https://foundations.projectpythia.org/foundations/github/github-pull-request.html">submitting a Pull Request</a>,
+<a class="reference external" href="https://foundations.projectpythia.org/foundations/github/basic-git.html">working with git</a>,
+or <a class="reference external" href="https://foundations.projectpythia.org/foundations/github/github-cloning-forking.html">maintaining a forked repository</a></p>
+<ul class="simple">
+<li><p>If you do not have one yet, <a class="reference external" href="https://foundations.projectpythia.org/foundations/github/what-is-github.html#register-for-a-free-github-account">new contributors will need a free GitHub account</a></p>
+<ul>
+<li><p>New users should also <a class="reference external" href="https://foundations.projectpythia.org/foundations/github/github-setup-advanced.html">configure their GitHub accounts</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://foundations.projectpythia.org/foundations/github/github-cloning-forking.html#forking-a-repository">Fork and clone the <code class="docutils literal notranslate"><span class="pre">NCAR/geocat-applications</span></code> repository</a></p></li>
+<li><p>We recommend <a class="reference external" href="https://foundations.projectpythia.org/foundations/github/git-branches.html#creating-a-new-branch">creating a new branch on your fork reposisitory for the new feature or bug fix</a></p></li>
+</ul>
 </section>
-<section id="fork-and-clone-the-repository">
-<h3>Fork and Clone the Repository<a class="headerlink" href="#fork-and-clone-the-repository" title="Link to this heading">#</a></h3>
-<p>To get started, first fork the <code class="docutils literal notranslate"><span class="pre">[NCAR/geocat-applications](https://github.com/NCAR/geocat-applications)</span></code>
-repository on GitHub. A “fork” creates a copy of the repository on your local account that you can edit
-(<a class="reference external" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo#forking-a-repository">more information about forking repositories</a>).
-Any changes made on a forked repo can be submitted back to the “main” <code class="docutils literal notranslate"><span class="pre">NCAR/geocat-applications</span></code> repo to
-be merged through a Pull Request.</p>
-<p>Once the repository has been forked, clone the new forked repository to have it stored locally on your
-computer (<a class="reference external" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo#cloning-your-forked-repository">more information about cloning a forked repository</a>)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/&lt;</span><span class="n">github</span><span class="o">-</span><span class="n">username</span><span class="o">&gt;/</span><span class="n">geocat</span><span class="o">-</span><span class="n">applications</span><span class="o">.</span><span class="n">git</span>
-</pre></div>
-</div>
-</section>
-<section id="configure-git-name-and-email">
-<h3>Configure Git Name and Email<a class="headerlink" href="#configure-git-name-and-email" title="Link to this heading">#</a></h3>
-<p>When running git commands on a repository, git will prompt you each time for a username,
-email, and password. By configuring your git
-<a class="reference external" href="https://docs.github.com/en/get-started/getting-started-with-git/setting-your-username-in-git">username</a>
-and <a class="reference external" href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address">email</a>
-your information can be saved locally so it will no longer prompt you each time.</p>
-</section>
-<section id="setup-environment">
-<h3>Setup Environment<a class="headerlink" href="#setup-environment" title="Link to this heading">#</a></h3>
-<p>To run Jupyter notebooks locally and make changes to <code class="docutils literal notranslate"><span class="pre">geocat-applications</span></code>, you will need to
+<section id="setup-the-environment">
+<h3>Setup the Environment<a class="headerlink" href="#setup-the-environment" title="Link to this heading">#</a></h3>
+<p>To run <a class="reference external" href="https://foundations.projectpythia.org/foundations/jupyter.html">Jupyter notebooks</a>
+locally and make changes to <code class="docutils literal notranslate"><span class="pre">geocat-applications</span></code>, you will need to
 create a local development environment. We recommend installing and using
-<a class="reference external" href="https://docs.anaconda.com/miniconda/"><code class="docutils literal notranslate"><span class="pre">conda</span></code></a>. Conda is the command line interface for
-Miniconda and is a useful tool to manage environments and dependencies. A conda
+<a class="reference external" href="https://foundations.projectpythia.org/foundations/conda.html"><code class="docutils literal notranslate"><span class="pre">conda</span></code></a>. Conda is the command
+line interface for Miniconda and is a useful tool to manage environments and dependencies. A conda
 environment is created from the <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> that contains a list of required dependencies.</p>
 <p>You can use the following commands to create a new conda environment:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a new conda environment with required dependencies</span>
@@ -537,19 +518,6 @@ environment is created from the <code class="docutils literal notranslate"><span
 <span class="n">conda</span> <span class="n">activate</span> <span class="n">geocat</span><span class="o">-</span><span class="n">applications</span>
 </pre></div>
 </div>
-</section>
-<section id="create-branch-for-changes">
-<h3>Create Branch for Changes<a class="headerlink" href="#create-branch-for-changes" title="Link to this heading">#</a></h3>
-<p>We recommend creating a new branch on your fork reposisitory for the new feature or bug fix.</p>
-<p>To create a new branch (replace <code class="docutils literal notranslate"><span class="pre">&lt;new-branch-name&gt;</span></code> with your new branch name):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="o">&lt;</span><span class="n">new</span><span class="o">-</span><span class="n">branch</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
-</pre></div>
-</div>
-<p>You can see all the branches that are on your local repository:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">branch</span>
-</pre></div>
-</div>
-<p><a class="reference external" href="https://learngitbranching.js.org/">To learn more about git branches, check out this interactive tool</a></p>
 </section>
 <section id="install-pre-commit-hooks">
 <h3>Install Pre-Commit Hooks<a class="headerlink" href="#install-pre-commit-hooks" title="Link to this heading">#</a></h3>
@@ -707,19 +675,9 @@ example: if new notebook is part of <code class="docutils literal notranslate"><
 <section id="open-a-new-pull-request">
 <h3>Open a New Pull Request<a class="headerlink" href="#open-a-new-pull-request" title="Link to this heading">#</a></h3>
 <p>A Pull Request is a request to merge code from your fork of <code class="docutils literal notranslate"><span class="pre">geocat-applications</span></code>
-on GitHub to the main repository. GitHub has extensive
-<a class="reference external" href="https://docs.github.com/en/pull-requests">pull request guides and documentation</a>
+on GitHub to the main repository. Project Pythia has extensive
+<a class="reference external" href="https://foundations.projectpythia.org/foundations/github/github-pull-request.html">pull request guides and documentation</a>
 if you’d like more information</p>
-<p>On your fork of the <code class="docutils literal notranslate"><span class="pre">geocat-applications</span></code> on GitHub:</p>
-<ol class="arabic simple">
-<li><p>Select “Contribute”</p></li>
-<li><p>Select “Open Pull Request”</p></li>
-</ol>
-<p>This will open page to compare your local changes to the main repository. Make sure that
-the <code class="docutils literal notranslate"><span class="pre">base</span> <span class="pre">repository</span></code> is <code class="docutils literal notranslate"><span class="pre">NCAR/geocat-applications</span></code> and the <code class="docutils literal notranslate"><span class="pre">base</span></code> branch is set to <code class="docutils literal notranslate"><span class="pre">main</span></code>.
-This will generate a pull request comparing your local changes to the  main branch of the
-main <code class="docutils literal notranslate"><span class="pre">geocat-applications</span></code> repository. The <code class="docutils literal notranslate"><span class="pre">head</span> <span class="pre">repository</span></code> and <code class="docutils literal notranslate"><span class="pre">compare</span></code> branch should
-be your forked repo and the branch that contains your changes respectively.</p>
 <p>When opening a pull request, if you want to open a pull request but are not ready for it
 to be reviewed, you can open the pull request as a draft. This is also a good way to get
 feedback on your work that might not be ready to contribute yet.</p>
@@ -748,7 +706,7 @@ main repository!</p>
 </section>
 <section id="delete-branch">
 <h3>Delete Branch<a class="headerlink" href="#delete-branch" title="Link to this heading">#</a></h3>
-<p>Once the Pull Request is closed and merged you can <a class="reference external" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository">delete your working branch</a>.
+<p>Once the Pull Request is closed and merged you can <a class="reference external" href="https://foundations.projectpythia.org/foundations/github/git-branches.html#deleting-branches">delete your working branch</a>.
 This will help keep your fork of <code class="docutils literal notranslate"><span class="pre">geocat-applications</span></code> clean, but is not required.</p>
 </section>
 </section>
@@ -802,11 +760,8 @@ This will help keep your fork of <code class="docutils literal notranslate"><spa
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-contribute">How to Contribute</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#development-workflow-overview">Development Workflow Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-repo-and-local-development-environment">Setting up Repo and Local Development Environment</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-free-github-account">Creating a free GitHub Account</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fork-and-clone-the-repository">Fork and Clone the Repository</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-git-name-and-email">Configure Git Name and Email</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-environment">Setup Environment</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-branch-for-changes">Create Branch for Changes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-github-and-repo">Setup Github and Repo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-the-environment">Setup the Environment</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-pre-commit-hooks">Install Pre-Commit Hooks</a></li>
 </ul>
 </li>
