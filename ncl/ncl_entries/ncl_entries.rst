@@ -4,6 +4,14 @@ NCL Applications
 ================
 
 
+Data Analysis
+---------------
+.. toctree::
+    :maxdepth: 1
+
+    specx_anal.ipynb
+    specxy_anal.ipynb
+
 Dates and Times
 ---------------
 .. toctree::

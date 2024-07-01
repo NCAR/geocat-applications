@@ -22,6 +22,9 @@
 
             .. card:: Data Analysis
 
+                - `Spectral Analysis <applications/data_analysis/spectral_analysis.ipynb>`_
+
+
     .. grid-item::
 
         .. grid:: 1
