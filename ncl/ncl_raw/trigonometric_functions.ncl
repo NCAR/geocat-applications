@@ -33,3 +33,10 @@ print(acos_f)
 f = 2.7
 atan_f = atan(f) ; atan_f = 1.216091
 print(atan_f)
+
+; atan2
+; Adapted from https://www.ncl.ucar.edu/Document/Functions/Built-in/atan2.shtml
+x = 10.0
+y = 5.0
+atan2_f = atan2(x, y) ; atan2_f = 1.107149
+print(atan2_f)
