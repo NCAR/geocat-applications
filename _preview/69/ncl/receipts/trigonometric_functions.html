@@ -431,6 +431,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/acos.shtml">acos</a></p></li>
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/atan.shtml">atan</a></p></li>
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/atan2.shtml">atan2</a></p></li>
+<li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/cosh.shtml">cosh</a></p></li>
 </ul>
 </section>
 <section id="ncl-code">
@@ -471,12 +472,11 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="n">atan_f</span> <span class="o">=</span> <span class="n">atan</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="p">;</span> <span class="n">atan_f</span> <span class="o">=</span> <span class="mf">1.216091</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">atan_f</span><span class="p">)</span>
 
-<span class="p">;</span> <span class="n">atan2</span>
-<span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span> <span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Built</span><span class="o">-</span><span class="ow">in</span><span class="o">/</span><span class="n">atan2</span><span class="o">.</span><span class="n">shtml</span>
-<span class="n">x</span> <span class="o">=</span> <span class="mf">10.0</span>
-<span class="n">y</span> <span class="o">=</span> <span class="mf">5.0</span>
-<span class="n">atan2_f</span> <span class="o">=</span> <span class="n">atan2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="p">;</span> <span class="n">atan2_f</span> <span class="o">=</span> <span class="mf">1.107149</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">atan2_f</span><span class="p">)</span>
+<span class="p">;</span> <span class="n">cosh</span>
+<span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span> <span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Built</span><span class="o">-</span><span class="ow">in</span><span class="o">/</span><span class="n">cosh</span><span class="o">.</span><span class="n">shtml</span>
+<span class="n">f</span> <span class="o">=</span> <span class="o">-</span><span class="mf">3.2</span>
+<span class="n">cosh_f</span> <span class="o">=</span> <span class="n">cosh</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="p">;</span> <span class="n">cosh_f</span> <span class="o">=</span> <span class="mf">12.28665</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cosh_f</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -539,6 +539,13 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="n">atan2_np_f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 <span class="n">results_math</span><span class="p">[</span><span class="s2">&quot;atan2&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">atan2_math_f</span>
 <span class="n">results_np</span><span class="p">[</span><span class="s2">&quot;atan2&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">atan2_np_f</span>
+
+<span class="c1"># cosh</span>
+<span class="n">f</span> <span class="o">=</span> <span class="o">-</span><span class="mf">3.2</span>
+<span class="n">cosh_math_f</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">cosh</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">cosh_np_f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cosh</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">results_math</span><span class="p">[</span><span class="s2">&quot;cosh&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cosh_math_f</span>
+<span class="n">results_np</span><span class="p">[</span><span class="s2">&quot;cosh&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cosh_np_f</span>
 </pre></div>
 </div>
 </div>
@@ -557,6 +564,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
     <span class="s2">&quot;acos&quot;</span><span class="p">:</span> <span class="mf">3.141593</span><span class="p">,</span>
     <span class="s2">&quot;atan&quot;</span><span class="p">:</span> <span class="mf">1.216091</span><span class="p">,</span>
     <span class="s2">&quot;atan2&quot;</span><span class="p">:</span> <span class="mf">0.4636476</span><span class="p">,</span>
+    <span class="s2">&quot;cosh&quot;</span><span class="p">:</span> <span class="mf">12.28665</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">ncl_results</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">results_math</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">results_np</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
@@ -604,6 +612,11 @@ atan2:
 	python (numpy):	0.4636476090008061
 	ncl:		0.4636476
 
+cosh: 
+	python (math):	12.28664620054386
+	python (numpy):	12.28664620054386
+	ncl:		12.28665
+
 cos: 
 	python (math):	0.5403023058681398
 	python (numpy):	0.5403023058681398
@@ -643,6 +656,9 @@ acos:
 atan2:
 	9.000806100445402e-09
 	9.000806100445402e-09
+cosh:
+	-3.7994561399301574e-06
+	-3.7994561399301574e-06
 cos:
 	5.868139751896706e-09
 	5.868139751896706e-09

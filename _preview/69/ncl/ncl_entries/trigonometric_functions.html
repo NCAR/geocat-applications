@@ -427,6 +427,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atan2">atan2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cosh">cosh</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differences-from-ncl">Differences from NCL</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-and-return-types">Input and Return Types</a></li>
 </ul>
@@ -456,6 +457,7 @@ document.write(`
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/acos.shtml">acos</a></p></li>
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/atan.shtml">atan</a></p></li>
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/atan2.shtml">atan2</a></p></li>
+<li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/cosh.shtml">cosh</a></p></li>
 </ul>
 </section>
 <section id="using-the-math-and-cmath-module">
@@ -877,6 +879,60 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="cosh">
+<h2>cosh<a class="headerlink" href="#cosh" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">cosh</span></code> computes the hyperbolic cosine in radians</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">input_value</span> <span class="o">=</span> <span class="o">-</span><span class="mf">3.2</span>  <span class="c1"># in radians</span>
+<span class="n">math_cosh_value</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">cosh</span><span class="p">(</span><span class="n">input_value</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">math_cosh_value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12.28664620054386
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Input: Single Value</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">input_value</span> <span class="o">=</span> <span class="o">-</span><span class="mf">3.2</span>  <span class="c1"># in radians</span>
+<span class="n">np_cosh_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cosh</span><span class="p">(</span><span class="n">input_value</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np_cosh_value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12.28664620054386
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Input: Array</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">input_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.2</span><span class="p">])</span>  <span class="c1"># in radians</span>
+<span class="n">np_cosh_array_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cosh</span><span class="p">(</span><span class="n">input_values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np_cosh_array_values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 1.12762597  1.29468328 12.2866462 ]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 <section id="differences-from-ncl">
 <h2>Differences from NCL<a class="headerlink" href="#differences-from-ncl" title="Link to this heading">#</a></h2>
 <section id="input-and-return-types">
@@ -965,6 +1021,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atan2">atan2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cosh">cosh</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differences-from-ncl">Differences from NCL</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-and-return-types">Input and Return Types</a></li>
 </ul>
