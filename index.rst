@@ -48,6 +48,7 @@ Python Examples
     Plot Types <applications/plot_types/plot_types>
     Data Analysis <applications/data_analysis/data_analysis>
     Date and Time <applications/date_time/date_time>
+    Climatology <applications/climatology/climatology>
 
 .. toctree::
     :maxdepth: 2

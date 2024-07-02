@@ -23,6 +23,7 @@
             .. card:: Data Analysis
 
             .. card:: Climatology
+
                 - `Calculating Climatologies <applications/climatology/climatology.ipynb>`_
 
     .. grid-item::

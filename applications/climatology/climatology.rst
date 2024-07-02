@@ -3,7 +3,7 @@
 .. _applications_data_analysis:
 
 Climatology
-=============
+===========
 
 .. toctree::
    :maxdepth: 1
