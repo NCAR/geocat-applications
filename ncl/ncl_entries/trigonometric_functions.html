@@ -426,6 +426,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Grab and Go</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atan2">atan2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cosh">cosh</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sinh">sinh</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tanh">tanh</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differences-from-ncl">Differences from NCL</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-and-return-types">Input and Return Types</a></li>
 </ul>
@@ -454,6 +458,10 @@ document.write(`
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/asin.shtml">asin</a></p></li>
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/acos.shtml">acos</a></p></li>
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/atan.shtml">atan</a></p></li>
+<li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/atan2.shtml">atan2</a></p></li>
+<li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/cosh.shtml">cosh</a></p></li>
+<li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/sinh.shtml">sinh</a></p></li>
+<li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/tanh.shtml">tanh</a></p></li>
 </ul>
 </section>
 <section id="using-the-math-and-cmath-module">
@@ -818,6 +826,224 @@ document.write(`
 </div>
 </section>
 </section>
+<section id="atan2">
+<h2>atan2<a class="headerlink" href="#atan2" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">atan</span></code> calculates the arctangent of <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">/</span> <span class="pre">x</span></code> in radians</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">input_value_x</span> <span class="o">=</span> <span class="mf">10.0</span>  <span class="c1"># in radians</span>
+<span class="n">input_value_y</span> <span class="o">=</span> <span class="mf">5.0</span>  <span class="c1"># in radian</span>
+<span class="n">math_atan2_value</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">atan2</span><span class="p">(</span><span class="n">input_value_y</span><span class="p">,</span> <span class="n">input_value_x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">math_atan2_value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4636476090008061
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Input: Single Value</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">input_value_x</span> <span class="o">=</span> <span class="mf">10.0</span>  <span class="c1"># in radians</span>
+<span class="n">input_value_y</span> <span class="o">=</span> <span class="mf">5.0</span>  <span class="c1"># in radian</span>
+<span class="n">np_atan2_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">input_value_y</span><span class="p">,</span> <span class="n">input_value_x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np_atan2_value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4636476090008061
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Input: Array</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">input_values_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">])</span>  <span class="c1"># in radians</span>
+<span class="n">input_values_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.75</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">])</span>  <span class="c1"># in radians</span>
+<span class="n">np_atan2_array_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">input_values_y</span><span class="p">,</span> <span class="n">input_values_x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np_atan2_array_values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.24904577 1.16590454 0.46364761]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="cosh">
+<h2>cosh<a class="headerlink" href="#cosh" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">cosh</span></code> computes the hyperbolic cosine in radians</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">input_value</span> <span class="o">=</span> <span class="o">-</span><span class="mf">3.2</span>  <span class="c1"># in radians</span>
+<span class="n">math_cosh_value</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">cosh</span><span class="p">(</span><span class="n">input_value</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">math_cosh_value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12.28664620054386
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Input: Single Value</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">input_value</span> <span class="o">=</span> <span class="o">-</span><span class="mf">3.2</span>  <span class="c1"># in radians</span>
+<span class="n">np_cosh_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cosh</span><span class="p">(</span><span class="n">input_value</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np_cosh_value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12.28664620054386
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Input: Array</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">input_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.2</span><span class="p">])</span>  <span class="c1"># in radians</span>
+<span class="n">np_cosh_array_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cosh</span><span class="p">(</span><span class="n">input_values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np_cosh_array_values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 1.12762597  1.29468328 12.2866462 ]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="sinh">
+<h2>sinh<a class="headerlink" href="#sinh" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">sinh</span></code> computes the hyperbolic sine in radians</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">input_value</span> <span class="o">=</span> <span class="mf">1.4</span>  <span class="c1"># in radians</span>
+<span class="n">math_sinh_value</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sinh</span><span class="p">(</span><span class="n">input_value</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">math_sinh_value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.9043015014515339
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Input: Single Value</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">input_value</span> <span class="o">=</span> <span class="mf">1.4</span>  <span class="c1"># in radians</span>
+<span class="n">np_sinh_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sinh</span><span class="p">(</span><span class="n">input_value</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np_sinh_value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.9043015014515339
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Input: Array</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">input_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">])</span>  <span class="c1"># in radians</span>
+<span class="n">np_sinh_array_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sinh</span><span class="p">(</span><span class="n">input_values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np_sinh_array_values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.52109531 0.82231673 1.9043015 ]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="tanh">
+<h2>tanh<a class="headerlink" href="#tanh" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">tanh</span></code> computes the hyperbolic tangent in radians</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">input_value</span> <span class="o">=</span> <span class="mf">0.67</span>  <span class="c1"># in radians</span>
+<span class="n">math_tanh_value</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">input_value</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">math_tanh_value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5849798828807289
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">input_value</span> <span class="o">=</span> <span class="mf">0.67</span>  <span class="c1"># in radians</span>
+<span class="n">np_tanh_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">input_value</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np_tanh_value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5849798828807288
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Input: Array</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">input_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.67</span><span class="p">])</span>  <span class="c1"># in radians</span>
+<span class="n">np_tanh_array_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">input_values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np_tanh_array_values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.46211716 0.63514895 0.58497988]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 <section id="differences-from-ncl">
 <h2>Differences from NCL<a class="headerlink" href="#differences-from-ncl" title="Link to this heading">#</a></h2>
 <section id="input-and-return-types">
@@ -905,6 +1131,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Grab and Go</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atan2">atan2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cosh">cosh</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sinh">sinh</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tanh">tanh</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differences-from-ncl">Differences from NCL</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-and-return-types">Input and Return Types</a></li>
 </ul>
