@@ -1,6 +1,6 @@
 .. currentmodule:: geocat.applications
 
-.. _applications_data_analysis:
+.. _applications_climatology:
 
 Climatology
 ===========
