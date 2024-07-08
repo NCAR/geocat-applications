@@ -180,6 +180,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../ncl/ncl_entries/ncl_entries.html">NCL Applications</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../ncl/ncl_entries/days_in_month.html">days_in_month</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../ncl/ncl_entries/day_of_week.html">day_of_week</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ncl/ncl_entries/trigonometric_functions.html">Trigonometric Functions</a></li>
 </ul>
 </details></li>
 </ul>
@@ -427,6 +428,8 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">import</span> <span class="nn">scipy</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
 </div>
@@ -557,7 +560,82 @@ document.write(`
 </section>
 <section id="li">
 <h2>Li<a class="headerlink" href="#li" title="Link to this heading">#</a></h2>
-<p>Not much information here</p>
+<p>Use CESM to bias correct ERA5, focus on the heatwave in 1995 July that resulted in over 700 deaths</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">era5_path</span> <span class="o">=</span> <span class="s1">&#39;path_to_era5.nc&#39;</span>
+<span class="n">cesm_path</span> <span class="o">=</span> <span class="s1">&#39;path_to_cesm.nc&#39;</span>
+
+<span class="c1"># Load the datasets</span>
+<span class="n">era5</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">era5_path</span><span class="p">)</span>
+<span class="n">cesm</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">cesm_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the coordinates for Chicago (maybe don&#39;t limit to Chicago yet?)</span>
+<span class="n">lat_chicago</span> <span class="o">=</span> <span class="mf">41.8781</span>
+<span class="n">lon_chicago</span> <span class="o">=</span> <span class="o">-</span><span class="mf">87.6298</span>
+
+<span class="n">era5_chicago</span> <span class="o">=</span> <span class="n">era5</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;1995-01-01&#39;</span><span class="p">,</span> <span class="s1">&#39;1995-12-31&#39;</span><span class="p">),</span> <span class="n">latitude</span><span class="o">=</span><span class="n">lat_chicago</span><span class="p">,</span> <span class="n">longitude</span><span class="o">=</span><span class="n">lon_chicago</span><span class="p">)</span>
+<span class="n">cesm_chicago</span> <span class="o">=</span> <span class="n">cesm</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;1995-01-01&#39;</span><span class="p">,</span> <span class="s1">&#39;1995-12-31&#39;</span><span class="p">),</span> <span class="n">latitude</span><span class="o">=</span><span class="n">lat_chicago</span><span class="p">,</span> <span class="n">longitude</span><span class="o">=</span><span class="n">lon_chicago</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate approximation for wet bulb from ERA5</span>
+
+<span class="k">def</span> <span class="nf">calculate_tw</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">td</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+    <span class="n">es</span> <span class="o">=</span> <span class="mf">6.112</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mf">17.67</span> <span class="o">*</span> <span class="n">td</span> <span class="o">/</span> <span class="p">(</span><span class="n">td</span> <span class="o">+</span> <span class="mf">243.5</span><span class="p">))</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="mf">6.112</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mf">17.67</span> <span class="o">*</span> <span class="n">t</span> <span class="o">/</span> <span class="p">(</span><span class="n">t</span> <span class="o">+</span> <span class="mf">243.5</span><span class="p">))</span>
+    <span class="n">tw</span> <span class="o">=</span> <span class="n">t</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="mf">0.151977</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">e</span> <span class="o">+</span> <span class="mf">8.313659</span><span class="p">))</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">t</span> <span class="o">+</span> <span class="n">td</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">td</span> <span class="o">-</span> <span class="mf">1.676331</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.00391838</span> <span class="o">*</span> <span class="p">(</span><span class="n">e</span> <span class="o">**</span> <span class="mf">1.5</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="mf">0.023101</span> <span class="o">*</span> <span class="n">e</span><span class="p">)</span> <span class="o">-</span> <span class="mf">4.686035</span>
+    <span class="k">return</span> <span class="n">tw</span>
+
+<span class="n">era5_tw_chicago</span> <span class="o">=</span> <span class="n">calculate_tw</span><span class="p">(</span><span class="n">era5_chicago</span><span class="o">.</span><span class="n">t2m</span><span class="p">,</span> <span class="n">era5_chicago</span><span class="o">.</span><span class="n">d2m</span><span class="p">,</span> <span class="n">era5_chicago</span><span class="o">.</span><span class="n">sp</span><span class="p">)</span>
+<span class="n">cesm_tw_chicago</span> <span class="o">=</span> <span class="n">calculate_tw</span><span class="p">(</span><span class="n">cesm_chicago</span><span class="o">.</span><span class="n">t2m</span><span class="p">,</span> <span class="n">cesm_chicago</span><span class="o">.</span><span class="n">d2m</span><span class="p">,</span> <span class="n">cesm_chicago</span><span class="o">.</span><span class="n">sp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plug Wet Bulb Temp into standard WBGT equation</span>
+
+<span class="k">def</span> <span class="nf">calculate_wbgt</span><span class="p">(</span><span class="n">tw</span><span class="p">,</span> <span class="n">ta</span><span class="p">):</span>
+    <span class="n">wbgt</span> <span class="o">=</span> <span class="mf">0.7</span> <span class="o">*</span> <span class="n">tw</span> <span class="o">+</span> <span class="mf">0.3</span> <span class="o">*</span> <span class="n">ta</span>
+    <span class="k">return</span> <span class="n">wbgt</span>
+
+<span class="n">era5_wbgt_chicago</span> <span class="o">=</span> <span class="n">calculate_wbgt</span><span class="p">(</span><span class="n">era5_tw_chicago</span><span class="p">,</span> <span class="n">era5_chicago</span><span class="o">.</span><span class="n">t2m</span><span class="p">)</span>
+<span class="n">cesm_wbgt_chicago</span> <span class="o">=</span> <span class="n">calculate_wbgt</span><span class="p">(</span><span class="n">cesm_tw_chicago</span><span class="p">,</span> <span class="n">cesm_chicago</span><span class="o">.</span><span class="n">t2m</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bias correction using the ∆-method</span>
+
+<span class="n">era5_seasonal_cycle</span> <span class="o">=</span> <span class="n">era5_wbgt_chicago</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.dayofyear&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">cesm_seasonal_cycle</span> <span class="o">=</span> <span class="n">cesm_wbgt_chicago</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.dayofyear&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+
+<span class="n">bias</span> <span class="o">=</span> <span class="n">cesm_seasonal_cycle</span> <span class="o">-</span> <span class="n">era5_seasonal_cycle</span>
+
+<span class="n">cesm_wbgt_corrected</span> <span class="o">=</span> <span class="n">cesm_wbgt_chicago</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.dayofyear&#39;</span><span class="p">)</span> <span class="o">-</span> <span class="n">bias</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
