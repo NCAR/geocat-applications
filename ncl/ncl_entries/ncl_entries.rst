@@ -11,4 +11,5 @@ Dates and Times
 
     days_in_month.ipynb
     day_of_week.ipynb
+    general_applied_math.ipynb
     trigonometric_functions.ipynb
