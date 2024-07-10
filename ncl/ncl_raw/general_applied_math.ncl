@@ -21,3 +21,14 @@ print(abs_f)
 f = (/ (/1,2,3/), (/4,5,6/)/)
 avg_f = avg(f)  ; avg_f = 3.5
 print(avg_f)
+
+; cumsum
+; Adapted from https://www.ncl.ucar.edu/Document/Functions/Built-in/cumsum.shtml
+f = (/1,2,3,4,5/)
+cumsum_f = cumsum(f, 0) ; cumsum_f = (/1  3  6  10  15/)
+print(cumsum_f)
+; (0)	1
+; (1)	3
+; (2)	6
+; (3)	10
+; (4)	15
