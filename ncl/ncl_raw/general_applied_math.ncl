@@ -36,4 +36,8 @@ print(cumsum_f)
 ; decimalPlaces
 ; Adapted from https://www.ncl.ucar.edu/Document/Functions/Contributed/decimalPlaces.shtml
 f = 12.345678
-decimalPlaces_f = decimalPlaces(f, 2, True) ; decimalPlaces_f = 12.35
+decimalPlaces_f = decimalPlaces(f, 2, True)  ; decimalPlaces_f = 12.35
+
+; get_d2r
+; Adapted from https://www.ncl.ucar.edu/Document/Functions/Contributed/get_d2r.shtml
+d2r = get_d2r("double")  ; d2r = 0.0174532925199433
