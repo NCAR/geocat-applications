@@ -45,3 +45,7 @@ d2r = get_d2r("double")  ; d2r = 0.0174532925199433
 ; get_r2d
 ; Adapted from https://www.ncl.ucar.edu/Document/Functions/Contributed/get_r2d.shtml
 r2d = get_r2d("double")  ; r2d = 57.29577951308232
+
+; get_pi
+; Adapted from https://www.ncl.ucar.edu/D
+pi = get_pi("double")  ; pi = 3.141592653589793
