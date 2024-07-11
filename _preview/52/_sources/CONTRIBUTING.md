@@ -10,8 +10,8 @@ There are many ways to contribute:
 
 - [Proofreading and reporting bugs](https://github.com/NCAR/geocat-applications/issues/new/choose) 🐞
 - [Requesting new features](https://github.com/NCAR/geocat-applications/issues/new/choose) 💡
-- Contribute a new [NCL to Python](#ncl-entry) page
-- Contribute a new [Python Entry](#python-entry) page
+- Contributing a new [NCL to Python](#ncl-entry) page
+- Contributing a new [Python Entry](#python-entry) page
 
 ## Development Workflow Overview
 This is the general development workflow to create a new page, edit, or
@@ -26,7 +26,7 @@ expand on an existing page:
 **Making Your Changes**
 
 1. [Understanding the Repository](#Understanding-the-Repository)
-2. [Types of `geocat-applications` pages](#Types-of-geocat-applications-pages)
+2. [Types of `geocat-applications` Pages](#Types-of-geocat-applications-pages)
 3. [Generate the Documentation Locally](#Generate-the-Documentation-Locally)
 
 **Contribute Code and Review**
@@ -177,7 +177,7 @@ than waiting for a full **NCL Entry** to be completed.
 1. Create a new file in `ncl/ncl_receipts/` based off of the
    `templates/receipt_template.ipynb` template.
 
-1. Create raw `.ncl` script within `ncl/ncl_raw/` to store `NCL Code` section
+1. Create a raw `.ncl` script within `ncl/ncl_raw/` to store `NCL Code` section
 
 1. Remove placeholder and descriptive text below `NCL Code`,
 `Python Functionality`, `Comparison`
@@ -199,7 +199,7 @@ New documentation can be viewed by opening `index.html` generated under
  `_build/html/index.html` on a local browser:
 
 ```
-# on Mac
+# on macOS
 open _build/html/index.html
 
 # Otherwise, open with a specific browser, like Firefox
@@ -213,7 +213,7 @@ and view images as you would on the official website.
 
 ## Contribute the Code
 Once you have made your changes on notebooks and they are ready for review
-by the GeoCAT team, you can open a new Pull Request. This section describes how
+by the GeoCAT team, you can open a new pull request. This section describes how
 to open a pull request and what to expect after you open it.
 
 ### Check Files Changed
@@ -233,7 +233,7 @@ For a NCL to Python entry, the files changes should include:
 - A new raw `.ncl` script to store `NCL Code` for receipt within `ncl/ncl_raw/`
 
 ### Open a New Pull Request
-A Pull Request is a request to merge code from your fork of `geocat-applications`
+A pull request is a request to merge code from your fork of `geocat-applications`
 on GitHub to the main repository. Project Pythia has extensive
 [pull request guides and documentation](https://foundations.projectpythia.org/foundations/github/github-pull-request.html)
 if you'd like more information
@@ -242,14 +242,14 @@ When opening a pull request, if you want to open a pull request but are not read
 to be reviewed, you can open the pull request as a draft. This is also a good way to get
 feedback on your work that might not be ready to contribute yet.
 
-When a new Pull Request is created a deployment preview will be generated and added as a
+When a new pull request is created a deployment preview will be generated and added as a
 comment.
 
 ![deploy_preview](https://github.com/NCAR/geocat-applications/assets/22159116/b42ace34-96d6-47b2-8c85-f0c20fa71927)
 
 Follow the link to view and confirm your changes are being generated as expected. The preview
 can take a few minutes to update, but any new changes made to the branch will be automatically
-added to the Pull Request. The deployment preview link will also be update to display the most
+added to the pull request. The deployment preview link will also be update to display the most
 recent preview on a draft `geocat-applications` website.
 
 Follow the deployment preview link to view and confirm your changes are being generated as expected.
@@ -270,5 +270,5 @@ Once your pull request is approved by a core maintainer and passes the relevant 
 main repository!
 
 ### Delete Branch
-Once the Pull Request is closed and merged you can [delete your working branch](https://foundations.projectpythia.org/foundations/github/git-branches.html#deleting-branches).
+Once the pull request is closed and merged you can [delete your working branch](https://foundations.projectpythia.org/foundations/github/git-branches.html#deleting-branches).
 This will help keep your fork of `geocat-applications` clean, but is not required.
