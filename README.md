@@ -13,8 +13,8 @@ GeoCAT Applications is broken into two main sections:
 2. NCL to Python
 
 ### Applications
-Applications is designed to be a quick reference to demonstrate capabilities within the Scientific
-Python Ecosystem that may be relevant to your geoscience workflows
+Applications is designed to be a quick reference to demonstrate capabilities within the scientific
+Python ecosystem that may be relevant to your geoscience workflows
 
 ### NCL to Python
 NCL to Python consists of pages that explain specifically how to achieve something that was possible
