@@ -495,6 +495,11 @@ It may not be visible in your IDE or local editor, but it will be visible in gen
 <span class="n">f</span> <span class="o">=</span> <span class="mf">3.4</span>
 <span class="n">log10_f</span> <span class="o">=</span> <span class="n">log10</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>  <span class="p">;</span> <span class="n">log10_f</span> <span class="o">=</span> <span class="mf">0.5314789</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">log10_f</span><span class="p">)</span>
+
+<span class="p">;</span> <span class="n">mod</span>
+<span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span> <span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Contributed</span><span class="o">/</span><span class="n">mod</span><span class="o">.</span><span class="n">shtml</span>
+<span class="n">mod_f</span> <span class="o">=</span> <span class="n">mod</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="p">;</span> <span class="n">mod_f</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mod_f</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -550,6 +555,10 @@ Show the python code that replicates the NCL functionality. Don't worry about pr
 <span class="n">f</span> <span class="o">=</span> <span class="mf">3.4</span>
 <span class="n">log10_f</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="mi">7</span><span class="p">)</span>
 <span class="n">results</span><span class="p">[</span><span class="s2">&quot;log10&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">log10_f</span>
+
+<span class="c1"># mod</span>
+<span class="n">mod</span> <span class="o">=</span> <span class="mi">17</span> <span class="o">%</span> <span class="mi">3</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">&quot;mod&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mod</span>
 </pre></div>
 </div>
 </div>
@@ -569,6 +578,7 @@ Show the python code that replicates the NCL functionality. Don't worry about pr
     <span class="s2">&quot;get_pi&quot;</span><span class="p">:</span> <span class="mf">3.141592653589793</span><span class="p">,</span>
     <span class="s2">&quot;log&quot;</span><span class="p">:</span> <span class="mf">1.280934</span><span class="p">,</span>
     <span class="s2">&quot;log10&quot;</span><span class="p">:</span> <span class="mf">0.5314789</span><span class="p">,</span>
+    <span class="s2">&quot;mod&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">ncl_results</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">results</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
@@ -604,6 +614,10 @@ abs:
 get_r2d: 
 	python:	57.29577951308232
 	ncl:	57.29577951308232
+
+mod: 
+	python:	2
+	ncl:	2
 
 decimalPlaces: 
 	python:	12.35
@@ -644,6 +658,8 @@ abs:
 	0
 get_r2d:
 	0.0
+mod:
+	0
 decimalPlaces:
 	0.0
 cumsum:
