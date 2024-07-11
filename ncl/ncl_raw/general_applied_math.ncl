@@ -73,3 +73,10 @@ x = (/ (/1,-99/), (/3,4/), (/-99,6/) /)
 x@_FillValue = -99
 xproduct = product(x)  ; xproduct = 72
 print(xproduct)
+
+; sum
+; Adapted from https://www.ncl.ucar.edu/Document/Functions/Built-in/sum.shtml
+x = (/ (/1,-99/), (/3,4/), (/-99,6/) /)
+x@_FillValue = -99
+xsum  = sum(x)  ; xsum  = 14
+print(xsum)
