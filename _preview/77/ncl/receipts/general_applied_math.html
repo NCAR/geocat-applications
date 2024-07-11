@@ -549,7 +549,7 @@ Show the python code that replicates the NCL functionality. Don't worry about pr
 <span class="n">results</span><span class="p">[</span><span class="s2">&quot;decimalPlaces&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">decimalPlaces_f</span>
 
 <span class="c1"># get_d2r</span>
-<span class="n">d2r</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+<span class="n">d2r</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span>
 <span class="n">results</span><span class="p">[</span><span class="s2">&quot;get_d2r&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">d2r</span>
 
 <span class="c1"># get_r2d</span>
@@ -562,12 +562,12 @@ Show the python code that replicates the NCL functionality. Don't worry about pr
 
 <span class="c1"># log</span>
 <span class="n">f</span> <span class="o">=</span> <span class="mf">3.6</span>
-<span class="n">log_f</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">log_f</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 <span class="n">results</span><span class="p">[</span><span class="s2">&quot;log&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">log_f</span>
 
 <span class="c1"># log10</span>
 <span class="n">f</span> <span class="o">=</span> <span class="mf">3.4</span>
-<span class="n">log10_f</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">log10_f</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 <span class="n">results</span><span class="p">[</span><span class="s2">&quot;log10&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">log10_f</span>
 
 <span class="c1"># mod</span>
@@ -612,7 +612,9 @@ Show the python code that replicates the NCL functionality. Don't worry about pr
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ncl_results</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
         <span class="k">assert</span> <span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">==</span> <span class="n">ncl_results</span><span class="p">[</span><span class="n">c</span><span class="p">])</span><span class="o">.</span><span class="n">any</span><span class="p">()</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">assert</span> <span class="n">results</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">==</span> <span class="n">ncl_results</span><span class="p">[</span><span class="n">c</span><span class="p">]</span>
+        <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span>
+            <span class="n">results</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="n">results</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-6</span>
+        <span class="p">)</span>  <span class="c1"># within 6 decimal points</span>
 </pre></div>
 </div>
 </div>
@@ -622,11 +624,11 @@ Show the python code that replicates the NCL functionality. Don't worry about pr
 	ncl:	3.141592653589793
 
 log: 
-	python:	1.280934
+	python:	1.2809338454620642
 	ncl:	1.280934
 
 log10: 
-	python:	0.5314789
+	python:	0.5314789170422551
 	ncl:	0.5314789
 
 product: 
@@ -634,7 +636,7 @@ product:
 	ncl:	72
 
 get_d2r: 
-	python:	0.0174532925199433
+	python:	0.017453292519943295
 	ncl:	0.0174532925199433
 
 abs: 
@@ -683,13 +685,13 @@ sum:
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>get_pi:
 	0.0
 log:
-	0.0
+	-1.5453793578146247e-07
 log10:
-	0.0
+	1.704225516263591e-08
 product:
 	0
 get_d2r:
-	0.0
+	-3.469446951953614e-18
 abs:
 	0
 get_r2d:
