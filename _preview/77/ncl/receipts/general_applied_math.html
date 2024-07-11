@@ -470,7 +470,11 @@ It may not be visible in your IDE or local editor, but it will be visible in gen
 <span class="p">;</span> <span class="n">decimalPlaces</span>
 <span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span> <span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Contributed</span><span class="o">/</span><span class="n">decimalPlaces</span><span class="o">.</span><span class="n">shtml</span>
 <span class="n">f</span> <span class="o">=</span> <span class="mf">12.345678</span>
-<span class="n">decimalPlaces_f</span> <span class="o">=</span> <span class="n">decimalPlaces</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span> <span class="p">;</span> <span class="n">decimalPlaces_f</span> <span class="o">=</span> <span class="mf">12.35</span>
+<span class="n">decimalPlaces_f</span> <span class="o">=</span> <span class="n">decimalPlaces</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>  <span class="p">;</span> <span class="n">decimalPlaces_f</span> <span class="o">=</span> <span class="mf">12.35</span>
+
+<span class="p">;</span> <span class="n">get_d2r</span>
+<span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span> <span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Contributed</span><span class="o">/</span><span class="n">get_d2r</span><span class="o">.</span><span class="n">shtml</span>
+<span class="n">d2r</span> <span class="o">=</span> <span class="n">get_d2r</span><span class="p">(</span><span class="s2">&quot;double&quot;</span><span class="p">)</span>  <span class="p">;</span> <span class="n">d2r</span> <span class="o">=</span> <span class="mf">0.0174532925199433</span>
 </pre></div>
 </div>
 </section>
@@ -480,7 +484,8 @@ It may not be visible in your IDE or local editor, but it will be visible in gen
 Show the python code that replicates the NCL functionality. Don't worry about providing narrative, just provide enough explanation that somebody with the knowledge level of another developer could follow along.
 --><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
 
@@ -503,6 +508,10 @@ Show the python code that replicates the NCL functionality. Don't worry about pr
 <span class="n">f</span> <span class="o">=</span> <span class="mf">12.345678</span>
 <span class="n">decimalPlaces_f</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">results</span><span class="p">[</span><span class="s2">&quot;decimalPlaces&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">decimalPlaces_f</span>
+
+<span class="c1"># d2r</span>
+<span class="n">d2r</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">&quot;get_d2r&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">d2r</span>
 </pre></div>
 </div>
 </div>
@@ -521,6 +530,7 @@ If possible and reasonable, include assert statements to validate the output.
     <span class="s2">&quot;avg&quot;</span><span class="p">:</span> <span class="mf">3.5</span><span class="p">,</span>
     <span class="s2">&quot;cumsum&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">]),</span>
     <span class="s2">&quot;decimalPlaces&quot;</span><span class="p">:</span> <span class="mf">12.35</span><span class="p">,</span>
+    <span class="s2">&quot;get_d2r&quot;</span><span class="p">:</span> <span class="mf">0.0174532925199433</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">ncl_results</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">results</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
@@ -533,9 +543,17 @@ If possible and reasonable, include assert statements to validate the output.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>abs: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>get_d2r: 
+	python:	0.0174532925199433
+	ncl:	0.0174532925199433
+
+abs: 
 	python:	5
 	ncl:	5
+
+decimalPlaces: 
+	python:	12.35
+	ncl:	12.35
 
 cumsum: 
 	python:	[ 1  3  6 10 15]
@@ -544,10 +562,6 @@ cumsum:
 avg: 
 	python:	3.5
 	ncl:	3.5
-
-decimalPlaces: 
-	python:	12.35
-	ncl:	12.35
 </pre></div>
 </div>
 </div>
@@ -564,13 +578,15 @@ decimalPlaces:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>abs:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>get_d2r:
+	0.0
+abs:
 	0
+decimalPlaces:
+	0.0
 cumsum:
 	[0 0 0 0 0]
 avg:
-	0.0
-decimalPlaces:
 	0.0
 </pre></div>
 </div>
