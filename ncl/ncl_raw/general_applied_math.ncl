@@ -32,3 +32,8 @@ print(cumsum_f)
 ; (2)	6
 ; (3)	10
 ; (4)	15
+
+; decimalPlaces
+; Adapted from https://www.ncl.ucar.edu/Document/Functions/Contributed/decimalPlaces.shtml
+f = 12.345678
+decimalPlaces_f = decimalPlaces(f, 2, True) ; decimalPlaces_f = 12.35
