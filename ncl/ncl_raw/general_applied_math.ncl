@@ -49,3 +49,9 @@ r2d = get_r2d("double")  ; r2d = 57.29577951308232
 ; get_pi
 ; Adapted from https://www.ncl.ucar.edu/D
 pi = get_pi("double")  ; pi = 3.141592653589793
+
+; log
+; Adapted from https://www.ncl.ucar.edu/Document/Functions/Built-in/log.shtml
+f = 3.6
+log_f = log(f)  ; log_f = 1.280934
+print(log_f)
