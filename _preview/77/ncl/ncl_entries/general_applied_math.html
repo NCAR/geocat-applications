@@ -414,6 +414,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Grab and Go</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decimalplaces">decimalPlaces</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Grab and Go</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content-sections">Content Sections</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-changes-to-approximate-ncl-functionality">Python changes to approximate NCL functionality</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-resources">Python Resources</a></li>
@@ -571,6 +575,63 @@ document.write(`
 </div>
 </section>
 </section>
+<section id="decimalplaces">
+<h2>decimalPlaces<a class="headerlink" href="#decimalplaces" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">decimalPlaces</span></code> truncates or rounds to the number of decimal places specified</p>
+<section id="id3">
+<h3>Grab and Go<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># round: Single Value</span>
+<span class="n">input_value</span> <span class="o">=</span> <span class="mf">3.1415926</span>
+
+<span class="n">round_output</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">input_value</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">round_output</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.142
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># round: Array - List Comprehension</span>
+<span class="n">input_values</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">10.353535</span><span class="p">,</span> <span class="mf">3.1415926</span><span class="p">,</span> <span class="mf">123.4567</span><span class="p">]</span>
+
+<span class="n">round_output</span> <span class="o">=</span> <span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">input_values</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">round_output</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-10.354, 3.142, 123.457]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># truncate: Single Value</span>
+<span class="n">input_value</span> <span class="o">=</span> <span class="mf">3.1415926</span>
+
+<span class="n">decimal_values</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">input_value</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+<span class="n">truncate_decimal</span> <span class="o">=</span> <span class="n">decimal_values</span><span class="p">[</span><span class="mi">1</span><span class="p">][:</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">truncate_output</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">decimal_values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="n">truncate_decimal</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">truncate_output</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.141
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
 <hr class="docutils" />
 <section id="content-sections">
 <h2>Content Sections<a class="headerlink" href="#content-sections" title="Link to this heading">#</a></h2>
@@ -652,6 +713,10 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cumsum">cumsum</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Grab and Go</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decimalplaces">decimalPlaces</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Grab and Go</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content-sections">Content Sections</a></li>
