@@ -61,3 +61,8 @@ print(log_f
 f = 3.4
 log10_f = log10(f)  ; log10_f = 0.5314789
 print(log10_f)
+
+; mod
+; Adapted from https://www.ncl.ucar.edu/Document/Functions/Contributed/mod.shtml
+mod_f = mod(17, 3)  ; mod_f = 2
+print(mod_f)
