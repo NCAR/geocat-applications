@@ -41,3 +41,7 @@ decimalPlaces_f = decimalPlaces(f, 2, True)  ; decimalPlaces_f = 12.35
 ; get_d2r
 ; Adapted from https://www.ncl.ucar.edu/Document/Functions/Contributed/get_d2r.shtml
 d2r = get_d2r("double")  ; d2r = 0.0174532925199433
+
+; get_r2d
+; Adapted from https://www.ncl.ucar.edu/Document/Functions/Contributed/get_r2d.shtml
+r2d = get_r2d("double")  ; r2d = 57.29577951308232
