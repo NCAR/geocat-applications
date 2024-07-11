@@ -54,4 +54,10 @@ pi = get_pi("double")  ; pi = 3.141592653589793
 ; Adapted from https://www.ncl.ucar.edu/Document/Functions/Built-in/log.shtml
 f = 3.6
 log_f = log(f)  ; log_f = 1.280934
-print(log_f)
+print(log_f
+
+; log10
+; Adapted from https://www.ncl.ucar.edu/Document/Functions/Built-in/log10.shtml
+f = 3.4
+log10_f = log10(f)  ; log10_f = 0.5314789
+print(log10_f)
