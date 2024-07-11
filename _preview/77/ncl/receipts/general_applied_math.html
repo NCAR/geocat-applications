@@ -479,6 +479,10 @@ It may not be visible in your IDE or local editor, but it will be visible in gen
 <span class="p">;</span> <span class="n">get_r2d</span>
 <span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span> <span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Contributed</span><span class="o">/</span><span class="n">get_r2d</span><span class="o">.</span><span class="n">shtml</span>
 <span class="n">r2d</span> <span class="o">=</span> <span class="n">get_r2d</span><span class="p">(</span><span class="s2">&quot;double&quot;</span><span class="p">)</span>  <span class="p">;</span> <span class="n">r2d</span> <span class="o">=</span> <span class="mf">57.29577951308232</span>
+
+<span class="p">;</span> <span class="n">get_pi</span>
+<span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span> <span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">D</span>
+<span class="n">pi</span> <span class="o">=</span> <span class="n">get_pi</span><span class="p">(</span><span class="s2">&quot;double&quot;</span><span class="p">)</span>  <span class="p">;</span> <span class="n">pi</span> <span class="o">=</span> <span class="mf">3.141592653589793</span>
 </pre></div>
 </div>
 </section>
@@ -513,13 +517,17 @@ Show the python code that replicates the NCL functionality. Don't worry about pr
 <span class="n">decimalPlaces_f</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">results</span><span class="p">[</span><span class="s2">&quot;decimalPlaces&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">decimalPlaces_f</span>
 
-<span class="c1"># d2r</span>
+<span class="c1"># get_d2r</span>
 <span class="n">d2r</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
 <span class="n">results</span><span class="p">[</span><span class="s2">&quot;get_d2r&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">d2r</span>
 
-<span class="c1"># r2d</span>
+<span class="c1"># get_r2d</span>
 <span class="n">r2d</span> <span class="o">=</span> <span class="mi">180</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span>
 <span class="n">results</span><span class="p">[</span><span class="s2">&quot;get_r2d&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">r2d</span>
+
+<span class="c1"># get_pi</span>
+<span class="n">pi</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">&quot;get_pi&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pi</span>
 </pre></div>
 </div>
 </div>
@@ -527,11 +535,7 @@ Show the python code that replicates the NCL functionality. Don't worry about pr
 </section>
 <section id="comparison">
 <h2>Comparison<a class="headerlink" href="#comparison" title="Link to this heading">#</a></h2>
-<!---
-Directly compare the outputs, numerically, visually, or however is most appropriate.
-
-If possible and reasonable, include assert statements to validate the output.
---><div class="cell docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ncl_results</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;abs&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
@@ -540,6 +544,7 @@ If possible and reasonable, include assert statements to validate the output.
     <span class="s2">&quot;decimalPlaces&quot;</span><span class="p">:</span> <span class="mf">12.35</span><span class="p">,</span>
     <span class="s2">&quot;get_d2r&quot;</span><span class="p">:</span> <span class="mf">0.0174532925199433</span><span class="p">,</span>
     <span class="s2">&quot;get_r2d&quot;</span><span class="p">:</span> <span class="mf">57.29577951308232</span><span class="p">,</span>
+    <span class="s2">&quot;get_pi&quot;</span><span class="p">:</span> <span class="mf">3.141592653589793</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">ncl_results</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">results</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
@@ -552,7 +557,11 @@ If possible and reasonable, include assert statements to validate the output.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>get_d2r: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>get_pi: 
+	python:	3.141592653589793
+	ncl:	3.141592653589793
+
+get_d2r: 
 	python:	0.0174532925199433
 	ncl:	0.0174532925199433
 
@@ -591,7 +600,9 @@ avg:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>get_d2r:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>get_pi:
+	0.0
+get_d2r:
 	0.0
 abs:
 	0
