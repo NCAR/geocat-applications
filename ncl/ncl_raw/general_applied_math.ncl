@@ -66,3 +66,10 @@ print(log10_f)
 ; Adapted from https://www.ncl.ucar.edu/Document/Functions/Contributed/mod.shtml
 mod_f = mod(17, 3)  ; mod_f = 2
 print(mod_f)
+
+; product
+; Adapted from https://www.ncl.ucar.edu/Document/Functions/Built-in/product.shtml
+x = (/ (/1,-99/), (/3,4/), (/-99,6/) /)
+x@_FillValue = -99
+xproduct = product(x)  ; xproduct = 72
+print(xproduct)
