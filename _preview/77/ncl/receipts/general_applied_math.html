@@ -488,7 +488,13 @@ It may not be visible in your IDE or local editor, but it will be visible in gen
 <span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span> <span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Built</span><span class="o">-</span><span class="ow">in</span><span class="o">/</span><span class="n">log</span><span class="o">.</span><span class="n">shtml</span>
 <span class="n">f</span> <span class="o">=</span> <span class="mf">3.6</span>
 <span class="n">log_f</span> <span class="o">=</span> <span class="n">log</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>  <span class="p">;</span> <span class="n">log_f</span> <span class="o">=</span> <span class="mf">1.280934</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">log_f</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">log_f</span>
+
+<span class="p">;</span> <span class="n">log10</span>
+<span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span> <span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Built</span><span class="o">-</span><span class="ow">in</span><span class="o">/</span><span class="n">log10</span><span class="o">.</span><span class="n">shtml</span>
+<span class="n">f</span> <span class="o">=</span> <span class="mf">3.4</span>
+<span class="n">log10_f</span> <span class="o">=</span> <span class="n">log10</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>  <span class="p">;</span> <span class="n">log10_f</span> <span class="o">=</span> <span class="mf">0.5314789</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">log10_f</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -539,6 +545,11 @@ Show the python code that replicates the NCL functionality. Don't worry about pr
 <span class="n">f</span> <span class="o">=</span> <span class="mf">3.6</span>
 <span class="n">log_f</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="mi">6</span><span class="p">)</span>
 <span class="n">results</span><span class="p">[</span><span class="s2">&quot;log&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">log_f</span>
+
+<span class="c1"># log10</span>
+<span class="n">f</span> <span class="o">=</span> <span class="mf">3.4</span>
+<span class="n">log10_f</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">&quot;log10&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">log10_f</span>
 </pre></div>
 </div>
 </div>
@@ -557,6 +568,7 @@ Show the python code that replicates the NCL functionality. Don't worry about pr
     <span class="s2">&quot;get_r2d&quot;</span><span class="p">:</span> <span class="mf">57.29577951308232</span><span class="p">,</span>
     <span class="s2">&quot;get_pi&quot;</span><span class="p">:</span> <span class="mf">3.141592653589793</span><span class="p">,</span>
     <span class="s2">&quot;log&quot;</span><span class="p">:</span> <span class="mf">1.280934</span><span class="p">,</span>
+    <span class="s2">&quot;log10&quot;</span><span class="p">:</span> <span class="mf">0.5314789</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">ncl_results</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">results</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
@@ -576,6 +588,10 @@ Show the python code that replicates the NCL functionality. Don't worry about pr
 log: 
 	python:	1.280934
 	ncl:	1.280934
+
+log10: 
+	python:	0.5314789
+	ncl:	0.5314789
 
 get_d2r: 
 	python:	0.0174532925199433
@@ -619,6 +635,8 @@ avg:
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>get_pi:
 	0.0
 log:
+	0.0
+log10:
 	0.0
 get_d2r:
 	0.0
