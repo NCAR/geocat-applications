@@ -12,3 +12,4 @@ Dates and Times
     days_in_month.ipynb
     day_of_week.ipynb
     trigonometric_functions.ipynb
+    stdatmus_z2tdp.ipynb
