@@ -22,7 +22,9 @@
 
             .. card:: Data Analysis
 
-    .. grid-item::
+                - `General Applied Math <applications/data_analysis/general_applied_math.ipynb>`_
+
+.. grid-item::
 
         .. grid:: 1
             :gutter: 1
