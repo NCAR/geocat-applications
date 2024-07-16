@@ -427,6 +427,14 @@ document.write(`
 </li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trigonmetric-and-hyperbolic-functions">Trigonmetric and Hyperbolic Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sin-cos-tan">sin, cos, tan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cosecant-secant-cotangent">cosecant, secant, cotangent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#asin-acos-atan-atan2">asin, acos, atan, atan2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sinh-cosh-tanh">sinh, cosh, tanh</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#asinh-acosh-atanh">asinh, acosh, atanh</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curated-resources">Curated Resources</a></li>
 </ul>
             </nav>
@@ -446,7 +454,11 @@ document.write(`
 <p>Working with math is perhaps the most common task in any kind of geoscience workflow in Python. This notebook will cover:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">math</span></code> vs. <code class="docutils literal notranslate"><span class="pre">numpy</span></code></p></li>
-<li><p>Working with math and common statistics methods</p></li>
+<li><p>Trigonmetric and Hyperbolic Functions</p></li>
+<li><p>Algebraic Functions</p></li>
+<li><p>Degrees and Radians</p></li>
+<li><p>Rounding</p></li>
+<li><p>Exponents and Logarithms</p></li>
 </ul>
 </section>
 <section id="math-vs-numpy">
@@ -566,6 +578,234 @@ document.write(`
 </section>
 </section>
 </section>
+<section id="trigonmetric-and-hyperbolic-functions">
+<h2>Trigonmetric and Hyperbolic Functions<a class="headerlink" href="#trigonmetric-and-hyperbolic-functions" title="Link to this heading">#</a></h2>
+<p>Trigonometric functions represent the ratios between the sides and angles of a right triangle and are commonly used in all fields of science and mathematics</p>
+<section id="sin-cos-tan">
+<h3>sin, cos, tan<a class="headerlink" href="#sin-cos-tan" title="Link to this heading">#</a></h3>
+<p>The functions <code class="docutils literal notranslate"><span class="pre">sin</span></code>, <code class="docutils literal notranslate"><span class="pre">cos</span></code>, and <code class="docutils literal notranslate"><span class="pre">tan</span></code> are part of the standard Python <code class="docutils literal notranslate"><span class="pre">math</span></code> library when working with single value inputs. When working with lists and arrays, these functions can be evaluated with the external package <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. By default, the input and output values are in radians.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="nb">input</span> <span class="o">=</span> <span class="mf">3.14</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Single Value input&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">sin (math)  = </span><span class="si">{</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">sin (numpy) = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">cos (math)  = </span><span class="si">{</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">cos (numpy) = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">tan (math)  = </span><span class="si">{</span><span class="n">math</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">tan (numpy) = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">inputs</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Multiple Value Input (array/list)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">sin (numpy) = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">cos (numpy) = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">tan (numpy) = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Single value input
+	sin (math)  = 0.0015926529164868282
+	sin (numpy) = 0.0015926529164868282
+	cos (math)  = -0.9999987317275395
+	cos (numpy) = -0.9999987317275395
+	tan (math)  = -0.001592654936407223
+	tan (numpy) = -0.001592654936407223
+
+Multiple Value Input (array/list)
+	sin (numpy) = [0.93203909 0.74570521 0.00159265]
+	cos (numpy) = [ 0.36235775 -0.66627602 -0.99999873]
+	tan (numpy) = [ 2.57215162e+00 -1.11921364e+00 -1.59265494e-03]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="cosecant-secant-cotangent">
+<h3>cosecant, secant, cotangent<a class="headerlink" href="#cosecant-secant-cotangent" title="Link to this heading">#</a></h3>
+<p>The functions <code class="docutils literal notranslate"><span class="pre">csc</span></code>, <code class="docutils literal notranslate"><span class="pre">sec</span></code>, and <code class="docutils literal notranslate"><span class="pre">cot</span></code> are <strong>not</strong> part of the standard Python <code class="docutils literal notranslate"><span class="pre">math</span></code> library or <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. Instead, these values can be found as the reciprocal of the values <code class="docutils literal notranslate"><span class="pre">sin</span></code>, <code class="docutils literal notranslate"><span class="pre">cos</span></code>, and <code class="docutils literal notranslate"><span class="pre">tan</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">csc</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">sin</span>
+
+<span class="n">sec</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">cos</span>
+
+<span class="n">cot</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">tan</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="nb">input</span> <span class="o">=</span> <span class="mf">3.14</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Single Value input&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">csc (math)  = </span><span class="si">{</span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">csc (numpy) = </span><span class="si">{</span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">sec (math)  = </span><span class="si">{</span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">sec (numpy) = </span><span class="si">{</span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">cot (math)  = </span><span class="si">{</span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">math</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">cot (numpy) = </span><span class="si">{</span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">inputs</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Multiple Value Input (array/list)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">csc (numpy) = </span><span class="si">{</span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">sec (numpy) = </span><span class="si">{</span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">cot (numpy) = </span><span class="si">{</span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Single Value input
+	csc (math)  = 627.8831939138764
+	csc (numpy) = 627.8831939138764
+	sec (math)  = -1.000001268274069
+	sec (numpy) = -1.000001268274069
+	cot (math)  = -627.8823975869133
+	cot (numpy) = -627.8823975869133
+
+Multiple Value Input (array/list)
+	csc (numpy) = [  1.07291638   1.34101249 627.88319391]
+	sec (numpy) = [ 2.7597036  -1.50087947 -1.00000127]
+	cot (numpy) = [ 3.88779569e-01 -8.93484463e-01 -6.27882398e+02]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="asin-acos-atan-atan2">
+<h3>asin, acos, atan, atan2<a class="headerlink" href="#asin-acos-atan-atan2" title="Link to this heading">#</a></h3>
+<p>The inverse trigonometric functions <code class="docutils literal notranslate"><span class="pre">asin</span></code>, <code class="docutils literal notranslate"><span class="pre">acos</span></code>, <code class="docutils literal notranslate"><span class="pre">atan</span></code>, and <code class="docutils literal notranslate"><span class="pre">atan2</span></code> are part of the standard Python <code class="docutils literal notranslate"><span class="pre">math</span></code> library when working with single value inputs. When working with lists and arrays, these functions can be evaluated with the external package <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. By default, the input and output values are in radians.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="nb">input</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Single Value input&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">asin (math)  = </span><span class="si">{</span><span class="n">math</span><span class="o">.</span><span class="n">asin</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">asin (numpy) = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">arcsin</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">acos (math)  = </span><span class="si">{</span><span class="n">math</span><span class="o">.</span><span class="n">acos</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">acos (numpy) = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">atan (math)  = </span><span class="si">{</span><span class="n">math</span><span class="o">.</span><span class="n">atan</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">atan (numpy) = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">inputs</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.14</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Multiple Value Input (array/list)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">asin (numpy) = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">arcsin</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">acos (numpy) = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">atan (numpy) = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Single Value input
+	asin (math)  = 0.5235987755982989
+	asin (numpy) = 0.5235987755982989
+	acos (math)  = 1.0471975511965979
+	acos (numpy) = 1.0471975511965979
+	atan (math)  = 0.4636476090008061
+	atan (numpy) = 0.4636476090008061
+
+Multiple Value Input (array/list)
+	asin (numpy) = [0.52359878 0.84806208 0.14046141]
+	acos (numpy) = [1.04719755 0.72273425 1.43033491]
+	atan (numpy) = [0.46364761 0.64350111 0.13909594]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="sinh-cosh-tanh">
+<h3>sinh, cosh, tanh<a class="headerlink" href="#sinh-cosh-tanh" title="Link to this heading">#</a></h3>
+<p>The hyperbolic trigonometric functions are analogous functions that make use of the hyperbola instead of the circle. The trigonometric functions <code class="docutils literal notranslate"><span class="pre">sinh</span></code>, <code class="docutils literal notranslate"><span class="pre">cosh</span></code>, and <code class="docutils literal notranslate"><span class="pre">tanh</span></code> are part of the standard Python <code class="docutils literal notranslate"><span class="pre">math</span></code> library when working with single value inputs. When working with lists and arrays, these functions can be evaluated with the external package <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. By default, the input and output values are in radians.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="nb">input</span> <span class="o">=</span> <span class="mf">3.14</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Single Value input&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">sinh (math)  = </span><span class="si">{</span><span class="n">math</span><span class="o">.</span><span class="n">sinh</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">sinh (numpy) = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sinh</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">cosh (math)  = </span><span class="si">{</span><span class="n">math</span><span class="o">.</span><span class="n">cosh</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">cosh (numpy) = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">cosh</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">tanh (math)  = </span><span class="si">{</span><span class="n">math</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">tanh (numpy) = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">inputs</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Multiple Value Input (array/list)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">sinh (numpy) = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sinh</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">cosh (numpy) = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">cosh</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">tanh (numpy) = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Single Value input
+	sinh (math)  = 11.53029203041011
+	sinh (numpy) = 11.53029203041011
+	cosh (math)  = 11.573574828312076
+	cosh (numpy) = 11.573574828312076
+	tanh (math)  = 0.9962602049458319
+	tanh (numpy) = 0.9962602049458319
+
+Multiple Value Input (array/list)
+	sinh (numpy) = [ 1.50946136  4.93696181 11.53029203]
+	cosh (numpy) = [ 1.81065557  5.03722065 11.57357483]
+	tanh (numpy) = [0.83365461 0.9800964  0.9962602 ]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="asinh-acosh-atanh">
+<h3>asinh, acosh, atanh<a class="headerlink" href="#asinh-acosh-atanh" title="Link to this heading">#</a></h3>
+<p>The inverse hyperbolic trigonmetric functions <code class="docutils literal notranslate"><span class="pre">asinh</span></code>, <code class="docutils literal notranslate"><span class="pre">acosh</span></code>, and <code class="docutils literal notranslate"><span class="pre">atanh</span></code> are part of the standard Python <code class="docutils literal notranslate"><span class="pre">math</span></code> library when working with single value inputs. When working with lists and arrays, these functions can be evaluated with the external package <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. By default, the input and output values are in radians.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="nb">input</span> <span class="o">=</span> <span class="mf">3.14</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Single Value input&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">asinh (math)  = </span><span class="si">{</span><span class="n">math</span><span class="o">.</span><span class="n">asinh</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">asinh (numpy) = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">arcsinh</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">acosh (math)  = </span><span class="si">{</span><span class="n">math</span><span class="o">.</span><span class="n">acosh</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">acosh (numpy) = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">arccosh</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">input</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">atanh (math)  = </span><span class="si">{</span><span class="n">math</span><span class="o">.</span><span class="n">atanh</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">atanh (numpy) = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">arctanh</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">inputs</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.75</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Multiple Value Input (array/list)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">asinh (numpy) = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">arcsinh</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">acosh (numpy) = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">arccosh</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">inputs</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.14</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">atanh (numpy) = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">arctanh</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Single Value input
+	asinh (math)  = 1.8618125572133835
+	asinh (numpy) = 1.8618125572133835
+	acosh (math)  = 1.810991348900196
+	acosh (numpy) = 1.810991348900196
+	atanh (math)  = 0.5493061443340548
+	atanh (numpy) = 0.5493061443340548
+
+Multiple Value Input (array/list)
+	asinh (numpy) = [1.19476322 1.32589777 1.86181256]
+	acosh (numpy) = [0.96242365 1.15881036 1.81099135]
+	atanh (numpy) = [0.54930614 0.97295507 0.14092558]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
 <section id="curated-resources">
 <h2>Curated Resources<a class="headerlink" href="#curated-resources" title="Link to this heading">#</a></h2>
 <ul class="simple">
@@ -637,6 +877,14 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Exponents and Logarithms</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trigonmetric-and-hyperbolic-functions">Trigonmetric and Hyperbolic Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sin-cos-tan">sin, cos, tan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cosecant-secant-cotangent">cosecant, secant, cotangent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#asin-acos-atan-atan2">asin, acos, atan, atan2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sinh-cosh-tanh">sinh, cosh, tanh</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#asinh-acosh-atanh">asinh, acosh, atanh</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curated-resources">Curated Resources</a></li>
