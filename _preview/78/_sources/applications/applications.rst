@@ -14,13 +14,14 @@
 
             .. card:: Plot Types
 
-
     .. grid-item::
 
         .. grid:: 1
             :gutter: 1
 
-            .. card:: Data Analysis
+            .. card:: `Data Analysis <applications/data_analysis/data_analysis.rst>`_
+
+                - `Atmosphere Properties above Sea-Level <applications/data_analysis/stdatmus_z2tdp.ipynb>`_
 
     .. grid-item::
 
