@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Atmosphere Properties based on Height</title>
+    <title>Atmosphere Properties above Sea-Level</title>
   
   
   
@@ -396,7 +396,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Atmosphere Properties based on Height</h1>
+    <h1>Atmosphere Properties above Sea-Level</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -407,7 +407,19 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ambiance-python-package">Ambiance Python Package</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#international-standard-atmosphere">International Standard Atmosphere</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ambiance-python-package"><code class="docutils literal notranslate"><span class="pre">ambiance</span></code> Python Package</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#troposphere-0-11-000-meters">Troposphere: 0 - 11,000 meters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stratosphere-20-000-47-000-m">Stratosphere: 20,000 - 47,000 m</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stratopause-47-000-51-000-m">Stratopause: 47,000 - 51,000 m</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mesosphere-51-000-84-852-m">Mesosphere: 51,000 - 84,852 m</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#collect-changes-in-atmosphere-properties-with-altitude">Collect Changes in Atmosphere Properties with Altitude</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-change-in-density-as-altitude-increases">Plot Change in Density as Altitude Increases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-change-in-pressure-as-altitude-increases">Plot Change in Pressure as Altitude Increases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-change-in-temperature-as-altitude-increases">Plot Change in Temperature as Altitude Increases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-change-in-speed-of-sound-as-altitude-increases">Plot Change in Speed of Sound as Altitude Increases</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curated-resources">Curated Resources</a></li>
 </ul>
             </nav>
@@ -420,15 +432,24 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="atmosphere-properties-based-on-height">
-<h1>Atmosphere Properties based on Height<a class="headerlink" href="#atmosphere-properties-based-on-height" title="Link to this heading">#</a></h1>
+  <section id="atmosphere-properties-above-sea-level">
+<h1>Atmosphere Properties above Sea-Level<a class="headerlink" href="#atmosphere-properties-above-sea-level" title="Link to this heading">#</a></h1>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
-<p>The atmosphere changes based on height above sea-level. Properties like temperature, density, and pressure change with the altitude of observation</p>
+<p>The properties of the atmosphere change with the height above sea-level and this notebook will cover:</p>
+<ul class="simple">
+<li><p>International Standard Atmosphere</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ambiance</span></code> Python package</p></li>
+</ul>
+</section>
+<section id="international-standard-atmosphere">
+<h2>International Standard Atmosphere<a class="headerlink" href="#international-standard-atmosphere" title="Link to this heading">#</a></h2>
+<p>The International Standard Atmosphere represents a static model for how the atmosphere changes over a range of altitiudes above sea-level. The atmosphere is split into different named layers, where properties like temperature, pressure, and density change at predictable rates.</p>
 </section>
 <section id="ambiance-python-package">
-<h2><a class="reference external" href="https://github.com/airinnova/ambiance/">Ambiance</a> Python Package<a class="headerlink" href="#ambiance-python-package" title="Link to this heading">#</a></h2>
-<p>Ambiance atmosphere properties:</p>
+<h2><a class="reference external" href="https://ambiance.readthedocs.io/en/latest/"><code class="docutils literal notranslate"><span class="pre">ambiance</span></code></a> Python Package<a class="headerlink" href="#ambiance-python-package" title="Link to this heading">#</a></h2>
+<p>There are different models to represent the changing atmosphere. The older 1976 NASA <em>U.S Standard Atmosphere</em> and the more recent 1993 International Civil Aviation Organization (ICAO) <em>Manual of the ICAO Standard Atmosphere</em> which extends the efficacy of the 1976 model to 80 km. The <code class="docutils literal notranslate"><span class="pre">ambiance</span></code> package makes use of the 1993 model, but will <a class="reference external" href="https://ambiance.readthedocs.io/en/latest/theory/references.html">match the 1976 model in many parts</a>. <code class="docutils literal notranslate"><span class="pre">ambiance</span></code> supports altitudes from -5004 m to 81020 m measured at sea-level.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ambiance</span></code> atmosphere properties:</p>
 <ul class="simple">
 <li><p>Density (<code class="docutils literal notranslate"><span class="pre">density</span></code>)</p></li>
 <li><p>Pressure (<code class="docutils literal notranslate"><span class="pre">pressure</span></code>)</p></li>
@@ -449,31 +470,226 @@ document.write(`
 <li><p>Temperature (<code class="docutils literal notranslate"><span class="pre">temperature</span></code>)</p></li>
 <li><p>Thermal conductivity (<code class="docutils literal notranslate"><span class="pre">thermal_conductivity</span></code>)</p></li>
 </ul>
+<section id="troposphere-0-11-000-meters">
+<h3>Troposphere: 0 - 11,000 meters<a class="headerlink" href="#troposphere-0-11-000-meters" title="Link to this heading">#</a></h3>
+<p>The troposphere represents the lowest layer of the Earth’s atmospehre, which starts at ground levels and where humans live and most weather occurs.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ambiance</span> <span class="kn">import</span> <span class="n">Atmosphere</span>
 
 <span class="n">height</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># meters</span>
-<span class="n">atmos_100</span> <span class="o">=</span> <span class="n">Atmosphere</span><span class="p">(</span><span class="n">height</span><span class="p">)</span>
+<span class="n">atmos</span> <span class="o">=</span> <span class="n">Atmosphere</span><span class="p">(</span><span class="n">height</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Layer Name     : </span><span class="si">{</span><span class="n">atmos_100</span><span class="o">.</span><span class="n">layer_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Speed of sound : </span><span class="si">{</span><span class="n">atmos_100</span><span class="o">.</span><span class="n">speed_of_sound</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> m/s&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Temperature    : </span><span class="si">{</span><span class="n">atmos_100</span><span class="o">.</span><span class="n">temperature_in_celsius</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> C&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Density        : </span><span class="si">{</span><span class="n">atmos_100</span><span class="o">.</span><span class="n">density</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> kg/m^3&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Pressure       : </span><span class="si">{</span><span class="n">atmos_100</span><span class="o">.</span><span class="n">pressure</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">100</span><span class="si">}</span><span class="s2"> hPa (mB)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Layer Name     : </span><span class="si">{</span><span class="n">atmos</span><span class="o">.</span><span class="n">layer_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Density        : </span><span class="si">{</span><span class="n">atmos</span><span class="o">.</span><span class="n">density</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> kg/m^3&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Pressure       : </span><span class="si">{</span><span class="n">atmos</span><span class="o">.</span><span class="n">pressure</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">100</span><span class="si">}</span><span class="s2"> hPa (mB)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Temperature    : </span><span class="si">{</span><span class="n">atmos</span><span class="o">.</span><span class="n">temperature_in_celsius</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> C&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Speed of sound : </span><span class="si">{</span><span class="n">atmos</span><span class="o">.</span><span class="n">speed_of_sound</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> m/s&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Layer Name     : troposphere
-Speed of sound : 339.90996496753064 m/s
-Temperature    : 14.350010225164397 C
 Density        : 1.213282967332296 kg/m^3
 Pressure       : 1001.2945645595289 hPa (mB)
+Temperature    : 14.350010225164397 C
+Speed of sound : 339.90996496753064 m/s
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="stratosphere-20-000-47-000-m">
+<h3>Stratosphere: 20,000 - 47,000 m<a class="headerlink" href="#stratosphere-20-000-47-000-m" title="Link to this heading">#</a></h3>
+<p>The stratosphere is where the ozone layer is found and a region where the temperature increases instead of decreases.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ambiance</span> <span class="kn">import</span> <span class="n">Atmosphere</span>
+
+<span class="n">height</span> <span class="o">=</span> <span class="mi">21000</span>  <span class="c1"># meters</span>
+<span class="n">atmos</span> <span class="o">=</span> <span class="n">Atmosphere</span><span class="p">(</span><span class="n">height</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Layer Name     : </span><span class="si">{</span><span class="n">atmos</span><span class="o">.</span><span class="n">layer_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Density        : </span><span class="si">{</span><span class="n">atmos</span><span class="o">.</span><span class="n">density</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> kg/m^3&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Pressure       : </span><span class="si">{</span><span class="n">atmos</span><span class="o">.</span><span class="n">pressure</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">100</span><span class="si">}</span><span class="s2"> hPa (mB)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Temperature    : </span><span class="si">{</span><span class="n">atmos</span><span class="o">.</span><span class="n">temperature_in_celsius</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> C&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Speed of sound : </span><span class="si">{</span><span class="n">atmos</span><span class="o">.</span><span class="n">speed_of_sound</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> m/s&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Layer Name     : stratosphere
+Density        : 0.0757146500085348 kg/m^3
+Pressure       : 47.2892567929209 hPa (mB)
+Temperature    : -55.56914646915547 C
+Speed of sound : 295.70270855761527 m/s
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="stratopause-47-000-51-000-m">
+<h3>Stratopause: 47,000 - 51,000 m<a class="headerlink" href="#stratopause-47-000-51-000-m" title="Link to this heading">#</a></h3>
+<p>The stratopause is a boundary level between the stratosphere and the mesophere, where the peak of the stratosphere occurs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ambiance</span> <span class="kn">import</span> <span class="n">Atmosphere</span>
+
+<span class="n">height</span> <span class="o">=</span> <span class="mi">51000</span>  <span class="c1"># meters</span>
+<span class="n">atmos</span> <span class="o">=</span> <span class="n">Atmosphere</span><span class="p">(</span><span class="n">height</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Layer Name     : </span><span class="si">{</span><span class="n">atmos</span><span class="o">.</span><span class="n">layer_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Density        : </span><span class="si">{</span><span class="n">atmos</span><span class="o">.</span><span class="n">density</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> kg/m^3&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Pressure       : </span><span class="si">{</span><span class="n">atmos</span><span class="o">.</span><span class="n">pressure</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">100</span><span class="si">}</span><span class="s2"> hPa (mB)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Temperature    : </span><span class="si">{</span><span class="n">atmos</span><span class="o">.</span><span class="n">temperature_in_celsius</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> C&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Speed of sound : </span><span class="si">{</span><span class="n">atmos</span><span class="o">.</span><span class="n">speed_of_sound</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> m/s&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Layer Name     : stratopause
+Density        : 0.0009068993840302901 kg/m^3
+Pressure       : 0.704577924126659 hPa (mB)
+Temperature    : -2.5 C
+Speed of sound : 329.79873100377444 m/s
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="mesosphere-51-000-84-852-m">
+<h3>Mesosphere: 51,000 - 84,852 m<a class="headerlink" href="#mesosphere-51-000-84-852-m" title="Link to this heading">#</a></h3>
+<p>The mesosphere is an upper layer of the atmosphere where most meteors burn up in and where the coldest temperature in the Earth’s atmosphere is found.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ambiance</span> <span class="kn">import</span> <span class="n">Atmosphere</span>
+
+<span class="n">height</span> <span class="o">=</span> <span class="mi">61000</span>  <span class="c1"># meters</span>
+<span class="n">atmos</span> <span class="o">=</span> <span class="n">Atmosphere</span><span class="p">(</span><span class="n">height</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Layer Name     : </span><span class="si">{</span><span class="n">atmos</span><span class="o">.</span><span class="n">layer_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Density        : </span><span class="si">{</span><span class="n">atmos</span><span class="o">.</span><span class="n">density</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> kg/m^3&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Pressure       : </span><span class="si">{</span><span class="n">atmos</span><span class="o">.</span><span class="n">pressure</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">100</span><span class="si">}</span><span class="s2"> hPa (mB)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Temperature    : </span><span class="si">{</span><span class="n">atmos</span><span class="o">.</span><span class="n">temperature_in_celsius</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> C&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Speed of sound : </span><span class="si">{</span><span class="n">atmos</span><span class="o">.</span><span class="n">speed_of_sound</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> m/s&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Layer Name     : mesosphere
+Density        : 0.0002732109244679118 kg/m^3
+Pressure       : 0.1915738320683427 hPa (mB)
+Temperature    : -28.876569042872546 C
+Speed of sound : 313.3163659775633 m/s
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="collect-changes-in-atmosphere-properties-with-altitude">
+<h3>Collect Changes in Atmosphere Properties with Altitude<a class="headerlink" href="#collect-changes-in-atmosphere-properties-with-altitude" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ambiance</span> <span class="kn">import</span> <span class="n">Atmosphere</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">height_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">5004</span><span class="p">,</span> <span class="mi">81020</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">density</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">pressure</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">temperature</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">speed_of_sound</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">height</span> <span class="ow">in</span> <span class="n">height_range</span><span class="p">:</span>
+    <span class="n">atmos</span> <span class="o">=</span> <span class="n">Atmosphere</span><span class="p">(</span><span class="n">height</span><span class="p">)</span>
+    <span class="n">density</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">atmos</span><span class="o">.</span><span class="n">density</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">pressure</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">atmos</span><span class="o">.</span><span class="n">pressure</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="n">temperature</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">atmos</span><span class="o">.</span><span class="n">temperature_in_celsius</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">speed_of_sound</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">atmos</span><span class="o">.</span><span class="n">speed_of_sound</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plot-change-in-density-as-altitude-increases">
+<h3>Plot Change in Density as Altitude Increases<a class="headerlink" href="#plot-change-in-density-as-altitude-increases" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Change in Density as Altitude Increases&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Height (m)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Density (kg/m^3)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">height_range</span><span class="p">,</span> <span class="n">density</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/7f4c1dd9ba2f516a633ad788e23d1eabf29678c8bc12ee7cd0021bb2f95216e3.png" src="../../_images/7f4c1dd9ba2f516a633ad788e23d1eabf29678c8bc12ee7cd0021bb2f95216e3.png" />
+</div>
+</div>
+</section>
+<section id="plot-change-in-pressure-as-altitude-increases">
+<h3>Plot Change in Pressure as Altitude Increases<a class="headerlink" href="#plot-change-in-pressure-as-altitude-increases" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Change in Pressure as Altitude Increases&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Height (m)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Pressure (hPa mB)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">height_range</span><span class="p">,</span> <span class="n">pressure</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/0f7db5b28321034eecf2bdad8dd94a9da79be476bd4f85515095ac2e2a131baf.png" src="../../_images/0f7db5b28321034eecf2bdad8dd94a9da79be476bd4f85515095ac2e2a131baf.png" />
+</div>
+</div>
+</section>
+<section id="plot-change-in-temperature-as-altitude-increases">
+<h3>Plot Change in Temperature as Altitude Increases<a class="headerlink" href="#plot-change-in-temperature-as-altitude-increases" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Change in Temperature as Altitude Increases&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Height (m)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Temperature (C)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">height_range</span><span class="p">,</span> <span class="n">temperature</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/bc7f455f3ff58c636701882bbc1e085838309af9d6d9e4966df392f64fd2f9b0.png" src="../../_images/bc7f455f3ff58c636701882bbc1e085838309af9d6d9e4966df392f64fd2f9b0.png" />
+</div>
+</div>
+</section>
+<section id="plot-change-in-speed-of-sound-as-altitude-increases">
+<h3>Plot Change in Speed of Sound as Altitude Increases<a class="headerlink" href="#plot-change-in-speed-of-sound-as-altitude-increases" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Change in Speed of Sound as Altitude Increases&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Height (m)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Speed of Sound (m/s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">height_range</span><span class="p">,</span> <span class="n">speed_of_sound</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/8697606ed6c9e6c122a687a90858f2fc633401bcc7a3a9001940e6d9feb273ea.png" src="../../_images/8697606ed6c9e6c122a687a90858f2fc633401bcc7a3a9001940e6d9feb273ea.png" />
+</div>
+</div>
+</section>
 </section>
 <section id="curated-resources">
 <h2>Curated Resources<a class="headerlink" href="#curated-resources" title="Link to this heading">#</a></h2>
@@ -481,6 +697,8 @@ Pressure       : 1001.2945645595289 hPa (mB)
 <ul class="simple">
 <li><p>Python <a class="reference external" href="https://ambiance.readthedocs.io/en/latest/"><code class="docutils literal notranslate"><span class="pre">ambiance</span></code></a> documentation</p></li>
 <li><p><a class="reference external" href="https://www.ngdc.noaa.gov/stp/space-weather/online-publications/miscellaneous/us-standard-atmosphere-1976/us-standard-atmosphere_st76-1562_noaa.pdf">1976 U.S. standard atmosphere</a> documentation</p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/International_Standard_Atmosphere">International Standard Atmosphere (Wikipedia)</a></p></li>
+<li><p><a class="reference external" href="https://scied.ucar.edu/learning-zone/atmosphere/layers-earths-atmosphere">Layers of Earth’s Atmosphere (NSF UCAR/NCAR)</a></p></li>
 </ul>
 </section>
 </section>
@@ -513,7 +731,19 @@ Pressure       : 1001.2945645595289 hPa (mB)
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ambiance-python-package">Ambiance Python Package</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#international-standard-atmosphere">International Standard Atmosphere</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ambiance-python-package"><code class="docutils literal notranslate"><span class="pre">ambiance</span></code> Python Package</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#troposphere-0-11-000-meters">Troposphere: 0 - 11,000 meters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stratosphere-20-000-47-000-m">Stratosphere: 20,000 - 47,000 m</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stratopause-47-000-51-000-m">Stratopause: 47,000 - 51,000 m</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mesosphere-51-000-84-852-m">Mesosphere: 51,000 - 84,852 m</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#collect-changes-in-atmosphere-properties-with-altitude">Collect Changes in Atmosphere Properties with Altitude</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-change-in-density-as-altitude-increases">Plot Change in Density as Altitude Increases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-change-in-pressure-as-altitude-increases">Plot Change in Pressure as Altitude Increases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-change-in-temperature-as-altitude-increases">Plot Change in Temperature as Altitude Increases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-change-in-speed-of-sound-as-altitude-increases">Plot Change in Speed of Sound as Altitude Increases</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curated-resources">Curated Resources</a></li>
 </ul>
   </nav></div>
