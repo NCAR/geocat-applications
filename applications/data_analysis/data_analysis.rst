@@ -6,5 +6,6 @@ Data Analysis
 =============
 
 .. toctree::
-   :maxdepth: 1
-   :hidden:
+    :maxdepth: 1
+
+    stdatmus_z2tdp.ipynb
