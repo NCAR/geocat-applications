@@ -427,37 +427,34 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-d2r">get_d2r</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Grab and Go</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Differences from NCL</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-r2d">get_r2d</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Grab and Go</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Grab and Go</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-pi">get_pi</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Grab and Go</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Grab and Go</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#log">log</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Grab and Go</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Differences from NCL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Grab and Go</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#log10">log10</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Grab and Go</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Differences from NCL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Grab and Go</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mod">mod</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Grab and Go</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Grab and Go</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#product">product</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Grab and Go</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Grab and Go</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sum">sum</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Grab and Go</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Grab and Go</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-resources">Python Resources</a></li>
@@ -476,6 +473,7 @@ document.write(`
 <h1>General Applied Math<a class="headerlink" href="#general-applied-math" title="Link to this heading">#</a></h1>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>This section covers general applied math functions from NCL:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/abs.shtml">abs</a></p></li>
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/avg.shtml">avg</a></p></li>
@@ -493,7 +491,7 @@ document.write(`
 </section>
 <section id="abs">
 <h2>abs<a class="headerlink" href="#abs" title="Link to this heading">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">abs</span></code> returns the absolute value of numeric data</p>
+<p>NCL’s <code class="docutils literal notranslate"><span class="pre">abs</span></code> function returns the absolute value of numeric data</p>
 <section id="grab-and-go">
 <h3>Grab and Go<a class="headerlink" href="#grab-and-go" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
@@ -514,16 +512,18 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Input: Array - List Comprehension</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Input: Array</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
 <span class="n">input_values</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.14</span><span class="p">,</span> <span class="o">-</span><span class="mi">123</span><span class="p">]</span>
 
-<span class="n">abs_output</span> <span class="o">=</span> <span class="p">[</span><span class="nb">abs</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">input_values</span><span class="p">]</span>
+<span class="n">abs_output</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">input_values</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">abs_output</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10, 3.14, 123]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 10.     3.14 123.  ]
 </pre></div>
 </div>
 </div>
@@ -532,7 +532,7 @@ document.write(`
 </section>
 <section id="avg">
 <h2>avg<a class="headerlink" href="#avg" title="Link to this heading">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">avg</span></code> calculate the average of numeric values</p>
+<p>NCL’s <code class="docutils literal notranslate"><span class="pre">avg</span></code> function calculate the average of numeric values</p>
 <section id="id1">
 <h3>Grab and Go<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
@@ -593,7 +593,7 @@ document.write(`
 </section>
 <section id="cumsum">
 <h2>cumsum<a class="headerlink" href="#cumsum" title="Link to this heading">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">cumsum</span></code> calculates the cumulative sum</p>
+<p>NCL’s <code class="docutils literal notranslate"><span class="pre">cumsum</span></code> function calculates the cumulative sum</p>
 <section id="id2">
 <h3>Grab and Go<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
@@ -617,7 +617,7 @@ document.write(`
 </section>
 <section id="decimalplaces">
 <h2>decimalPlaces<a class="headerlink" href="#decimalplaces" title="Link to this heading">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">decimalPlaces</span></code> truncates or rounds to the number of decimal places specified</p>
+<p>NCL’s <code class="docutils literal notranslate"><span class="pre">decimalPlaces</span></code> function truncates or rounds to the number of decimal places specified</p>
 <section id="id3">
 <h3>Grab and Go<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
@@ -638,16 +638,18 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># round: Array - List Comprehension</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># round: Array</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
 <span class="n">input_values</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">10.353535</span><span class="p">,</span> <span class="mf">3.1415926</span><span class="p">,</span> <span class="mf">123.4567</span><span class="p">]</span>
 
-<span class="n">round_output</span> <span class="o">=</span> <span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">input_values</span><span class="p">]</span>
+<span class="n">round_output</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">input_values</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">round_output</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-10.354, 3.142, 123.457]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-10.354   3.142 123.457]
 </pre></div>
 </div>
 </div>
@@ -699,7 +701,7 @@ document.write(`
 </section>
 <section id="get-d2r">
 <h2>get_d2r<a class="headerlink" href="#get-d2r" title="Link to this heading">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">get_d2r</span></code> returns a constant to convert degrees to radians</p>
+<p>NCL’s <code class="docutils literal notranslate"><span class="pre">get_d2r</span></code> function returns a constant to convert degrees to radians</p>
 <section id="id4">
 <h3>Grab and Go<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
@@ -716,16 +718,12 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="id5">
-<h3>Differences from NCL<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
-<p>Python returns the value <code class="docutils literal notranslate"><span class="pre">0.017453292519943295</span></code>, a float with more degrees of precision than NCL’s float or double constant</p>
-</section>
 </section>
 <section id="get-r2d">
 <h2>get_r2d<a class="headerlink" href="#get-r2d" title="Link to this heading">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">get_r2d</span></code> returns a constant that converts radians to degrees</p>
-<section id="id6">
-<h3>Grab and Go<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>NCL’s <code class="docutils literal notranslate"><span class="pre">get_r2d</span></code> function returns a constant that converts radians to degrees</p>
+<section id="id5">
+<h3>Grab and Go<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
@@ -745,9 +743,9 @@ document.write(`
 </section>
 <section id="get-pi">
 <h2>get_pi<a class="headerlink" href="#get-pi" title="Link to this heading">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">get_pi</span></code> returns the value of pi</p>
-<section id="id7">
-<h3>Grab and Go<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p>NCL’s <code class="docutils literal notranslate"><span class="pre">get_pi</span></code> function returns the value of pi</p>
+<section id="id6">
+<h3>Grab and Go<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
@@ -767,9 +765,9 @@ document.write(`
 </section>
 <section id="log">
 <h2>log<a class="headerlink" href="#log" title="Link to this heading">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">log</span></code> calculates the natural log</p>
-<section id="id8">
-<h3>Grab and Go<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p>NCL’s <code class="docutils literal notranslate"><span class="pre">log</span></code> function calculates the natural log</p>
+<section id="id7">
+<h3>Grab and Go<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
@@ -788,16 +786,12 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="id9">
-<h3>Differences from NCL<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
-<p>Python returns a float with more degrees of precision than NCL’s log function</p>
-</section>
 </section>
 <section id="log10">
 <h2>log10<a class="headerlink" href="#log10" title="Link to this heading">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">log10</span></code> calculate the log base 10</p>
-<section id="id10">
-<h3>Grab and Go<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<p>NCL’s <code class="docutils literal notranslate"><span class="pre">log10</span></code> function calculate the log base 10</p>
+<section id="id8">
+<h3>Grab and Go<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
@@ -816,16 +810,12 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="id11">
-<h3>Differences from NCL<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
-<p>Python returns a float with more degrees of precision than NCL’s log10 function</p>
-</section>
 </section>
 <section id="mod">
 <h2>mod<a class="headerlink" href="#mod" title="Link to this heading">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">mod</span></code> calculate the remainder of a division</p>
-<section id="id12">
-<h3>Grab and Go<a class="headerlink" href="#id12" title="Link to this heading">#</a></h3>
+<p>NCL’s <code class="docutils literal notranslate"><span class="pre">mod</span></code> function calculate the remainder of a division</p>
+<section id="id9">
+<h3>Grab and Go<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mod_value</span> <span class="o">=</span> <span class="mi">17</span> <span class="o">%</span> <span class="mi">3</span>
@@ -860,9 +850,9 @@ document.write(`
 </section>
 <section id="product">
 <h2>product<a class="headerlink" href="#product" title="Link to this heading">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">product</span></code> calculate the product of input values</p>
-<section id="id13">
-<h3>Grab and Go<a class="headerlink" href="#id13" title="Link to this heading">#</a></h3>
+<p>NCL’s <code class="docutils literal notranslate"><span class="pre">product</span></code> function calculate the product of input values</p>
+<section id="id10">
+<h3>Grab and Go<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Math</span>
@@ -891,9 +881,9 @@ document.write(`
 </section>
 <section id="sum">
 <h2>sum<a class="headerlink" href="#sum" title="Link to this heading">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">sum</span></code> calculate the sum of input values</p>
-<section id="id14">
-<h3>Grab and Go<a class="headerlink" href="#id14" title="Link to this heading">#</a></h3>
+<p>NCL’s <code class="docutils literal notranslate"><span class="pre">sum</span></code> function calculate the sum of input values</p>
+<section id="id11">
+<h3>Grab and Go<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Built-In Python Sum</span>
@@ -994,37 +984,34 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-d2r">get_d2r</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Grab and Go</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Differences from NCL</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-r2d">get_r2d</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Grab and Go</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Grab and Go</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-pi">get_pi</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Grab and Go</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Grab and Go</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#log">log</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Grab and Go</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Differences from NCL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Grab and Go</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#log10">log10</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Grab and Go</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Differences from NCL</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Grab and Go</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mod">mod</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Grab and Go</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Grab and Go</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#product">product</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Grab and Go</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Grab and Go</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sum">sum</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">Grab and Go</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Grab and Go</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-resources">Python Resources</a></li>
