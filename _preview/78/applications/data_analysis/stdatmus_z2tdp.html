@@ -437,7 +437,7 @@ document.write(`
 <h1>Atmosphere Properties above Sea-Level<a class="headerlink" href="#atmosphere-properties-above-sea-level" title="Link to this heading">#</a></h1>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
-<p>The properties of the atmosphere change with the height above sea-level and this notebook will cover:</p>
+<p>The properties of the atmosphere change with the height and this notebook will cover:</p>
 <ul class="simple">
 <li><p>International Standard Atmosphere</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">ambiance</span></code> Python package</p></li>
@@ -449,15 +449,15 @@ document.write(`
 </section>
 <section id="ambiance-python-package">
 <h2><a class="reference external" href="https://ambiance.readthedocs.io/en/latest/"><code class="docutils literal notranslate"><span class="pre">ambiance</span></code></a> Python Package<a class="headerlink" href="#ambiance-python-package" title="Link to this heading">#</a></h2>
-<p>There are different models to represent the changing atmosphere. The older 1976 NASA <em>U.S Standard Atmosphere</em> and the more recent 1993 International Civil Aviation Organization (ICAO) <em>Manual of the ICAO Standard Atmosphere</em> which extends the efficacy of the 1976 model to 80 km. The <code class="docutils literal notranslate"><span class="pre">ambiance</span></code> package makes use of the 1993 model, but will <a class="reference external" href="https://ambiance.readthedocs.io/en/latest/theory/references.html">match the 1976 model in many parts</a>. <code class="docutils literal notranslate"><span class="pre">ambiance</span></code> supports altitudes from -5004 m to 81020 m measured at sea-level.</p>
-<p><code class="docutils literal notranslate"><span class="pre">ambiance</span></code> atmosphere properties:</p>
+<p>There are different models to represent how the atmosphere changes with height. The older 1976 NASA <em>U.S Standard Atmosphere</em> and the more recent 1993 International Civil Aviation Organization (ICAO) <em>Manual of the ICAO Standard Atmosphere</em> which extends the efficacy of the 1976 model to 80 km. The <code class="docutils literal notranslate"><span class="pre">ambiance</span></code> package makes use of the 1993 model, but will <a class="reference external" href="https://ambiance.readthedocs.io/en/latest/theory/references.html">match the 1976 model in most parts</a>. <code class="docutils literal notranslate"><span class="pre">ambiance</span></code> supports altitudes from -5004 m to 81020 m measured at sea-level.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ambiance</span></code> package will return the atmosphere properties:</p>
 <ul class="simple">
 <li><p>Density (<code class="docutils literal notranslate"><span class="pre">density</span></code>)</p></li>
 <li><p>Pressure (<code class="docutils literal notranslate"><span class="pre">pressure</span></code>)</p></li>
 <li><p>Temperature (<code class="docutils literal notranslate"><span class="pre">temperature_in_celsius</span></code>)</p></li>
 <li><p>Collision frequency (<code class="docutils literal notranslate"><span class="pre">collision_frequency</span></code>)</p></li>
 <li><p>Dynamic viscosity (<code class="docutils literal notranslate"><span class="pre">dynamic_viscosity</span></code>)</p></li>
-<li><p>Geometric height above <a class="reference external" href="https://en.wikipedia.org/wiki/Sea_level">MSL</a> (<code class="docutils literal notranslate"><span class="pre">h</span></code>)</p></li>
+<li><p>Geometric height above <a class="reference external" href="https://en.wikipedia.org/wiki/Sea_level">mean sea-level</a> (<code class="docutils literal notranslate"><span class="pre">h</span></code>)</p></li>
 <li><p>Geopotential height (<code class="docutils literal notranslate"><span class="pre">H</span></code>)</p></li>
 <li><p>Gravitational acceleration (<code class="docutils literal notranslate"><span class="pre">grav_accel</span></code>)</p></li>
 <li><p>Kinematic viscosity (<code class="docutils literal notranslate"><span class="pre">kinematic_viscosity</span></code>)</p></li>
@@ -473,12 +473,12 @@ document.write(`
 </ul>
 <section id="troposphere-0-11-000-meters">
 <h3>Troposphere: 0 - 11,000 meters<a class="headerlink" href="#troposphere-0-11-000-meters" title="Link to this heading">#</a></h3>
-<p>The troposphere represents the lowest layer of the Earth’s atmospehre, which starts at ground levels and where humans live and most weather occurs.</p>
+<p>The troposphere represents the lowest layer of the Earth’s atmospehre. This layer starts at ground level and represents where humans live and most weather occurs.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ambiance</span> <span class="kn">import</span> <span class="n">Atmosphere</span>
 
-<span class="n">height</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># meters</span>
+<span class="n">height</span> <span class="o">=</span> <span class="mi">1655</span>  <span class="c1"># meters above sea-level (city of Boulder)</span>
 <span class="n">atmos</span> <span class="o">=</span> <span class="n">Atmosphere</span><span class="p">(</span><span class="n">height</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Layer Name     : </span><span class="si">{</span><span class="n">atmos</span><span class="o">.</span><span class="n">layer_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -491,10 +491,10 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Layer Name     : troposphere
-Density        : 1.213282967332296 kg/m^3
-Pressure       : 1001.2945645595289 hPa (mB)
-Temperature    : 14.350010225164397 C
-Speed of sound : 339.90996496753064 m/s
+Density        : 1.0419118563343137 kg/m^3
+Pressure       : 829.6443728102801 hPa (mB)
+Temperature    : 4.245300013163671 C
+Speed of sound : 333.8831588903602 m/s
 </pre></div>
 </div>
 </div>
@@ -502,12 +502,12 @@ Speed of sound : 339.90996496753064 m/s
 </section>
 <section id="stratosphere-20-000-47-000-m">
 <h3>Stratosphere: 20,000 - 47,000 m<a class="headerlink" href="#stratosphere-20-000-47-000-m" title="Link to this heading">#</a></h3>
-<p>The stratosphere is where the ozone layer is found and a region where the temperature increases instead of decreases.</p>
+<p>The stratosphere is where the ozone layer is found and a region where the temperature increases instead of decreasing.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ambiance</span> <span class="kn">import</span> <span class="n">Atmosphere</span>
 
-<span class="n">height</span> <span class="o">=</span> <span class="mi">21000</span>  <span class="c1"># meters</span>
+<span class="n">height</span> <span class="o">=</span> <span class="mi">21054</span>  <span class="c1"># meters above sea-level</span>
 <span class="n">atmos</span> <span class="o">=</span> <span class="n">Atmosphere</span><span class="p">(</span><span class="n">height</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Layer Name     : </span><span class="si">{</span><span class="n">atmos</span><span class="o">.</span><span class="n">layer_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -520,10 +520,10 @@ Speed of sound : 339.90996496753064 m/s
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Layer Name     : stratosphere
-Density        : 0.0757146500085348 kg/m^3
-Pressure       : 47.2892567929209 hPa (mB)
-Temperature    : -55.56914646915547 C
-Speed of sound : 295.70270855761527 m/s
+Density        : 0.07506116031700617 kg/m^3
+Pressure       : 46.89266390221175 hPa (mB)
+Temperature    : -55.51550194831461 C
+Speed of sound : 295.7391590362088 m/s
 </pre></div>
 </div>
 </div>
@@ -531,12 +531,12 @@ Speed of sound : 295.70270855761527 m/s
 </section>
 <section id="stratopause-47-000-51-000-m">
 <h3>Stratopause: 47,000 - 51,000 m<a class="headerlink" href="#stratopause-47-000-51-000-m" title="Link to this heading">#</a></h3>
-<p>The stratopause is a boundary level between the stratosphere and the mesophere, where the peak of the stratosphere occurs.</p>
+<p>The stratopause is a boundary level between the stratosphere and the mesophere, where the peak temperature of the stratosphere occurs.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ambiance</span> <span class="kn">import</span> <span class="n">Atmosphere</span>
 
-<span class="n">height</span> <span class="o">=</span> <span class="mi">51000</span>  <span class="c1"># meters</span>
+<span class="n">height</span> <span class="o">=</span> <span class="mi">51000</span>  <span class="c1"># meters above sea-level</span>
 <span class="n">atmos</span> <span class="o">=</span> <span class="n">Atmosphere</span><span class="p">(</span><span class="n">height</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Layer Name     : </span><span class="si">{</span><span class="n">atmos</span><span class="o">.</span><span class="n">layer_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -560,7 +560,7 @@ Speed of sound : 329.79873100377444 m/s
 </section>
 <section id="mesosphere-51-000-84-852-m">
 <h3>Mesosphere: 51,000 - 84,852 m<a class="headerlink" href="#mesosphere-51-000-84-852-m" title="Link to this heading">#</a></h3>
-<p>The mesosphere is an upper layer of the atmosphere where most meteors burn up in and where the coldest temperature in the Earth’s atmosphere is found.</p>
+<p>The mesosphere is an upper layer of the atmosphere where meteors typically burn up and where the coldest temperature in the Earth’s atmosphere is found.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ambiance</span> <span class="kn">import</span> <span class="n">Atmosphere</span>
@@ -589,6 +589,7 @@ Speed of sound : 313.3163659775633 m/s
 </section>
 <section id="collect-changes-in-atmosphere-properties-with-altitude">
 <h3>Collect Changes in Atmosphere Properties with Altitude<a class="headerlink" href="#collect-changes-in-atmosphere-properties-with-altitude" title="Link to this heading">#</a></h3>
+<p>Properties like density, pressure, temperature, and the speed of sound all change with the height above sea-level in the atmosphere.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ambiance</span> <span class="kn">import</span> <span class="n">Atmosphere</span>
@@ -696,7 +697,7 @@ Speed of sound : 313.3163659775633 m/s
 <h2>Curated Resources<a class="headerlink" href="#curated-resources" title="Link to this heading">#</a></h2>
 <p>To learn more about working with atmosphere properties in Python, we suggest:</p>
 <ul class="simple">
-<li><p>Python <a class="reference external" href="https://ambiance.readthedocs.io/en/latest/"><code class="docutils literal notranslate"><span class="pre">ambiance</span></code></a> documentation</p></li>
+<li><p>Python <a class="reference external" href="https://ambiance.readthedocs.io/en/latest/"><code class="docutils literal notranslate"><span class="pre">ambiance</span></code> documentation</a></p></li>
 <li><p><a class="reference external" href="https://www.ngdc.noaa.gov/stp/space-weather/online-publications/miscellaneous/us-standard-atmosphere-1976/us-standard-atmosphere_st76-1562_noaa.pdf">1976 U.S. standard atmosphere</a> documentation</p></li>
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/International_Standard_Atmosphere">International Standard Atmosphere (Wikipedia)</a></p></li>
 <li><p><a class="reference external" href="https://scied.ucar.edu/learning-zone/atmosphere/layers-earths-atmosphere">Layers of Earth’s Atmosphere (NSF UCAR/NCAR)</a></p></li>

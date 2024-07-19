@@ -440,29 +440,11 @@ document.write(`
 </section>
 <section id="ambiance-python-package">
 <h2><a class="reference external" href="https://github.com/airinnova/ambiance/">Ambiance</a> Python Package<a class="headerlink" href="#ambiance-python-package" title="Link to this heading">#</a></h2>
-<p>Ambiance atmosphere properties that match NCL <code class="docutils literal notranslate"><span class="pre">stdatmus_z2tdp</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">ambiance</span></code> atmosphere properties that match the NCL <code class="docutils literal notranslate"><span class="pre">stdatmus_z2tdp</span></code> function</p>
 <ul class="simple">
 <li><p>Density (<code class="docutils literal notranslate"><span class="pre">density</span></code>)</p></li>
 <li><p>Pressure (<code class="docutils literal notranslate"><span class="pre">pressure</span></code>)</p></li>
 <li><p>Temperature (<code class="docutils literal notranslate"><span class="pre">temperature_in_celsius</span></code>)</p></li>
-</ul>
-<p>Additional Atmosphere Properties:</p>
-<ul class="simple">
-<li><p>Collision frequency (<code class="docutils literal notranslate"><span class="pre">collision_frequency</span></code>)</p></li>
-<li><p>Dynamic viscosity (<code class="docutils literal notranslate"><span class="pre">dynamic_viscosity</span></code>)</p></li>
-<li><p>Geometric height above <a class="reference external" href="https://en.wikipedia.org/wiki/Sea_level">MSL</a> (<code class="docutils literal notranslate"><span class="pre">h</span></code>)</p></li>
-<li><p>Geopotential height (<code class="docutils literal notranslate"><span class="pre">H</span></code>)</p></li>
-<li><p>Gravitational acceleration (<code class="docutils literal notranslate"><span class="pre">grav_accel</span></code>)</p></li>
-<li><p>Kinematic viscosity (<code class="docutils literal notranslate"><span class="pre">kinematic_viscosity</span></code>)</p></li>
-<li><p>Layer names (<code class="docutils literal notranslate"><span class="pre">layer_name</span></code>)</p></li>
-<li><p>Mean free path (<code class="docutils literal notranslate"><span class="pre">mean_free_path</span></code>)</p></li>
-<li><p>Mean particle speed (<code class="docutils literal notranslate"><span class="pre">mean_particle_speed</span></code>)</p></li>
-<li><p>Number density (<code class="docutils literal notranslate"><span class="pre">number_density</span></code>)</p></li>
-<li><p>Pressure scale height (<code class="docutils literal notranslate"><span class="pre">pressure_scale_height</span></code>)</p></li>
-<li><p>Specific weight (<code class="docutils literal notranslate"><span class="pre">specific_weight</span></code>)</p></li>
-<li><p>Speed of sound (<code class="docutils literal notranslate"><span class="pre">speed_of_sound</span></code>)</p></li>
-<li><p>Temperature (<code class="docutils literal notranslate"><span class="pre">temperature</span></code>)</p></li>
-<li><p>Thermal conductivity (<code class="docutils literal notranslate"><span class="pre">thermal_conductivity</span></code>)</p></li>
 </ul>
 </section>
 <section id="id1">
@@ -494,11 +476,31 @@ Pressure    : 1001.2945645595289 hPa (mB)
 </section>
 <section id="python-changes-to-approximate-ncl-functionality">
 <h2>Python changes to approximate NCL functionality<a class="headerlink" href="#python-changes-to-approximate-ncl-functionality" title="Link to this heading">#</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">ambiance</span></code> package includes additional atmospheric properties as well as the NCL properties (<code class="docutils literal notranslate"><span class="pre">temperature_in_celsius</span></code>,  <code class="docutils literal notranslate"><span class="pre">density</span></code>,<code class="docutils literal notranslate"><span class="pre">pressure</span></code>)</p>
-<p>To match NCL functionality, the default <code class="docutils literal notranslate"><span class="pre">pressure</span></code> property needs to be converted from the ambiance’s default <code class="docutils literal notranslate"><span class="pre">Pascal</span></code> to NCL’s <code class="docutils literal notranslate"><span class="pre">Millibar</span></code> (dividing by 100).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ambiance</span></code> package includes additional atmospheric properties as well as the NCL properties (<code class="docutils literal notranslate"><span class="pre">temperature_in_celsius</span></code>,  <code class="docutils literal notranslate"><span class="pre">density</span></code>,<code class="docutils literal notranslate"><span class="pre">pressure</span></code>), including:</p>
+<ul class="simple">
+<li><p>Collision frequency (<code class="docutils literal notranslate"><span class="pre">collision_frequency</span></code>)</p></li>
+<li><p>Dynamic viscosity (<code class="docutils literal notranslate"><span class="pre">dynamic_viscosity</span></code>)</p></li>
+<li><p>Geometric height above <a class="reference external" href="https://en.wikipedia.org/wiki/Sea_level">mean sea-level</a> (<code class="docutils literal notranslate"><span class="pre">h</span></code>)</p></li>
+<li><p>Geopotential height (<code class="docutils literal notranslate"><span class="pre">H</span></code>)</p></li>
+<li><p>Gravitational acceleration (<code class="docutils literal notranslate"><span class="pre">grav_accel</span></code>)</p></li>
+<li><p>Kinematic viscosity (<code class="docutils literal notranslate"><span class="pre">kinematic_viscosity</span></code>)</p></li>
+<li><p>Layer names (<code class="docutils literal notranslate"><span class="pre">layer_name</span></code>)</p></li>
+<li><p>Mean free path (<code class="docutils literal notranslate"><span class="pre">mean_free_path</span></code>)</p></li>
+<li><p>Mean particle speed (<code class="docutils literal notranslate"><span class="pre">mean_particle_speed</span></code>)</p></li>
+<li><p>Number density (<code class="docutils literal notranslate"><span class="pre">number_density</span></code>)</p></li>
+<li><p>Pressure scale height (<code class="docutils literal notranslate"><span class="pre">pressure_scale_height</span></code>)</p></li>
+<li><p>Specific weight (<code class="docutils literal notranslate"><span class="pre">specific_weight</span></code>)</p></li>
+<li><p>Speed of sound (<code class="docutils literal notranslate"><span class="pre">speed_of_sound</span></code>)</p></li>
+<li><p>Temperature (<code class="docutils literal notranslate"><span class="pre">temperature</span></code>)</p></li>
+<li><p>Thermal conductivity (<code class="docutils literal notranslate"><span class="pre">thermal_conductivity</span></code>)</p></li>
+</ul>
 <section id="differences-from-ncl">
 <h3>Differences from NCL<a class="headerlink" href="#differences-from-ncl" title="Link to this heading">#</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">stdatmus_z2tdp</span></code> NCL function is based on the 1976 U.S. standard atmosphere while <code class="docutils literal notranslate"><span class="pre">ambiance</span></code> is an implementation of <a class="reference external" href="https://ambiance.readthedocs.io/en/latest/theory/references.html">1993 ICAO Standard Atmosphere</a> which extends the model to 80 km and should still match in these part. The Python <code class="docutils literal notranslate"><span class="pre">ambiance</span></code> package returns an array for each atmosphere property with more degrees of precision than NCL.</p>
+<p>To match NCL functionality, the default <code class="docutils literal notranslate"><span class="pre">pressure</span></code> property needs to be converted from the <code class="docutils literal notranslate"><span class="pre">ambiance</span></code> default <code class="docutils literal notranslate"><span class="pre">Pascal</span></code> unit to NCL’s <code class="docutils literal notranslate"><span class="pre">Millibar</span></code> (dividing by 100).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stdatmus_z2tdp</span> <span class="n">Millibar</span> <span class="n">unit</span> <span class="o">=</span> <span class="n">ambiance</span> <span class="n">Pascal</span> <span class="n">unit</span> <span class="o">/</span> <span class="mi">100</span>
+</pre></div>
+</div>
+<p>Also, while the <code class="docutils literal notranslate"><span class="pre">stdatmus_z2tdp</span></code> NCL function is based on the 1976 U.S. standard atmosphere model, <code class="docutils literal notranslate"><span class="pre">ambiance</span></code> is an implementation of <a class="reference external" href="https://ambiance.readthedocs.io/en/latest/theory/references.html">1993 ICAO Standard Atmosphere</a> which extends the model to 80 km. but will match the 1976 model in these parts. The Python <code class="docutils literal notranslate"><span class="pre">ambiance</span></code> package returns an array for each atmosphere property with more degrees of precision than NCL.</p>
 </section>
 </section>
 <section id="python-resources">
