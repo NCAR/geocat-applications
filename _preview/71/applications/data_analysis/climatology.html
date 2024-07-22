@@ -1092,7 +1092,7 @@ Attributes: (12/45)
 <span class="n">filepath</span> <span class="o">=</span> <span class="n">DATASETS</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s2">&quot;CESM2_sst_data.nc&quot;</span><span class="p">)</span>
 <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
 
-<span class="c1"># Calulate monthly anomaly</span>
+<span class="c1"># Calculate monthly anomaly</span>
 <span class="n">tos_monthly</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">tos</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span><span class="p">)</span>
 <span class="n">tos_clim</span> <span class="o">=</span> <span class="n">tos_monthly</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
 <span class="n">tos_anom</span> <span class="o">=</span> <span class="n">tos_monthly</span> <span class="o">-</span> <span class="n">tos_clim</span>
