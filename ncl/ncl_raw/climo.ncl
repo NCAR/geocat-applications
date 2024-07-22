@@ -1,4 +1,4 @@
-; calcDayanomTLL
+; calcDayAnomTLL
 ; Adapted from https://www.ncl.ucar.edu/Document/Functions/Contributed/calcDayanomTLL.shtml
 f = addfile("b.e21.BHIST.f09_g17.CMIP6-historical.003.cice.h1.aice_d.18500101-20141231.nc", "r")
 time = f->time(54749:58398)
