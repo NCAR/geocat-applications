@@ -501,19 +501,21 @@ Pressure    : 1001.2945645595289 hPa (mB)
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stdatmus_z2tdp</span> <span class="n">Millibar</span> <span class="n">unit</span> <span class="o">=</span> <span class="n">ambiance</span> <span class="n">Pascal</span> <span class="n">unit</span> <span class="o">/</span> <span class="mi">100</span>
 </pre></div>
 </div>
-<p>Also, while the <code class="docutils literal notranslate"><span class="pre">stdatmus_z2tdp</span></code> NCL function is based on the 1976 U.S. standard atmosphere model, <code class="docutils literal notranslate"><span class="pre">ambiance</span></code> is an implementation of <a class="reference external" href="https://ambiance.readthedocs.io/en/latest/theory/references.html">1993 ICAO Standard Atmosphere</a> which extends the model to 80 km. but will match the 1976 model in these parts. The Python <code class="docutils literal notranslate"><span class="pre">ambiance</span></code> package returns an array for each atmosphere property with more degrees of precision than NCL.</p>
+<p>Also, while the <code class="docutils literal notranslate"><span class="pre">stdatmus_z2tdp</span></code> NCL function is based on the 1976 U.S. standard atmosphere model, <code class="docutils literal notranslate"><span class="pre">ambiance</span></code> is an implementation of <a class="reference external" href="https://ambiance.readthedocs.io/en/latest/theory/references.html">1993 ICAO Standard Atmosphere</a> which extends the model to 80 km. but will mostly match the 1976 model in these parts.</p>
 </section>
 <section id="compare-ncl-to-ambiance-values">
 <h3>Compare NCL to <code class="docutils literal notranslate"><span class="pre">ambiance</span></code> values<a class="headerlink" href="#compare-ncl-to-ambiance-values" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Collect NCL values for stdatmus_z2tdp from 0 to 50000</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Collect NCL values for stdatmus_z2tdp from 0 to 80000</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="n">tdp_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;data/stdatmus_z2tdp_output.txt&quot;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">ncl_temperature</span> <span class="o">=</span> <span class="n">tdp_data</span><span class="p">[::</span><span class="mi">3</span><span class="p">]</span>
-<span class="n">ncl_density</span> <span class="o">=</span> <span class="n">tdp_data</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">3</span><span class="p">]</span>
-<span class="n">ncl_pressure</span> <span class="o">=</span> <span class="n">tdp_data</span><span class="p">[</span><span class="mi">2</span><span class="p">::</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">ncl_temperature</span> <span class="o">=</span> <span class="n">tdp_data</span><span class="p">[</span>
+    <span class="p">::</span><span class="mi">3</span>
+<span class="p">]</span>  <span class="c1"># temperature first element, every third element in list</span>
+<span class="n">ncl_density</span> <span class="o">=</span> <span class="n">tdp_data</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">3</span><span class="p">]</span>  <span class="c1"># density second element, every third element in list</span>
+<span class="n">ncl_pressure</span> <span class="o">=</span> <span class="n">tdp_data</span><span class="p">[</span><span class="mi">2</span><span class="p">::</span><span class="mi">3</span><span class="p">]</span>  <span class="c1"># pressure third element, every third element in list</span>
 </pre></div>
 </div>
 </div>
@@ -531,7 +533,7 @@ Pressure    : 1001.2945645595289 hPa (mB)
 <span class="k">for</span> <span class="n">height</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">ncl_temperature</span><span class="p">)):</span>
     <span class="n">atmos</span> <span class="o">=</span> <span class="n">Atmosphere</span><span class="p">(</span><span class="n">height</span><span class="p">)</span>
     <span class="n">ambiance_density</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">atmos</span><span class="o">.</span><span class="n">density</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="n">ambiance_pressure</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">atmos</span><span class="o">.</span><span class="n">pressure</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="n">ambiance_pressure</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">atmos</span><span class="o">.</span><span class="n">pressure</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span>  <span class="c1"># convert to Millibar</span>
     <span class="n">ambiance_temperature</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">atmos</span><span class="o">.</span><span class="n">temperature_in_celsius</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
