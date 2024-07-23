@@ -10,7 +10,7 @@ Data Analysis
 
     trigonometric_functions.ipynb
 
-Date and Time
+Dates and Times
 ---------------
 .. toctree::
     :maxdepth: 1
