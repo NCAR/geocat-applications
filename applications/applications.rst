@@ -23,6 +23,8 @@
 
                 - `Atmosphere Properties above Sea-Level <applications/data_analysis/stdatmus_z2tdp.ipynb>`_
 
+                - `Calculating Climatologies <applications/data_analysis/climatology.ipynb>`_
+
     .. grid-item::
 
         .. grid:: 1
