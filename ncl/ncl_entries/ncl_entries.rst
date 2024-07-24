@@ -3,6 +3,12 @@
 NCL Applications
 ================
 
+Data Analysis
+---------------
+.. toctree::
+    :maxdepth: 1
+
+    trigonometric_functions.ipynb
 
 Data Analysis
 ---------------
