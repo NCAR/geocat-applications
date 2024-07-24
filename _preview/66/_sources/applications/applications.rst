@@ -23,6 +23,7 @@
             .. card:: Data Analysis
 
                 - `Calculating Climatologies <applications/data_analysis/climatology.ipynb>`_
+                - `Humid Heat Metrics <applications/data_analysis/humid_heat_metrics.ipynb>`_
 
     .. grid-item::
 
