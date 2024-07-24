@@ -22,7 +22,7 @@
 
             .. card:: `Data Analysis <applications/data_analysis/data_analysis.rst>`_
 
-                - `Data Analysis 1 <applications/data_analysis/sample.ipynb>`_
+                - `Humid Heat Metrics <applications/data_analysis/humid_heat_metrics.ipynb>`_
 
     .. grid-item::
 

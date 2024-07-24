@@ -9,4 +9,4 @@ Data Analysis
    :maxdepth: 1
    :hidden:
 
-   sample.ipynb
+   humid_heat_metrics.ipynb
