@@ -8,4 +8,5 @@ Data Analysis
 .. toctree::
    :maxdepth: 1
 
-    wavelet.ipynb
+   wavelet.ipynb
+   climatology.ipynb
