@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Wavelets in Python</title>
+    <title>Wavelets</title>
   
   
   
@@ -167,7 +167,7 @@
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="data_analysis.html">Data Analysis</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Wavelets in Python</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Wavelets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="climatology.html">Calculating Climatologies</a></li>
 </ul>
 </details></li>
@@ -398,7 +398,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Wavelets in Python</h1>
+    <h1>Wavelets</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -411,7 +411,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wavelet-inputs">Wavelet Inputs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mother-wavelet">Mother Wavelet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mother-wavelets">Mother Wavelets</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-wavelet-scales">Choosing Wavelet Scales</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wavelets-example-in-python-using-pywavelets">Wavelets Example in Python using PyWavelets</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pywavelets-pywt-cwt">PyWavelets: pywt.cwt</a><ul class="nav section-nav flex-column">
@@ -421,7 +421,6 @@ document.write(`
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pywavelets-morlet-wavelet">PyWavelets: Morlet Wavelet</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-complex-morlet">Define the Complex Morlet</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#note"><em>Note</em></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#power-spectrum">Power Spectrum</a></li>
@@ -438,16 +437,20 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="wavelets-in-python">
-<h1>Wavelets in Python<a class="headerlink" href="#wavelets-in-python" title="Link to this heading">#</a></h1>
+  <section id="wavelets">
+<h1>Wavelets<a class="headerlink" href="#wavelets" title="Link to this heading">#</a></h1>
 <hr class="docutils" />
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p>Computes the wavelet of time-series data</p>
 <ul class="simple">
-<li><p>Wavelet Overview</p></li>
-<li><p>Wavelet Implementation: PyWavelets</p></li>
-<li><p>Example: PyWavelets Morlet Power Spectrum</p></li>
+<li><p>Background</p></li>
+<li><p>Wavelet Inputs</p></li>
+<li><p>Mother Wavelets</p></li>
+<li><p>Choosing Wavelet Scales</p></li>
+<li><p>Wavelets Example in Python using PyWavelets</p></li>
+<li><p>Power Spectrum</p></li>
+<li><p>Phase Spectrum</p></li>
 </ul>
 </section>
 <section id="background">
@@ -467,13 +470,13 @@ document.write(`
 <li><p>jtot: largest scale</p></li>
 </ul>
 </section>
-<section id="mother-wavelet">
-<h2>Mother Wavelet<a class="headerlink" href="#mother-wavelet" title="Link to this heading">#</a></h2>
+<section id="mother-wavelets">
+<h2>Mother Wavelets<a class="headerlink" href="#mother-wavelets" title="Link to this heading">#</a></h2>
 <p>There are many different kinds of wavelets to choose from. The three most common (and used by NCL) are Morlet, Paul, and DOG. During wavelet analysis, a Mother wavelet is squished/stretched into many different Daughter wavelets based on the scales to fit different shaped waves. A Mother wavelet is chosen based on the characteristics of the data and the features that are being investigated</p>
 <p>Some wavelets include: Mexican Hat, Morlet, Complex Morlet, Gaussian Derivative, Complex Gaussian Derivative, Shannon, etc..</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Available Mother Wavelets</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Available Mother Wavelets within the PyWavelets package</span>
 
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -523,17 +526,17 @@ document.write(`
 <span class="n">s0</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">dt</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>Note: NCL sets smallest scale (s0) to sampling period when using Morlet wavelet (s0=dt)</p></li>
-<li><p>Note: NCL sets smallest scale (s0) to 1/4th of the sampling period when using Paul wavelet (s0=dt/4)</p></li>
-</ul>
+<blockquote>
+<div><p>Note: NCL sets smallest scale (s0) to sampling period when using Morlet wavelet (s0=dt)</p>
+<p>Note: NCL sets smallest scale (s0) to 1/4th of the sampling period when using Paul wavelet (s0=dt/4)</p>
+</div></blockquote>
 <p>The largest scale is most commonly equal to:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jtot</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">floattointeger</span><span class="p">(((</span><span class="n">log10</span><span class="p">(</span><span class="n">N</span><span class="o">*</span><span class="n">dt</span><span class="o">/</span><span class="n">s0</span><span class="p">))</span><span class="o">/</span><span class="n">dj</span><span class="p">)</span><span class="o">/</span><span class="n">log10</span><span class="p">(</span><span class="mf">2.</span><span class="p">))</span> 
 
 <span class="n">jtot</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(((</span><span class="n">log10</span><span class="p">(</span><span class="n">length</span> <span class="n">of</span> <span class="nb">input</span> <span class="n">data</span> <span class="o">*</span> <span class="n">sampling</span> <span class="n">period</span><span class="o">/</span><span class="n">smallest</span> <span class="n">scale</span><span class="p">))</span><span class="o">/</span><span class="n">spacing</span> <span class="n">between</span> <span class="n">each</span> <span class="n">discrete</span> <span class="n">scales</span><span class="p">)</span><span class="o">/</span><span class="n">log10</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>The spacing between scales is commonly equal to 0.25 (dj=0.25) where a smallest spacing will produce a greater resolution of data but will run slower</p>
+<p>The spacing between scales is commonly equal to 0.25 (<code class="docutils literal notranslate"><span class="pre">dj=0.25</span></code>) where a smallest spacing will produce a greater resolution of data but will run slower</p>
 </section>
 <section id="wavelets-example-in-python-using-pywavelets">
 <h2>Wavelets Example in Python using PyWavelets<a class="headerlink" href="#wavelets-example-in-python-using-pywavelets" title="Link to this heading">#</a></h2>
@@ -558,17 +561,23 @@ document.write(`
 <li><p>coefs: array_like collection of complex number output for wavelet coefficients</p></li>
 <li><p>freqs: array_like collection of frequencies</p></li>
 </ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Download nino3 data</span>
+<span class="n">nino_url</span> <span class="o">=</span> <span class="s1">&#39;https://paos.colorado.edu/research/wavelets/wave_idl/nino3sst.txt&#39;</span>
+<span class="n">sst_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="n">nino_url</span><span class="p">,</span> <span class="n">skip_header</span><span class="o">=</span><span class="mi">19</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="pywavelets-morlet-wavelet">
 <h3>PyWavelets: Morlet Wavelet<a class="headerlink" href="#pywavelets-morlet-wavelet" title="Link to this heading">#</a></h3>
-<p>The Morlet wavelet is a complex wavelet, with both a real and imaginary component. In PyWavelets this is known as a Complex Morlet (“cmor”).</p>
-<p>NCL Morlet wavelet is based on “A Practical Guide to Wavelet Analysis” (Torrence and Compo). However, PyWavelets functions are derived from “Computational Signal Processing with Wavelets” (Teolis)  to be compatible with how <a class="reference external" href="https://www.mathworks.com/help/wavelet/ref/cmorwavf.html">Matlab is defined</a>). To match the expected behavior of PyWavelets best to NCL, the differences will be noted below.</p>
+<p>The Morlet wavelet is a complex wavelet, with both a real and imaginary component. In PyWavelets this is known as a Complex Morlet (<code class="docutils literal notranslate"><span class="pre">&quot;cmor&quot;</span></code>). PyWavelets functions are derived from <em>“Computational Signal Processing with Wavelets”</em> (Teolis) to be compatible with how <a class="reference external" href="https://www.mathworks.com/help/wavelet/ref/cmorwavf.html">Matlab is defined</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>  <span class="c1"># access to pi and square root (math.pi, math.sqrt)</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>  <span class="c1"># access to complex numbers (real and imaginary)</span>
-<span class="kn">import</span> <span class="nn">cmaps</span>  <span class="c1"># access to NCL default plot colors</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>  <span class="c1"># access to complex numbers (real and imaginary)</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>  <span class="c1"># plot data</span>
 
 <span class="kn">import</span> <span class="nn">pywt</span>  <span class="c1"># PyWavelets</span>
@@ -579,113 +588,26 @@ document.write(`
 </section>
 <section id="define-the-complex-morlet">
 <h3>Define the Complex Morlet<a class="headerlink" href="#define-the-complex-morlet" title="Link to this heading">#</a></h3>
-<p>PyWavelets defines a <a class="reference external" href="https://pywavelets.readthedocs.io/en/latest/ref/cwt.html#complex-morlet-wavelets">Complex Morlet</a> Mother wavelet as <code class="docutils literal notranslate"><span class="pre">cmorB-C</span></code> where B is the bandwidth and C is the center frequency.</p>
-<p>To match the Morlet wavelet function being used by NCL (Torrence and Compo, Table 1) and the PyWavelets complex morlet (Teolis, pg. 65-66), set bandwidth value <code class="docutils literal notranslate"><span class="pre">B=sqrt(pi)</span></code> and center frequency <code class="docutils literal notranslate"><span class="pre">C=6/2*pi</span></code></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compare Complex Morlet NCL to PyWavelets</span>
-<span class="kn">import</span> <span class="nn">pywt</span>  <span class="c1"># PyWavelets</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">cmath</span>
-
-
-<span class="k">def</span> <span class="nf">complex_morlet_pywavelets</span><span class="p">(</span><span class="n">time_step</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">):</span>
-    <span class="c1"># https://pywavelets.readthedocs.io/en/latest/ref/cwt.html#complex-morlet-wavelets</span>
-    <span class="n">part1</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">B</span><span class="p">)</span>
-    <span class="n">part2</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">time_step</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">B</span><span class="p">)</span>
-    <span class="n">part3</span> <span class="o">=</span> <span class="n">cmath</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">C</span> <span class="o">*</span> <span class="n">time_step</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">part1</span> <span class="o">*</span> <span class="n">part2</span> <span class="o">*</span> <span class="n">part3</span>
-
-
-<span class="k">def</span> <span class="nf">tc_morlet</span><span class="p">(</span><span class="n">time_step</span><span class="p">):</span>
-    <span class="c1"># Table 1: https://psl.noaa.gov/people/gilbert.p.compo/Torrence_compo1998.pdf</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">0</span><span class="n">j</span><span class="p">)</span>  <span class="c1"># complex i</span>
-    <span class="n">omega</span> <span class="o">=</span> <span class="mi">6</span>  <span class="c1"># w, nondimensional frequency, defaults to 6 (~2pi)</span>
-    <span class="n">eta</span> <span class="o">=</span> <span class="n">time_step</span>  <span class="c1"># n, wavelet function nondimensional &quot;time&quot; parameter</span>
-    <span class="n">part1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span>
-    <span class="n">part2</span> <span class="o">=</span> <span class="n">cmath</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="n">omega</span> <span class="o">*</span> <span class="n">eta</span><span class="p">)</span>
-    <span class="n">part3</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">part1</span> <span class="o">*</span> <span class="n">part2</span> <span class="o">*</span> <span class="n">part3</span>
-
-
-<span class="k">def</span> <span class="nf">morlet_pywavelets</span><span class="p">(</span><span class="n">time_step</span><span class="p">):</span>
-    <span class="c1"># https://pywavelets.readthedocs.io/en/latest/ref/cwt.html#morlet-wavelet</span>
-    <span class="c1"># &#39;morl&#39;</span>
-    <span class="n">part1</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">time_step</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="n">part2</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="n">time_step</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">part1</span> <span class="o">*</span> <span class="n">part2</span>
-
-
-<span class="n">bandwidth</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">center_freq</span> <span class="o">=</span> <span class="mi">6</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>  <span class="c1"># C * 2 * pi = 2 * pi = approx 6 (morlet default)</span>
-<span class="n">amp_multiply</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span>
-
-<span class="n">complex_morlet</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;cmor</span><span class="si">{</span><span class="n">bandwidth</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">center_freq</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="p">[</span><span class="n">psi</span><span class="p">,</span> <span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">pywt</span><span class="o">.</span><span class="n">ContinuousWavelet</span><span class="p">(</span><span class="n">complex_morlet</span><span class="p">)</span><span class="o">.</span><span class="n">wavefun</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="p">[</span><span class="n">psi_default</span><span class="p">,</span> <span class="n">x_default</span><span class="p">]</span> <span class="o">=</span> <span class="n">pywt</span><span class="o">.</span><span class="n">ContinuousWavelet</span><span class="p">(</span>
-    <span class="sa">f</span><span class="s2">&quot;cmor</span><span class="si">{</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">center_freq</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="p">)</span><span class="o">.</span><span class="n">wavefun</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="p">[</span><span class="n">psi_m</span><span class="p">,</span> <span class="n">x_m</span><span class="p">]</span> <span class="o">=</span> <span class="n">pywt</span><span class="o">.</span><span class="n">ContinuousWavelet</span><span class="p">(</span><span class="s1">&#39;morl&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">wavefun</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-
-<span class="n">tc_output</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">mor_pywt_output</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">cmor_pywt_output</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">x_value</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
-    <span class="n">tc_output</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tc_morlet</span><span class="p">(</span><span class="n">x_value</span><span class="p">))</span>
-    <span class="n">mor_pywt_output</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">morlet_pywavelets</span><span class="p">(</span><span class="n">x_value</span><span class="p">))</span>
-    <span class="n">cmor_pywt_output</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">complex_morlet_pywavelets</span><span class="p">(</span><span class="n">x_value</span><span class="p">,</span> <span class="n">bandwidth</span><span class="p">,</span> <span class="n">center_freq</span><span class="p">))</span>
-
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">psi_default</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;PYWT cmorSQRT(pi)-6/(2*pi)&quot;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">tc_output</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;TC Morlet&quot;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;PYWT cmor</span><span class="si">{</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="mi">6</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="si">}</span><span class="s2"> and TC (Complex) Morlet&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<p>PyWavelets defines a <a class="reference external" href="https://pywavelets.readthedocs.io/en/latest/ref/cwt.html#complex-morlet-wavelets">Complex Morlet</a> Mother wavelet as <code class="docutils literal notranslate"><span class="pre">cmorB-C</span></code> where B is the bandwidth and C is the center frequency. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">wavelet_mother</span> <span class="o">=</span> <span class="s2">&quot;cmor1.5-1&quot;</span>
 </pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/389b68cacba7d037feb3e6d43020eac4d1146adc8618d26a32a0d2859e943853.png" src="../../_images/389b68cacba7d037feb3e6d43020eac4d1146adc8618d26a32a0d2859e943853.png" />
-</div>
-</div>
-</section>
-<section id="note">
-<h3><em>Note</em><a class="headerlink" href="#note" title="Link to this heading">#</a></h3>
-<p>The Complex Morlet in PyWavelets will match along the x-intercept, but will be a smaller amplitude by <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">*</span> <span class="pre">fourth</span> <span class="pre">root</span> <span class="pre">of</span> <span class="pre">pi</span></code>. The x-intercepts are the most important feature of the wavelet, but to match completely set bandwidth <code class="docutils literal notranslate"><span class="pre">B=2</span></code> and multiple entire output by <code class="docutils literal notranslate"><span class="pre">math.sqrt(2)*np.power(math.pi,</span> <span class="pre">1/4)</span></code></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up `cmor` Complex Morlet to match x-intercept</span>
-<span class="n">bandwidth</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
-<span class="n">center_freq</span> <span class="o">=</span> <span class="mi">6</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
-<span class="n">wavelet_mother</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;cmor</span><span class="si">{</span><span class="n">bandwidth</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">center_freq</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">wavelet_mother</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cmor1.7724538509055159-0.954929658551372
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download nino3 data</span>
-<span class="n">nino_url</span> <span class="o">=</span> <span class="s1">&#39;https://paos.colorado.edu/research/wavelets/wave_idl/nino3sst.txt&#39;</span>
-<span class="n">sst_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="n">nino_url</span><span class="p">,</span> <span class="n">skip_header</span><span class="o">=</span><span class="mi">19</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># PyWavelet Input Values</span>
+<span class="n">wavelet_mother</span> <span class="o">=</span> <span class="s2">&quot;cmor1.5-1&quot;</span>
 <span class="n">dt</span> <span class="o">=</span> <span class="mf">0.25</span>  <span class="c1"># sampling period (time between each y-value)</span>
 <span class="n">s0</span> <span class="o">=</span> <span class="mf">0.25</span>  <span class="c1"># smallest scale</span>
 <span class="n">dj</span> <span class="o">=</span> <span class="mf">0.25</span>  <span class="c1"># spacing between each discrete scales</span>
 <span class="n">jtot</span> <span class="o">=</span> <span class="mi">44</span>  <span class="c1"># largest scale</span>
 <span class="n">scales</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">jtot</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dj</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># PyWavelets</span>
 <span class="n">wavelet_coeffs</span><span class="p">,</span> <span class="n">freqs</span> <span class="o">=</span> <span class="n">pywt</span><span class="o">.</span><span class="n">cwt</span><span class="p">(</span>
     <span class="n">data</span><span class="o">=</span><span class="n">sst_data</span><span class="p">,</span> <span class="n">scales</span><span class="o">=</span><span class="n">scales</span><span class="p">,</span> <span class="n">wavelet</span><span class="o">=</span><span class="n">wavelet_mother</span><span class="p">,</span> <span class="n">sampling_period</span><span class="o">=</span><span class="n">dt</span>
 <span class="p">)</span>
@@ -720,16 +642,8 @@ document.write(`
 <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">])</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">])</span>
 
-<span class="c1"># Plot contour around data</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span>
-    <span class="n">power</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="p">(</span><span class="n">power</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">vmin</span><span class="o">=</span><span class="p">(</span><span class="n">power</span><span class="p">)</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmaps</span><span class="o">.</span><span class="n">ncl_default</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="mi">10</span>
-<span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">power</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
-
 <span class="c1"># Plot Scalogram</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span>
-    <span class="n">power</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="p">(</span><span class="n">power</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">vmin</span><span class="o">=</span><span class="p">(</span><span class="n">power</span><span class="p">)</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmaps</span><span class="o">.</span><span class="n">ncl_default</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span>
-<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">power</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="p">(</span><span class="n">power</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">vmin</span><span class="o">=</span><span class="p">(</span><span class="n">power</span><span class="p">)</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">aspect</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">)</span>
 
 <span class="c1"># Convert default X-axis from time steps of 0-504 (0-len(sst_data)) to Years</span>
 <span class="n">start_year</span> <span class="o">=</span> <span class="mi">1871</span>
@@ -748,7 +662,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d0c87a6774d030c06a71cc84c453a241dd2e61ecd8f5dad14985b2cc28fa0780.png" src="../../_images/d0c87a6774d030c06a71cc84c453a241dd2e61ecd8f5dad14985b2cc28fa0780.png" />
+<img alt="../../_images/d47b5e75361687f1a2265476cdc84ed6d25a7f0b11cda483fe576ebcfb369d5b.png" src="../../_images/d47b5e75361687f1a2265476cdc84ed6d25a7f0b11cda483fe576ebcfb369d5b.png" />
 </div>
 </div>
 </section>
@@ -782,9 +696,7 @@ document.write(`
 <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">])</span>
 
 <span class="c1"># Plot scalogram</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span>
-    <span class="n">phase</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="p">(</span><span class="n">phase</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">vmin</span><span class="o">=</span><span class="p">(</span><span class="n">phase</span><span class="p">)</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmaps</span><span class="o">.</span><span class="n">ncl_default</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span>
-<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">phase</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="p">(</span><span class="n">phase</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">vmin</span><span class="o">=</span><span class="p">(</span><span class="n">phase</span><span class="p">)</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">aspect</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">)</span>
 
 <span class="c1"># Convert default X-axis from time steps of 0-504 (0-len(sst_data)) to Years</span>
 <span class="n">start_year</span> <span class="o">=</span> <span class="mi">1871</span>
@@ -803,7 +715,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/135a6ef3bd940e49deef737a81ff71d217a5f8360c74ea4ce3ff561db24ff14b.png" src="../../_images/135a6ef3bd940e49deef737a81ff71d217a5f8360c74ea4ce3ff561db24ff14b.png" />
+<img alt="../../_images/8dd0649d1c76e5a8393fbab452b074750c10718f5928c57655b9c29b7b91b7af.png" src="../../_images/8dd0649d1c76e5a8393fbab452b074750c10718f5928c57655b9c29b7b91b7af.png" />
 </div>
 </div>
 </section>
@@ -865,7 +777,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">Background</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wavelet-inputs">Wavelet Inputs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mother-wavelet">Mother Wavelet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mother-wavelets">Mother Wavelets</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-wavelet-scales">Choosing Wavelet Scales</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wavelets-example-in-python-using-pywavelets">Wavelets Example in Python using PyWavelets</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pywavelets-pywt-cwt">PyWavelets: pywt.cwt</a><ul class="nav section-nav flex-column">
@@ -875,7 +787,6 @@ document.write(`
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pywavelets-morlet-wavelet">PyWavelets: Morlet Wavelet</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-complex-morlet">Define the Complex Morlet</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#note"><em>Note</em></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#power-spectrum">Power Spectrum</a></li>
