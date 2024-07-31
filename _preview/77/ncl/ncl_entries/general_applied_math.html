@@ -678,14 +678,21 @@ document.write(`
 </section>
 <section id="differences-from-ncl">
 <h3>Differences from NCL<a class="headerlink" href="#differences-from-ncl" title="Link to this heading">#</a></h3>
-<p>The Python function <code class="docutils literal notranslate"><span class="pre">round</span></code> function rounds a float up when 5 or greater and rounds down when 4 or lower</p>
+<p>NCL distinguishes between rounding a decimal value and truncating it as part of the <code class="docutils literal notranslate"><span class="pre">decimalPlaces</span></code> function</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">decimalPlaces</span><span class="p">(</span><span class="mf">3.145</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>  <span class="c1"># True = rounds</span>
+<span class="o">&gt;&gt;</span> <span class="mf">3.15</span>
+<span class="n">decimalPlaces</span><span class="p">(</span><span class="mf">3.145</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span> <span class="c1"># False = truncates</span>
+<span class="o">&gt;&gt;</span> <span class="mf">3.14</span>
+</pre></div>
+</div>
+<p>Python includes multiple functions for rounding a value (<code class="docutils literal notranslate"><span class="pre">math.ceil</span></code>, <code class="docutils literal notranslate"><span class="pre">math.floor</span></code>, <code class="docutils literal notranslate"><span class="pre">round</span></code>), but does not typically handle truncating a value. To truncate a decimal value, the decimal needs to be converted to a string first.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">round</span></code> function rounds a float up when 5 or greater and rounds down when 4 or lower</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">round</span><span class="p">(</span><span class="mf">3.141</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="o">&gt;&gt;</span> <span class="mf">3.14</span>
 <span class="nb">round</span><span class="p">(</span><span class="mf">3.145</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="o">&gt;&gt;</span> <span class="mf">3.15</span>
 </pre></div>
 </div>
-<p>NCL distinguishes between rounding a decimal value and truncating it, but Python rounds the values by default, while truncating requires converting to a string</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">math.ceil</span></code> to round up to the nearest integer</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
 <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="mf">3.14</span><span class="p">)</span>

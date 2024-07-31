@@ -472,8 +472,10 @@ document.write(`
 <section id="math-vs-numpy">
 <h2><code class="docutils literal notranslate"><span class="pre">math</span></code> vs. <code class="docutils literal notranslate"><span class="pre">numpy</span></code><a class="headerlink" href="#math-vs-numpy" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">math</span></code> is a built-in part of the standard Python library. This is a useful module for common and simple computations when working with single input values. To work with arrays or large datasets, <code class="docutils literal notranslate"><span class="pre">numpy</span></code> is a good alternative to the <code class="docutils literal notranslate"><span class="pre">math</span></code> module. <code class="docutils literal notranslate"><span class="pre">numpy</span></code> is a powerful external Python package for working with arrays and mathematical functions. <code class="docutils literal notranslate"><span class="pre">numpy</span></code> is package developed to work with scientific computing and math functions and is tailored to run much faster with large datasets and arrays.</p>
-<p><em>Important Note</em>: The <code class="docutils literal notranslate"><span class="pre">math</span></code> library cannot be used with complex numbers. Instead, equivalent functions can be found within the <a class="reference external" href="https://docs.python.org/3/library/cmath.html">standard Python <code class="docutils literal notranslate"><span class="pre">cmath</span></code> library</a></p>
-</section>
+<div class="admonition alert alert-info">
+    <p class="admonition-title" style="font-weight:bold">Important Note</p>
+    The <code>math</code> library cannot be used with complex numbers. Instead, equivalent functions can be found within the <a href="https://docs.python.org/3/library/cmath.html">standard Python <code>cmath</code> library</a>
+</div></section>
 <section id="mathematical-constants">
 <h2>Mathematical Constants<a class="headerlink" href="#mathematical-constants" title="Link to this heading">#</a></h2>
 <p>Fixed mathematical constants are built into the standard Python libraries as well as external packages like <code class="docutils literal notranslate"><span class="pre">numpy</span></code></p>
@@ -522,7 +524,6 @@ document.write(`
 </section>
 <section id="trigonmetric-and-hyperbolic-functions">
 <h2>Trigonmetric and Hyperbolic Functions<a class="headerlink" href="#trigonmetric-and-hyperbolic-functions" title="Link to this heading">#</a></h2>
-<p>Trigonometric functions represent the ratios between the sides and angles of a right triangle and are commonly used in all fields of science and mathematics.</p>
 <section id="sin-cos-and-tan">
 <h3><code class="docutils literal notranslate"><span class="pre">sin</span></code>, <code class="docutils literal notranslate"><span class="pre">cos</span></code>, and <code class="docutils literal notranslate"><span class="pre">tan</span></code><a class="headerlink" href="#sin-cos-and-tan" title="Link to this heading">#</a></h3>
 <p>The functions <code class="docutils literal notranslate"><span class="pre">sin</span></code>, <code class="docutils literal notranslate"><span class="pre">cos</span></code>, and <code class="docutils literal notranslate"><span class="pre">tan</span></code> are part of the standard Python <code class="docutils literal notranslate"><span class="pre">math</span></code> library when working with single value inputs. When working with lists and arrays, these functions can be evaluated with the external package <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. By default, the input and output values are in radians.</p>
@@ -751,7 +752,7 @@ Multiple Value Input (array/list)
 <h2>Algebraic Functions<a class="headerlink" href="#algebraic-functions" title="Link to this heading">#</a></h2>
 <section id="sum-and-prod">
 <h3><code class="docutils literal notranslate"><span class="pre">sum</span></code> and <code class="docutils literal notranslate"><span class="pre">prod</span></code><a class="headerlink" href="#sum-and-prod" title="Link to this heading">#</a></h3>
-<p>To find the sum or product of a list of values, Python include <code class="docutils literal notranslate"><span class="pre">sum</span></code> and <code class="docutils literal notranslate"><span class="pre">prod</span></code> as part of the standard Python library, but these functions are also available as well as part of the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> library.</p>
+<p>To find the sum or product of a list of values, Python include <code class="docutils literal notranslate"><span class="pre">sum</span></code> and <code class="docutils literal notranslate"><span class="pre">prod</span></code> as part of the standard Python library and are also available as well as part of the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> library</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
@@ -810,7 +811,7 @@ cumulative product
 </section>
 <section id="abs">
 <h3><code class="docutils literal notranslate"><span class="pre">abs</span></code><a class="headerlink" href="#abs" title="Link to this heading">#</a></h3>
-<p>The standard Python <code class="docutils literal notranslate"><span class="pre">math</span></code> module includes the function to find the absolute value of a single value. When working with lists and arrays, the values can be evaluated with the external package <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. By default, the input and output values are in radians.</p>
+<p>The standard Python <code class="docutils literal notranslate"><span class="pre">math</span></code> module includes the function to find the absolute value of a single value. When working with lists and arrays, the values can be evaluated with the external package <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -822,7 +823,7 @@ cumulative product
 
 <span class="n">inputs</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.75</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.14</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Multiple Value Input (array/list)&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">(standard library) </span><span class="si">{</span><span class="n">inputs</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">(numpy) </span><span class="si">{</span><span class="n">inputs</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -832,7 +833,7 @@ cumulative product
 	(standard library) -3.14 = 3.14
 
 Multiple Value Input (array/list)
-	(standard library) [-1.5, -1.75, -3.14] = [1.5  1.75 3.14]
+	(numpy) [-1.5, -1.75, -3.14] = [1.5  1.75 3.14]
 </pre></div>
 </div>
 </div>
