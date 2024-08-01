@@ -8,5 +8,4 @@ Data Analysis
 .. toctree::
     :maxdepth: 1
 
-    stdatmus_z2tdp.ipynb
     climatology.ipynb
