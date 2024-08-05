@@ -8,6 +8,7 @@ Data Analysis
 .. toctree::
     :maxdepth: 1
 
+    climatology_functions.ipynb
     trigonometric_functions.ipynb
 
 Dates and Times
