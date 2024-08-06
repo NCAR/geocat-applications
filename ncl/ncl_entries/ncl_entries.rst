@@ -9,6 +9,7 @@ Data Analysis
     :maxdepth: 1
 
     trigonometric_functions.ipynb
+    wavelet.ipynb
 
 Dates and Times
 ---------------
