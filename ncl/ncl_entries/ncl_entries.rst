@@ -9,6 +9,7 @@ Data Analysis
     :maxdepth: 1
 
     trigonometric_functions.ipynb
+    stdatmus_z2tdp.ipynb
 
 Dates and Times
 ---------------

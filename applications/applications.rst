@@ -14,13 +14,12 @@
 
             .. card:: Plot Types
 
-
     .. grid-item::
 
         .. grid:: 1
             :gutter: 1
 
-            .. card:: Data Analysis
+            .. card:: `Data Analysis <applications/data_analysis/data_analysis.rst>`_
 
                 - `Calculating Climatologies <applications/data_analysis/climatology.ipynb>`_
 

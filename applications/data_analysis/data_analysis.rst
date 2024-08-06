@@ -6,6 +6,6 @@ Data Analysis
 =============
 
 .. toctree::
-   :maxdepth: 1
+    :maxdepth: 1
 
-   climatology.ipynb
+    climatology.ipynb

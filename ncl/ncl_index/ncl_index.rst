@@ -13,3 +13,6 @@ NCL Index
 
 .. note::
     For more information on how we verify these recommendations, see the :ref:`receipts`.
+
+.. important::
+    Asterisks represent packages that are subject to change. Asterisks indicate pages are not fully endorsed by NSF NCAR, but offer a current potential solution to transition from NCL to Python
