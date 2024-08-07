@@ -894,17 +894,16 @@ $$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">_calc_vapor_pressure</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>  <span class="c1"># Magnus-Tetens Approximation</span>
-    <span class="n">e</span> <span class="o">=</span> <span class="mf">6.11</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span>
-        <span class="p">(</span><span class="mf">17.625</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">t</span> <span class="o">+</span> <span class="mf">243.04</span><span class="p">)</span>
-    <span class="p">)</span>  <span class="c1"># Vapor Pressure in hPa</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="mf">6.11</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">((</span><span class="mf">17.625</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">t</span> <span class="o">+</span> <span class="mf">243.04</span><span class="p">))</span>  <span class="c1"># Vapor Pressure in hPa</span>
     <span class="k">return</span> <span class="n">e</span>
 
 
 <span class="k">def</span> <span class="nf">calc_relative_humidity_era5</span><span class="p">(</span><span class="n">t_a</span><span class="p">,</span> <span class="n">t_d</span><span class="p">):</span>
-    <span class="n">e</span> <span class="o">=</span> <span class="n">_calc_vapor_pressure</span><span class="p">(</span><span class="n">t_d</span><span class="p">)</span> <span class="c1"># vapor pressure from dew point temp</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="n">_calc_vapor_pressure</span><span class="p">(</span><span class="n">t_d</span><span class="p">)</span>  <span class="c1"># vapor pressure from dew point temp</span>
     <span class="n">e_sat</span> <span class="o">=</span> <span class="n">_calc_vapor_pressure</span><span class="p">(</span><span class="n">t_a</span><span class="p">)</span>  <span class="c1"># saturation vapor pressure</span>
     <span class="n">rh</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">e</span> <span class="o">/</span> <span class="n">e_sat</span>  <span class="c1"># Clausius-Clapeyron equation</span>
     <span class="k">return</span> <span class="n">rh</span>
+
 
 <span class="n">rh</span> <span class="o">=</span> <span class="n">calc_relative_humidity_era5</span><span class="p">(</span><span class="n">era5</span><span class="o">.</span><span class="n">t2m_C</span><span class="p">,</span> <span class="n">era5</span><span class="o">.</span><span class="n">d2m_C</span><span class="p">)</span>
 </pre></div>
