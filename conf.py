@@ -57,6 +57,7 @@ extensions = [
     "sphinx_design",
     "nbsphinx",
     'sphinx.ext.extlinks',
+    'mathjax',
 ]
 
 mathjax_config = {
