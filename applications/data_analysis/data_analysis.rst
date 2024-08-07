@@ -8,4 +8,5 @@ Data Analysis
 .. toctree::
    :maxdepth: 1
 
+   spectral_analysis.ipynb
    climatology.ipynb
