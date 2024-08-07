@@ -9,3 +9,4 @@ Data Analysis
    :maxdepth: 1
 
    climatology.ipynb
+   humid_heat_metrics.ipynb
