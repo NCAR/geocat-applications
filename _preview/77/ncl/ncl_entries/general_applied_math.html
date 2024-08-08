@@ -686,12 +686,16 @@ document.write(`
 </pre></div>
 </div>
 <p>Python includes multiple functions for rounding a value (<code class="docutils literal notranslate"><span class="pre">math.ceil</span></code>, <code class="docutils literal notranslate"><span class="pre">math.floor</span></code>, <code class="docutils literal notranslate"><span class="pre">round</span></code>), but does not typically handle truncating a value. To truncate a decimal value, the decimal needs to be converted to a string first.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">round</span></code> function rounds a float up when 5 or greater and rounds down when 4 or lower</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">round</span></code> function returns the valuerounded to the ndigit after the decimal point</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">round</span><span class="p">(</span><span class="mf">3.141</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="o">&gt;&gt;</span> <span class="mf">3.14</span>
 <span class="nb">round</span><span class="p">(</span><span class="mf">3.145</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="o">&gt;&gt;</span> <span class="mf">3.15</span>
 </pre></div>
+</div>
+<div class="admonition alert alert-info">
+    <p class="admonition-title" style="font-weight:bold">Important Note</p>
+    Some behavior when using `round` with floats can be unexpected. Not all decimal fractions can be represented using floats (See: <a href="https://docs.python.org/3/tutorial/floatingpoint.html#floating-point-arithmetic-issues-and-limitations">Floating-Point Arithmetic: Issues and Limitationst</a>)
 </div>
 <p>Use <code class="docutils literal notranslate"><span class="pre">math.ceil</span></code> to round up to the nearest integer</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
