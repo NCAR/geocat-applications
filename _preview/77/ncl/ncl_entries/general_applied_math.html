@@ -686,7 +686,7 @@ document.write(`
 </pre></div>
 </div>
 <p>Python includes multiple functions for rounding a value (<code class="docutils literal notranslate"><span class="pre">math.ceil</span></code>, <code class="docutils literal notranslate"><span class="pre">math.floor</span></code>, <code class="docutils literal notranslate"><span class="pre">round</span></code>), but does not typically handle truncating a value. To truncate a decimal value, the decimal needs to be converted to a string first.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">round</span></code> function returns the valuerounded to the ndigit after the decimal point</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">round</span></code> function returns the value rounded to ndigits after the decimal point.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">round</span><span class="p">(</span><span class="mf">3.141</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="o">&gt;&gt;</span> <span class="mf">3.14</span>
 <span class="nb">round</span><span class="p">(</span><span class="mf">3.145</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
@@ -695,9 +695,15 @@ document.write(`
 </div>
 <div class="admonition alert alert-info">
     <p class="admonition-title" style="font-weight:bold">Important Note</p>
-    Some behavior when using <code>round</code> with floats can be unexpected. Not all decimal fractions can be represented using floats
+    Python makes use of Banker's Rounding where a value is rounded to the nearest even integer, rather than automatically rounding up or rounding down
 </div>
-<p>See <a class="reference external" href="https://docs.python.org/3/tutorial/floatingpoint.html#floating-point-arithmetic-issues-and-limitations">Floating-Point Arithmetic: Issues and Limitations</a> for more information</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">round</span><span class="p">(</span><span class="mf">3.5</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="mi">4</span>
+<span class="nb">round</span><span class="p">(</span><span class="mf">4.5</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="mi">4</span>
+</pre></div>
+</div>
+<p><em>See <a class="reference external" href="https://docs.python.org/3/tutorial/floatingpoint.html#floating-point-arithmetic-issues-and-limitations">Floating-Point Arithmetic: Issues and Limitations</a> and <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex">Built-in Numeric Types</a> for more information</em></p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">math.ceil</span></code> to round up to the nearest integer</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
 <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="mf">3.14</span><span class="p">)</span>
@@ -1001,6 +1007,8 @@ document.write(`
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.python.org/3/library/math.html">Built-in Python math</a> functions documentation</p></li>
 <li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/routines.math.html">Numpy math</a> function documentation</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/floatingpoint.html#floating-point-arithmetic-issues-and-limitations">Python Floating-Point Arithmetic: Issues and Limitations</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#built-in-types">Python Built-In Types</a></p></li>
 </ul>
 </section>
 </section>
