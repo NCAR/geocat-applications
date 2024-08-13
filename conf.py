@@ -57,7 +57,6 @@ extensions = [
     "sphinx_design",
     "nbsphinx",
     'sphinx.ext.extlinks',
-    'mathjax',
 ]
 
 mathjax_config = {
@@ -74,7 +73,11 @@ mathjax_config = {
     'SVG': {'linebreaks': {'automatic': True, 'width': 'container'}},
 }
 
-mathjax_path = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"
+# mathjax_path = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"
+mathjax_path = (
+    "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+)
+
 
 intersphinx_mapping = {
     'geocat-comp': ('https://geocat-comp.readthedocs.io/en/stable/', None),
