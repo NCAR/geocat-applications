@@ -431,8 +431,8 @@ document.write(`
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p>Humid heat metrics index temperature and humidity, which is often more useful than comparing either variable alone when considering perceived temperature, as they together affect the human body’s ability to cool itself down. Humid heat metrics are especially important for the safety of outside workers, the elderly, or otherwise high-risk, high-exposure individuals.</p>
 <p>Wet Bulb Globe Temperature (WBGT) is a measure of heat stress. The equation for outdoor ($WBGT_{od}$) and indoor/shaded ($WBGT_{id}$) WBGTs are:</p>
-<p>$WBGT_{od} = 0.7<em>T_{nwb} + 0.2</em>T_g + 0.1*T_a$</p>
-<p>$WBGT_{id} = 0.7<em>T_{nwb} + 0.3</em>T_g$</p>
+<p>$$WBGT_{od} = 0.7<em>T_{nwb} + 0.2</em>T_g + 0.1*T_a$$</p>
+<p>$$WBGT_{id} = 0.7<em>T_{nwb} + 0.3</em>T_g$$</p>
 <p>where $T_a$ refers to Dry Bulb Ambient Temperatue, $T_{nwb}$ is the Natural Wet Bulb Temperature with exposure to wind and sun, and $T_g$ is the Globe Temperature taken from inside a copper globe painted black and exposed to the sun.</p>
 <p>However, this formula is complicated by the reality that Natural Wet Bulb Temperature and Globe Temperature are not always readily available variables from weather stations or atmospheric models.</p>
 <p>In this notebook, we will demonstrate the Australian Bureau of Meteorology (ABM) and Bernard methods of predicting wet bulb global temperature with a focus on the July 1995 Chicago heatwave.</p>
@@ -890,9 +890,9 @@ Attributes:
 </div>
 </div>
 <p>To use our ERA5 data in this equation, we need to first calculate relative humidity (the ratio of vapor pressure to saturation pressure) from temperature and dewpoint. To do this we use the Magnus-Tetens Approximation for vapor pressures:</p>
-<p>$$
-e = 6.11 \exp {\left( \frac{17.625 \times t}{t + 243.04} \right)}
-$$</p>
+<p>r”””
+:math:<code class="docutils literal notranslate"><span class="pre">e</span> <span class="pre">=</span> <span class="pre">6.11</span> <span class="pre">\exp</span> <span class="pre">{\left(</span> <span class="pre">\frac{17.625</span> <span class="pre">\times</span> <span class="pre">t}{t</span> <span class="pre">+</span> <span class="pre">243.04}</span> <span class="pre">\right)}</span></code></p>
+<p>“””</p>
 <p>where {e} is vapor pressure and {t} is temperature in Kelvin.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
