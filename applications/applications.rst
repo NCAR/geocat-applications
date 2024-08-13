@@ -22,8 +22,9 @@
 
             .. card:: Data Analysis
 
-                - `Spectral Analysis <applications/data_analysis/spectral_analysis.ipynb>`_
+                - `General Applied Math <applications/data_analysis/general_applied_math.ipynb>`_
                 - `Calculating Climatologies <applications/data_analysis/climatology.ipynb>`_
+                - `Spectral Analysis <applications/data_analysis/spectral_analysis.ipynb>`_
 
     .. grid-item::
 
