@@ -889,7 +889,7 @@ Attributes:
 </div>
 </div>
 </div>
-<p>To use our ERA5 data in this equation, we need to first calculate relative humidiity (the ratio of vapor pressure to saturation pressure) from temperature and dewpoint. To do this we use the Magnus-Tetens Approxiimation for vapor pressures:</p>
+<p>To use our ERA5 data in this equation, we need to first calculate relative humidity (the ratio of vapor pressure to saturation pressure) from temperature and dewpoint. To do this we use the Magnus-Tetens Approximation for vapor pressures:</p>
 <p>$$
 e = 6.11 \exp {\left( \frac{17.625 \times t}{t + 243.04} \right)}
 $$</p>
@@ -1368,8 +1368,8 @@ WBGT_{id} = \begin{cases}
 0.67T_{pwb} + 0.33T_a − 0.048 log_10v (T_a − T_{pwb}) &amp; \text{if } 0.3 \geq v \leq 3 m/s
 \end{cases}
 $$</p>
-<p>In Bernard’s analysis wind speeds less than 0.3 m/s are not included since the field of humid heat metrics is primarily concerned with workers and an outdoor worker is unlikely to be stationary. Apparent wind speeds are assumed to be at least 1 m/s.</p>
-<p>This formula utilizes thermodynamic Wet Bulb Temperature ($T_{pwb}$), which is a wet bulb temperature in the shade and fanned or rotated. This is the wet bulb typically used for dew point calculations, and can be iteratively derived from temeperature ($T_a$) and dewpoint ($T_d$).</p>
+<p>In Bernard’s analysis, wind speeds less than 0.3 m/s are not included since the field of humid heat metrics is primarily concerned with workers, and an outdoor worker is unlikely to be stationary. Apparent wind speeds are assumed to be at least 1 m/s.</p>
+<p>This formula utilizes thermodynamic Wet Bulb Temperature ($T_{pwb}$), which is a wet bulb temperature in the shade and fanned or rotated. This is the wet bulb typically used for dew point calculations, and can be iteratively derived from temperature ($T_a$) and dewpoint ($T_d$).</p>
 <p>Read more about this method in <a class="reference external" href="https://www.tandfonline.com/doi/abs/10.1080/104732299303296">Bernard’s 1999 ‘Prediction of Workplace Wet Bulb Global Temperature</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1398,7 +1398,7 @@ and $ e_w = 6.106 * exp(17.27 * T_{pwb} / (237.3 + T_{pwb}))$</p>
 <p>$$
 x_{n+1} = x_n - \frac{f(x_n)}{f’(x_n)}
 $$</p>
-<p>Essentially, the Newton-Raphson is a root finding method that plugs you’re initial guess into the equation in question and the derivative of that equation in order to get a more accurate guess. Repeat until your newguess is sufficiently precise. Thankfully we have <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.newton.html"><code class="docutils literal notranslate"><span class="pre">scipy.optimize.newton()</span></code></a> to handle this solve for us.</p>
+<p>Essentially, the Newton-Raphson is a root finding method that plugs your initial guess into the equation in question and the derivative of that equation in order to get a more accurate guess. Repeat until your new guess is sufficiently precise. Thankfully we have <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.newton.html"><code class="docutils literal notranslate"><span class="pre">scipy.optimize.newton()</span></code></a> to handle this solve for us.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Scalar function to compute t_pwb</span>
