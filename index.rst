@@ -28,7 +28,9 @@ GeoCAT Applications
 
 GeoCAT Applications is a community resource managed by the GeoCAT team. Inspired by the
 `NCL Applications <https://www.ncl.ucar.edu/Applications/>`_ page, this is designed to be a quick reference
-demonstrating capabilities within the Scientific Python Ecosystem that may be relevant to your geoscience workflows.
+demonstrating capabilities within the Scientific Python Ecosystem that may be relevant to your geoscience workflows..
+
+New to Python or GeoCAT Applications? Check out the `Getting Started <GETTING_STARTED.md>`_ guide!
 
 Python Examples
 ---------------
@@ -62,6 +64,7 @@ Python Examples
     :hidden:
     :caption: Contributing
 
+    Getting Started <GETTING_STARTED.md>
     Contributor Guide <CONTRIBUTING.md>
     Code of Conduct <CODE_OF_CONDUCT.md>
 

@@ -21,6 +21,8 @@ NCL to Python consists of pages that explain specifically how to achieve somethi
 in NCL in Python, including any algorithmic differences, guidance regarding replication under different
 conditions or circumstances, and any other relevant comparisons between the NCL and Python functionality
 
+This is part of the GeoCAT's commitment to NCL and NSF NCAR's [Pivot to Python Initiative](https://www.ncl.ucar.edu/Document/Pivot_to_Python/)
+
 These pages assume that the user has a working knowledge of NCL and are looking for transitional
 resources for specific functions. They also are not intended to be a comprehensive explanation of
 the Python recommendations, but rather a guide for users who are already familiar with the NCL
