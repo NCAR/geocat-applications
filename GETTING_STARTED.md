@@ -1,6 +1,6 @@
 # Getting Started
 
-## What is `geocat-applications`?
+## What is GeoCAT Applications?
 
 GeoCAT Applications is a community resource managed by the GeoCAT team. Inspired by
 [NCL Applications](https://www.ncl.ucar.edu/Applications/).
@@ -29,7 +29,7 @@ function and are looking for “equivalent” Python code.
 If you are new to Python or want to learn more, [Project Pythia](https://projectpythia.org/) offers high-quality, geoscience-oriented
 Python tutorials
 
-[Pythia Foundations Book](https://foundations.projectpythia.org/landing-page.html) covers prerequisites that
+[Pythia Foundations](https://foundations.projectpythia.org/landing-page.html) covers prerequisites that
 will be helpful to learn for `geocat-applications` like:
 
 - Getting Started with Python
