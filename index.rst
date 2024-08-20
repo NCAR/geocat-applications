@@ -45,6 +45,13 @@ Python Examples
 .. toctree::
     :maxdepth: 2
     :hidden:
+    :caption: Overview
+
+    Getting Started <GETTING_STARTED.md>
+
+.. toctree::
+    :maxdepth: 2
+    :hidden:
     :caption: Applications
 
     Plot Types <applications/plot_types/plot_types>
@@ -64,7 +71,6 @@ Python Examples
     :hidden:
     :caption: Contributing
 
-    Getting Started <GETTING_STARTED.md>
     Contributor Guide <CONTRIBUTING.md>
     Code of Conduct <CODE_OF_CONDUCT.md>
 
