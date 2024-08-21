@@ -30,6 +30,8 @@ resources for specific functions. They also are not intended to be a comprehensi
 the Python recommendations, but rather a guide for users who are already familiar with the NCL
 function and are looking for “equivalent” Python code
 
+<!-- readme_end -->
+
 ## Contributing
 
 If you are interesting in contributing to `geocat-applications`, please check out our
