@@ -1,8 +1,9 @@
 # Getting Started
 
-```rst
-.. include:: README.md
-    :start-after: <!-- readme_start -->
+```{literalinclude} README.md
+:language: md
+:start-after: <!-- readme_start -->
+:end-before: <!-- readme_end -->
 ```
 
 ## New to Python?
