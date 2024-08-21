@@ -1,31 +1,13 @@
 # Getting Started
 
-## What is GeoCAT Applications?
-
-GeoCAT Applications is a community resource managed by the GeoCAT team. Inspired by
-[NCL Applications](https://www.ncl.ucar.edu/Applications/).
-
-GeoCAT Applications is broken into two main sections:
-1. [Applications](https://ncar.github.io/geocat-applications/)
-2. [NCL to Python](https://ncar.github.io/geocat-applications/ncl/ncl_index/ncl_index.html)
-
-### Applications
-Applications is designed to be a quick reference to demonstrate capabilities within the scientific
-Python ecosystem that may be relevant to your geoscience workflows.
-
-### NCL to Python
-NCL to Python consists of pages that explain specifically how to achieve something that is possible
-in NCL in Python, including any algorithmic differences, guidance regarding replication under different
-conditions or circumstances, and any other relevant comparisons between the NCL and Python functionality.
-
-These pages assume that the user has a working knowledge of NCL and is looking for transitional
-resources for specific functions. They also are not intended to be a comprehensive explanation of
-the Python recommendations, but rather a guide for users who are already familiar with the NCL
-function and are looking for “equivalent” Python code.
+```rst
+.. include:: README.md
+    :start-after: <!-- readme_start -->
+```
 
 ## New to Python?
-If you are new to Python or want to learn more, [Project Pythia](https://projectpythia.org/) offers high-quality, geoscience-oriented
-Python tutorials
+If you are new to Python or want to learn more, [Project Pythia](https://projectpythia.org/) offers high-quality,
+geoscience-oriented Python tutorials
 
 [Pythia Foundations](https://foundations.projectpythia.org/landing-page.html) covers prerequisites that
 will be helpful to learn for GeoCAT Applications like:
@@ -35,14 +17,24 @@ will be helpful to learn for GeoCAT Applications like:
 - Working with NumPy and Pandas
 - Plotting with Matplotlib
 
-Each tutorial and resource page of GeoCAT Applications is built from [Jupyter notebooks](https://jupyterbook.org/en/stable/intro.html).
-Jupyter splits a Python script into individual "cells" to run separately. On the GeoCAT Applications webpage,
-each page is a static resource, but GeoCAT Applications can be installed locally and run as a Jupyter notebook.
+## New to Jupyter Notebooks?
 
-Python scripts are executed in order and completely run from beginning to end each time a script is run. However,
-Jupter notebooks allow each cell to be executed individually and in any order. Jupyter notebooks hold snippets of
-Python code in "cells" and can be surrounded with additional cells with descriptions and images. This can be useful
-if one cell contains Python code that takes a long time to run, like retrieving data. The outputs of each cell appears
-below each cell without the specific need for typing `print` or `plt.show()`.
+[Jupyter Notebooks](https://docs.jupyter.org/en/latest/what_is_jupyter.html#what-is-a-computational-notebook-anyway)
+provide an interactive interface to write, execute, and visualize code. Traditionally, code is written in a script and
+executed in order and completely run from beginning to end each time a script is run. Instead, Jupyter Notebooks separate
+a script into indvidiual cells that can be executed individually and in any order. Each cell in an IPython Jupyter notebook
+can be filled with Python code, markdown, or raw code. Jupyter notebooks has grown in popularity because it offers an simple
+method to include plain english description along with a coding script to improve readability. In addition, because each cell
+can be run in any order, it is possible to organize a notebook to avoid having to constantly re-run parts of a script that might
+take longer to run than others, like like retrieving data. The outputs of each cell appears below the cell without the
+need for typing `print` or `plt.show()`.
+
+In addition to Pythia Foundations "[Getting Started with Jupyter](https://foundations.projectpythia.org/foundations/getting-started-jupyter.html)"
+, you can see the [Project Jupyter Documentation](https://docs.jupyter.org/en/latest/#what-is-a-notebook) for more information.
+or [try it out yourself](https://jupyter.org/try) online.
+
+Each tutorial and resource page of GeoCAT Applications is built from Jupyter notebooks, however, on the GeoCAT Applications
+webpage, each page is a static resource. For information about how to download GeoCAT application to run locally, please see
+the [Contributor Guide](https://ncar.github.io/geocat-applications/CONTRIBUTING.html).
 
 If you have any questions, you can also reach us by email at [geocat@ucar.edu](geocat@ucar.edu).
