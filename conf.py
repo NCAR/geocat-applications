@@ -239,6 +239,11 @@ html_theme_options = dict(
     extra_footer="<em>The National Center for Atmospheric Research is sponsored by the National Science Foundation. Any opinions, findings and conclusions or recommendations expressed in this material do not necessarily reflect the views of the National Science Foundation.</em>",
 )
 
+# Add analytics
+html_theme_options["analytics"] = {
+    "google_analytics_id": "G-EQMBXF1D2V",
+}
+
 # Add any paths that contain custom themes here, relative to this directory.
 # html_theme_path = []
 
