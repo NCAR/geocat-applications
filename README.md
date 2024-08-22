@@ -3,9 +3,9 @@
 | **License**    |                                                                        [![License][license-badge]][repo-link]                                                                        |
 | :-----------   | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 
-<!-- readme_start -->
 
 ## What is [GeoCAT Applications](https://ncar.github.io/geocat-applications/)?
+<!-- readme_start -->
 
 GeoCAT Applications is a community resource managed by the GeoCAT team. Inspired by
 [NCL Applications](https://www.ncl.ucar.edu/Applications/).
