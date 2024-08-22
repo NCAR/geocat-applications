@@ -40,6 +40,6 @@ Each tutorial and resource page of GeoCAT Applications is built from Jupyter not
 webpage, each page is a static resource. For information about how to download GeoCAT application to run locally, please see
 the [Contributor Guide](https://ncar.github.io/geocat-applications/CONTRIBUTING.html).
 
-If you have any questions, please leave us a message on [GeoCAT-Applications Issues](https://github.com/NCAR/geocat-applications/issues)
-or in [GeoCAT-Applications Discussions](https://github.com/NCAR/geocat-applications/discussions). You can also reach us by email at
+If you have any questions, please leave us a message on [GeoCAT Applications Issues](https://github.com/NCAR/geocat-applications/issues)
+or in [GeoCAT Applications Discussions](https://github.com/NCAR/geocat-applications/discussions). You can also reach us by email at
 [geocat@ucar.edu](geocat@ucar.edu).
