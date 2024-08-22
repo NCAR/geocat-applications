@@ -456,7 +456,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting">Sorting</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sort"><code class="docutils literal notranslate"><span class="pre">sort</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting-in-python-and-numpy">Sorting in Python and Numpy</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curated-resources">Curated Resources</a></li>
@@ -1135,19 +1135,35 @@ Multiple Value Input (array/list)
 </section>
 <section id="sorting">
 <h2>Sorting<a class="headerlink" href="#sorting" title="Link to this heading">#</a></h2>
-<p>Python includes functions to organize and sort lists and arrays</p>
-<section id="sort">
-<h3><code class="docutils literal notranslate"><span class="pre">sort</span></code><a class="headerlink" href="#sort" title="Link to this heading">#</a></h3>
-<p>Sort numerical and alphanumeric strings in arrays</p>
-<p><code class="docutils literal notranslate"><span class="pre">sorted()</span></code> is both part of the standard Python library and can be calculated with <code class="docutils literal notranslate"><span class="pre">numpy</span></code></p>
-<p>Python has two similar sort function, <code class="docutils literal notranslate"><span class="pre">sort()</span></code> and <code class="docutils literal notranslate"><span class="pre">sorted()</span></code>. <code class="docutils literal notranslate"><span class="pre">sort()</span></code> will reorganize the list in-place and return <code class="docutils literal notranslate"><span class="pre">None</span></code>, while <code class="docutils literal notranslate"><span class="pre">sorted()</span></code> creates a new copy with the sorted elements.</p>
+<p>Python includes functions to organize and sort lists of numbers or strings</p>
+<p>Functions to sort lists and arrays are part of the standard Python library as well as <code class="docutils literal notranslate"><span class="pre">numpy</span></code></p>
+<section id="sorting-in-python-and-numpy">
+<h3>Sorting in Python and Numpy<a class="headerlink" href="#sorting-in-python-and-numpy" title="Link to this heading">#</a></h3>
+<p>Python has two similar sorting functions: <a class="reference external" href="https://docs.python.org/3/howto/sorting.html"><code class="docutils literal notranslate"><span class="pre">list.sort()</span></code> and <code class="docutils literal notranslate"><span class="pre">sorted()</span></code></a></p>
+<p><code class="docutils literal notranslate"><span class="pre">list.sort()</span></code> reorganizes a numerical or string list in-place, but returns <code class="docutils literal notranslate"><span class="pre">None</span></code>, while <code class="docutils literal notranslate"><span class="pre">sorted()</span></code> creates a new copy of the list with the sorted elements.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="n">lst</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>
 <span class="o">&gt;&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lst</span><span class="o">.</span><span class="n">sort</span><span class="p">())</span>
+<span class="o">&gt;&gt;</span> <span class="kc">None</span>
 
 <span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="n">new_sorted_list</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">new_sorted_list</span><span class="p">)</span>
 <span class="o">&gt;&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">numpy.sort()</span></code> function works like the <code class="docutils literal notranslate"><span class="pre">sorted</span></code> function, which creates and returns a sorted array of the original list</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">new_sorted_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">new_sorted_list</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">]</span>
 </pre></div>
 </div>
 <div class="cell docutils container">
@@ -1187,7 +1203,8 @@ List of Numbers
 <li><p><a class="reference external" href="https://docs.python.org/3/library/functions.html">Built-in Python Functions</a></p></li>
 <li><p><a class="reference external" href="https://docs.python.org/3/library/math.html">Standard Built-In Python <code class="docutils literal notranslate"><span class="pre">math</span></code> module</a></p></li>
 <li><p><a class="reference external" href="https://docs.python.org/3/library/cmath.html">Python <code class="docutils literal notranslate"><span class="pre">cmath</span></code> when working with complex mathematics</a></p></li>
-<li><p>Additional <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.math.html">mathematical <code class="docutils literal notranslate"><span class="pre">numpy</span></code> functions</a></p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/routines.math.html">Additional mathematical <code class="docutils literal notranslate"><span class="pre">numpy</span></code> functions</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/howto/sorting.html">Python Sorting Techniques</a></p></li>
 </ul>
 </section>
 </section>
@@ -1272,7 +1289,7 @@ List of Numbers
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting">Sorting</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sort"><code class="docutils literal notranslate"><span class="pre">sort</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting-in-python-and-numpy">Sorting in Python and Numpy</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curated-resources">Curated Resources</a></li>
