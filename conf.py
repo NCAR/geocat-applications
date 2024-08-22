@@ -54,10 +54,13 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.mathjax',
     'myst_nb',
-    "sphinx_design",
-    "nbsphinx",
+    'sphinx_design',
+    'nbsphinx',
     'sphinx.ext.extlinks',
+    'sphinxcontrib.bibtex',
 ]
+
+bibtex_bibfiles = ['references.bib']
 
 mathjax_config = {
     'tex2jax': {
