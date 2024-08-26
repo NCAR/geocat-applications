@@ -24,12 +24,11 @@ will be helpful to learn for GeoCAT Applications like:
 
 [Jupyter Notebooks](https://docs.jupyter.org/en/latest/what_is_jupyter.html#what-is-a-computational-notebook-anyway)
 provide an interactive interface to write, execute, and visualize code. Traditionally, code is written in a script and
-executed in order and completely run from beginning to end each time a script is run. Instead, Jupyter Notebooks separate
-a script into indvidiual cells that can be executed individually and in any order. Each cell in an IPython Jupyter notebook
-can be filled with Python code, markdown, or raw code. Jupyter notebooks has grown in popularity because it offers an simple
-method to include plain english description along with a coding script to improve readability. In addition, because each cell
+executed in order from beginning to end each time a script is run. Instead, Jupyter Notebooks allow you to divide code into cells that can be executed individually and in any order. Each cell in a Jupyter Notebook
+can be filled with executable code, markdown, or raw code. Jupyter Notebooks have grown in popularity because they offer a simple
+method to include plain English description alongside code to improve readability. In addition, because each cell
 can be run in any order, it is possible to organize a notebook to avoid having to constantly re-run parts of a script that might
-take longer to run than others, like like retrieving data. The outputs of each cell appears below the cell without the
+take longer to run than others, like like retrieving data. The outputs of each cell appear below the cell without the
 need for typing `print` or `plt.show()`.
 
 In addition to Pythia Foundations "[Getting Started with Jupyter](https://foundations.projectpythia.org/foundations/getting-started-jupyter.html)"
