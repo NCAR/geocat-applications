@@ -444,24 +444,42 @@ document.write(`
 <h1>dewtemp_trh<a class="headerlink" href="#dewtemp-trh" title="Link to this heading">#</a></h1>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
-<p>NCL’s <a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/dewtemp_trh.shtml"><code class="docutils literal notranslate"><span class="pre">dewtemp_trh</span></code></a> calculates the dew point temperature given temperature and relative humidity</p>
+<p>NCL’s <a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/dewtemp_trh.shtml"><code class="docutils literal notranslate"><span class="pre">dewtemp_trh</span></code></a> calculates the dew point temperature given temperature and relative humidity using the equations from John Dutton’s <em>“Ceaseless Wind”</em> (pp 273-274)</p>
 </section>
 <section id="grab-and-go">
 <h2>Grab and Go<a class="headerlink" href="#grab-and-go" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">geocat.comp.meteorology</span> <span class="kn">import</span> <span class="n">dewtemp</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Input: Single Value</span>
+<span class="kn">from</span> <span class="nn">geocat.comp.meteorology</span> <span class="kn">import</span> <span class="n">dewtemp</span>
 
-<span class="n">kelvin</span> <span class="o">=</span> <span class="mf">273.15</span>
-<span class="n">temp_kelvin</span> <span class="o">=</span> <span class="mi">18</span> <span class="o">+</span> <span class="n">kelvin</span>
+<span class="n">temp_kelvin</span> <span class="o">=</span> <span class="mi">18</span> <span class="o">+</span> <span class="mf">273.15</span>
 <span class="n">relative_humidty</span> <span class="o">=</span> <span class="mf">46.5</span>
 
-<span class="n">dewtemp</span><span class="p">(</span><span class="n">temp_kelvin</span><span class="p">,</span> <span class="n">relative_humidty</span><span class="p">)</span> <span class="o">-</span> <span class="n">kelvin</span>
+<span class="n">dewtemp</span><span class="p">(</span><span class="n">temp_kelvin</span><span class="p">,</span> <span class="n">relative_humidty</span><span class="p">)</span> <span class="o">-</span> <span class="mf">273.15</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.298141316024157
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Input: List/Array</span>
+<span class="kn">from</span> <span class="nn">geocat.comp.meteorology</span> <span class="kn">import</span> <span class="n">dewtemp</span>
+
+<span class="n">temp_kelvin</span> <span class="o">=</span> <span class="p">[</span><span class="mf">274.14</span><span class="p">,</span> <span class="mf">360.3</span><span class="p">,</span> <span class="mi">314</span><span class="p">]</span>
+<span class="n">relative_humidty</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mf">46.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="n">dewtemp</span><span class="p">(</span><span class="n">temp_kelvin</span><span class="p">,</span> <span class="n">relative_humidty</span><span class="p">)</span> <span class="o">-</span> <span class="mf">273.15</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-35.12955277,  68.18837364, -27.40981025])
 </pre></div>
 </div>
 </div>
