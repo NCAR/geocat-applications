@@ -10,6 +10,7 @@ Data Analysis
 
     trigonometric_functions.ipynb
     general_applied_math.ipynb
+    daylight.ipynb
 
 Dates and Times
 ---------------
