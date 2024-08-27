@@ -375,7 +375,9 @@ autodoc_typehints = 'none'
 
 # turn off notebook execution
 # set to "auto" for default behavior
-nb_execution_mode = "off"
+nb_execution_mode = 'force'
+
+nb_execution_excludepatterns = ['templates/*']
 
 # generate warning for all invalid links
 # nitpicky = True
