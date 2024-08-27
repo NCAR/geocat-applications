@@ -54,10 +54,13 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.mathjax',
     'myst_nb',
-    "sphinx_design",
-    "nbsphinx",
+    'sphinx_design',
+    'nbsphinx',
     'sphinx.ext.extlinks',
+    'sphinxcontrib.bibtex',
 ]
+
+bibtex_bibfiles = ['references.bib']
 
 mathjax_config = {
     'tex2jax': {
@@ -238,6 +241,11 @@ html_theme_options = dict(
     home_page_in_toc=False,
     extra_footer="<em>The National Center for Atmospheric Research is sponsored by the National Science Foundation. Any opinions, findings and conclusions or recommendations expressed in this material do not necessarily reflect the views of the National Science Foundation.</em>",
 )
+
+# Add analytics
+html_theme_options["analytics"] = {
+    "google_analytics_id": "G-EQMBXF1D2V",
+}
 
 # Add any paths that contain custom themes here, relative to this directory.
 # html_theme_path = []
