@@ -2,21 +2,31 @@ name: geocat-applications
 channels:
   - conda-forge
 dependencies:
+  # Content
   - cartopy
   - geocat-datafiles
   - matplotlib
   - netcdf4
   - numpy
-  - pre-commit
+  - pandas
   - python
   - xarray
+
+  # Jupyter
   - ipykernel
   - ipython
   - jupyter_client
-  - matplotlib-base
-  - sphinx-book-theme
+
+  # Infrastructure
   - myst-nb
+  - nbsphinx
+  - pre-commit
+  - sphinx-book-theme
   - sphinx-design
   - sphinxcontrib-bibtex
-  - nbsphinx
-  - pandas
+
+  # pip
+  - pip
+  - pip:
+    - pythia-datasets # content
+    - nc-time-axis # content
