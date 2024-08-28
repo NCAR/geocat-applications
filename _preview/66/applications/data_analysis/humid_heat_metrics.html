@@ -455,7 +455,7 @@ document.write(`
 <p>where <span class="math notranslate nohighlight">\(T_a\)</span> refers to Dry Bulb Ambient Temperatue, <span class="math notranslate nohighlight">\(T_{nwb}\)</span> is the Natural Wet Bulb Temperature with exposure to wind and sun, and <span class="math notranslate nohighlight">\(T_g\)</span> is the Globe Temperature taken from inside a copper globe painted black and exposed to the sun.</p>
 <p>However, this formula is complicated by the reality that Natural Wet Bulb Temperature and Globe Temperature are not always readily available variables from weather stations or atmospheric models.</p>
 <p>In this notebook, we will demonstrate the Australian Bureau of Meteorology (ABM) and Bernard methods of predicting wet bulb global temperature with a focus on the July 1995 Chicago heatwave.</p>
-<p>For our analysis, we have ERA5 renanalysis data for the lower contiguous United States (50N, 24S, -66E, -125W) from July 1995 with the variables: 2-meter temperature, 2-meter dew point temperature, surface pressure, and <em>u</em>/<em>v</em> wind components.</p>
+<p>For our analysis, we have ERA5 renanalysis data for the lower contiguous United States (50°N, 24°S, -66°E, -125°W) from July 1995 with the variables: 2-meter temperature, 2-meter dew point temperature, surface pressure, and <em>u</em>/<em>v</em> wind components.</p>
 <p>Additional methods that may be considered and investigated in the future are: Hunter, Tonouchi, Liljegren, Li.</p>
 <hr class="docutils" />
 <div class="cell docutils container">
@@ -908,8 +908,8 @@ Attributes:
 <section id="australian-bureau-of-meteorology-abm">
 <h2>Australian Bureau of Meteorology (ABM)<a class="headerlink" href="#australian-bureau-of-meteorology-abm" title="Link to this heading">#</a></h2>
 <p>The <a class="reference external" href="http://www.bom.gov.au/">Australian Bureau of Meteorology</a>’s method of estimating Wet Bulb Global Temperature is attractive due to its simplicity. It only requires temperature and water pressure (or relative humidity).</p>
-<p>Below is a chart of WBGT from relative humidity and temperature:
-<img alt="" src="http://www.bom.gov.au/info/thermal_stress/wbgt_approximation.gif" /></p>
+<p>Below is a chart of WBGT from relative humidity and temperature:</p>
+<img src="http://www.bom.gov.au/info/thermal_stress/wbgt_approximation.gif" alt="Italian Trulli">
 <p>This method tends to overpredict WBGT compared to other models and assumes full sunlight and light breeze.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1392,12 +1392,11 @@ Coordinates:
 </section>
 <section id="bernard">
 <h2>Bernard<a class="headerlink" href="#bernard" title="Link to this heading">#</a></h2>
-<p>Bernard’s semi-empirical formula approximates Natural Wet Bulb temperature based on heat exchange of a wetted wick exposed to sun and wind based on measurements of common United States summertime environmental conditions.</p>
+<p>Bernard’s semi-empirical formula approximates Natural Wet Bulb temperature based on heat exchange of a wetted wick exposed to sun and wind based on measurements of common United States summertime environmental conditions.<a class="footnote-reference brackets" href="#footcite-bernard-1999" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
 <p>This is considered an indoor WBGT temperature because it does not include any strong radiative sources in the calculation.</p>
 <p><span class="math notranslate nohighlight">\( WBGT_{id} = \begin{cases}        0.7T_{pwb} + 0.3T_a &amp; \text{if } v &gt; 3 m/s\\       0.67T_{pwb} + 0.33T_a − 0.048 log_10v (T_a − T_{pwb}) &amp; \text{if } 0.3 \geq v \leq 3 m/s     \end{cases} \)</span></p>
-<p>In Bernard’s analysis, wind speeds less than 0.3 m/s are not included since the field of humid heat metrics is primarily concerned with workers, and an outdoor worker is unlikely to be stationary. Apparent wind speeds are assumed to be at least 1 m/s.</p>
+<p>In Bernard’s analysis, wind speeds less than 0.3 m/s are not included since the field of humid heat metrics is primarily concerned with workers, and an outdoor worker is unlikely to be stationary. Apparent wind speeds are assumed to be at least 1 m/s. <a class="footnote-reference brackets" href="#footcite-bernard-1999" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
 <p>This formula utilizes thermodynamic Wet Bulb Temperature (<span class="math notranslate nohighlight">\(T_{pwb}\)</span>), which is a wet bulb temperature in the shade and fanned or rotated. This is the wet bulb typically used for dew point calculations, and can be iteratively derived from temperature (<span class="math notranslate nohighlight">\(T_a\)</span>) and dewpoint (<span class="math notranslate nohighlight">\(T_d\)</span>).</p>
-<p>Read more about this method in <a class="reference external" href="https://www.tandfonline.com/doi/abs/10.1080/104732299303296">Bernard’s 1999 ‘Prediction of Workplace Wet Bulb Global Temperature</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bernard formula for WBGT</span>
@@ -1414,8 +1413,7 @@ Coordinates:
 </div>
 </div>
 </div>
-<p>According to <a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/22673363/">Lemke and Kjellstrom’s 2011 ‘Calculating Workplace WBGT from Meteorological
-Data: A Tool for Climate Change Assessment’</a> $T_{pwb}$ is iteratively solved from McPherson’s formula:</p>
+<p>$T_{pwb}$ is iteratively solved from McPherson’s formula <a class="footnote-reference brackets" href="#footcite-lemke-kjellstrom-2012" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>:</p>
 <p><span class="math notranslate nohighlight">\(1556 e_d - 1.484 e_d * T_{pwb} - 1556 e_w + 1.484 * e_w * T_{pwb} + 1010 * (t_a - t_pwb) = 0\)</span></p>
 <p>where <span class="math notranslate nohighlight">\(e_d = 6.106 * exp(17.27 * T_d / (237.3 + T_d))\)</span> <br />
 and <span class="math notranslate nohighlight">\(e_w = 6.106 * exp(17.27 * T_{pwb} / (237.3 + T_{pwb}))\)</span></p>
@@ -1942,12 +1940,22 @@ Coordinates:
 </section>
 <section id="references">
 <h2>References:<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Thomas E. Bernard (1999) Prediction of Workplace Wet Bulb Global Temperature, <em>Applied Occupational and Environmental Hygiene</em>, 14:2, 126-134, DOI:10.1080/104732299303296</p></li>
-<li><p>Lemke and Kjellstrom (2012) Calculating Workplace WBGT from Meteorological Data: A Tool for Climate Change Assessment, <em>Industrial Health</em> , 50, 267–278</p></li>
-</ul>
+<div class="docutils container" id="id4">
+</div>
 </section>
 </section>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="footcite-bernard-1999" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id2">2</a>)</span>
+<p>Thomas E. Bernard. Prediction of workplace wet bulb global temperature. <em>Applied Occupational and Environmental Hygiene</em>, 14:126–134, 1999. URL: <a class="reference external" href="https://www.tandfonline.com/doi/abs/10.1080/104732299303296">https://www.tandfonline.com/doi/abs/10.1080/104732299303296</a>, <a class="reference external" href="https://doi.org/10.1080/104732299303296">doi:10.1080/104732299303296</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-lemke-kjellstrom-2012" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">2</a><span class="fn-bracket">]</span></span>
+<p>Tord Kjellstrom Bruno Lemke. Calculating workplace wbgt from meteorological data: a tool for climate change assessment. <em>Industrial Health</em>, 50:267–278, 2012. URL: <a class="reference external" href="https://www.jstage.jst.go.jp/article/indhealth/50/4/50_MS1352/_article">https://www.jstage.jst.go.jp/article/indhealth/50/4/50_MS1352/_article</a>, <a class="reference external" href="https://doi.org/10.2486/indhealth.MS1352">doi:10.2486/indhealth.MS1352</a>.</p>
+</aside>
+</aside>
 
 
                 </article>
