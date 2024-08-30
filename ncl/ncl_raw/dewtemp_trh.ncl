@@ -9,7 +9,6 @@ print("Temperature (K), Relative Humidity (%), Dew Temperature (C)")
 do tk=273,374
 	do rh=1,100
 		begin
-		;print((tk, rh, dewtemp_trh(tk,rh)-273.15))
 		dewtemp = dewtemp_trh(tk,rh)-273.15
 		print (tk +","+ rh +","+ dewtemp)
 		end
