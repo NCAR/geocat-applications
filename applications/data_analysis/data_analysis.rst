@@ -6,7 +6,7 @@ Data Analysis
 =============
 
 .. toctree::
-   :maxdepth: 1
-   :hidden:
+    :maxdepth: 1
 
-   sample.ipynb
+    general_applied_math.ipynb
+    climatology.ipynb

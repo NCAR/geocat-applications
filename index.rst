@@ -30,6 +30,8 @@ GeoCAT Applications is a community resource managed by the GeoCAT team. Inspired
 `NCL Applications <https://www.ncl.ucar.edu/Applications/>`_ page, this is designed to be a quick reference
 demonstrating capabilities within the Scientific Python Ecosystem that may be relevant to your geoscience workflows.
 
+New to Python or GeoCAT Applications? Check out the `Getting Started <GETTING_STARTED.md>`_ guide!
+
 Python Examples
 ---------------
 
@@ -43,19 +45,34 @@ Python Examples
 .. toctree::
     :maxdepth: 2
     :hidden:
-    :caption: Applications
+    :caption: Overview
 
-    Plot Types <applications/plot_types/plot_types>
-    Data Analysis <applications/data_analysis/data_analysis>
-    File I/O <applications/file_io/file_io>
+    Getting Started <GETTING_STARTED.md>
 
 .. toctree::
     :maxdepth: 2
     :hidden:
-    :caption: NCL
+    :caption: Applications
+
+    Plot Types <applications/plot_types/plot_types>
+    Data Analysis <applications/data_analysis/data_analysis>
+    Date and Time <applications/date_time/date_time>
+
+.. toctree::
+    :maxdepth: 2
+    :hidden:
+    :caption: NCL to Python
 
     NCL Index <ncl/ncl_index/ncl_index>
-    NCL Applications <applications/ncl_applications.rst>
+    NCL Applications <ncl/ncl_entries/ncl_entries>
+
+.. toctree::
+    :maxdepth: 2
+    :hidden:
+    :caption: Contributing
+
+    Contributor Guide <CONTRIBUTING.md>
+    Code of Conduct <CODE_OF_CONDUCT.md>
 
 .. toctree::
     :maxdepth: 2
