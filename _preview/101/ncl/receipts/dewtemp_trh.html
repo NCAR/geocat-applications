@@ -454,6 +454,22 @@ This notebook is part of the process we have for adding entries to the NCL Index
 </section>
 <section id="ncl-code">
 <h2>NCL code<a class="headerlink" href="#ncl-code" title="Link to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">;</span> <span class="n">dewtemp_trh</span>
+<span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span> <span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Built</span><span class="o">-</span><span class="ow">in</span><span class="o">/</span><span class="n">dewtemp_trh</span><span class="o">.</span><span class="n">shtml</span>
+
+<span class="p">;</span> <span class="n">ncl</span> <span class="o">-</span><span class="n">n</span> <span class="n">dewtemp_trh</span><span class="o">.</span><span class="n">ncl</span> <span class="o">&gt;&gt;</span> <span class="n">dewtemp_trh_output</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperature (K), Relative Humidity (%), Dew Temperature (C)&quot;</span><span class="p">)</span>
+<span class="n">do</span> <span class="n">tk</span><span class="o">=</span><span class="mi">273</span><span class="p">,</span><span class="mi">374</span>
+	<span class="n">do</span> <span class="n">rh</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span>
+		<span class="n">begin</span>
+		<span class="n">dewtemp</span> <span class="o">=</span> <span class="n">dewtemp_trh</span><span class="p">(</span><span class="n">tk</span><span class="p">,</span><span class="n">rh</span><span class="p">)</span><span class="o">-</span><span class="mf">273.15</span>
+		<span class="nb">print</span> <span class="p">(</span><span class="n">tk</span> <span class="o">+</span><span class="s2">&quot;,&quot;</span><span class="o">+</span> <span class="n">rh</span> <span class="o">+</span><span class="s2">&quot;,&quot;</span><span class="o">+</span> <span class="n">dewtemp</span><span class="p">)</span>
+		<span class="n">end</span>
+	<span class="n">end</span> <span class="n">do</span>
+<span class="n">end</span> <span class="n">do</span>
+</pre></div>
+</div>
 </section>
 <section id="python-functionality">
 <h2>Python Functionality<a class="headerlink" href="#python-functionality" title="Link to this heading">#</a></h2>
@@ -497,7 +513,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
         <span class="n">tk_rh</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">tk</span><span class="p">,</span> <span class="n">rh</span><span class="p">))</span>
 
 <span class="c1">### Calculate GeoCAT-Comp `dewtemp` value and tk/rh</span>
-<span class="kn">from</span> <span class="nn">geocat.comp.meteorology</span> <span class="kn">import</span> <span class="n">dewtemp</span>
+<span class="kn">from</span> <span class="nn">geocat.comp</span> <span class="kn">import</span> <span class="n">dewtemp</span>
 
 <span class="n">geocat_dewtemp</span> <span class="o">=</span> <span class="p">{}</span>
 

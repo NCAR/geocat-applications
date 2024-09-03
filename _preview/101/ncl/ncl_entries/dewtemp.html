@@ -445,11 +445,7 @@ document.write(`
 <h1>dewtemp_trh<a class="headerlink" href="#dewtemp-trh" title="Link to this heading">#</a></h1>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
-<p>NCL’s <a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/dewtemp_trh.shtml"><code class="docutils literal notranslate"><span class="pre">dewtemp_trh</span></code></a> calculates the dew point temperature given temperature and relative humidity using the equations from John Dutton’s <em>“Ceaseless Wind”</em> (pg. 273-274)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">geocat</span><span class="o">.</span><span class="n">comp</span><span class="o">.</span><span class="n">meteorology</span><span class="o">.</span><span class="n">dewtemp</span><span class="p">(</span><span class="n">temperature</span><span class="p">,</span> <span class="n">relative_humidity</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Returns a dew point temperature in Kelvin</p>
+<p>NCL’s <a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/dewtemp_trh.shtml"><code class="docutils literal notranslate"><span class="pre">dewtemp_trh</span></code></a> calculates the dew point temperature given temperature and relative humidity using the equations from John Dutton’s <em>“Ceaseless Wind”</em> (pg. 273-274) and returns a temperature in Kelvin</p>
 <div class="admonition alert alert-info">
     <p class="admonition-title" style="font-weight:bold">Important Note</p>
     To convert from Kelvin to Celsius <code>-273.15</code> and to convert from Celsius to Kelvin <code>+273.15</code>
@@ -459,7 +455,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Input: Single Value</span>
-<span class="kn">from</span> <span class="nn">geocat.comp.meteorology</span> <span class="kn">import</span> <span class="n">dewtemp</span>
+<span class="kn">from</span> <span class="nn">geocat.comp</span> <span class="kn">import</span> <span class="n">dewtemp</span>
 
 <span class="n">kelvin</span> <span class="o">=</span> <span class="mf">273.15</span>  <span class="c1"># Kelvin</span>
 <span class="n">temp_c</span> <span class="o">=</span> <span class="mi">18</span>  <span class="c1"># Celsius</span>
@@ -478,7 +474,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Input: List/Array</span>
-<span class="kn">from</span> <span class="nn">geocat.comp.meteorology</span> <span class="kn">import</span> <span class="n">dewtemp</span>
+<span class="kn">from</span> <span class="nn">geocat.comp</span> <span class="kn">import</span> <span class="n">dewtemp</span>
 
 <span class="n">temp_kelvin</span> <span class="o">=</span> <span class="p">[</span><span class="mf">291.15</span><span class="p">,</span> <span class="mf">274.14</span><span class="p">,</span> <span class="mf">360.3</span><span class="p">,</span> <span class="mi">314</span><span class="p">]</span>  <span class="c1"># Kelvin</span>
 <span class="n">relative_humidty</span> <span class="o">=</span> <span class="p">[</span><span class="mf">46.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">96.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># %</span>
