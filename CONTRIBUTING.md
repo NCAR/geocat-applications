@@ -190,6 +190,22 @@ than waiting for a full **NCL Entry** to be completed.
 
 [Example of a NCL Receipt](https://ncar.github.io/geocat-applications/ncl/receipts/days_in_month.html)
 
+### Adding Citations
+To add citations to your page, first add your reference information to the
+`geocat-applications/references.bib` file. Many journals and databases
+allow you to export citation information in the required
+[BibTex](https://www.ctan.org/pkg/bibtex) format to save you a bit of
+work. You can copy and paste this text into the `references.bib` file.
+
+From there you can add citations to your specific page using the
+directives shown in the [computational template](https://github.com/NCAR/geocat-applications/blob/main/templates/computational_template.ipynb).
+
+For references to software documentation and other web content, we generally
+prefer links instead of or in addition to formal citations. If you're not
+sure which approach to take, consider where you would like to guide the reader
+and whether or not there is a scholarly object and/or DOI available for you
+to cite.
+
 ### Generate the Documentation Locally
 From the `geocat-applications/` directory, run:
 ```
