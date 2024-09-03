@@ -10,6 +10,7 @@ Data Analysis
 
     climatology_functions.ipynb
     trigonometric_functions.ipynb
+    general_applied_math.ipynb
 
 Dates and Times
 ---------------
