@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css?v=7691835d" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../_static/style.css?v=b6986961" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -46,6 +46,19 @@
     <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-EQMBXF1D2V"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-EQMBXF1D2V');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-EQMBXF1D2V');
+            </script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ncl/receipts/days_in_month';</script>
     <link rel="icon" href="../../_static/GeoCAT_square.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -159,12 +172,17 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Applications</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../GETTING_STARTED.html">Getting Started</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Applications</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../applications/plot_types/plot_types.html">Plot Types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../applications/data_analysis/data_analysis.html">Data Analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/data_analysis/general_applied_math.html">General Applied Math</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../applications/data_analysis/climatology.html">Calculating Climatologies</a></li>
 </ul>
 </details></li>
@@ -179,6 +197,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../ncl_entries/ncl_entries.html">NCL Applications</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../ncl_entries/climatology_functions.html">Climatology</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ncl_entries/trigonometric_functions.html">Trigonometric Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ncl_entries/general_applied_math.html">General Applied Math</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ncl_entries/days_in_month.html">days_in_month</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ncl_entries/day_of_week.html">day_of_week</a></li>
 </ul>
@@ -480,7 +499,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="c1"># From the above code snippet</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># From the above code snippet</span>
 <span class="n">ncl_year</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1996</span><span class="p">,</span> <span class="mi">1997</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1500</span><span class="p">]</span>
 <span class="n">ncl_month</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 
@@ -507,7 +526,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 Show the python code that replicates the NCL functionality. Don't worry about providing narrative, just provide enough explanation that somebody with the knowledge level of another developer could follow along.
 --><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cftime</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cftime</span>
 <span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
 
 <span class="n">day</span> <span class="o">=</span> <span class="mi">1</span>
@@ -546,7 +565,7 @@ Show the python code that replicates the NCL functionality. Don't worry about pr
 <h2>Comparison<a class="headerlink" href="#comparison" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">ncl_results</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">results</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">ncl_results</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">results</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">: </span><span class="se">\n\t</span><span class="s2">python:</span><span class="se">\t</span><span class="si">{</span><span class="n">results</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="si">}</span><span class="se">\n\t</span><span class="s2">ncl:</span><span class="se">\t</span><span class="si">{</span><span class="n">ncl_results</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">ncl_results</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">-</span> <span class="n">results</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
@@ -558,29 +577,13 @@ Show the python code that replicates the NCL functionality. Don't worry about pr
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>all_leap: 
-	python:	[29, 29, 31, 29]
-	ncl:	[29, 29, 31, 29]
-
-noleap: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>noleap: 
 	python:	[28, 28, 31, 28]
 	ncl:	[28, 28, 31, 28]
 
 366_day: 
 	python:	[29, 29, 31, 29]
 	ncl:	[29, 29, 31, 29]
-
-gregorian: 
-	python:	[29, 28, 31, 29]
-	ncl:	[29, 28, 31, 28]
-
-standard: 
-	python:	[29, 28, 31, 29]
-	ncl:	[29, 28, 31, 28]
-
-360_day: 
-	python:	[30, 30, 30, 30]
-	ncl:	[30, 30, 30, 30]
 
 365_day: 
 	python:	[28, 28, 31, 28]
@@ -589,6 +592,22 @@ standard:
 julian: 
 	python:	[29, 28, 31, 29]
 	ncl:	[29, 28, 31, 29]
+
+360_day: 
+	python:	[30, 30, 30, 30]
+	ncl:	[30, 30, 30, 30]
+
+standard: 
+	python:	[29, 28, 31, 29]
+	ncl:	[29, 28, 31, 28]
+
+all_leap: 
+	python:	[29, 29, 31, 29]
+	ncl:	[29, 29, 31, 29]
+
+gregorian: 
+	python:	[29, 28, 31, 29]
+	ncl:	[29, 28, 31, 28]
 
 none: 
 	ncl:	[29, 28, 31, 28]
@@ -603,7 +622,7 @@ proleptic_gregorian:
 <h3>Differences<a class="headerlink" href="#differences" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">ncl_results</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">|</span> <span class="n">results</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">ncl_results</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">|</span> <span class="n">results</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
     <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">ncl_results</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">results</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="ow">and</span> <span class="n">results</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">!=</span> <span class="n">ncl_results</span><span class="p">[</span><span class="n">c</span><span class="p">]:</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">results</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="si">}</span><span class="s2"> != </span><span class="si">{</span><span class="n">ncl_results</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">ncl_results</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">-</span> <span class="n">results</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
@@ -615,9 +634,9 @@ proleptic_gregorian:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>standard: [29, 28, 31, 29] != [29, 28, 31, 28]
-gregorian: [29, 28, 31, 29] != [29, 28, 31, 28]
-none: calendar not available in python
 proleptic_gregorian: calendar not available in ncl
+none: calendar not available in python
+gregorian: [29, 28, 31, 29] != [29, 28, 31, 28]
 </pre></div>
 </div>
 </div>

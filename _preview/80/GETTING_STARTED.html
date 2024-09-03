@@ -7,10 +7,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta content="GeoCAT-applications" name="description" />
-<meta content="geocat, geocat-applications, geocat applications, wrf, python, wrf-python, weather research and forecasting, weather research and forecasting model, model, weather, numerical weather prediction, model, matplotlib, cartopy, wrf-arw, arw, ncar, ucar, cisl, ncl, ncar command language, national center for atmospheric research, university corporation for atmospheric research, pynio, pyngl, interpolation" name="keywords" />
 
-    <title>GeoCAT Applications</title>
+    <title>Getting Started</title>
   
   
   
@@ -61,11 +59,12 @@
                 gtag('js', new Date());
                 gtag('config', 'G-EQMBXF1D2V');
             </script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'GETTING_STARTED';</script>
     <link rel="icon" href="_static/GeoCAT_square.svg"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Getting Started" href="GETTING_STARTED.html" />
+    <link rel="next" title="Plot Types" href="applications/plot_types/plot_types.html" />
+    <link rel="prev" title="GeoCAT Applications" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -128,8 +127,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -148,7 +145,7 @@
     
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="index.html">
   
   
   
@@ -178,8 +175,8 @@
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="GETTING_STARTED.html">Getting Started</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Getting Started</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Applications</span></p>
 <ul class="nav bd-sidenav">
@@ -288,7 +285,7 @@
       
       
       
-      <li><a href="https://github.com/NCAR/geocat-applications/edit/main/docs/index.rst" target="_blank"
+      <li><a href="https://github.com/NCAR/geocat-applications/edit/main/docs/GETTING_STARTED.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -305,7 +302,7 @@
       
       
       
-      <li><a href="https://github.com/NCAR/geocat-applications/issues/new?title=Issue%20on%20page%20%2Findex.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/NCAR/geocat-applications/issues/new?title=Issue%20on%20page%20%2FGETTING_STARTED.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -335,7 +332,7 @@
       
       
       
-      <li><a href="_sources/index.rst" target="_blank"
+      <li><a href="_sources/GETTING_STARTED.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -345,7 +342,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.rst</span>
+<span class="btn__text-container">.md</span>
 </a>
 </li>
       
@@ -419,7 +416,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>GeoCAT Applications</h1>
+    <h1>Getting Started</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -429,9 +426,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-examples">Python Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-geocat-applications">What is GeoCAT Applications?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#applications">Applications</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ncl-to-python">NCL to Python</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-to-python">New to Python?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-to-jupyter-notebooks">New to Jupyter Notebooks?</a></li>
 </ul>
             </nav>
         </div>
@@ -443,81 +444,66 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <span class="target" id="module-geocat.applications"></span><section id="geocat-applications">
-<h1>GeoCAT Applications<a class="headerlink" href="#geocat-applications" title="Link to this heading">#</a></h1>
-<p>GeoCAT Applications is a community resource managed by the GeoCAT team. Inspired by the
-<a class="reference external" href="https://www.ncl.ucar.edu/Applications/">NCL Applications</a> page, this is designed to be a quick reference
-demonstrating capabilities within the Scientific Python Ecosystem that may be relevant to your geoscience workflows.</p>
-<p>New to Python or GeoCAT Applications? Check out the <a class="reference internal" href="GETTING_STARTED.html"><span class="doc">Getting Started</span></a> guide!</p>
-<section id="python-examples">
-<h2>Python Examples<a class="headerlink" href="#python-examples" title="Link to this heading">#</a></h2>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils" id="applications">
-<div class="sd-row sd-row-cols-3 sd-row-cols-xs-3 sd-row-cols-sm-3 sd-row-cols-md-3 sd-row-cols-lg-3 sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
-<div class="sd-col sd-d-flex-column docutils">
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 sd-g-1 sd-g-xs-1 sd-g-sm-1 sd-g-md-1 sd-g-lg-1 docutils">
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Dates and Times</div>
+  <section id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading">#</a></h1>
+<section id="what-is-geocat-applications">
+<h2>What is GeoCAT Applications?<a class="headerlink" href="#what-is-geocat-applications" title="Link to this heading">#</a></h2>
+<p>GeoCAT Applications is a community resource managed by the GeoCAT team. Inspired by
+<a class="reference external" href="https://www.ncl.ucar.edu/Applications/">NCL Applications</a>.</p>
+<p>GeoCAT Applications is broken into two main sections:</p>
+<ol class="arabic simple">
+<li><p>Applications</p></li>
+<li><p>NCL to Python</p></li>
+</ol>
+<section id="applications">
+<h3>Applications<a class="headerlink" href="#applications" title="Link to this heading">#</a></h3>
+<p>Applications is designed to be a quick reference to demonstrate capabilities within the scientific
+Python ecosystem that may be relevant to your geoscience workflows</p>
+</section>
+<section id="ncl-to-python">
+<h3>NCL to Python<a class="headerlink" href="#ncl-to-python" title="Link to this heading">#</a></h3>
+<p>NCL to Python consists of pages that explain specifically how to achieve something that was possible
+in NCL in Python, including any algorithmic differences, guidance regarding replication under different
+conditions or circumstances, and any other relevant comparisons between the NCL and Python functionality</p>
+<p>This is part of the GeoCAT team’s commitment to NCL and NSF NCAR’s <a class="reference external" href="https://www.ncl.ucar.edu/Document/Pivot_to_Python/">Pivot to Python</a></p>
+<p>These pages assume that the user has a working knowledge of NCL and are looking for transitional
+resources for specific functions. They also are not intended to be a comprehensive explanation of
+the Python recommendations, but rather a guide for users who are already familiar with the NCL
+function and are looking for “equivalent” Python code</p>
+</section>
+</section>
+<section id="new-to-python">
+<h2>New to Python?<a class="headerlink" href="#new-to-python" title="Link to this heading">#</a></h2>
+<p>If you are new to Python or want to learn more, <a class="reference external" href="https://projectpythia.org/">Project Pythia</a> offers high-quality,
+geoscience-oriented Python tutorials</p>
+<p><a class="reference external" href="https://foundations.projectpythia.org/landing-page.html">Pythia Foundations</a> covers prerequisites that
+will be helpful to learn for GeoCAT Applications like:</p>
 <ul class="simple">
-<li><p class="sd-card-text"><a class="reference internal" href="applications/date_time/datetime.html"><span class="doc">Working with Date and Time</span></a></p></li>
+<li><p>Getting Started with Python</p></li>
+<li><p>Getting Started with Jupyter</p></li>
+<li><p>Working with NumPy and Pandas</p></li>
+<li><p>Plotting with Matplotlib</p></li>
 </ul>
-</div>
-</div>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Plot Types</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sd-col sd-d-flex-column docutils">
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 sd-g-1 sd-g-xs-1 sd-g-sm-1 sd-g-md-1 sd-g-lg-1 docutils">
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Data Analysis</div>
-<ul class="simple">
-<li><p class="sd-card-text"><a class="reference internal" href="applications/data_analysis/general_applied_math.html"><span class="doc">General Applied Math</span></a></p></li>
-<li><p class="sd-card-text"><a class="reference internal" href="applications/data_analysis/climatology.html"><span class="doc">Calculating Climatologies</span></a></p></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sd-col sd-d-flex-column docutils">
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 sd-g-1 sd-g-xs-1 sd-g-sm-1 sd-g-md-1 sd-g-lg-1 docutils">
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Regridding</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>If you’re looking for NCL to Python examples, please visit <a class="reference internal" href="ncl/ncl_entries/ncl_entries.html#ncl-applications"><span class="std std-ref">NCL Applications</span></a>.</p>
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
+</section>
+<section id="new-to-jupyter-notebooks">
+<h2>New to Jupyter Notebooks?<a class="headerlink" href="#new-to-jupyter-notebooks" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://docs.jupyter.org/en/latest/what_is_jupyter.html#what-is-a-computational-notebook-anyway">Jupyter Notebooks</a>
+provide an interactive interface to write, execute, and visualize code. Traditionally, code is written in a script and
+executed in order from beginning to end each time a script is run. Instead, Jupyter Notebooks allow you to divide code into cells that can be executed individually and in any order. Each cell in a Jupyter Notebook
+can be filled with executable code, markdown, or raw code. Jupyter Notebooks have grown in popularity because they offer a simple
+method to include plain English description alongside code to improve readability. In addition, because each cell
+can be run in any order, it is possible to organize a notebook to avoid having to constantly re-run parts of a script that might
+take longer to run than others, like like retrieving data. The outputs of each cell appear below the cell without the
+need for typing <code class="docutils literal notranslate"><span class="pre">print</span></code> or <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code>.</p>
+<p>In addition to Pythia Foundations “<a class="reference external" href="https://foundations.projectpythia.org/foundations/getting-started-jupyter.html">Getting Started with Jupyter</a>”
+, you can see the <a class="reference external" href="https://docs.jupyter.org/en/latest/#what-is-a-notebook">Project Jupyter Documentation</a> for more information.
+or <a class="reference external" href="https://jupyter.org/try">try it out yourself</a> online.</p>
+<p>Each tutorial and resource page of GeoCAT Applications is built from Jupyter notebooks, however, on the GeoCAT Applications
+webpage, each page is a static resource. For information about how to download GeoCAT application to run locally, please see
+the <a class="reference external" href="https://ncar.github.io/geocat-applications/CONTRIBUTING.html">Contributor Guide</a>.</p>
+<p>If you have any questions, please leave us a message on <a class="reference external" href="https://github.com/NCAR/geocat-applications/issues">GeoCAT Applications Issues</a>
+or in <a class="reference external" href="https://github.com/NCAR/geocat-applications/discussions">GeoCAT Applications Discussions</a>. You can also reach us by email at
+<a class="reference internal" href="#geocat&#64;ucar.edu"><span class="xref myst">geocat&#64;ucar.edu</span></a>.</p>
 </section>
 </section>
 
@@ -532,12 +518,21 @@ Regridding</div>
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">GeoCAT Applications</p>
+      </div>
+    </a>
     <a class="right-next"
-       href="GETTING_STARTED.html"
+       href="applications/plot_types/plot_types.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Getting Started</p>
+        <p class="prev-next-title">Plot Types</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -557,9 +552,13 @@ Regridding</div>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-examples">Python Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-geocat-applications">What is GeoCAT Applications?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#applications">Applications</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ncl-to-python">NCL to Python</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-to-python">New to Python?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-to-jupyter-notebooks">New to Jupyter Notebooks?</a></li>
 </ul>
   </nav></div>
 
