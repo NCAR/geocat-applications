@@ -1,7 +1,7 @@
 .. _applications:
 
 .. grid:: 3
-    :gutter: 2
+    :gutter: 4
 
     .. grid-item-card:: Dates and Times
 
