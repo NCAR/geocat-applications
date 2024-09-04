@@ -1,17 +1,33 @@
 .. _applications:
 
 .. grid:: 3
-    :gutter: 4
+    :gutter: 2
 
-    .. grid-item-card:: Dates and Times
+    .. grid-item::
 
-        - `Working with Date and Time <applications/date_time/datetime.ipynb>`_
+        .. grid:: 1
+            :gutter: 1
 
-    .. grid-item-card:: Data Analysis
+            .. card:: Dates and Times
 
-        - `General Applied Math <applications/data_analysis/general_applied_math.ipynb>`_
-        - `Calculating Climatologies <applications/data_analysis/climatology.ipynb>`_
+                - `Working with Date and Time <applications/date_time/datetime.ipynb>`_
 
-    .. grid-item-card:: Plot Types
+            .. card:: Plot Types
 
-    .. grid-item-card:: Regridding
+
+    .. grid-item::
+
+        .. grid:: 1
+            :gutter: 1
+
+            .. card:: Data Analysis
+
+                - `General Applied Math <applications/data_analysis/general_applied_math.ipynb>`_
+                - `Calculating Climatologies <applications/data_analysis/climatology.ipynb>`_
+
+    .. grid-item::
+
+        .. grid:: 1
+            :gutter: 1
+
+            .. card:: Regridding
