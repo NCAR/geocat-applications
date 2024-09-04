@@ -46,11 +46,24 @@
     <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-EQMBXF1D2V"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-EQMBXF1D2V');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-EQMBXF1D2V');
+            </script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'applications/data_analysis/data_analysis';</script>
     <link rel="icon" href="../../_static/GeoCAT_square.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Wavelets" href="wavelet.html" />
+    <link rel="next" title="Calculating Climatologies" href="climatology.html" />
     <link rel="prev" title="Plot Types" href="../plot_types/plot_types.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -161,14 +174,20 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Applications</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../GETTING_STARTED.html">Getting Started</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Applications</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../plot_types/plot_types.html">Plot Types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Data Analysis</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="wavelet.html">Wavelets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="climatology.html">Calculating Climatologies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general_applied_math.html">General Applied Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="climatology.html">Calculating Climatologies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wavelet.html">Wavelets</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../date_time/date_time.html">Date and Time</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -182,6 +201,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../ncl/ncl_entries/ncl_entries.html">NCL Applications</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../ncl/ncl_entries/trigonometric_functions.html">Trigonometric Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../ncl/ncl_entries/wavelet.html">wavelet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ncl/ncl_entries/general_applied_math.html">General Applied Math</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../ncl/ncl_entries/days_in_month.html">days_in_month</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../ncl/ncl_entries/day_of_week.html">day_of_week</a></li>
 </ul>
@@ -414,8 +434,121 @@ document.write(`
 <span id="applications-data-analysis"></span><h1>Data Analysis<a class="headerlink" href="#data-analysis" title="Link to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="wavelet.html">Wavelets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="climatology.html">Calculating Climatologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="climatology.html">Calculating Climatologies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="climatology.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="climatology.html#example-data">Example Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="climatology.html#calculating-anomalies">Calculating Anomalies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="climatology.html#visualization">Visualization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="climatology.html#removing-annual-cycle">Removing Annual Cycle</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="climatology.html#id1">Visualization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="climatology.html#calculating-long-term-means">Calculating Long Term Means</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="climatology.html#id2">Visualization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="climatology.html#calculating-seasonal-means">Calculating Seasonal Means</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="climatology.html#id3">Visualization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="climatology.html#finding-the-standard-deviations-of-monthly-means">Finding The Standard Deviations of Monthly Means</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="climatology.html#id4">Visualization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="climatology.html#curated-resources">Curated Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="general_applied_math.html">General Applied Math</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="general_applied_math.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general_applied_math.html#math-vs-numpy"><code class="docutils literal notranslate"><span class="pre">math</span></code> vs. <code class="docutils literal notranslate"><span class="pre">numpy</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="general_applied_math.html#mathematical-constants">Mathematical Constants</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="general_applied_math.html#pi"><code class="docutils literal notranslate"><span class="pre">pi</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="general_applied_math.html#e"><code class="docutils literal notranslate"><span class="pre">e</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="general_applied_math.html#trigonmetric-and-hyperbolic-functions">Trigonmetric and Hyperbolic Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="general_applied_math.html#sin-cos-and-tan"><code class="docutils literal notranslate"><span class="pre">sin</span></code>, <code class="docutils literal notranslate"><span class="pre">cos</span></code>, and <code class="docutils literal notranslate"><span class="pre">tan</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="general_applied_math.html#cosecant-secant-and-cotangent"><code class="docutils literal notranslate"><span class="pre">cosecant</span></code>, <code class="docutils literal notranslate"><span class="pre">secant</span></code>, and <code class="docutils literal notranslate"><span class="pre">cotangent</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="general_applied_math.html#asin-acos-atan-and-atan2"><code class="docutils literal notranslate"><span class="pre">asin</span></code>, <code class="docutils literal notranslate"><span class="pre">acos</span></code>, <code class="docutils literal notranslate"><span class="pre">atan</span></code>, and <code class="docutils literal notranslate"><span class="pre">atan2</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="general_applied_math.html#sinh-cosh-and-tanh"><code class="docutils literal notranslate"><span class="pre">sinh</span></code>, <code class="docutils literal notranslate"><span class="pre">cosh</span></code>, and <code class="docutils literal notranslate"><span class="pre">tanh</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="general_applied_math.html#asinh-acosh-and-atanh"><code class="docutils literal notranslate"><span class="pre">asinh</span></code>, <code class="docutils literal notranslate"><span class="pre">acosh</span></code>, and <code class="docutils literal notranslate"><span class="pre">atanh</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="general_applied_math.html#algebraic-functions">Algebraic Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="general_applied_math.html#sum-and-prod"><code class="docutils literal notranslate"><span class="pre">sum</span></code> and <code class="docutils literal notranslate"><span class="pre">prod</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="general_applied_math.html#cumsum-and-cumprod"><code class="docutils literal notranslate"><span class="pre">cumsum</span></code> and <code class="docutils literal notranslate"><span class="pre">cumprod</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="general_applied_math.html#abs"><code class="docutils literal notranslate"><span class="pre">abs</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="general_applied_math.html#avg"><code class="docutils literal notranslate"><span class="pre">avg</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="general_applied_math.html#mod"><code class="docutils literal notranslate"><span class="pre">mod</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="general_applied_math.html#degrees-and-radians">Degrees and Radians</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general_applied_math.html#rounding">Rounding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="general_applied_math.html#round-around-floor-ceil"><code class="docutils literal notranslate"><span class="pre">round</span></code>, <code class="docutils literal notranslate"><span class="pre">around</span></code>, <code class="docutils literal notranslate"><span class="pre">floor</span></code>, <code class="docutils literal notranslate"><span class="pre">ceil</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="general_applied_math.html#truncate"><code class="docutils literal notranslate"><span class="pre">truncate</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="general_applied_math.html#exponents-and-logarithms">Exponents and Logarithms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="general_applied_math.html#exp"><code class="docutils literal notranslate"><span class="pre">exp</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="general_applied_math.html#log-log10-and-log2"><code class="docutils literal notranslate"><span class="pre">log</span></code>, <code class="docutils literal notranslate"><span class="pre">log10</span></code>, and <code class="docutils literal notranslate"><span class="pre">log2</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="general_applied_math.html#sorting">Sorting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="general_applied_math.html#sorting-in-python-and-numpy">Sorting in Python and Numpy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="general_applied_math.html#curated-resources">Curated Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="climatology.html">Calculating Climatologies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="climatology.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="climatology.html#example-data">Example Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="climatology.html#calculating-anomalies">Calculating Anomalies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="climatology.html#visualization">Visualization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="climatology.html#removing-annual-cycle">Removing Annual Cycle</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="climatology.html#id1">Visualization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="climatology.html#calculating-long-term-means">Calculating Long Term Means</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="climatology.html#id2">Visualization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="climatology.html#calculating-seasonal-means">Calculating Seasonal Means</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="climatology.html#id3">Visualization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="climatology.html#finding-the-standard-deviations-of-monthly-means">Finding The Standard Deviations of Monthly Means</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="climatology.html#id4">Visualization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="climatology.html#curated-resources">Curated Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="wavelet.html">Wavelets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="wavelet.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wavelet.html#background">Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wavelet.html#wavelet-inputs">Wavelet Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wavelet.html#mother-wavelets">Mother Wavelets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wavelet.html#choosing-wavelet-scales">Choosing Wavelet Scales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wavelet.html#wavelets-example-in-python-using-pywavelets">Wavelets Example in Python using PyWavelets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="wavelet.html#pywavelets-pywt-cwt">PyWavelets: pywt.cwt</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="wavelet.html#input-values">Input Values</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wavelet.html#return-value">Return Value</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="wavelet.html#pywavelets-morlet-wavelet">PyWavelets: Morlet Wavelet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wavelet.html#define-the-complex-morlet">Define the Complex Morlet</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="wavelet.html#power-spectrum">Power Spectrum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wavelet.html#phase-spectrum">Phase Spectrum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wavelet.html#further-reading">Further Reading</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </section>
@@ -441,11 +574,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="wavelet.html"
+       href="climatology.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Wavelets</p>
+        <p class="prev-next-title">Calculating Climatologies</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

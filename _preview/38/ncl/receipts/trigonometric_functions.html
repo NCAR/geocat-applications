@@ -46,6 +46,19 @@
     <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-EQMBXF1D2V"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-EQMBXF1D2V');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-EQMBXF1D2V');
+            </script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ncl/receipts/trigonometric_functions';</script>
     <link rel="icon" href="../../_static/GeoCAT_square.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -159,14 +172,20 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Applications</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../GETTING_STARTED.html">Getting Started</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Applications</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../applications/plot_types/plot_types.html">Plot Types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../applications/data_analysis/data_analysis.html">Data Analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../applications/data_analysis/wavelet.html">Wavelets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../applications/data_analysis/climatology.html">Calculating Climatologies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/data_analysis/general_applied_math.html">General Applied Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/data_analysis/climatology.html">Calculating Climatologies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/data_analysis/wavelet.html">Wavelets</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../applications/date_time/date_time.html">Date and Time</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -180,6 +199,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../ncl_entries/ncl_entries.html">NCL Applications</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../ncl_entries/trigonometric_functions.html">Trigonometric Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ncl_entries/wavelet.html">wavelet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ncl_entries/general_applied_math.html">General Applied Math</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ncl_entries/days_in_month.html">days_in_month</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ncl_entries/day_of_week.html">day_of_week</a></li>
 </ul>
@@ -629,35 +649,10 @@ This notebook is part of the process we have for adding entries to the NCL Index
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>atan: 
-	python (math):	1.2160906747839564
-	python (numpy):	1.2160906747839564
-	ncl:		1.216091
-
-tan: 
-	python (math):	-0.8139432836897027
-	python (numpy):	-0.8139432836897027
-	ncl:		-0.8139434
-
-sin: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sin: 
 	python (math):	0.479425538604203
 	python (numpy):	0.479425538604203
 	ncl:		0.4794255
-
-asin: 
-	python (math):	0.5235987755982989
-	python (numpy):	0.5235987755982989
-	ncl:		0.5235988
-
-tanh: 
-	python (math):	0.5849798828807289
-	python (numpy):	0.5849798828807288
-	ncl:		0.5849799
-
-acos: 
-	python (math):	3.141592653589793
-	python (numpy):	3.141592653589793
-	ncl:		3.141593
 
 atan2: 
 	python (math):	0.4636476090008061
@@ -669,15 +664,40 @@ sinh:
 	python (numpy):	1.9043015014515339
 	ncl:		1.904301
 
-cosh: 
-	python (math):	12.28664620054386
-	python (numpy):	12.28664620054386
-	ncl:		12.28665
+atan: 
+	python (math):	1.2160906747839564
+	python (numpy):	1.2160906747839564
+	ncl:		1.216091
+
+acos: 
+	python (math):	3.141592653589793
+	python (numpy):	3.141592653589793
+	ncl:		3.141593
+
+asin: 
+	python (math):	0.5235987755982989
+	python (numpy):	0.5235987755982989
+	ncl:		0.5235988
+
+tanh: 
+	python (math):	0.5849798828807289
+	python (numpy):	0.5849798828807288
+	ncl:		0.5849799
+
+tan: 
+	python (math):	-0.8139432836897027
+	python (numpy):	-0.8139432836897027
+	ncl:		-0.8139434
 
 cos: 
 	python (math):	0.5403023058681398
 	python (numpy):	0.5403023058681398
 	ncl:		0.5403023
+
+cosh: 
+	python (math):	12.28664620054386
+	python (numpy):	12.28664620054386
+	ncl:		12.28665
 </pre></div>
 </div>
 </div>
@@ -695,36 +715,36 @@ cos:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>atan:
-	-3.252160436506557e-07
-	-3.252160436506557e-07
-tan:
-	1.1631029728231823e-07
-	1.1631029728231823e-07
-sin:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sin:
 	3.8604203000947024e-08
 	3.8604203000947024e-08
-asin:
-	-2.440170110418194e-08
-	-2.440170110418194e-08
-tanh:
-	-1.7119271111809553e-08
-	-1.7119271222831856e-08
-acos:
-	-3.4641020674186507e-07
-	-3.4641020674186507e-07
 atan2:
 	9.000806100445402e-09
 	9.000806100445402e-09
 sinh:
 	5.014515338519487e-07
 	5.014515338519487e-07
-cosh:
-	-3.7994561399301574e-06
-	-3.7994561399301574e-06
+atan:
+	-3.252160436506557e-07
+	-3.252160436506557e-07
+acos:
+	-3.4641020674186507e-07
+	-3.4641020674186507e-07
+asin:
+	-2.440170110418194e-08
+	-2.440170110418194e-08
+tanh:
+	-1.7119271111809553e-08
+	-1.7119271222831856e-08
+tan:
+	1.1631029728231823e-07
+	1.1631029728231823e-07
 cos:
 	5.868139751896706e-09
 	5.868139751896706e-09
+cosh:
+	-3.7994561399301574e-06
+	-3.7994561399301574e-06
 </pre></div>
 </div>
 </div>

@@ -1,0 +1,63 @@
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/geocat-applications/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/runner/micromamba/envs/geocat-applications/lib/python3.12/site-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/micromamba/envs/geocat-applications/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/micromamba/envs/geocat-applications/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/micromamba/envs/geocat-applications/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/home/runner/micromamba/envs/geocat-applications/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/runner/micromamba/envs/geocat-applications/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Available Mother Wavelets within the PyWavelets package
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+import pywt
+
+wavlist = pywt.wavelist(kind="continuous")
+cols = 3
+rows = (len(wavlist) + cols - 1) // cols
+fig, axs = plt.subplots(rows, cols, figsize=(10, 10), sharex=True, sharey=True)
+for ax, wavelet in zip(axs.flatten(), wavlist):
+    # A few wavelet families require parameters in the string name
+    if wavelet in ['cmor', 'shan']:
+        wavelet += '1-1'
+    elif wavelet == 'fbsp':
+        wavelet += '1-1.5-1.0'
+
+    [psi, x] = pywt.ContinuousWavelet(wavelet).wavefun(10)
+    ax.plot(x, np.real(psi), label="real")
+    ax.plot(x, np.imag(psi), label="imag")
+    ax.set_title(wavelet)
+    ax.set_xlim([-5, 5])
+    ax.set_ylim([-0.8, 1])
+
+ax.legend(loc="upper right")
+plt.suptitle("Available wavelets for CWT")
+plt.tight_layout()
+plt.show()
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Cell [0;32mIn[1], line 6[0m
+[1;32m      3[0m [38;5;28;01mimport[39;00m [38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpyplot[39;00m [38;5;28;01mas[39;00m [38;5;21;01mplt[39;00m
+[1;32m      4[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m
+[0;32m----> 6[0m [38;5;28;01mimport[39;00m [38;5;21;01mpywt[39;00m
+[1;32m      8[0m wavlist [38;5;241m=[39m pywt[38;5;241m.[39mwavelist(kind[38;5;241m=[39m[38;5;124m"[39m[38;5;124mcontinuous[39m[38;5;124m"[39m)
+[1;32m      9[0m cols [38;5;241m=[39m [38;5;241m3[39m
+
+[0;31mModuleNotFoundError[0m: No module named 'pywt'
+
