@@ -10,6 +10,7 @@ Data Analysis
 
     trigonometric_functions.ipynb
     wavelet.ipynb
+    general_applied_math.ipynb
 
 Dates and Times
 ---------------

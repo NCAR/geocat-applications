@@ -23,6 +23,7 @@
 
                 - `Wavelets <applications/data_analysis/wavelet.ipynb>`_
 
+                - `General Applied Math <applications/data_analysis/general_applied_math.ipynb>`_
                 - `Calculating Climatologies <applications/data_analysis/climatology.ipynb>`_
 
     .. grid-item::

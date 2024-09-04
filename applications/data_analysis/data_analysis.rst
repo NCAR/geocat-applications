@@ -6,7 +6,9 @@ Data Analysis
 =============
 
 .. toctree::
-   :maxdepth: 1
+    :maxdepth: 1
 
-   wavelet.ipynb
    climatology.ipynb
+   general_applied_math.ipynb
+   climatology.ipynb
+   wavelet.ipynb
