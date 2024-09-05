@@ -4,7 +4,7 @@ describes how to contribute to `geocat-applications` and help us expand this ref
 
 If you have any questions, please leave us a message on [GeoCAT Applications Issues](https://github.com/NCAR/geocat-applications/issues)
 or in [GeoCAT Applications Discussions](https://github.com/NCAR/geocat-applications/discussions). You
-can also reach us by email at [geocat@ucar.edu](geocat@ucar.edu).
+can also reach us by email at [geocat@ucar.edu](mailto:geocat@ucar.edu).
 
 ## How to Contribute
 
