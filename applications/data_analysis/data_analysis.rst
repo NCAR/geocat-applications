@@ -10,4 +10,3 @@ Data Analysis
 
     general_applied_math.ipynb
     climatology.ipynb
-    humid_heat_metrics.ipynb
