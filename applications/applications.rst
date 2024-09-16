@@ -14,13 +14,14 @@
 
             .. card:: Plot Types
 
-
     .. grid-item::
 
         .. grid:: 1
             :gutter: 1
 
-            .. card:: Data Analysis
+            .. card:: `Data Analysis <applications/data_analysis/data_analysis.rst>`_
+
+                - `Wavelets <applications/data_analysis/wavelet.ipynb>`_
 
                 - `General Applied Math <applications/data_analysis/general_applied_math.ipynb>`_
                 - `Calculating Climatologies <applications/data_analysis/climatology.ipynb>`_
