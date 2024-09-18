@@ -12,14 +12,6 @@ Data Analysis
     general_applied_math.ipynb
     specx_specxy_anal.ipynb
 
-Data Analysis
----------------
-.. toctree::
-    :maxdepth: 1
-
-    specx_anal.ipynb
-    specxy_anal.ipynb
-
 Dates and Times
 ---------------
 .. toctree::
