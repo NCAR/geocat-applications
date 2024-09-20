@@ -605,7 +605,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="ne">---&gt; </span><span class="mi">56</span>     <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
 <span class="g g-Whitespace">     </span><span class="mi">57</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="o">.</span><span class="n">move_to_end</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 
-<span class="ne">KeyError</span>: [&lt;class &#39;netCDF4._netCDF4.Dataset&#39;&gt;, (&#39;/home/runner/work/geocat-applications/geocat-applications/ncl/ncl_raw/b.e21.BHIST.f09_g17.CMIP6-historical.003.cice.h.aice.185001-201412.nc&#39;,), &#39;r&#39;, ((&#39;clobber&#39;, True), (&#39;diskless&#39;, False), (&#39;format&#39;, &#39;NETCDF4&#39;), (&#39;persist&#39;, False)), &#39;325bf12a-269c-42ba-bbbf-7fac4a6835e0&#39;]
+<span class="ne">KeyError</span>: [&lt;class &#39;netCDF4._netCDF4.Dataset&#39;&gt;, (&#39;/home/runner/work/geocat-applications/geocat-applications/ncl/ncl_raw/b.e21.BHIST.f09_g17.CMIP6-historical.003.cice.h.aice.185001-201412.nc&#39;,), &#39;r&#39;, ((&#39;clobber&#39;, True), (&#39;diskless&#39;, False), (&#39;format&#39;, &#39;NETCDF4&#39;), (&#39;persist&#39;, False)), &#39;975607b0-55da-4e35-8dc0-44c13709474e&#39;]
 
 <span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
 
@@ -748,37 +748,6 @@ This notebook is part of the process we have for adding entries to the NCL Index
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rmMonAnnCycTLL: 
-	python:		0.09780758619308472
-	ncl:		0.09780759
-
-calcMonAnomTLL: 
-	python:		0.09780758619308472
-	ncl:		0.09780759
-
-clmDayTLL: 
-	python:		0.4031425416469574
-	ncl:		0.4031426
-
-clmMonTLL: 
-	python:		0.126130610704422
-	ncl:		0.1261306
-
-stdMonTLL: 
-	python:		0.10731684416532516
-	ncl:		0.1073168
-
-month_to_season: 
-	python:		4.9227783165406436e-06
-	ncl:		4.922778e-06
-
-calcDayAnomTLL: 
-	python:		0.21562078595161438
-	ncl:		0.2156208
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="differences">
@@ -788,24 +757,6 @@ calcDayAnomTLL:
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">ncl_results</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">results</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="si">{</span><span class="n">results</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">ncl_results</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rmMonAnnCycTLL:
-	-3.806915283011136e-09
-calcMonAnomTLL:
-	-3.806915283011136e-09
-clmDayTLL:
-	-5.835304262014063e-08
-clmMonTLL:
-	1.0704421987695056e-08
-stdMonTLL:
-	4.416532516093863e-08
-month_to_season:
-	3.165406432182791e-13
-calcDayAnomTLL:
-	-1.404838562146793e-08
 </pre></div>
 </div>
 </div>
