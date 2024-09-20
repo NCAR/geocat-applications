@@ -186,6 +186,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../applications/data_analysis/data_analysis.html">Data Analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../applications/data_analysis/general_applied_math.html">General Applied Math</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../applications/data_analysis/climatology.html">Calculating Climatologies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../applications/data_analysis/spectral_analysis.html">Spectral Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../applications/data_analysis/humid_heat_metrics.html">Humid Heat Metrics</a></li>
 </ul>
 </details></li>
@@ -200,6 +201,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../ncl_entries/ncl_entries.html">NCL Applications</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../ncl_entries/trigonometric_functions.html">Trigonometric Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ncl_entries/general_applied_math.html">General Applied Math</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ncl_entries/specx_specxy_anal.html">specx_specxy_anal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ncl_entries/days_in_month.html">days_in_month</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ncl_entries/day_of_week.html">day_of_week</a></li>
 </ul>
@@ -515,30 +517,30 @@ document.write(`
 <td><p><code class="docutils literal notranslate"><span class="pre">math.exp()</span></code> or <code class="docutils literal notranslate"><span class="pre">numpy.exp()</span></code></p></td>
 <td><p><a class="reference internal" href="../ncl_entries/general_applied_math.html#exp"><span class="std std-ref">example notebook</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/fabs.shtml">fabs</a></p></td>
-<td><p>Returns the absolute value of numeric data</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">abs()</span></code> or <code class="docutils literal notranslate"><span class="pre">numpy.abs()</span></code></p></td>
-<td><p><a class="reference internal" href="../ncl_entries/general_applied_math.html#abs-fabs"><span class="std std-ref">example notebook</span></a></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/floor.shtml">floor</a></p></td>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/floor.shtml">floor</a></p></td>
 <td><p>Returns the largest integral value less than or equal to each input value</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">math.floor()</span></code> or <code class="docutils literal notranslate"><span class="pre">numpy.floor()</span></code></p></td>
 <td><p><a class="reference internal" href="../ncl_entries/general_applied_math.html#floor"><span class="std std-ref">example notebook</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/fabs.shtml">fabs</a></p></td>
+<td><p>Returns the absolute value of numeric data</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">abs()</span></code> or <code class="docutils literal notranslate"><span class="pre">numpy.abs()</span></code></p></td>
+<td><p><a class="reference internal" href="../ncl_entries/general_applied_math.html#abs-fabs"><span class="std std-ref">example notebook</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Contributed/get_d2r.shtml">get_d2r</a></p></td>
 <td><p>Return a constant that converts degrees to radians</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">math.pi</span> <span class="pre">/</span> <span class="pre">180</span></code> or <code class="docutils literal notranslate"><span class="pre">numpy.pi</span> <span class="pre">/</span> <span class="pre">180</span></code> or <code class="docutils literal notranslate"><span class="pre">numpy.deg2rad()</span></code></p></td>
 <td><p><a class="reference internal" href="../ncl_entries/general_applied_math.html#get-d2r"><span class="std std-ref">example notebook</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Contributed/get_pi.shtml">get_pi</a></p></td>
-<td><p>Return pi as a type float or double</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">math.pi</span></code> or <code class="docutils literal notranslate"><span class="pre">numpy.pi</span></code></p></td>
-<td><p><a class="reference internal" href="../ncl_entries/general_applied_math.html#get-pi"><span class="std std-ref">example notebook</span></a></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Contributed/get_r2d.shtml">get_r2d</a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Contributed/get_r2d.shtml">get_r2d</a></p></td>
 <td><p>Return a constant that converts radians to degrees</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">180</span> <span class="pre">/</span> <span class="pre">math.pi</span></code> or <code class="docutils literal notranslate"><span class="pre">180</span> <span class="pre">/</span> <span class="pre">numpy.pi</span></code> or <code class="docutils literal notranslate"><span class="pre">numpy.rad2deg()</span></code></p></td>
 <td><p><a class="reference internal" href="../ncl_entries/general_applied_math.html#get-r2d"><span class="std std-ref">example notebook</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Contributed/get_pi.shtml">get_pi</a></p></td>
+<td><p>Return pi as a type float or double</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">math.pi</span></code> or <code class="docutils literal notranslate"><span class="pre">numpy.pi</span></code></p></td>
+<td><p><a class="reference internal" href="../ncl_entries/general_applied_math.html#get-pi"><span class="std std-ref">example notebook</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/log.shtml">log</a></p></td>
 <td><p>Computes the natural log of a numeric type</p></td>
@@ -580,6 +582,16 @@ document.write(`
 <td><p><code class="docutils literal notranslate"><span class="pre">round()</span></code> or <code class="docutils literal notranslate"><span class="pre">numpy.round()</span></code></p></td>
 <td><p><a class="reference internal" href="../ncl_entries/general_applied_math.html#decimalplaces-round"><span class="std std-ref">example notebook</span></a></p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/specx_anal.shtml">specx_anal</a></p></td>
+<td><p>Calculates the spectra of a series.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scipy.signal.periodogram()</span></code>, <code class="docutils literal notranslate"><span class="pre">scipy.signal.convolve()</span></code></p></td>
+<td><p><a class="reference internal" href="../ncl_entries/specx_specxy_anal.html"><span class="doc">example notebook</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/sum.shtml">sum</a></p></td>
+<td><p>Sums the input</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sum()</span></code> or <code class="docutils literal notranslate"><span class="pre">numpy.sum()</span></code></p></td>
+<td><p><a class="reference internal" href="../ncl_entries/general_applied_math.html#sum"><span class="std std-ref">example notebook</span></a></p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Contributed/sign_matlab.shtml">sign_matlab</a></p></td>
 <td><p>Mimic the behavior of Matlab’s sign function</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">numpy.sign()</span></code></p></td>
@@ -600,10 +612,10 @@ document.write(`
 <td><p><code class="docutils literal notranslate"><span class="pre">math.sqrt()</span></code> or <code class="docutils literal notranslate"><span class="pre">numpy.sqrt()</span></code></p></td>
 <td><p><a class="reference internal" href="../ncl_entries/general_applied_math.html#sqrt"><span class="std std-ref">example notebook</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/sum.shtml">sum</a></p></td>
-<td><p>Sums the input</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">sum()</span></code> or <code class="docutils literal notranslate"><span class="pre">numpy.sum()</span></code></p></td>
-<td><p><a class="reference internal" href="../ncl_entries/general_applied_math.html#sum"><span class="std std-ref">example notebook</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/specxy_anal.shtml">specxy_anal</a></p></td>
+<td><p>Calculates the cross-spectra quantities of a series.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">scipy.signal.periodogram()</span></code>, <code class="docutils literal notranslate"><span class="pre">scipy.signal.convolve()</span></code>, <code class="docutils literal notranslate"><span class="pre">scipy.signal.csd()</span></code>, <code class="docutils literal notranslate"><span class="pre">scipy.signal.coherence()</span></code></p></td>
+<td><p><a class="reference internal" href="../ncl_entries/specx_specxy_anal.html"><span class="doc">example notebook</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/sin.shtml">sin</a></p></td>
 <td><p>Computes the sine of numeric types</p></td>
