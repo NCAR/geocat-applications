@@ -476,8 +476,12 @@ This notebook is part of the process we have for adding entries to the NCL Index
 
 <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
 
-<span class="n">ds_m</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">gdf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;applications_files/inputs/CMIP6_sea_ice_monthly_subset.nc&quot;</span><span class="p">))</span>
-<span class="n">ds_d</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">gdf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;applications_files/inputs/CMIP6_sea_ice_daily_subset.nc&quot;</span><span class="p">))</span>
+<span class="n">ds_m</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
+    <span class="n">gdf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;applications_files/inputs/CMIP6_sea_ice_monthly_subset.nc&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">ds_d</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
+    <span class="n">gdf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;applications_files/inputs/CMIP6_sea_ice_daily_subset.nc&quot;</span><span class="p">)</span>
+<span class="p">)</span>
 
 <span class="c1"># calcDayAnomTLL</span>
 <span class="n">aice</span> <span class="o">=</span> <span class="n">ds_d</span><span class="o">.</span><span class="n">aice_d</span><span class="p">[:,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
@@ -551,7 +555,11 @@ This notebook is part of the process we have for adding entries to the NCL Index
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>calcDayAnomTLL: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>month_to_season: 
+	python:		0.9931214451789856
+	ncl:		0.9931215
+
+calcDayAnomTLL: 
 	python:		-0.02774369716644287
 	ncl:		-0.02774364
 </pre></div>
