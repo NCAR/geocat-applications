@@ -458,8 +458,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Grab and Go</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-xarray">Using <code class="docutils literal notranslate"><span class="pre">xarray</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-geocat-comp">Using <code class="docutils literal notranslate"><span class="pre">geocat.comp</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-resources">Python Resources</a></li>
 </ul>
             </nav>
@@ -476,7 +474,7 @@ document.write(`
 <h1>Climatology<a class="headerlink" href="#climatology" title="Link to this heading">#</a></h1>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
-<p>The climatology functions listed below can be calculated using <code class="docutils literal notranslate"><span class="pre">xarray</span></code> and or <code class="docutils literal notranslate"><span class="pre">geocat.comp</span></code></p>
+<p>The NCL climatology functions listed below can be replicated using <code class="docutils literal notranslate"><span class="pre">xarray</span></code> and/or <code class="docutils literal notranslate"><span class="pre">geocat.comp</span></code></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Contributed/calcDayAnomTLL.shtml">calcDayAnomTLL</a></p></li>
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Contributed/calcMonAnomTLL.shtml">calcMonAnomTLL</a></p></li>
@@ -511,7 +509,7 @@ document.write(`
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/inputs/CMIP6_sea_ice_daily_subset.nc&#39; from &#39;https://github.com/NCAR/GeoCAT-datafiles/raw/main/applications_files/inputs/CMIP6_sea_ice_daily_subset.nc&#39; to &#39;/home/runner/.cache/geocat&#39;.
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7fb226b5d8e0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7ff58de8bad0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/7b2812a9c7910c0671bd30f2ac1e19340566373c725c2c2d78d68d1be822863b.png" src="../../_images/7b2812a9c7910c0671bd30f2ac1e19340566373c725c2c2d78d68d1be822863b.png" />
@@ -545,7 +543,7 @@ document.write(`
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/inputs/CMIP6_sea_ice_monthly_subset.nc&#39; from &#39;https://github.com/NCAR/GeoCAT-datafiles/raw/main/applications_files/inputs/CMIP6_sea_ice_monthly_subset.nc&#39; to &#39;/home/runner/.cache/geocat&#39;.
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7fb21df0b6e0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7ff58d928410&gt;
 </pre></div>
 </div>
 <img alt="../../_images/c920698a9103b5953bfc0e48529eee20355ee9fa0da1434d1accd76eb8baee64.png" src="../../_images/c920698a9103b5953bfc0e48529eee20355ee9fa0da1434d1accd76eb8baee64.png" />
@@ -573,7 +571,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fb21de20500&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ff585143fe0&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/468b748f565d436511a4a15a7abd1ae16dc716d20a6ee20c5fcd08cc9599016f.png" src="../../_images/468b748f565d436511a4a15a7abd1ae16dc716d20a6ee20c5fcd08cc9599016f.png" />
@@ -603,7 +601,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fb21decd5e0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ff585018ad0&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/eafc114cbd71c59303aadf5787aaf54637223ecbf2f9f70b894f91eecbaeffbc.png" src="../../_images/eafc114cbd71c59303aadf5787aaf54637223ecbf2f9f70b894f91eecbaeffbc.png" />
@@ -614,7 +612,10 @@ document.write(`
 <section id="month-to-season">
 <h2>month_to_season<a class="headerlink" href="#month-to-season" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">month_to_season</span></code> computes a user-specified three-month seasonal mean (DJF, JFM, FMA, MAM, AMJ, MJJ, JJA, JAS, ASO, SON, OND, NDJ)</p>
-<p><code class="docutils literal notranslate"><span class="pre">xarray</span></code> may not be sufficient to calculate custom seasonal means. If you need to work with custom seasons, we suggest using <a class="reference external" href="https://geocat-comp.readthedocs.io/en/stable/user_api/generated/geocat.comp.climatologies.month_to_season.html"><code class="docutils literal notranslate"><span class="pre">geocat.comp.climatologies.month_to_season</span></code></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can do something similar with directly with Xarray as shown in <a class="reference external" href="https://docs.xarray.dev/en/stable/examples/monthly-means.html#Calculating-Seasonal-Averages-from-Time-Series-of-Monthly-Means">this example in the Xarray documentation</a>. However, it requires substantially more code and doesn’t have as much flexibility with respect to how the seasons are defined.</p>
+</div>
 <section id="id4">
 <h3>Grab and Go<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
@@ -714,22 +715,13 @@ document.write(`
 </section>
 </section>
 <hr class="docutils" />
-<section id="using-xarray">
-<h2>Using <code class="docutils literal notranslate"><span class="pre">xarray</span></code><a class="headerlink" href="#using-xarray" title="Link to this heading">#</a></h2>
-<p>The <a class="reference external" href="https://docs.xarray.dev/en/latest/index.html"><code class="docutils literal notranslate"><span class="pre">xarray</span></code></a> module may be sufficient to calculate the majority of climatology functions</p>
-<p>You can use the <a class="reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.DataArray.groupby.html"><code class="docutils literal notranslate"><span class="pre">groupby()</span></code></a> function to group the data by various <a class="reference external" href="https://xarray.pydata.org/en/v2024.06.0/user-guide/time-series.html#datetime-indexing">timescales</a></p>
-</section>
-<section id="using-geocat-comp">
-<h2>Using <code class="docutils literal notranslate"><span class="pre">geocat.comp</span></code><a class="headerlink" href="#using-geocat-comp" title="Link to this heading">#</a></h2>
-<p>The <a class="reference external" href="https://geocat-comp.readthedocs.io/en/stable/user_api/index.html"><code class="docutils literal notranslate"><span class="pre">geocat.comp</span></code></a> package offers some custom climatology functions if xarray is insuffisient to replicate an NCL function, as is the case for <code class="docutils literal notranslate"><span class="pre">month_to_season</span></code></p>
-</section>
 <section id="python-resources">
 <h2>Python Resources<a class="headerlink" href="#python-resources" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>The GeoCAT Applications <a class="reference external" href="https://ncar.github.io/geocat-applications/applications/data_analysis/climatology.html">Climatology notebook</a></p></li>
-<li><p>This <a class="reference external" href="https://comptools.climatematch.io/tutorials/W1D1_ClimateSystemOverview/student/W1D1_Tutorial5.html">Climatematch Academy notebook</a> on xarray Data Analysis and Climatology</p></li>
-<li><p>This <a class="reference external" href="https://foundations.projectpythia.org/core/xarray/computation-masking.html">Project Pythia Foundations tutorial</a> on Computations and Masks with xarray</p></li>
-<li><p>The <a class="reference external" href="https://docs.xarray.dev/en/stable/user-guide/time-series.html">xarray user guide</a> on working with time series data</p></li>
+<li><p>GeoCAT Applications <a class="reference external" href="https://ncar.github.io/geocat-applications/applications/data_analysis/climatology.html">climatology page</a></p></li>
+<li><p>Climatematch Academy <a class="reference external" href="https://comptools.climatematch.io/tutorials/W1D1_ClimateSystemOverview/student/W1D1_Tutorial5.html">Xarray Data Analysis and Climatology tutorial</a></p></li>
+<li><p>Project Pythia Foundations <a class="reference external" href="https://foundations.projectpythia.org/core/xarray/computation-masking.html">Computations and Masks with Xarray tutorial</a></p></li>
+<li><p>Xarray User Guide <a class="reference external" href="https://docs.xarray.dev/en/stable/user-guide/time-series.html">section on time series data</a></p></li>
 </ul>
 </section>
 </section>
@@ -808,8 +800,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Grab and Go</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-xarray">Using <code class="docutils literal notranslate"><span class="pre">xarray</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-geocat-comp">Using <code class="docutils literal notranslate"><span class="pre">geocat.comp</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-resources">Python Resources</a></li>
 </ul>
   </nav></div>
