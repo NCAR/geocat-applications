@@ -33,7 +33,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/theme_overrides.css?v=7691835d" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../_static/style.css?v=b6986961" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css?v=f313c041" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -464,72 +464,6 @@ This notebook is part of the process we have for adding entries to the NCL Index
 </section>
 <section id="ncl-code">
 <h2>NCL code<a class="headerlink" href="#ncl-code" title="Link to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">;</span> <span class="n">calcDayAnomTLL</span>
-<span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span> <span class="nn">www.ncl.ucar.edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Contributed</span><span class="o">/</span><span class="n">calcDayanomTLL</span><span class="o">.</span><span class="n">shtml</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">addfile</span><span class="p">(</span><span class="s2">&quot;b.e21.BHIST.f09_g17.CMIP6-historical.003.cice.h1.aice_d.18500101-20141231.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
-<span class="n">time</span> <span class="o">=</span> <span class="n">f</span><span class="o">-&gt;</span><span class="n">time</span><span class="p">(</span><span class="mi">54749</span><span class="p">:</span><span class="mi">58398</span><span class="p">)</span>
-<span class="n">TIME</span> <span class="o">=</span> <span class="n">cd_calendar</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">year</span> <span class="o">=</span> <span class="n">toint</span><span class="p">(</span><span class="n">TIME</span><span class="p">(:,</span><span class="mi">0</span><span class="p">))</span>
-<span class="n">month</span> <span class="o">=</span> <span class="n">toint</span><span class="p">(</span><span class="n">TIME</span><span class="p">(:,</span><span class="mi">1</span><span class="p">))</span>
-<span class="n">day</span> <span class="o">=</span> <span class="n">toint</span><span class="p">(</span><span class="n">TIME</span><span class="p">(:,</span><span class="mi">2</span><span class="p">))</span>
-<span class="n">ddd</span> <span class="o">=</span> <span class="n">day_of_year</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">)</span>
-<span class="n">yyyyddd</span> <span class="o">=</span> <span class="n">year</span><span class="o">*</span><span class="mi">1000</span><span class="o">+</span><span class="n">ddd</span>
-<span class="n">aice</span> <span class="o">=</span> <span class="n">f</span><span class="o">-&gt;</span><span class="n">aice_d</span><span class="p">(</span><span class="mi">54749</span><span class="p">:</span><span class="mi">58398</span><span class="p">,:,:)</span>
-<span class="n">aiceClmDay</span> <span class="o">=</span> <span class="n">clmDayTLL</span><span class="p">(</span><span class="n">aice</span><span class="p">,</span> <span class="n">yyyyddd</span><span class="p">)</span>
-<span class="n">aiceDayAnom</span> <span class="o">=</span> <span class="n">calcDayAnomTLL</span><span class="p">(</span><span class="n">aice</span><span class="p">,</span> <span class="n">yyyyddd</span><span class="p">,</span> <span class="n">aiceClmDay</span><span class="p">)</span> <span class="p">;</span> <span class="n">aiceDayAnom</span> <span class="o">=</span> <span class="mf">0.2156208</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">aiceDayAnom</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">365</span><span class="p">,</span><span class="mi">300</span><span class="p">))</span>
-
-<span class="p">;</span> <span class="n">calcMonAnomTLL</span>
-<span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span> <span class="nn">www.ncl.ucar.edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Contributed</span><span class="o">/</span><span class="n">calcMonAnomTLL</span><span class="o">.</span><span class="n">shtml</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">addfile</span><span class="p">(</span><span class="s2">&quot;b.e21.BHIST.f09_g17.CMIP6-historical.003.cice.h.aice.185001-201412.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
-<span class="n">aice</span> <span class="o">=</span> <span class="n">f</span><span class="o">-&gt;</span><span class="n">aice</span><span class="p">(</span><span class="mi">1799</span><span class="p">:</span><span class="mi">1918</span><span class="p">,:,:)</span>
-<span class="n">aiceClmMon</span> <span class="o">=</span> <span class="n">clmMonTLL</span><span class="p">(</span><span class="n">aice</span><span class="p">)</span>
-<span class="n">aiceMonAnom</span> <span class="o">=</span> <span class="n">calcMonAnomTLL</span><span class="p">(</span><span class="n">aice</span><span class="p">,</span><span class="n">aiceClmMon</span><span class="p">)</span> <span class="p">;</span> <span class="n">aliceMonAnom</span> <span class="o">=</span> <span class="mf">0.09780759</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">aiceMonAnom</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">365</span><span class="p">,</span><span class="mi">300</span><span class="p">))</span>
-
-<span class="p">;</span> <span class="n">clmDayTLL</span>
-<span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span> <span class="nn">www.ncl.ucar.edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Contributed</span><span class="o">/</span><span class="n">clmDayTLL</span><span class="o">.</span><span class="n">shtml</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">addfile</span><span class="p">(</span><span class="s2">&quot;b.e21.BHIST.f09_g17.CMIP6-historical.003.cice.h1.aice_d.18500101-20141231.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
-<span class="n">time</span> <span class="o">=</span> <span class="n">f</span><span class="o">-&gt;</span><span class="n">time</span><span class="p">(</span><span class="mi">54749</span><span class="p">:</span><span class="mi">58398</span><span class="p">)</span>
-<span class="n">TIME</span> <span class="o">=</span> <span class="n">cd_calendar</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">year</span> <span class="o">=</span> <span class="n">toint</span><span class="p">(</span><span class="n">TIME</span><span class="p">(:,</span><span class="mi">0</span><span class="p">))</span>
-<span class="n">month</span> <span class="o">=</span> <span class="n">toint</span><span class="p">(</span><span class="n">TIME</span><span class="p">(:,</span><span class="mi">1</span><span class="p">))</span>
-<span class="n">day</span> <span class="o">=</span> <span class="n">toint</span><span class="p">(</span><span class="n">TIME</span><span class="p">(:,</span><span class="mi">2</span><span class="p">))</span>
-<span class="n">ddd</span> <span class="o">=</span> <span class="n">day_of_year</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">)</span>
-<span class="n">yyyyddd</span> <span class="o">=</span> <span class="n">year</span><span class="o">*</span><span class="mi">1000</span><span class="o">+</span><span class="n">ddd</span>
-<span class="n">aice</span> <span class="o">=</span> <span class="n">f</span><span class="o">-&gt;</span><span class="n">aice_d</span><span class="p">(</span><span class="mi">54749</span><span class="p">:</span><span class="mi">58398</span><span class="p">,:,:)</span>
-<span class="n">aiceClmDay</span> <span class="o">=</span> <span class="n">clmDayTLL</span><span class="p">(</span><span class="n">aice</span><span class="p">,</span> <span class="n">yyyyddd</span><span class="p">)</span> <span class="p">;</span> <span class="n">aiceClmDay</span> <span class="o">=</span> <span class="mf">0.4031426</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">aiceClmDay</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">365</span><span class="p">,</span><span class="mi">300</span><span class="p">))</span>
-
-<span class="p">;</span> <span class="n">clmMonTLL</span>
-<span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span> <span class="nn">www.ncl.ucar.edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Contributed</span><span class="o">/</span><span class="n">clmMonTLL</span><span class="o">.</span><span class="n">shtml</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">addfile</span><span class="p">(</span><span class="s2">&quot;b.e21.BHIST.f09_g17.CMIP6-historical.003.cice.h.aice.185001-201412.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
-<span class="n">aice</span> <span class="o">=</span> <span class="n">f</span><span class="o">-&gt;</span><span class="n">aice</span><span class="p">(</span><span class="mi">1799</span><span class="p">:</span><span class="mi">1918</span><span class="p">,:,:)</span>
-<span class="n">aiceClmMon</span> <span class="o">=</span> <span class="n">clmMonTLL</span><span class="p">(</span><span class="n">aice</span><span class="p">)</span> <span class="p">;</span> <span class="n">aiceClmMon</span> <span class="o">=</span> <span class="mf">0.1261306</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">aiceClmMon</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">365</span><span class="p">,</span><span class="mi">300</span><span class="p">))</span>
-
-<span class="p">;</span> <span class="n">month_to_season</span>
-<span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span> <span class="nn">www.ncl.ucar.edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Contributed</span><span class="o">/</span><span class="n">calcDayAnomTLL</span><span class="o">.</span><span class="n">shtml</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">addfile</span><span class="p">(</span><span class="s2">&quot;b.e21.BHIST.f09_g17.CMIP6-historical.003.cice.h.aice.185001-201412.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
-<span class="n">aice</span> <span class="o">=</span> <span class="n">f</span><span class="o">-&gt;</span><span class="n">aice</span><span class="p">(</span><span class="mi">1799</span><span class="p">:</span><span class="mi">1918</span><span class="p">,:,:)</span>
-<span class="n">aiceSeason</span> <span class="o">=</span> <span class="n">month_to_season</span><span class="p">(</span><span class="n">aice</span><span class="p">,</span> <span class="s2">&quot;ASO&quot;</span><span class="p">)</span> <span class="p">;</span> <span class="n">aiceSeason</span> <span class="o">=</span> <span class="mf">4.922778e-06</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">aiceSeason</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">365</span><span class="p">,</span><span class="mi">300</span><span class="p">))</span>
-
-<span class="p">;</span> <span class="n">rmMonAnnCycTLL</span>
-<span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span> <span class="nn">www.ncl.ucar.edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Contributed</span><span class="o">/</span><span class="n">month_to_season</span><span class="o">.</span><span class="n">shtml</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">addfile</span><span class="p">(</span><span class="s2">&quot;b.e21.BHIST.f09_g17.CMIP6-historical.003.cice.h.aice.185001-201412.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
-<span class="n">aice</span> <span class="o">=</span> <span class="n">f</span><span class="o">-&gt;</span><span class="n">aice</span><span class="p">(</span><span class="mi">1799</span><span class="p">:</span><span class="mi">1918</span><span class="p">,:,:)</span>
-<span class="n">aiceRmMonAnnCyc</span> <span class="o">=</span> <span class="n">rmMonAnnCycTLL</span><span class="p">(</span><span class="n">aice</span><span class="p">)</span> <span class="p">;</span> <span class="n">aiceRmMonAnnCyc</span> <span class="o">=</span> <span class="mf">0.09780759</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">aiceRmMonAnnCyc</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">365</span><span class="p">,</span><span class="mi">300</span><span class="p">))</span>
-
-<span class="p">;</span> <span class="n">stdMonTLL</span>
-<span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span> <span class="nn">www.ncl.ucar.edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Contributed</span><span class="o">/</span><span class="n">stdMonTLL</span><span class="o">.</span><span class="n">shtml</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">addfile</span><span class="p">(</span><span class="s2">&quot;b.e21.BHIST.f09_g17.CMIP6-historical.003.cice.h.aice.185001-201412.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
-<span class="n">aice</span> <span class="o">=</span> <span class="n">f</span><span class="o">-&gt;</span><span class="n">aice</span><span class="p">(</span><span class="mi">1799</span><span class="p">:</span><span class="mi">1918</span><span class="p">,:,:)</span>
-<span class="n">aiceStdMon</span> <span class="o">=</span> <span class="n">stdMonTLL</span><span class="p">(</span><span class="n">aice</span><span class="p">)</span> <span class="p">;</span> <span class="n">aiceStdMon</span> <span class="o">=</span> <span class="mf">0.1073168</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">aiceStdMon</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">365</span><span class="p">,</span><span class="mi">300</span><span class="p">))</span>
-</pre></div>
-</div>
 </section>
 <section id="python-functionality">
 <h2>Python Functionality<a class="headerlink" href="#python-functionality" title="Link to this heading">#</a></h2>
@@ -537,191 +471,57 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
-<span class="kn">import</span> <span class="nn">geocat.comp</span> <span class="k">as</span> <span class="nn">gc</span>
+<span class="kn">import</span> <span class="nn">geocat.datafiles</span> <span class="k">as</span> <span class="nn">gdf</span>
+<span class="kn">from</span> <span class="nn">geocat.comp</span> <span class="kn">import</span> <span class="n">month_to_season</span>
 
 <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
 
-<span class="n">ds_m</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
-    <span class="s2">&quot;../ncl_raw/b.e21.BHIST.f09_g17.CMIP6-historical.003.cice.h.aice.185001-201412.nc&quot;</span>
-<span class="p">)</span>
-<span class="n">ds_d</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
-    <span class="s2">&quot;../ncl_raw/b.e21.BHIST.f09_g17.CMIP6-historical.003.cice.h1.aice_d.18500101-20141231.nc&quot;</span>
-<span class="p">)</span>
+<span class="n">ds_m</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">gdf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;applications_files/inputs/CMIP6_sea_ice_monthly_subset.nc&quot;</span><span class="p">))</span>
+<span class="n">ds_d</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">gdf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;applications_files/inputs/CMIP6_sea_ice_daily_subset.nc&quot;</span><span class="p">))</span>
 
 <span class="c1"># calcDayAnomTLL</span>
-<span class="n">aice</span> <span class="o">=</span> <span class="n">ds_d</span><span class="o">.</span><span class="n">aice_d</span><span class="p">[</span><span class="mi">54749</span><span class="p">:</span><span class="mi">58399</span><span class="p">,</span> <span class="mi">365</span><span class="p">,</span> <span class="mi">300</span><span class="p">]</span>
+<span class="n">aice</span> <span class="o">=</span> <span class="n">ds_d</span><span class="o">.</span><span class="n">aice_d</span><span class="p">[:,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
 <span class="n">DayTLL</span> <span class="o">=</span> <span class="n">aice</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">aice</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">dayofyear</span><span class="p">)</span>
 <span class="n">clmDayTLL</span> <span class="o">=</span> <span class="n">DayTLL</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
 <span class="n">calcDayAnomTLL</span> <span class="o">=</span> <span class="n">DayTLL</span> <span class="o">-</span> <span class="n">clmDayTLL</span>
 <span class="n">results</span><span class="p">[</span><span class="s2">&quot;calcDayAnomTLL&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">calcDayAnomTLL</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># calcMonAnomTLL</span>
-<span class="n">aice</span> <span class="o">=</span> <span class="n">ds_m</span><span class="o">.</span><span class="n">aice</span><span class="p">[</span><span class="mi">1799</span><span class="p">:</span><span class="mi">1919</span><span class="p">,</span> <span class="mi">365</span><span class="p">,</span> <span class="mi">300</span><span class="p">]</span>
+<span class="n">aice</span> <span class="o">=</span> <span class="n">ds_m</span><span class="o">.</span><span class="n">aice</span><span class="p">[:</span><span class="mi">60</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
 <span class="n">MonTLL</span> <span class="o">=</span> <span class="n">aice</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">aice</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span><span class="p">)</span>
 <span class="n">clmMonTLL</span> <span class="o">=</span> <span class="n">MonTLL</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
 <span class="n">calcMonAnomTLL</span> <span class="o">=</span> <span class="n">MonTLL</span> <span class="o">-</span> <span class="n">clmMonTLL</span>
 <span class="n">results</span><span class="p">[</span><span class="s2">&quot;calcMonAnomTLL&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">calcMonAnomTLL</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># clmDayTLL</span>
-<span class="n">aice</span> <span class="o">=</span> <span class="n">ds_d</span><span class="o">.</span><span class="n">aice_d</span><span class="p">[</span><span class="mi">54749</span><span class="p">:</span><span class="mi">58399</span><span class="p">,</span> <span class="mi">365</span><span class="p">,</span> <span class="mi">300</span><span class="p">]</span>
+<span class="n">aice</span> <span class="o">=</span> <span class="n">ds_d</span><span class="o">.</span><span class="n">aice_d</span><span class="p">[:,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
 <span class="n">DayTLL</span> <span class="o">=</span> <span class="n">aice</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">aice</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">dayofyear</span><span class="p">)</span>
 <span class="n">clmDayTLL</span> <span class="o">=</span> <span class="n">DayTLL</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
 <span class="n">results</span><span class="p">[</span><span class="s2">&quot;clmDayTLL&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">clmDayTLL</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># clmMonTLL</span>
-<span class="n">aice</span> <span class="o">=</span> <span class="n">ds_m</span><span class="o">.</span><span class="n">aice</span><span class="p">[</span><span class="mi">1799</span><span class="p">:</span><span class="mi">1919</span><span class="p">,</span> <span class="mi">365</span><span class="p">,</span> <span class="mi">300</span><span class="p">]</span>
+<span class="n">aice</span> <span class="o">=</span> <span class="n">ds_m</span><span class="o">.</span><span class="n">aice</span><span class="p">[:</span><span class="mi">60</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
 <span class="n">MonTLL</span> <span class="o">=</span> <span class="n">aice</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">aice</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span><span class="p">)</span>
 <span class="n">clmMonTLL</span> <span class="o">=</span> <span class="n">MonTLL</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
 <span class="n">results</span><span class="p">[</span><span class="s2">&quot;clmMonTLL&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">clmMonTLL</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># month_to_season</span>
-<span class="n">aice</span> <span class="o">=</span> <span class="n">ds_m</span><span class="o">.</span><span class="n">aice</span><span class="p">[</span><span class="mi">1799</span><span class="p">:</span><span class="mi">1919</span><span class="p">,</span> <span class="mi">365</span><span class="p">,</span> <span class="mi">300</span><span class="p">]</span>
-<span class="n">mon_to_season</span> <span class="o">=</span> <span class="n">gc</span><span class="o">.</span><span class="n">climatologies</span><span class="o">.</span><span class="n">month_to_season</span><span class="p">(</span><span class="n">aice</span><span class="p">,</span> <span class="s2">&quot;ASO&quot;</span><span class="p">)</span>
+<span class="n">aice</span> <span class="o">=</span> <span class="n">ds_m</span><span class="o">.</span><span class="n">aice</span><span class="p">[:</span><span class="mi">60</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">mon_to_season</span> <span class="o">=</span> <span class="n">month_to_season</span><span class="p">(</span><span class="n">aice</span><span class="p">,</span> <span class="s2">&quot;ASO&quot;</span><span class="p">)</span>
 <span class="n">results</span><span class="p">[</span><span class="s2">&quot;month_to_season&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mon_to_season</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># rmMonAnnCycTLL</span>
-<span class="n">aice</span> <span class="o">=</span> <span class="n">ds_m</span><span class="o">.</span><span class="n">aice</span><span class="p">[</span><span class="mi">1799</span><span class="p">:</span><span class="mi">1919</span><span class="p">,</span> <span class="mi">365</span><span class="p">,</span> <span class="mi">300</span><span class="p">]</span>
+<span class="n">aice</span> <span class="o">=</span> <span class="n">ds_m</span><span class="o">.</span><span class="n">aice</span><span class="p">[:</span><span class="mi">60</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
 <span class="n">MonTLL</span> <span class="o">=</span> <span class="n">aice</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">aice</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span><span class="p">)</span>
 <span class="n">clmMonTLL</span> <span class="o">=</span> <span class="n">MonTLL</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
 <span class="n">rmMonAnnCycTLL</span> <span class="o">=</span> <span class="n">MonTLL</span> <span class="o">-</span> <span class="n">clmMonTLL</span>
 <span class="n">results</span><span class="p">[</span><span class="s2">&quot;rmMonAnnCycTLL&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rmMonAnnCycTLL</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># stdMonTLL</span>
-<span class="n">aice</span> <span class="o">=</span> <span class="n">ds_m</span><span class="o">.</span><span class="n">aice</span><span class="p">[</span><span class="mi">1799</span><span class="p">:</span><span class="mi">1919</span><span class="p">,</span> <span class="mi">365</span><span class="p">,</span> <span class="mi">300</span><span class="p">]</span>
+<span class="n">aice</span> <span class="o">=</span> <span class="n">ds_m</span><span class="o">.</span><span class="n">aice</span><span class="p">[:</span><span class="mi">60</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
 <span class="n">MonTLL</span> <span class="o">=</span> <span class="n">aice</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">aice</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span><span class="p">)</span>
 <span class="n">stdMonTLL</span> <span class="o">=</span> <span class="n">MonTLL</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">results</span><span class="p">[</span><span class="s2">&quot;stdMonTLL&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stdMonTLL</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.12/site-packages/xarray/backends/file_manager.py:211,</span> in <span class="ni">CachingFileManager._acquire_with_cache_info</span><span class="nt">(self, needs_lock)</span>
-<span class="g g-Whitespace">    </span><span class="mi">210</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">211</span>     <span class="n">file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_key</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">212</span> <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.12/site-packages/xarray/backends/lru_cache.py:56,</span> in <span class="ni">LRUCache.__getitem__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">     </span><span class="mi">55</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lock</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">56</span>     <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">57</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="o">.</span><span class="n">move_to_end</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-
-<span class="ne">KeyError</span>: [&lt;class &#39;netCDF4._netCDF4.Dataset&#39;&gt;, (&#39;/home/runner/work/geocat-applications/geocat-applications/ncl/ncl_raw/b.e21.BHIST.f09_g17.CMIP6-historical.003.cice.h.aice.185001-201412.nc&#39;,), &#39;r&#39;, ((&#39;clobber&#39;, True), (&#39;diskless&#39;, False), (&#39;format&#39;, &#39;NETCDF4&#39;), (&#39;persist&#39;, False)), &#39;d7ff253a-140d-4b63-a823-9f1870af9c73&#39;]
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">geocat.comp</span> <span class="k">as</span> <span class="nn">gc</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">ds_m</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="s2">&quot;../ncl_raw/b.e21.BHIST.f09_g17.CMIP6-historical.003.cice.h.aice.185001-201412.nc&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">ds_d</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="s2">&quot;../ncl_raw/b.e21.BHIST.f09_g17.CMIP6-historical.003.cice.h1.aice_d.18500101-20141231.nc&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="c1"># calcDayAnomTLL</span>
-
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.12/site-packages/xarray/backends/api.py:611,</span> in <span class="ni">open_dataset</span><span class="nt">(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">599</span> <span class="n">decoders</span> <span class="o">=</span> <span class="n">_resolve_decoders_kwargs</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">600</span>     <span class="n">decode_cf</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">601</span>     <span class="n">open_backend_dataset_parameters</span><span class="o">=</span><span class="n">backend</span><span class="o">.</span><span class="n">open_dataset_parameters</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">607</span>     <span class="n">decode_coords</span><span class="o">=</span><span class="n">decode_coords</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">608</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">610</span> <span class="n">overwrite_encoded_chunks</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;overwrite_encoded_chunks&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">611</span> <span class="n">backend_ds</span> <span class="o">=</span> <span class="n">backend</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">612</span>     <span class="n">filename_or_obj</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">613</span>     <span class="n">drop_variables</span><span class="o">=</span><span class="n">drop_variables</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">614</span>     <span class="o">**</span><span class="n">decoders</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">615</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">616</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">617</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">_dataset_from_backend_dataset</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">618</span>     <span class="n">backend_ds</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">619</span>     <span class="n">filename_or_obj</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">629</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">630</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">631</span> <span class="k">return</span> <span class="n">ds</span>
-
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.12/site-packages/xarray/backends/netCDF4_.py:649,</span> in <span class="ni">NetCDF4BackendEntrypoint.open_dataset</span><span class="nt">(self, filename_or_obj, mask_and_scale, decode_times, concat_characters, decode_coords, drop_variables, use_cftime, decode_timedelta, group, mode, format, clobber, diskless, persist, lock, autoclose)</span>
-<span class="g g-Whitespace">    </span><span class="mi">628</span> <span class="k">def</span> <span class="nf">open_dataset</span><span class="p">(</span>  <span class="c1"># type: ignore[override]  # allow LSP violation, not supporting **kwargs</span>
-<span class="g g-Whitespace">    </span><span class="mi">629</span>     <span class="bp">self</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">630</span>     <span class="n">filename_or_obj</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">os</span><span class="o">.</span><span class="n">PathLike</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="n">BufferedIOBase</span> <span class="o">|</span> <span class="n">AbstractDataStore</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">646</span>     <span class="n">autoclose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">647</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dataset</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">648</span>     <span class="n">filename_or_obj</span> <span class="o">=</span> <span class="n">_normalize_path</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">649</span>     <span class="n">store</span> <span class="o">=</span> <span class="n">NetCDF4DataStore</span><span class="o">.</span><span class="n">open</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">650</span>         <span class="n">filename_or_obj</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">651</span>         <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">652</span>         <span class="nb">format</span><span class="o">=</span><span class="nb">format</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">653</span>         <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">654</span>         <span class="n">clobber</span><span class="o">=</span><span class="n">clobber</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">655</span>         <span class="n">diskless</span><span class="o">=</span><span class="n">diskless</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">656</span>         <span class="n">persist</span><span class="o">=</span><span class="n">persist</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">657</span>         <span class="n">lock</span><span class="o">=</span><span class="n">lock</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">658</span>         <span class="n">autoclose</span><span class="o">=</span><span class="n">autoclose</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">659</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">661</span>     <span class="n">store_entrypoint</span> <span class="o">=</span> <span class="n">StoreBackendEntrypoint</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">662</span>     <span class="k">with</span> <span class="n">close_on_error</span><span class="p">(</span><span class="n">store</span><span class="p">):</span>
-
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.12/site-packages/xarray/backends/netCDF4_.py:410,</span> in <span class="ni">NetCDF4DataStore.open</span><span class="nt">(cls, filename, mode, format, group, clobber, diskless, persist, lock, lock_maker, autoclose)</span>
-<span class="g g-Whitespace">    </span><span class="mi">404</span> <span class="n">kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">405</span>     <span class="n">clobber</span><span class="o">=</span><span class="n">clobber</span><span class="p">,</span> <span class="n">diskless</span><span class="o">=</span><span class="n">diskless</span><span class="p">,</span> <span class="n">persist</span><span class="o">=</span><span class="n">persist</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="nb">format</span>
-<span class="g g-Whitespace">    </span><span class="mi">406</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">407</span> <span class="n">manager</span> <span class="o">=</span> <span class="n">CachingFileManager</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">408</span>     <span class="n">netCDF4</span><span class="o">.</span><span class="n">Dataset</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="n">kwargs</span>
-<span class="g g-Whitespace">    </span><span class="mi">409</span> <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">410</span> <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">manager</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">lock</span><span class="o">=</span><span class="n">lock</span><span class="p">,</span> <span class="n">autoclose</span><span class="o">=</span><span class="n">autoclose</span><span class="p">)</span>
-
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.12/site-packages/xarray/backends/netCDF4_.py:357,</span> in <span class="ni">NetCDF4DataStore.__init__</span><span class="nt">(self, manager, group, mode, lock, autoclose)</span>
-<span class="g g-Whitespace">    </span><span class="mi">355</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group</span> <span class="o">=</span> <span class="n">group</span>
-<span class="g g-Whitespace">    </span><span class="mi">356</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">=</span> <span class="n">mode</span>
-<span class="ne">--&gt; </span><span class="mi">357</span> <span class="bp">self</span><span class="o">.</span><span class="n">format</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">data_model</span>
-<span class="g g-Whitespace">    </span><span class="mi">358</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">filepath</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">359</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_remote</span> <span class="o">=</span> <span class="n">is_remote_uri</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_filename</span><span class="p">)</span>
-
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.12/site-packages/xarray/backends/netCDF4_.py:419,</span> in <span class="ni">NetCDF4DataStore.ds</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">417</span> <span class="nd">@property</span>
-<span class="g g-Whitespace">    </span><span class="mi">418</span> <span class="k">def</span> <span class="nf">ds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">419</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acquire</span><span class="p">()</span>
-
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.12/site-packages/xarray/backends/netCDF4_.py:413,</span> in <span class="ni">NetCDF4DataStore._acquire</span><span class="nt">(self, needs_lock)</span>
-<span class="g g-Whitespace">    </span><span class="mi">412</span> <span class="k">def</span> <span class="nf">_acquire</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">needs_lock</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">413</span>     <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_manager</span><span class="o">.</span><span class="n">acquire_context</span><span class="p">(</span><span class="n">needs_lock</span><span class="p">)</span> <span class="k">as</span> <span class="n">root</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">414</span>         <span class="n">ds</span> <span class="o">=</span> <span class="n">_nc4_require_group</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">415</span>     <span class="k">return</span> <span class="n">ds</span>
-
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.12/contextlib.py:137,</span> in <span class="ni">_GeneratorContextManager.__enter__</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">135</span> <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">kwds</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span>
-<span class="g g-Whitespace">    </span><span class="mi">136</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">137</span>     <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gen</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">138</span> <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">139</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;generator didn&#39;t yield&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="kc">None</span>
-
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.12/site-packages/xarray/backends/file_manager.py:199,</span> in <span class="ni">CachingFileManager.acquire_context</span><span class="nt">(self, needs_lock)</span>
-<span class="g g-Whitespace">    </span><span class="mi">196</span> <span class="nd">@contextlib</span><span class="o">.</span><span class="n">contextmanager</span>
-<span class="g g-Whitespace">    </span><span class="mi">197</span> <span class="k">def</span> <span class="nf">acquire_context</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">needs_lock</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">198</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Context manager for acquiring a file.&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">199</span>     <span class="n">file</span><span class="p">,</span> <span class="n">cached</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acquire_with_cache_info</span><span class="p">(</span><span class="n">needs_lock</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">200</span>     <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">201</span>         <span class="k">yield</span> <span class="n">file</span>
-
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.12/site-packages/xarray/backends/file_manager.py:217,</span> in <span class="ni">CachingFileManager._acquire_with_cache_info</span><span class="nt">(self, needs_lock)</span>
-<span class="g g-Whitespace">    </span><span class="mi">215</span>     <span class="n">kwargs</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">216</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span>
-<span class="ne">--&gt; </span><span class="mi">217</span> <span class="n">file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_opener</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">218</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">==</span> <span class="s2">&quot;w&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">219</span>     <span class="c1"># ensure file doesn&#39;t get overridden when opened again</span>
-<span class="g g-Whitespace">    </span><span class="mi">220</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">=</span> <span class="s2">&quot;a&quot;</span>
-
-<span class="nn">File src/netCDF4/_netCDF4.pyx:2470,</span> in <span class="ni">netCDF4._netCDF4.Dataset.__init__</span><span class="nt">()</span>
-
-<span class="nn">File src/netCDF4/_netCDF4.pyx:2107,</span> in <span class="ni">netCDF4._netCDF4._ensure_nc_success</span><span class="nt">()</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;/home/runner/work/geocat-applications/geocat-applications/ncl/ncl_raw/b.e21.BHIST.f09_g17.CMIP6-historical.003.cice.h.aice.185001-201412.nc&#39;
 </pre></div>
 </div>
 </div>
@@ -733,13 +533,13 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dictionary of climatology functions results</span>
 <span class="n">ncl_results</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;calcDayAnomTLL&quot;</span><span class="p">:</span> <span class="mf">0.2156208</span><span class="p">,</span>
-    <span class="s2">&quot;calcMonAnomTLL&quot;</span><span class="p">:</span> <span class="mf">0.09780759</span><span class="p">,</span>
-    <span class="s2">&quot;clmDayTLL&quot;</span><span class="p">:</span> <span class="mf">0.4031426</span><span class="p">,</span>
-    <span class="s2">&quot;clmMonTLL&quot;</span><span class="p">:</span> <span class="mf">0.1261306</span><span class="p">,</span>
-    <span class="s2">&quot;month_to_season&quot;</span><span class="p">:</span> <span class="mf">4.922778e-06</span><span class="p">,</span>
-    <span class="s2">&quot;rmMonAnnCycTLL&quot;</span><span class="p">:</span> <span class="mf">0.09780759</span><span class="p">,</span>
-    <span class="s2">&quot;stdMonTLL&quot;</span><span class="p">:</span> <span class="mf">0.1073168</span><span class="p">,</span>
+    <span class="s2">&quot;calcDayAnomTLL&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.02774364</span><span class="p">,</span>
+    <span class="s2">&quot;calcMonAnomTLL&quot;</span><span class="p">:</span> <span class="mf">0.003319263</span><span class="p">,</span>
+    <span class="s2">&quot;clmDayTLL&quot;</span><span class="p">:</span> <span class="mf">0.7408184</span><span class="p">,</span>
+    <span class="s2">&quot;clmMonTLL&quot;</span><span class="p">:</span> <span class="mf">0.8063018</span><span class="p">,</span>
+    <span class="s2">&quot;month_to_season&quot;</span><span class="p">:</span> <span class="mf">0.9931215</span><span class="p">,</span>
+    <span class="s2">&quot;rmMonAnnCycTLL&quot;</span><span class="p">:</span> <span class="mf">0.003319263</span><span class="p">,</span>
+    <span class="s2">&quot;stdMonTLL&quot;</span><span class="p">:</span> <span class="mf">0.07392025</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">ncl_results</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">results</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
@@ -747,6 +547,25 @@ This notebook is part of the process we have for adding entries to the NCL Index
     <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span>
         <span class="n">ncl_results</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="n">results</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-06</span>
     <span class="p">)</span>  <span class="c1"># within 6 decimal points</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>calcDayAnomTLL: 
+	python:		-0.02774369716644287
+	ncl:		-0.02774364
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AssertionError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">14</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">ncl_results</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">results</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">: </span><span class="se">\n\t</span><span class="s2">python:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">results</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="si">}</span><span class="se">\n\t</span><span class="s2">ncl:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">ncl_results</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">14</span>     <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span>         <span class="n">ncl_results</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="n">results</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-06</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span>     <span class="p">)</span>  <span class="c1"># within 6 decimal points</span>
+
+<span class="ne">AssertionError</span>: 
 </pre></div>
 </div>
 </div>
