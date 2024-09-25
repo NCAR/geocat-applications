@@ -19,7 +19,7 @@ print(aiceDayAnom(0,10,10))
 ; calcMonAnomTLL
 ; Adapted from www.ncl.ucar.edu/Document/Functions/Contributed/calcMonAnomTLL.shtml
 f = addfile("CMIP6_sea_ice_monthly_subset.nc", "r")
-aice = f->aice(:59,:,:)
+aice = f->aice
 aiceClmMon = clmMonTLL(aice)
 aiceMonAnom = calcMonAnomTLL(aice,aiceClmMon)
 print(aiceMonAnom(0,10,10))
@@ -44,27 +44,27 @@ print(aiceClmDay(0,10,10))
 ; clmMonTLL
 ; Adapted from www.ncl.ucar.edu/Document/Functions/Contributed/clmMonTLL.shtml
 f = addfile("CMIP6_sea_ice_monthly_subset.nc", "r")
-aice = f->aice(:59,:,:)
+aice = f->aice
 aiceClmMon = clmMonTLL(aice)
 print(aiceClmMon(0,10,10))
 
 ; month_to_season
 ; Adapted from www.ncl.ucar.edu/Document/Functions/Contributed/calcDayAnomTLL.shtml
 f = addfile("CMIP6_sea_ice_monthly_subset.nc", "r")
-aice = f->aice(:59,:,:)
+aice = f->aice
 aiceSeason = month_to_season(aice, "ASO")
 print(aiceSeason(0,10,10))
 
 ; rmMonAnnCycTLL
 ; Adapted from www.ncl.ucar.edu/Document/Functions/Contributed/month_to_season.shtml
 f = addfile("CMIP6_sea_ice_monthly_subset.nc", "r")
-aice = f->aice(:59,:,:)
+aice = f->aice
 aiceRmMonAnnCyc = rmMonAnnCycTLL(aice)
 print(aiceRmMonAnnCyc(0,10,10))
 
 ; stdMonTLL
 ; Adapted from www.ncl.ucar.edu/Document/Functions/Contributed/stdMonTLL.shtml
 f = addfile("CMIP6_sea_ice_monthly_subset.nc", "r")
-aice = f->aice(:59,:,:)
+aice = f->aice
 aiceStdMon = stdMonTLL(aice)
 print(aiceStdMon(0,10,10))
