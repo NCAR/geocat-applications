@@ -1,3 +1,5 @@
+; Note the use of the calendar attribute to assign calendar information
+
 ; calcDayAnomTLL
 ; Adapted from www.ncl.ucar.edu/Document/Functions/Contributed/calcDayanomTLL.shtml
 f = addfile("CMIP6_sea_ice_daily_subset.nc", "r")
