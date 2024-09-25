@@ -464,7 +464,9 @@ This notebook is part of the process we have for adding entries to the NCL Index
 </section>
 <section id="ncl-code">
 <h2>NCL code<a class="headerlink" href="#ncl-code" title="Link to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">;</span> <span class="n">calcDayAnomTLL</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">;</span> <span class="n">Note</span> <span class="n">the</span> <span class="n">use</span> <span class="n">of</span> <span class="n">the</span> <span class="n">calendar</span> <span class="n">attribute</span> <span class="n">to</span> <span class="n">assign</span> <span class="n">calendar</span> <span class="n">information</span>
+
+<span class="p">;</span> <span class="n">calcDayAnomTLL</span>
 <span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span> <span class="nn">www.ncl.ucar.edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Contributed</span><span class="o">/</span><span class="n">calcDayanomTLL</span><span class="o">.</span><span class="n">shtml</span>
 <span class="n">f</span> <span class="o">=</span> <span class="n">addfile</span><span class="p">(</span><span class="s2">&quot;CMIP6_sea_ice_daily_subset.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
 <span class="n">time</span> <span class="o">=</span> <span class="n">f</span><span class="o">-&gt;</span><span class="n">time</span>
@@ -601,33 +603,6 @@ This notebook is part of the process we have for adding entries to the NCL Index
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">43</span>
-<span class="g g-Whitespace">     </span><span class="mi">41</span> <span class="c1"># month_to_season</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span> <span class="n">aice</span> <span class="o">=</span> <span class="n">ds_m</span><span class="o">.</span><span class="n">aice</span><span class="p">[:,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
-<span class="ne">---&gt; </span><span class="mi">43</span> <span class="n">mon_to_season</span> <span class="o">=</span> <span class="n">month_to_season</span><span class="p">(</span><span class="n">aice</span><span class="p">,</span> <span class="s2">&quot;ASO&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">44</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;month_to_season&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mon_to_season</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">46</span> <span class="c1"># rmMonAnnCycTLL</span>
-
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.12/site-packages/geocat/comp/climatologies.py:270,</span> in <span class="ni">month_to_season</span><span class="nt">(dset, season, time_coord_name, keep_attrs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">268</span> <span class="n">mod</span> <span class="o">=</span> <span class="mi">12</span>
-<span class="g g-Whitespace">    </span><span class="mi">269</span> <span class="k">if</span> <span class="n">dset</span><span class="p">[</span><span class="n">time_coord_name</span><span class="p">]</span><span class="o">.</span><span class="n">size</span> <span class="o">%</span> <span class="n">mod</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">270</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">271</span>         <span class="sa">f</span><span class="s2">&quot;The </span><span class="si">{</span><span class="n">time_coord_name</span><span class="si">}</span><span class="s2"> axis length must be a multiple of </span><span class="si">{</span><span class="n">mod</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">273</span> <span class="n">seasons_dict</span> <span class="o">=</span> <span class="p">{</span>
-<span class="g g-Whitespace">    </span><span class="mi">274</span>     <span class="s2">&quot;DJF&quot;</span><span class="p">:</span> <span class="p">([</span><span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;QS-DEC&#39;</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">275</span>     <span class="s2">&quot;JFM&quot;</span><span class="p">:</span> <span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;QS-JAN&#39;</span><span class="p">),</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">285</span>     <span class="s2">&quot;NDJ&quot;</span><span class="p">:</span> <span class="p">([</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;QS-NOV&#39;</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">286</span> <span class="p">}</span>
-<span class="g g-Whitespace">    </span><span class="mi">287</span> <span class="k">try</span><span class="p">:</span>
-
-<span class="ne">ValueError</span>: The time axis length must be a multiple of 12.
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="comparison">
@@ -650,6 +625,45 @@ This notebook is part of the process we have for adding entries to the NCL Index
     <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span>
         <span class="n">ncl_results</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="n">results</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-05</span>
     <span class="p">)</span>  <span class="c1"># within 6 decimal points</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>month_to_season: 
+	python:		0.9931214451789856
+	ncl:		0.9931215
+
+clmDayTLL: 
+	python:		0.7408185005187988
+	ncl:		0.7408184
+
+stdMonTLL: 
+	python:		0.07392024993896484
+	ncl:		0.07392025
+
+clmMonTLL: 
+	python:		0.8063018918037415
+	ncl:		0.8063018
+
+calcDayAnomTLL: 
+	python:		-0.02774369716644287
+	ncl:		-0.02774364
+
+calcMonAnomTLL: 
+	python:		0.0033192038536071777
+	ncl:		0.003319263
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AssertionError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">14</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">ncl_results</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">results</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">: </span><span class="se">\n\t</span><span class="s2">python:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">results</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="si">}</span><span class="se">\n\t</span><span class="s2">ncl:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">ncl_results</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">14</span>     <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span>         <span class="n">ncl_results</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="n">results</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-05</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span>     <span class="p">)</span>  <span class="c1"># within 6 decimal points</span>
+
+<span class="ne">AssertionError</span>: 
 </pre></div>
 </div>
 </div>
