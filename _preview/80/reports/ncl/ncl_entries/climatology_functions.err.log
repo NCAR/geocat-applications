@@ -18,42 +18,14 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-import xarray as xr
-import geocat.datafiles as gdf
-from geocat.comp import month_to_season
-
-ds = xr.open_dataset(
-    gdf.get("applications_files/inputs/CMIP6_sea_ice_monthly_subset.nc")
-)
-aice = ds.aice
-mon_to_season = month_to_season(aice, "ASO")
-
-mon_to_season
+calcDayAnomTLL.time[0]
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mValueError[0m                                Traceback (most recent call last)
-Cell [0;32mIn[5], line 9[0m
-[1;32m      5[0m ds [38;5;241m=[39m xr[38;5;241m.[39mopen_dataset(
-[1;32m      6[0m     gdf[38;5;241m.[39mget([38;5;124m"[39m[38;5;124mapplications_files/inputs/CMIP6_sea_ice_monthly_subset.nc[39m[38;5;124m"[39m)
-[1;32m      7[0m )
-[1;32m      8[0m aice [38;5;241m=[39m ds[38;5;241m.[39maice
-[0;32m----> 9[0m mon_to_season [38;5;241m=[39m [43mmonth_to_season[49m[43m([49m[43maice[49m[43m,[49m[43m [49m[38;5;124;43m"[39;49m[38;5;124;43mASO[39;49m[38;5;124;43m"[39;49m[43m)[49m
-[1;32m     11[0m mon_to_season
+[0;31mNameError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn[1], line 1[0m
+[0;32m----> 1[0m [43mcalcDayAnomTLL[49m[38;5;241m.[39mtime[[38;5;241m0[39m]
 
-File [0;32m~/micromamba/envs/geocat-applications/lib/python3.12/site-packages/geocat/comp/climatologies.py:270[0m, in [0;36mmonth_to_season[0;34m(dset, season, time_coord_name, keep_attrs)[0m
-[1;32m    268[0m mod [38;5;241m=[39m [38;5;241m12[39m
-[1;32m    269[0m [38;5;28;01mif[39;00m dset[time_coord_name][38;5;241m.[39msize [38;5;241m%[39m mod [38;5;241m!=[39m [38;5;241m0[39m:
-[0;32m--> 270[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m(
-[1;32m    271[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124mThe [39m[38;5;132;01m{[39;00mtime_coord_name[38;5;132;01m}[39;00m[38;5;124m axis length must be a multiple of [39m[38;5;132;01m{[39;00mmod[38;5;132;01m}[39;00m[38;5;124m.[39m[38;5;124m"[39m)
-[1;32m    273[0m seasons_dict [38;5;241m=[39m {
-[1;32m    274[0m     [38;5;124m"[39m[38;5;124mDJF[39m[38;5;124m"[39m: ([[38;5;241m12[39m, [38;5;241m1[39m, [38;5;241m2[39m], [38;5;124m'[39m[38;5;124mQS-DEC[39m[38;5;124m'[39m),
-[1;32m    275[0m     [38;5;124m"[39m[38;5;124mJFM[39m[38;5;124m"[39m: ([[38;5;241m1[39m, [38;5;241m2[39m, [38;5;241m3[39m], [38;5;124m'[39m[38;5;124mQS-JAN[39m[38;5;124m'[39m),
-[0;32m   (...)[0m
-[1;32m    285[0m     [38;5;124m"[39m[38;5;124mNDJ[39m[38;5;124m"[39m: ([[38;5;241m11[39m, [38;5;241m12[39m, [38;5;241m1[39m], [38;5;124m'[39m[38;5;124mQS-NOV[39m[38;5;124m'[39m),
-[1;32m    286[0m }
-[1;32m    287[0m [38;5;28;01mtry[39;00m:
-
-[0;31mValueError[0m: The time axis length must be a multiple of 12.
+[0;31mNameError[0m: name 'calcDayAnomTLL' is not defined
 
