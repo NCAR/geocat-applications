@@ -492,23 +492,6 @@ document.write(`
 <h3>Grab and Go<a class="headerlink" href="#grab-and-go" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">calcDayAnomTLL</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">calcDayAnomTLL</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="ne">NameError</span>: name &#39;calcDayAnomTLL&#39; is not defined
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
 <span class="kn">import</span> <span class="nn">geocat.datafiles</span> <span class="k">as</span> <span class="nn">gdf</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
@@ -519,11 +502,17 @@ document.write(`
 <span class="n">clmDayTLL</span> <span class="o">=</span> <span class="n">DayTLL</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
 <span class="n">calcDayAnomTLL</span> <span class="o">=</span> <span class="n">DayTLL</span> <span class="o">-</span> <span class="n">clmDayTLL</span>
 
-<span class="n">calcDayAnomTLL</span> <span class="o">=</span> <span class="n">calcDayAnomTLL</span><span class="o">.</span><span class="n">assign_attrs</span><span class="p">(</span><span class="n">long_name</span> <span class="o">=</span> <span class="s2">&quot;sea ice anomaly&quot;</span><span class="p">)</span>
+<span class="n">calcDayAnomTLL</span> <span class="o">=</span> <span class="n">calcDayAnomTLL</span><span class="o">.</span><span class="n">assign_attrs</span><span class="p">(</span><span class="n">long_name</span><span class="o">=</span><span class="s2">&quot;sea ice anomaly&quot;</span><span class="p">)</span>
 
 <span class="n">calcDayAnomTLL</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/inputs/CMIP6_sea_ice_daily_subset.nc&#39; from &#39;https://github.com/NCAR/GeoCAT-datafiles/raw/main/applications_files/inputs/CMIP6_sea_ice_daily_subset.nc&#39; to &#39;/home/runner/.cache/geocat&#39;.
+</pre></div>
+</div>
+<img alt="../../_images/c19e8d888a3c759ef7907a6effa44387b309272c7d073663132f55a41ddc6aa3.png" src="../../_images/c19e8d888a3c759ef7907a6effa44387b309272c7d073663132f55a41ddc6aa3.png" />
 </div>
 </div>
 </section>
@@ -546,11 +535,17 @@ document.write(`
 <span class="n">clmMonTLL</span> <span class="o">=</span> <span class="n">MonTLL</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
 <span class="n">calcMonAnomTLL</span> <span class="o">=</span> <span class="n">MonTLL</span> <span class="o">-</span> <span class="n">clmMonTLL</span>
 
-<span class="n">calcMonAnomTLL</span> <span class="o">=</span> <span class="n">calcMonAnomTLL</span><span class="o">.</span><span class="n">assign_attrs</span><span class="p">(</span><span class="n">long_name</span> <span class="o">=</span> <span class="s2">&quot;sea ice anomaly&quot;</span><span class="p">)</span>
+<span class="n">calcMonAnomTLL</span> <span class="o">=</span> <span class="n">calcMonAnomTLL</span><span class="o">.</span><span class="n">assign_attrs</span><span class="p">(</span><span class="n">long_name</span><span class="o">=</span><span class="s2">&quot;sea ice anomaly&quot;</span><span class="p">)</span>
 
 <span class="n">calcMonAnomTLL</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/inputs/CMIP6_sea_ice_monthly_subset.nc&#39; from &#39;https://github.com/NCAR/GeoCAT-datafiles/raw/main/applications_files/inputs/CMIP6_sea_ice_monthly_subset.nc&#39; to &#39;/home/runner/.cache/geocat&#39;.
+</pre></div>
+</div>
+<img alt="../../_images/63dfc16a22cbcc2fd2b23b5eff5fc19df11d6321bf6097c0487c068fb4b638de.png" src="../../_images/63dfc16a22cbcc2fd2b23b5eff5fc19df11d6321bf6097c0487c068fb4b638de.png" />
 </div>
 </div>
 </section>
@@ -570,12 +565,15 @@ document.write(`
 <span class="n">DayTLL</span> <span class="o">=</span> <span class="n">aice</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">aice</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">dayofyear</span><span class="p">)</span>
 <span class="n">clmDayTLL</span> <span class="o">=</span> <span class="n">DayTLL</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
 
-<span class="n">clmDayTLL</span><span class="p">[:,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;daily climatology&quot;</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;day of year&quot;</span><span class="p">);</span>
+<span class="n">clmDayTLL</span><span class="p">[:,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;daily climatology&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;day of year&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;sea ice area&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/f9f448bbe729b99319fa1bb916d1c5ac3d84e141dfd0cf0ccc804c103f626afb.png" src="../../_images/f9f448bbe729b99319fa1bb916d1c5ac3d84e141dfd0cf0ccc804c103f626afb.png" />
 </div>
 </div>
 </section>
@@ -597,12 +595,15 @@ document.write(`
 <span class="n">MonTLL</span> <span class="o">=</span> <span class="n">aice</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">aice</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span><span class="p">)</span>
 <span class="n">clmMonTLL</span> <span class="o">=</span> <span class="n">MonTLL</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
 
-<span class="n">clmMonTLL</span><span class="p">[:,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;monthly climatology&quot;</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;month of year&quot;</span><span class="p">);</span>
+<span class="n">clmMonTLL</span><span class="p">[:,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;monthly climatology&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;month of year&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;sea ice area&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/33e4815f7d753796c88653c47a626bcf3a9faaea7b02b370a7eac4e56ce9733d.png" src="../../_images/33e4815f7d753796c88653c47a626bcf3a9faaea7b02b370a7eac4e56ce9733d.png" />
 </div>
 </div>
 </section>
@@ -628,13 +629,16 @@ document.write(`
 <span class="n">aice</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">aice</span>
 <span class="n">mon_to_season</span> <span class="o">=</span> <span class="n">month_to_season</span><span class="p">(</span><span class="n">aice</span><span class="p">,</span> <span class="s2">&quot;ASO&quot;</span><span class="p">)</span>
 
-<span class="n">mon_to_season</span> <span class="o">=</span> <span class="n">mon_to_season</span><span class="o">.</span><span class="n">assign_attrs</span><span class="p">(</span><span class="n">long_name</span> <span class="o">=</span> <span class="s2">&quot;sea ice area&quot;</span><span class="p">)</span>
+<span class="n">mon_to_season</span> <span class="o">=</span> <span class="n">mon_to_season</span><span class="o">.</span><span class="n">assign_attrs</span><span class="p">(</span><span class="n">long_name</span><span class="o">=</span><span class="s2">&quot;sea ice area&quot;</span><span class="p">)</span>
 
-<span class="n">mon_to_season</span><span class="p">[</span><span class="mi">0</span><span class="p">,:,:]</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+<span class="n">mon_to_season</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;2010 seasonal mean&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/72a50b2308445361e1cd3e6e17155ecbf3889db3909bbdb4914163168d6ea5e0.png" src="../../_images/72a50b2308445361e1cd3e6e17155ecbf3889db3909bbdb4914163168d6ea5e0.png" />
 </div>
 </div>
 </section>
@@ -657,11 +661,14 @@ document.write(`
 <span class="n">clmMonTLL</span> <span class="o">=</span> <span class="n">MonTLL</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
 <span class="n">rmMonAnnCycTLL</span> <span class="o">=</span> <span class="n">MonTLL</span> <span class="o">-</span> <span class="n">clmMonTLL</span>
 
-<span class="n">rmMonAnnCycTLL</span><span class="p">[:,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;annual cycle removed&quot;</span><span class="p">);</span>
+<span class="n">rmMonAnnCycTLL</span><span class="p">[:,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;annual cycle removed&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;sea ice area&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/43dbf9f6cd571c978954d1ff2424ed99c2fb93f0873c7dcc13783bd38c4d716a.png" src="../../_images/43dbf9f6cd571c978954d1ff2424ed99c2fb93f0873c7dcc13783bd38c4d716a.png" />
 </div>
 </div>
 </section>
@@ -686,6 +693,9 @@ document.write(`
 <span class="n">stdMonTLL</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/a51ca3905d9bf6acf75b6a2b85f2e203958e1b90c1d76999b6e00b79e5836c05.png" src="../../_images/a51ca3905d9bf6acf75b6a2b85f2e203958e1b90c1d76999b6e00b79e5836c05.png" />
 </div>
 </div>
 </section>
