@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>day_of_week</title>
+    <title>dewtemp_trh</title>
   
   
   
@@ -59,12 +59,12 @@
                 gtag('js', new Date());
                 gtag('config', 'G-EQMBXF1D2V');
             </script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ncl/ncl_entries/day_of_week';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ncl/ncl_entries/dewtemp';</script>
     <link rel="icon" href="../../_static/GeoCAT_square.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Contributor Guide" href="../../CONTRIBUTING.html" />
-    <link rel="prev" title="days_in_month" href="days_in_month.html" />
+    <link rel="next" title="specx_specxy_anal" href="specx_specxy_anal.html" />
+    <link rel="prev" title="General Applied Math" href="general_applied_math.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -202,10 +202,10 @@
 <li class="toctree-l2"><a class="reference internal" href="climatology_functions.html">Climatology</a></li>
 <li class="toctree-l2"><a class="reference internal" href="trigonometric_functions.html">Trigonometric Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="general_applied_math.html">General Applied Math</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dewtemp.html">dewtemp_trh</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">dewtemp_trh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="specx_specxy_anal.html">specx_specxy_anal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="days_in_month.html">days_in_month</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">day_of_week</a></li>
+<li class="toctree-l2"><a class="reference internal" href="day_of_week.html">day_of_week</a></li>
 </ul>
 </details></li>
 </ul>
@@ -289,7 +289,7 @@
       
       
       
-      <li><a href="https://github.com/NCAR/geocat-applications/edit/main/docs/ncl/ncl_entries/day_of_week.ipynb" target="_blank"
+      <li><a href="https://github.com/NCAR/geocat-applications/edit/main/docs/ncl/ncl_entries/dewtemp.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -306,7 +306,7 @@
       
       
       
-      <li><a href="https://github.com/NCAR/geocat-applications/issues/new?title=Issue%20on%20page%20%2Fncl/ncl_entries/day_of_week.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/NCAR/geocat-applications/issues/new?title=Issue%20on%20page%20%2Fncl/ncl_entries/dewtemp.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -336,7 +336,7 @@
       
       
       
-      <li><a href="../../_sources/ncl/ncl_entries/day_of_week.ipynb" target="_blank"
+      <li><a href="../../_sources/ncl/ncl_entries/dewtemp.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -420,7 +420,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>day_of_week</h1>
+    <h1>dewtemp_trh</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -432,15 +432,8 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grab-and-go">Grab and Go</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-datetime-module">Using the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-cftime">Using <code class="docutils literal notranslate"><span class="pre">cftime</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differences-between-cftime-and-ncl-s-day-of-week">Differences between <code class="docutils literal notranslate"><span class="pre">cftime</span></code> and NCL’s <code class="docutils literal notranslate"><span class="pre">day_of_week</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calendars">Calendars</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-type">Input Type</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#year-0">Year 0</a></li>
-</ul>
-</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-resources">Python Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-reading">Additional Reading</a></li>
 </ul>
             </nav>
         </div>
@@ -452,134 +445,76 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="day-of-week">
-<h1>day_of_week<a class="headerlink" href="#day-of-week" title="Link to this heading">#</a></h1>
+  <section id="dewtemp-trh">
+<h1>dewtemp_trh<a class="headerlink" href="#dewtemp-trh" title="Link to this heading">#</a></h1>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
-<p>NCL’s <a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/day_of_week.shtml"><code class="docutils literal notranslate"><span class="pre">day_of_week</span></code></a> calculates the day of the week given month, day, and year.</p>
-</section>
+<p>NCL’s <a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/dewtemp_trh.shtml"><code class="docutils literal notranslate"><span class="pre">dewtemp_trh</span></code></a> calculates the dew point temperature given temperature and relative humidity using the equations from John Dutton’s <em>“Ceaseless Wind”</em> (pg. 273-274)<a class="footnote-reference brackets" href="#footcite-dutton-1986" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> and returns a temperature in Kelvin.</p>
+<div class="admonition alert alert-info">
+    <p class="admonition-title" style="font-weight:bold">Important Note</p>
+    To convert from Kelvin to Celsius <code>-273.15</code> and to convert from Celsius to Kelvin <code>+273.15</code>
+</div></section>
 <section id="grab-and-go">
 <h2>Grab and Go<a class="headerlink" href="#grab-and-go" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cftime</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Input: Single Value</span>
+<span class="kn">from</span> <span class="nn">geocat.comp</span> <span class="kn">import</span> <span class="n">dewtemp</span>
 
-<span class="n">day</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="n">month</span> <span class="o">=</span> <span class="mi">6</span>
-<span class="n">year</span> <span class="o">=</span> <span class="mi">2024</span>
+<span class="n">temp_c</span> <span class="o">=</span> <span class="mi">18</span>  <span class="c1"># Celsius</span>
+<span class="n">relative_humidity</span> <span class="o">=</span> <span class="mf">46.5</span>  <span class="c1"># %</span>
 
-<span class="n">dow</span> <span class="o">=</span> <span class="n">cftime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span>
-    <span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">calendar</span><span class="o">=</span><span class="s1">&#39;proleptic_gregorian&#39;</span><span class="p">,</span> <span class="n">has_year_zero</span><span class="o">=</span><span class="kc">True</span>
-<span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%w&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dow</span><span class="p">)</span>
+<span class="n">dewtemp</span><span class="p">(</span><span class="n">temp_c</span> <span class="o">+</span> <span class="mf">273.15</span><span class="p">,</span> <span class="n">relative_humidity</span><span class="p">)</span> <span class="o">-</span> <span class="mf">273.15</span>  <span class="c1"># Returns in Celsius</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.298141316024157
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Input: List/Array</span>
+<span class="kn">from</span> <span class="nn">geocat.comp</span> <span class="kn">import</span> <span class="n">dewtemp</span>
+
+<span class="n">temp_kelvin</span> <span class="o">=</span> <span class="p">[</span><span class="mf">291.15</span><span class="p">,</span> <span class="mf">274.14</span><span class="p">,</span> <span class="mf">360.3</span><span class="p">,</span> <span class="mi">314</span><span class="p">]</span>  <span class="c1"># Kelvin</span>
+<span class="n">relative_humidity</span> <span class="o">=</span> <span class="p">[</span><span class="mf">46.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">96.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># %</span>
+
+<span class="n">dewtemp</span><span class="p">(</span><span class="n">temp_kelvin</span><span class="p">,</span> <span class="n">relative_humidity</span><span class="p">)</span> <span class="o">-</span> <span class="mf">273.15</span>  <span class="c1"># Returns in Celsius</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([  6.29814132, -35.12955277,  86.22114845, -27.40981025])
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <hr class="docutils" />
-<section id="using-the-datetime-module">
-<h2>Using the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module<a class="headerlink" href="#using-the-datetime-module" title="Link to this heading">#</a></h2>
-<p>The <a class="reference external" href="https://docs.python.org/3/library/datetime.html"><code class="docutils literal notranslate"><span class="pre">datetime</span></code></a> module is part of the Python Standard Library and could be sufficient to calculate the day of the week.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
-
-<span class="n">day</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="n">month</span> <span class="o">=</span> <span class="mi">6</span>
-<span class="n">year</span> <span class="o">=</span> <span class="mi">2024</span>
-
-<span class="n">dow</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%A&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">month</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">day</span><span class="si">}</span><span class="s2"> is a </span><span class="si">{</span><span class="n">dow</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-6-4 is a Tuesday
-</pre></div>
-</div>
-</div>
-</div>
-<p>However, the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module does not support year 0. If you need to work with year 0, we suggest using <code class="docutils literal notranslate"><span class="pre">cftime</span></code>.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module also only uses the proleptic Gregorian calendar. If you need to work with other calendars, we suggest using <code class="docutils literal notranslate"><span class="pre">cftime</span></code>.</p>
-</section>
-<section id="using-cftime">
-<h2>Using <code class="docutils literal notranslate"><span class="pre">cftime</span></code><a class="headerlink" href="#using-cftime" title="Link to this heading">#</a></h2>
-<p><a class="reference external" href="https://unidata.github.io/cftime/index.html"><code class="docutils literal notranslate"><span class="pre">cftime</span></code></a> offers a solution to these potential issues by supporting year 0 and all of the <a class="reference external" href="https://cfconventions.org/cf-conventions/cf-conventions#calendar">CF Convention calendars</a>. Here is how you can use <code class="docutils literal notranslate"><span class="pre">cftime</span></code> to calculate the day of the week.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cftime</span>
-
-<span class="n">day</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="n">month</span> <span class="o">=</span> <span class="mi">6</span>
-<span class="n">year</span> <span class="o">=</span> <span class="mi">2024</span>
-
-<span class="n">dow</span> <span class="o">=</span> <span class="n">cftime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span>
-    <span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">calendar</span><span class="o">=</span><span class="s1">&#39;proleptic_gregorian&#39;</span><span class="p">,</span> <span class="n">has_year_zero</span><span class="o">=</span><span class="kc">True</span>
-<span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%A&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Proleptic Gregorian calendar: </span><span class="se">\t\t</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">month</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">day</span><span class="si">}</span><span class="s2"> is a </span><span class="si">{</span><span class="n">dow</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="n">dow</span> <span class="o">=</span> <span class="n">cftime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span>
-    <span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">calendar</span><span class="o">=</span><span class="s1">&#39;standard&#39;</span><span class="p">,</span> <span class="n">has_year_zero</span><span class="o">=</span><span class="kc">True</span>
-<span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%A&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Standard calendar: </span><span class="se">\t\t\t</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">month</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">day</span><span class="si">}</span><span class="s2"> is a </span><span class="si">{</span><span class="n">dow</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="n">dow</span> <span class="o">=</span> <span class="n">cftime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">calendar</span><span class="o">=</span><span class="s1">&#39;julian&#39;</span><span class="p">,</span> <span class="n">has_year_zero</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span>
-    <span class="s1">&#39;%A&#39;</span>
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Julian calendar: </span><span class="se">\t\t\t</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">month</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">day</span><span class="si">}</span><span class="s2"> is a </span><span class="si">{</span><span class="n">dow</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="n">dow</span> <span class="o">=</span> <span class="n">cftime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span>
-    <span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">calendar</span><span class="o">=</span><span class="s1">&#39;360_day&#39;</span><span class="p">,</span> <span class="n">has_year_zero</span><span class="o">=</span><span class="kc">True</span>
-<span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%A&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;360 day calendar: </span><span class="se">\t\t\t</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">month</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">day</span><span class="si">}</span><span class="s2"> is a </span><span class="si">{</span><span class="n">dow</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Proleptic Gregorian calendar: 		2024-6-4 is a Tuesday
-Standard calendar: 			2024-6-4 is a Tuesday
-Julian calendar: 			2024-6-4 is a Monday
-360 day calendar: 			2024-6-4 is a Wednesday
-</pre></div>
-</div>
-</div>
-</div>
-<p>Using the <a class="reference external" href="https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior"><code class="docutils literal notranslate"><span class="pre">strftime()</span></code></a> method allows you to format the output of <code class="docutils literal notranslate"><span class="pre">cftime.datetime</span></code>. If you desire an output equivalent to that of NCL’s <code class="docutils literal notranslate"><span class="pre">day_of_week</span></code>, we suggest using <code class="docutils literal notranslate"><span class="pre">.strftime('%w')</span></code>.</p>
-</section>
-<section id="differences-between-cftime-and-ncl-s-day-of-week">
-<h2>Differences between <code class="docutils literal notranslate"><span class="pre">cftime</span></code> and NCL’s <code class="docutils literal notranslate"><span class="pre">day_of_week</span></code><a class="headerlink" href="#differences-between-cftime-and-ncl-s-day-of-week" title="Link to this heading">#</a></h2>
-<section id="calendars">
-<h3>Calendars<a class="headerlink" href="#calendars" title="Link to this heading">#</a></h3>
-<p>NCL’s <code class="docutils literal notranslate"><span class="pre">day_of_week</span></code> only supports the proleptic Gregorian calendar, while the <code class="docutils literal notranslate"><span class="pre">cftime</span></code> module supports all CF conventions calendars, including the <code class="docutils literal notranslate"><span class="pre">proleptic_gregorian</span></code> calendar.</p>
-</section>
-<section id="input-type">
-<h3>Input Type<a class="headerlink" href="#input-type" title="Link to this heading">#</a></h3>
-<p>Notably, using <code class="docutils literal notranslate"><span class="pre">cftime</span></code> to calculate the day of the week works by getting a <code class="docutils literal notranslate"><span class="pre">strftime()</span></code> value from a <code class="docutils literal notranslate"><span class="pre">cftime.datetime</span></code> object, which means that the calculations for the day of the week have to be collected through each date individually, while NCL’s <code class="docutils literal notranslate"><span class="pre">days_in_month</span></code> can take in multidimensional integer arrays, given that the <code class="docutils literal notranslate"><span class="pre">year</span></code> and <code class="docutils literal notranslate"><span class="pre">month</span></code> arrays have the same dimensions.</p>
-</section>
-<section id="year-0">
-<h3>Year 0<a class="headerlink" href="#year-0" title="Link to this heading">#</a></h3>
-<p>There is a slight difference in the way that NCL’s <code class="docutils literal notranslate"><span class="pre">day_of_week</span></code> and the <code class="docutils literal notranslate"><span class="pre">cftime</span></code> module handle the year 0.</p>
-<ul class="simple">
-<li><p>NCL’s <code class="docutils literal notranslate"><span class="pre">day_of_week</span></code> supports all positive years and year 0 by default.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">cftime</span></code> module supports all years, but handling for year 0 is dependent upon the calendar and/or the <code class="docutils literal notranslate"><span class="pre">has_year_zero</span></code> keyword argument.</p></li>
-</ul>
-</section>
-</section>
 <section id="python-resources">
 <h2>Python Resources<a class="headerlink" href="#python-resources" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>The <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module <a class="reference external" href="https://docs.python.org/3/library/datetime.html">documentation</a>.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">cftime.datetime</span></code> <a class="reference external" href="https://unidata.github.io/cftime/api.html#cftime.datetime">documentation</a>.</p></li>
-<li><p><a class="reference external" href="https://ncar.github.io/geocat-applications/applications/date_time/datetime.html">Working with Dates and Times</a> GeoCAT Applications notebook.</p></li>
+<li><p><a class="reference external" href="https://geocat-comp.readthedocs.io/en/latest/user_api/generated/geocat.comp.meteorology.dewtemp.html">GeoCAT-comp Documentation</a></p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.constants.convert_temperature.html">Convert between different temperature scales in SciPy</a></p></li>
+</ul>
+</section>
+<section id="additional-reading">
+<h2>Additional Reading<a class="headerlink" href="#additional-reading" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.weather.gov/arx/why_dewpoint_vs_humidity">NOAA: Dew Point vs. Humidity</a></p></li>
 </ul>
 </section>
 </section>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="footcite-dutton-1986" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>John A. Dutton. <em>The Ceaseless Wind: An Introduction to the Theory of Atmospheric Motion</em>. Dover Publications, 1986.</p>
+</aside>
+</aside>
 
 
                 </article>
@@ -593,20 +528,20 @@ Julian calendar: 			2024-6-4 is a Monday
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="days_in_month.html"
+       href="general_applied_math.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">days_in_month</p>
+        <p class="prev-next-title">General Applied Math</p>
       </div>
     </a>
     <a class="right-next"
-       href="../../CONTRIBUTING.html"
+       href="specx_specxy_anal.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Contributor Guide</p>
+        <p class="prev-next-title">specx_specxy_anal</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -628,15 +563,8 @@ Julian calendar: 			2024-6-4 is a Monday
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grab-and-go">Grab and Go</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-datetime-module">Using the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-cftime">Using <code class="docutils literal notranslate"><span class="pre">cftime</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differences-between-cftime-and-ncl-s-day-of-week">Differences between <code class="docutils literal notranslate"><span class="pre">cftime</span></code> and NCL’s <code class="docutils literal notranslate"><span class="pre">day_of_week</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calendars">Calendars</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-type">Input Type</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#year-0">Year 0</a></li>
-</ul>
-</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-resources">Python Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-reading">Additional Reading</a></li>
 </ul>
   </nav></div>
 
