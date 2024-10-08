@@ -11,6 +11,7 @@ Data Analysis
     climatology_functions.ipynb
     trigonometric_functions.ipynb
     general_applied_math.ipynb
+    dewtemp.ipynb
     specx_specxy_anal.ipynb
 
 Dates and Times
