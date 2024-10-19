@@ -26,7 +26,7 @@ tmp_dir = 'tmp'  # must match the directory in Makefile and make.bat
 os.makedirs(tmp_dir, exist_ok=True)
 
 # sort ncl/ncl-index-table.csv
-df = pd.read_csv('ncl/ncl_index/ncl-index-table.csv')
+df = pd.read_csv('ncl_to_python/ncl_index/ncl-index-table.csv')
 df['sort_column'] = df['NCL Function'].apply(lambda x: x[1] if len(x) > 1 else x)
 df = df.sort_values(by='sort_column')
 df = df.drop(columns=['sort_column'])

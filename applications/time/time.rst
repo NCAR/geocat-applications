@@ -1,9 +1,9 @@
 .. currentmodule:: geocat.applications
 
-.. _applications_datetime:
+.. _applications_time:
 
-Dates and Times
-===============
+Time
+====
 
 .. toctree::
     :maxdepth: 1

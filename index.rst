@@ -1,11 +1,11 @@
-.. geocat-applications documentation master file
+.. geocat-applications documentation main file
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
 .. module:: geocat.applications
 
 .. meta::
-   :description: GeoCAT-applications
+   :description: geocat-applications
    :keywords: geocat, geocat-applications,
               geocat applications,
               wrf, python, wrf-python, weather research and forecasting,
@@ -17,9 +17,6 @@
               pynio, pyngl, interpolation
 
 
-.. .. image:: _static/images/nsf.png
-..    :scale: 100%
-..   :align: right
 
 
 
@@ -27,13 +24,14 @@ GeoCAT Applications
 ===================
 
 GeoCAT Applications is a community resource managed by the GeoCAT team. Inspired by the
-`NCL Applications <https://www.ncl.ucar.edu/Applications/>`_ page, this is designed to be a quick reference
-demonstrating capabilities within the Scientific Python Ecosystem that may be relevant to your geoscience workflows.
+`NCL Applications <https://www.ncl.ucar.edu/Applications/>`_ page, GeoCAT Applications is
+designed to be a quick reference guide demonstrating capabilities within the scientific
+Python ecosystem that may be relevant to your geoscience workflows.
 
 New to Python or GeoCAT Applications? Check out the `Getting Started <GETTING_STARTED.md>`_ guide!
 
-Python Examples
----------------
+Python Applications
+-------------------
 
 .. include:: applications/applications.rst
 
@@ -54,25 +52,25 @@ Python Examples
     :hidden:
     :caption: Applications
 
-    Plot Types <applications/plot_types/plot_types>
-    Data Analysis <applications/data_analysis/data_analysis>
-    Date and Time <applications/date_time/date_time>
+    Geoscience <applications/geoscience/geoscience>
+    Math <applications/math/math>
+    Time <applications/time/time>
 
 .. toctree::
     :maxdepth: 2
     :hidden:
     :caption: NCL to Python
 
-    NCL Index <ncl/ncl_index/ncl_index>
-    NCL Applications <ncl/ncl_entries/ncl_entries>
+    NCL Index <ncl_to_python/ncl_index/ncl_index>
+    Examples <ncl_to_python/examples/examples>
 
 .. toctree::
     :maxdepth: 2
     :hidden:
     :caption: Contributing
 
-    Contributor Guide <CONTRIBUTING.md>
     Code of Conduct <CODE_OF_CONDUCT.md>
+    Contributor Guide <CONTRIBUTING.md>
 
 .. toctree::
     :maxdepth: 2
