@@ -13,6 +13,7 @@ Data Analysis
     general_applied_math.ipynb
     meteorology.ipynb
     specx_specxy_anal.ipynb
+    great_circle.ipynb
 
 Dates and Times
 ---------------
