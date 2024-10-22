@@ -388,6 +388,61 @@ This notebook is part of the process we have for adding entries to the NCL Index
 </section>
 <section id="ncl-code">
 <h2>NCL code<a class="headerlink" href="#ncl-code" title="Link to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">;</span> <span class="n">dewtemp_trh</span>
+<span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span> <span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Built</span><span class="o">-</span><span class="ow">in</span><span class="o">/</span><span class="n">dewtemp_trh</span><span class="o">.</span><span class="n">shtml</span>
+
+<span class="p">;</span> <span class="n">ncl</span> <span class="o">-</span><span class="n">n</span> <span class="n">dewtemp_trh</span><span class="o">.</span><span class="n">ncl</span> <span class="o">&gt;&gt;</span> <span class="n">dewtemp_trh_output</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperature (K), Relative Humidity (%), Dew Temperature (C)&quot;</span><span class="p">)</span>
+<span class="n">do</span> <span class="n">tk</span><span class="o">=</span><span class="mi">273</span><span class="p">,</span><span class="mi">374</span>
+	<span class="n">do</span> <span class="n">rh</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span>
+		<span class="n">begin</span>
+		<span class="n">dewtemp</span> <span class="o">=</span> <span class="n">dewtemp_trh</span><span class="p">(</span><span class="n">tk</span><span class="p">,</span><span class="n">rh</span><span class="p">)</span><span class="o">-</span><span class="mf">273.15</span>
+		<span class="nb">print</span> <span class="p">(</span><span class="n">tk</span> <span class="o">+</span><span class="s2">&quot;,&quot;</span><span class="o">+</span> <span class="n">rh</span> <span class="o">+</span><span class="s2">&quot;,&quot;</span><span class="o">+</span> <span class="n">dewtemp</span><span class="p">)</span>
+		<span class="n">end</span>
+	<span class="n">end</span> <span class="n">do</span>
+<span class="n">end</span> <span class="n">do</span>
+
+<span class="p">;</span> <span class="n">daylight_fao56</span>
+<span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span> <span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Crop</span><span class="o">/</span><span class="n">daylight_fao56</span><span class="o">.</span><span class="n">shtml</span>
+
+<span class="p">;</span> <span class="n">ncl</span> <span class="o">-</span><span class="n">n</span> <span class="n">daylight_fao56</span><span class="o">.</span><span class="n">ncl</span> <span class="o">&gt;&gt;</span> <span class="n">daylight_fao56_output</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;DOY, Latitude (Degrees), Daylight Hours&quot;</span><span class="p">)</span>
+<span class="n">do</span> <span class="n">doy</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="mi">365</span>
+	<span class="n">do</span> <span class="n">lat</span><span class="o">=-</span><span class="mi">66</span><span class="p">,</span><span class="mi">66</span>
+		<span class="n">begin</span>
+		<span class="n">daylight_hours</span> <span class="o">=</span> <span class="n">daylight_fao56</span><span class="p">(</span><span class="n">doy</span><span class="p">,</span> <span class="n">lat</span><span class="p">)</span>
+		<span class="nb">print</span> <span class="p">(</span><span class="n">doy</span> <span class="o">+</span><span class="s2">&quot;,&quot;</span><span class="o">+</span> <span class="n">lat</span> <span class="o">+</span><span class="s2">&quot;,&quot;</span><span class="o">+</span> <span class="n">daylight_hours</span><span class="p">)</span>
+		<span class="n">end</span>
+	<span class="n">end</span> <span class="n">do</span>
+<span class="n">end</span> <span class="n">do</span>
+
+<span class="p">;</span> <span class="n">heat_index_nws</span>
+<span class="p">;</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Contributed</span><span class="o">/</span><span class="n">heat_index_nws</span><span class="o">.</span><span class="n">shtml</span>
+
+<span class="p">;</span> <span class="n">ncl</span> <span class="o">-</span><span class="n">n</span> <span class="n">heat_index_nws</span><span class="o">.</span><span class="n">ncl</span> <span class="o">&gt;&gt;</span> <span class="n">heat_index_nws_output</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperature (F), Relative Humidity (%), Heat Index (F)&quot;</span><span class="p">)</span>
+<span class="n">do</span> <span class="n">tf</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="mi">79</span>
+	<span class="n">do</span> <span class="n">rh</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">40</span>
+		<span class="n">begin</span>
+		<span class="n">heatindex</span> <span class="o">=</span> <span class="n">heat_index_nws</span><span class="p">(</span><span class="n">tf</span><span class="p">,</span><span class="n">rh</span><span class="p">,(</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="o">/</span><span class="p">),</span> <span class="kc">False</span><span class="p">)</span>
+		<span class="nb">print</span> <span class="p">(</span><span class="n">tf</span> <span class="o">+</span><span class="s2">&quot;,&quot;</span><span class="o">+</span> <span class="n">rh</span> <span class="o">+</span><span class="s2">&quot;,&quot;</span><span class="o">+</span> <span class="n">heatindex</span><span class="p">)</span>
+		<span class="n">end</span>
+	<span class="n">end</span> <span class="n">do</span>
+<span class="n">end</span> <span class="n">do</span>
+
+<span class="n">do</span> <span class="n">tf</span><span class="o">=</span><span class="mi">79</span><span class="p">,</span><span class="mi">100</span>
+	<span class="n">do</span> <span class="n">rh</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span><span class="mi">100</span>
+		<span class="n">begin</span>
+		<span class="n">heatindex</span> <span class="o">=</span> <span class="n">heat_index_nws</span><span class="p">(</span><span class="n">tf</span><span class="p">,</span><span class="n">rh</span><span class="p">,(</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="o">/</span><span class="p">),</span> <span class="kc">True</span><span class="p">)</span>
+		<span class="nb">print</span> <span class="p">(</span><span class="n">tf</span> <span class="o">+</span><span class="s2">&quot;,&quot;</span><span class="o">+</span> <span class="n">rh</span> <span class="o">+</span><span class="s2">&quot;,&quot;</span><span class="o">+</span> <span class="n">heatindex</span><span class="p">)</span>
+		<span class="n">end</span>
+	<span class="n">end</span> <span class="n">do</span>
+<span class="n">end</span> <span class="n">do</span>
+</pre></div>
+</div>
 </section>
 <section id="python-functionality">
 <h2>Python Functionality<a class="headerlink" href="#python-functionality" title="Link to this heading">#</a></h2>
