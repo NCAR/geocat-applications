@@ -189,6 +189,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../ncl_entries/general_applied_math.html">General Applied Math</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ncl_entries/meteorology.html">Meteorology</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ncl_entries/specx_specxy_anal.html">specx_specxy_anal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ncl_entries/great_circle.html">Great Circle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ncl_entries/days_in_month.html">days_in_month</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ncl_entries/day_of_week.html">day_of_week</a></li>
 </ul>
@@ -387,15 +388,45 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">;</span> <span class="n">area_poly_sphere</span>
 <span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span> <span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Built</span><span class="o">-</span><span class="ow">in</span><span class="o">/</span><span class="n">area_poly_sphere</span><span class="o">.</span><span class="n">shtml</span>
 
+<span class="p">;</span> <span class="n">Boulder</span><span class="p">,</span> <span class="n">Boston</span><span class="p">,</span> <span class="n">Houston</span>
 <span class="n">lat</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">40.0150</span><span class="p">,</span> <span class="mf">42.3601</span><span class="p">,</span> <span class="mf">29.5518</span><span class="o">/</span><span class="p">)</span>
 <span class="n">lon</span> <span class="o">=</span> <span class="p">(</span><span class="o">/-</span><span class="mf">105.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">71.0589</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.0982</span><span class="o">/</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gc_clkwise</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">))</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="kc">True</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">area_poly_sphere</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="mf">6370.997</span><span class="p">))</span>
-<span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="mi">1940856</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="mi">1940856</span>
 
+<span class="p">;</span> <span class="n">Half</span> <span class="n">of</span> <span class="n">the</span> <span class="n">World</span>
 <span class="n">lat</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="o">/</span><span class="p">)</span>
 <span class="n">lon</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">90.0</span><span class="o">/</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gc_clkwise</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">))</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="kc">True</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">area_poly_sphere</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="mf">6370.997</span><span class="p">))</span>
-<span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="mf">2.55032e+08</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="mf">2.55032e+08</span>
+
+<span class="p">;</span> <span class="n">Single</span> <span class="n">Point</span> <span class="o">-&gt;</span> <span class="n">Invalid</span> <span class="n">NCL</span>
+<span class="n">lat</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="o">/</span><span class="p">)</span>
+<span class="n">lon</span> <span class="o">=</span> <span class="p">(</span><span class="o">/-</span><span class="mi">105</span><span class="p">,</span> <span class="o">-</span><span class="mi">105</span><span class="p">,</span> <span class="o">-</span><span class="mi">105</span><span class="p">,</span> <span class="o">-</span><span class="mi">105</span><span class="o">/</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gc_clkwise</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">))</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="kc">True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">area_poly_sphere</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="mf">6370.997</span><span class="p">))</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="o">-</span><span class="mf">1.27516e+08</span>
+
+<span class="p">;</span> <span class="n">Single</span> <span class="n">Degree</span>
+<span class="n">lat</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">41</span><span class="o">/</span><span class="p">)</span>
+<span class="n">lon</span> <span class="o">=</span> <span class="p">(</span><span class="o">/-</span><span class="mi">105</span><span class="p">,</span> <span class="o">-</span><span class="mi">106</span><span class="p">,</span> <span class="o">-</span><span class="mi">106</span><span class="p">,</span> <span class="o">-</span><span class="mi">105</span><span class="o">/</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gc_clkwise</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">))</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="kc">True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">area_poly_sphere</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="mf">6370.997</span><span class="p">))</span>
+<span class="p">;(</span><span class="mi">0</span><span class="p">)</span>	<span class="mf">9401.705</span>
+
+<span class="p">;</span> <span class="n">Full</span> <span class="n">World</span>
+<span class="n">lat</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="o">-</span><span class="mi">90</span><span class="o">/</span><span class="p">)</span>
+<span class="n">lon</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mi">180</span><span class="p">,</span> <span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="mi">180</span><span class="o">/</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gc_clkwise</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">))</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="kc">True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">area_poly_sphere</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="mf">6370.997</span><span class="p">))</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="mf">5.10064e+08</span>
 </pre></div>
 </div>
 </section>
@@ -406,6 +437,14 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
 
 <span class="n">ncl_results</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="n">poly_name</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;Boulder, Boston, Houston&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Half of the World&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Single Point -&gt; Invalid NCL&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Single Degree&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Full World&quot;</span><span class="p">,</span>
+<span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -414,10 +453,30 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <h3>area_poly_sphere<a class="headerlink" href="#area-poly-sphere" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ncl_lat</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">40.0150</span><span class="p">,</span> <span class="mf">42.3601</span><span class="p">,</span> <span class="mf">29.5518</span><span class="p">],</span> <span class="p">[</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]]</span>
-<span class="n">ncl_lon</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mf">105.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">71.0589</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.0982</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">90.0</span><span class="p">]]</span>
-<span class="n">ncl_results</span><span class="p">[</span><span class="s2">&quot;area_poly_sphere_0&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1940856</span>
-<span class="n">ncl_results</span><span class="p">[</span><span class="s2">&quot;area_poly_sphere_1&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">255032000</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ncl_lat</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="mf">40.0150</span><span class="p">,</span> <span class="mf">42.3601</span><span class="p">,</span> <span class="mf">29.5518</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">41</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="o">-</span><span class="mi">90</span><span class="p">],</span>
+<span class="p">]</span>
+<span class="n">ncl_lon</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="o">-</span><span class="mf">105.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">71.0589</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.0982</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">90.0</span><span class="p">],</span>
+    <span class="p">[</span>
+        <span class="o">-</span><span class="mi">105</span><span class="p">,</span>
+        <span class="o">-</span><span class="mi">105</span><span class="p">,</span>
+        <span class="o">-</span><span class="mi">105</span><span class="p">,</span>
+        <span class="o">-</span><span class="mi">105</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="p">[</span><span class="o">-</span><span class="mi">105</span><span class="p">,</span> <span class="o">-</span><span class="mi">106</span><span class="p">,</span> <span class="o">-</span><span class="mi">106</span><span class="p">,</span> <span class="o">-</span><span class="mi">105</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">180</span><span class="p">,</span> <span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="mi">180</span><span class="p">],</span>
+<span class="p">]</span>
+<span class="n">ncl_results</span><span class="p">[</span><span class="n">poly_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">1940856</span>
+<span class="n">ncl_results</span><span class="p">[</span><span class="n">poly_name</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">255032000</span>
+<span class="n">ncl_results</span><span class="p">[</span><span class="n">poly_name</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">127516000</span>
+<span class="n">ncl_results</span><span class="p">[</span><span class="n">poly_name</span><span class="p">[</span><span class="mi">3</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">9401.705</span>
+<span class="n">ncl_results</span><span class="p">[</span><span class="n">poly_name</span><span class="p">[</span><span class="mi">4</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">510064000</span>
 </pre></div>
 </div>
 </div>
@@ -428,10 +487,10 @@ This notebook is part of the process we have for adding entries to the NCL Index
 
 <span class="n">python_results</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="n">geod</span> <span class="o">=</span> <span class="n">Geod</span><span class="p">(</span><span class="n">ellps</span><span class="o">=</span><span class="s2">&quot;sphere&quot;</span><span class="p">)</span>  <span class="c1"># radius = 6370997 m</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ncl_lat</span><span class="p">)):</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">poly_name</span><span class="p">)):</span>
     <span class="n">poly_area_m</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">geod</span><span class="o">.</span><span class="n">polygon_area_perimeter</span><span class="p">(</span><span class="n">ncl_lon</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ncl_lat</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
     <span class="n">poly_area_km2</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">poly_area_m</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e-6</span>
-    <span class="n">python_results</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;area_poly_sphere_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">poly_area_km2</span>
+    <span class="n">python_results</span><span class="p">[</span><span class="n">poly_name</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">poly_area_km2</span>
 </pre></div>
 </div>
 </div>
@@ -444,23 +503,42 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ncl_results</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
     <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">python_results</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">python_results</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-        <span class="nb">print</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="se">\n\t</span><span class="s2">ncl:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">ncl_results</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n\t</span><span class="s2">python:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">python_results</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
-        <span class="p">)</span>
-        <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span>
-            <span class="n">ncl_results</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">python_results</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-5</span>
-        <span class="p">)</span>  <span class="c1"># within 4 decimal points</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span>
+                <span class="n">ncl_results</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">python_results</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-5</span>
+            <span class="p">)</span>  <span class="c1"># within 4 decimal points</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="se">\n\t</span><span class="s2">ncl:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">ncl_results</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n\t</span><span class="s2">python:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">python_results</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;INVALID DIFFERENCE:</span><span class="se">\n\t</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="se">\n\t\t</span><span class="s2">ncl:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">ncl_results</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n\t\t</span><span class="s2">python:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">python_results</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>area_poly_sphere_0: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Boulder, Boston, Houston: 
 	ncl:		1940856
 	python:		1940855.984630871
 
-area_poly_sphere_1: 
+Half of the World: 
 	ncl:		255032000
 	python:		255031995.77390912
+
+INVALID DIFFERENCE:
+	Single Point -&gt; Invalid NCL: 
+		ncl:		-127516000
+		python:		0.0
+
+Single Degree: 
+	ncl:		9401.705
+	python:		9401.704877506347
+
+INVALID DIFFERENCE:
+	Full World: 
+		ncl:		510064000
+		python:		0.0
 </pre></div>
 </div>
 </div>
