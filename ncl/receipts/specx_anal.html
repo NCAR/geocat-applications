@@ -16,17 +16,19 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
@@ -35,10 +37,11 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../_static/style.css?v=f313c041" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
@@ -52,6 +55,7 @@
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -67,19 +71,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -87,7 +80,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -95,8 +87,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -112,7 +104,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -142,21 +135,17 @@
     
     
     <img src="../../_static/NSF_NCAR_light.svg" class="logo__image only-light" alt=" - Home"/>
-    <script>document.write(`<img src="../../_static/NSF_NCAR_dark.svg" class="logo__image only-dark" alt=" - Home"/>`);</script>
+    <img src="../../_static/NSF_NCAR_dark.svg" class="logo__image only-dark pst-js-only" alt=" - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview</span></p>
@@ -310,24 +299,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -828,10 +809,10 @@ Attributes:
     creation_date:  Tue Mar 30 09:29:20 MST 1999
     references:     Trenberth, Mon. Wea. Rev: 2/1984
     time_span:      1882 - 1998
-    conventions:    None</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-5aea8ee5-3548-42bb-8ee3-881797b40259' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-5aea8ee5-3548-42bb-8ee3-881797b40259' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 1404</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-47b5c63e-7fec-4d8e-aaee-71cf8bac9a6c' class='xr-section-summary-in' type='checkbox'  checked><label for='section-47b5c63e-7fec-4d8e-aaee-71cf8bac9a6c' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>0 1 2 3 4 ... 1400 1401 1402 1403</div><input id='attrs-14338f9a-200a-4d83-8f9f-a630d625e457' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-14338f9a-200a-4d83-8f9f-a630d625e457' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-340b2389-211a-4b03-ba15-5b68221a070e' class='xr-var-data-in' type='checkbox'><label for='data-340b2389-211a-4b03-ba15-5b68221a070e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Months Since January 1882</dd><dt><span>units :</span></dt><dd>months</dd></dl></div><div class='xr-var-data'><pre>array([   0,    1,    2, ..., 1401, 1402, 1403], dtype=int32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-1df0efec-4f82-4f4a-8f53-e4d335969d8f' class='xr-section-summary-in' type='checkbox'  checked><label for='section-1df0efec-4f82-4f4a-8f53-e4d335969d8f' class='xr-section-summary' >Data variables: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>date</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-e8c88e94-feab-4d33-a78a-1cbd16336439' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e8c88e94-feab-4d33-a78a-1cbd16336439' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2b1178dc-9f09-466a-93b2-c851a70c72ce' class='xr-var-data-in' type='checkbox'><label for='data-2b1178dc-9f09-466a-93b2-c851a70c72ce' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>short_name :</span></dt><dd>Yr-Mo</dd><dt><span>long_name :</span></dt><dd>Year-Month</dd><dt><span>units :</span></dt><dd>YYYYMM</dd></dl></div><div class='xr-var-data'><pre>[1404 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>DSOI</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-c91fcf2f-3aa4-498c-8ad8-a9fae103a0c5' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c91fcf2f-3aa4-498c-8ad8-a9fae103a0c5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1d54d739-a315-4b30-b81f-b379409c995e' class='xr-var-data-in' type='checkbox'><label for='data-1d54d739-a315-4b30-b81f-b379409c995e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>short_name :</span></dt><dd>DSOI</dd><dt><span>long_name :</span></dt><dd>Darwin Southern Oscillation Index</dd><dt><span>units :</span></dt><dd>dimensionless</dd></dl></div><div class='xr-var-data'><pre>[1404 values with dtype=float32]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-4d06e6e4-b28e-47ea-a414-e59a76c948e6' class='xr-section-summary-in' type='checkbox'  ><label for='section-4d06e6e4-b28e-47ea-a414-e59a76c948e6' class='xr-section-summary' >Indexes: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-ca2f0316-bcc7-4341-8e7f-dd44d9cf784e' class='xr-index-data-in' type='checkbox'/><label for='index-ca2f0316-bcc7-4341-8e7f-dd44d9cf784e' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([   0,    1,    2,    3,    4,    5,    6,    7,    8,    9,
+    conventions:    None</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-64230905-c778-4117-af7b-7382a0e14f5e' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-64230905-c778-4117-af7b-7382a0e14f5e' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 1404</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-934674b7-26d2-4d88-ad01-1e97eaefa847' class='xr-section-summary-in' type='checkbox'  checked><label for='section-934674b7-26d2-4d88-ad01-1e97eaefa847' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>0 1 2 3 4 ... 1400 1401 1402 1403</div><input id='attrs-990cb922-1395-4125-87b3-d76138668a8e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-990cb922-1395-4125-87b3-d76138668a8e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5976dab4-22c9-4b6b-b262-b67c7709db86' class='xr-var-data-in' type='checkbox'><label for='data-5976dab4-22c9-4b6b-b262-b67c7709db86' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Months Since January 1882</dd><dt><span>units :</span></dt><dd>months</dd></dl></div><div class='xr-var-data'><pre>array([   0,    1,    2, ..., 1401, 1402, 1403], dtype=int32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-c8d3628f-916f-466f-8739-f13068b73d13' class='xr-section-summary-in' type='checkbox'  checked><label for='section-c8d3628f-916f-466f-8739-f13068b73d13' class='xr-section-summary' >Data variables: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>date</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-a6b6c233-f308-4a48-b470-ab8c1c776a47' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a6b6c233-f308-4a48-b470-ab8c1c776a47' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4ace3076-5b9e-4baf-82af-4fa89df9fdc4' class='xr-var-data-in' type='checkbox'><label for='data-4ace3076-5b9e-4baf-82af-4fa89df9fdc4' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>short_name :</span></dt><dd>Yr-Mo</dd><dt><span>long_name :</span></dt><dd>Year-Month</dd><dt><span>units :</span></dt><dd>YYYYMM</dd></dl></div><div class='xr-var-data'><pre>[1404 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>DSOI</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-a5522a20-9679-4623-bd9b-ec7f55a58d7e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a5522a20-9679-4623-bd9b-ec7f55a58d7e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c7a773e4-946f-4c87-b6ea-dcb9c589e8e3' class='xr-var-data-in' type='checkbox'><label for='data-c7a773e4-946f-4c87-b6ea-dcb9c589e8e3' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>short_name :</span></dt><dd>DSOI</dd><dt><span>long_name :</span></dt><dd>Darwin Southern Oscillation Index</dd><dt><span>units :</span></dt><dd>dimensionless</dd></dl></div><div class='xr-var-data'><pre>[1404 values with dtype=float32]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-1bee158c-bd43-4662-9090-42fb8c24f5af' class='xr-section-summary-in' type='checkbox'  ><label for='section-1bee158c-bd43-4662-9090-42fb8c24f5af' class='xr-section-summary' >Indexes: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-a74c1a41-8709-4b80-b647-f5525ce772d7' class='xr-index-data-in' type='checkbox'/><label for='index-a74c1a41-8709-4b80-b647-f5525ce772d7' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([   0,    1,    2,    3,    4,    5,    6,    7,    8,    9,
        ...
        1394, 1395, 1396, 1397, 1398, 1399, 1400, 1401, 1402, 1403],
-      dtype=&#x27;int32&#x27;, name=&#x27;time&#x27;, length=1404))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-087a2da0-7eab-4c3b-b309-a46ac77c0352' class='xr-section-summary-in' type='checkbox'  checked><label for='section-087a2da0-7eab-4c3b-b309-a46ac77c0352' class='xr-section-summary' >Attributes: <span>(7)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>title :</span></dt><dd>Darwin Southern Oscillation Index</dd><dt><span>source :</span></dt><dd>Climate Analysis Section, NCAR</dd><dt><span>history :</span></dt><dd>
+      dtype=&#x27;int32&#x27;, name=&#x27;time&#x27;, length=1404))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-30316880-f4c6-4fd6-94c4-f069d3b61a23' class='xr-section-summary-in' type='checkbox'  checked><label for='section-30316880-f4c6-4fd6-94c4-f069d3b61a23' class='xr-section-summary' >Attributes: <span>(7)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>title :</span></dt><dd>Darwin Southern Oscillation Index</dd><dt><span>source :</span></dt><dd>Climate Analysis Section, NCAR</dd><dt><span>history :</span></dt><dd>
 DSOI = - Normalized Darwin
 Normalized sea level pressure is used.
 The normalization is done using Trenberth&#x27;s method.
@@ -1112,7 +1093,8 @@ see  http://www.cgd.ucar.edu/cas/climind/soi.html</dd><dt><span>creation_date :<
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1173,8 +1155,8 @@ By GeoCAT
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
   </footer>
