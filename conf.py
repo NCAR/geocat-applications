@@ -387,9 +387,3 @@ nb_execution_excludepatterns = ['templates/*']
 
 # generate warning for all invalid links
 # nitpicky = True
-
-
-# Allow for changes to be made to the css in the theme_overrides file
-def setup(app):
-    app.add_css_file('theme_overrides.css')
-    # app.connect("builder-inited", update_gallery)
