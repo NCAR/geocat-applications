@@ -76,4 +76,4 @@ Python Applications
     :caption: Support
 
     GitHub Issues <https://github.com/NCAR/geocat-applications/issues>
-    Feature Request Form <https://forms.gle/6DTo3ELLri4DAGfG8>
+    Suggestion Box <https://forms.gle/6DTo3ELLri4DAGfG8>
