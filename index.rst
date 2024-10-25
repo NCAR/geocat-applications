@@ -34,7 +34,7 @@ Python Applications
 -------------------
 
 .. include:: applications/applications.rst
-
+    :start-line: 5
 
 .. TIP::
     If you're looking for NCL to Python examples, please visit :ref:`ncl_applications`.
@@ -50,19 +50,17 @@ Python Applications
 .. toctree::
     :maxdepth: 2
     :hidden:
-    :caption: Applications
+    :caption: Python
 
-    Geoscience <applications/geoscience/geoscience>
-    Math <applications/math/math>
-    Time <applications/time/time>
+    Applications <applications/applications>
 
 .. toctree::
     :maxdepth: 2
     :hidden:
     :caption: NCL to Python
 
-    NCL Index <ncl_to_python/ncl_index/ncl_index>
-    Examples <ncl_to_python/examples/examples>
+    NCL Index <ncl/ncl_index/ncl_index>
+    Applications <ncl/ncl_entries/ncl_entries>
 
 .. toctree::
     :maxdepth: 2
@@ -75,7 +73,7 @@ Python Applications
 .. toctree::
     :maxdepth: 2
     :hidden:
-    :caption: Getting Support
+    :caption: Support
 
     GitHub Issues <https://github.com/NCAR/geocat-applications/issues>
     Feature Request Form <https://forms.gle/6DTo3ELLri4DAGfG8>
