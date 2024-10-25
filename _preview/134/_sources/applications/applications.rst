@@ -3,7 +3,7 @@
 Python Applications
 ===================
 
-Python resources by function category with relevant context and links to additional resources and references.
+Python resources by category with relevant context and links to additional resources and references.
 
 .. grid:: 3
     :gutter: 2

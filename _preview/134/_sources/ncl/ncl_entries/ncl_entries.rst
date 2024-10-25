@@ -3,7 +3,7 @@
 NCL to Python Applications
 ==========================
 
-NCL to Python resources by function category with relevant context
+NCL to Python resources by category with relevant context
 and links to additional resources and references.
 
 .. grid:: 3
