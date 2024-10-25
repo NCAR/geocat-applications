@@ -23,4 +23,3 @@ and links to additional resources and references.
          - `Trigonometry <trigonometry.ipynb>`_
          - `General applied math <general_applied_math.ipynb>`_
          - `Spectral analysis <spectral_analysis.ipynb>`_
-
