@@ -3,23 +3,38 @@
 NCL to Python Applications
 ==========================
 
-NCL to Python examples by function category with relevant context
+NCL to Python resources by function category with relevant context
 and links to additional resources and references.
 
 .. grid:: 3
     :gutter: 2
 
-    .. grid-item-card:: Time
+    .. grid-item::
 
-         - `Dates and times <time.ipynb>`_
+        .. grid:: 1
+            :gutter: 1
 
-    .. grid-item-card:: Geoscience
+            .. card:: Time
 
-          - `Climatology <climatology.ipynb>`_
-          - `Meteorology <meteorology.ipynb>`_
+                - `Dates and times <time.ipynb>`_
 
-    .. grid-item-card:: Math
+    .. grid-item::
 
-         - `Trigonometry <trigonometry.ipynb>`_
-         - `General applied math <general_applied_math.ipynb>`_
-         - `Spectral analysis <spectral_analysis.ipynb>`_
+        .. grid:: 1
+            :gutter: 1
+
+            .. card:: Math
+
+                - `Trigonometry <trigonometry.ipynb>`_
+                - `General applied math <general_applied_math.ipynb>`_
+                - `Spectral analysis <spectral_analysis.ipynb>`_
+
+    .. grid-item::
+
+        .. grid:: 1
+            :gutter: 1
+
+            .. card:: Geoscience
+
+                - `Climatology <climatology.ipynb>`_
+                - `Meteorology <meteorology.ipynb>`_
