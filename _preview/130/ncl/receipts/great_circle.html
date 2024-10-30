@@ -400,7 +400,6 @@ This notebook is part of the process we have for adding entries to the NCL Index
     <span class="s2">&quot;Half of the World&quot;</span><span class="p">,</span>
     <span class="s2">&quot;Single Point -&gt; Invalid NCL&quot;</span><span class="p">,</span>
     <span class="s2">&quot;Single Degree&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Full World&quot;</span><span class="p">,</span>
 <span class="p">]</span>
 </pre></div>
 </div>
@@ -415,7 +414,6 @@ This notebook is part of the process we have for adding entries to the NCL Index
     <span class="p">[</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
     <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span>
     <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">41</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="o">-</span><span class="mi">90</span><span class="p">],</span>
 <span class="p">]</span>
 <span class="n">ncl_lon</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">[</span><span class="o">-</span><span class="mf">105.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">71.0589</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.0982</span><span class="p">],</span>
@@ -427,13 +425,11 @@ This notebook is part of the process we have for adding entries to the NCL Index
         <span class="o">-</span><span class="mi">105</span><span class="p">,</span>
     <span class="p">],</span>
     <span class="p">[</span><span class="o">-</span><span class="mi">105</span><span class="p">,</span> <span class="o">-</span><span class="mi">106</span><span class="p">,</span> <span class="o">-</span><span class="mi">106</span><span class="p">,</span> <span class="o">-</span><span class="mi">105</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">180</span><span class="p">,</span> <span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="mi">180</span><span class="p">],</span>
 <span class="p">]</span>
 <span class="n">ncl_results</span><span class="p">[</span><span class="n">poly_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">1940856</span>
 <span class="n">ncl_results</span><span class="p">[</span><span class="n">poly_name</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">255032000</span>
 <span class="n">ncl_results</span><span class="p">[</span><span class="n">poly_name</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">127516000</span>
 <span class="n">ncl_results</span><span class="p">[</span><span class="n">poly_name</span><span class="p">[</span><span class="mi">3</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">9401.705</span>
-<span class="n">ncl_results</span><span class="p">[</span><span class="n">poly_name</span><span class="p">[</span><span class="mi">4</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">510064000</span>
 </pre></div>
 </div>
 </div>
@@ -465,37 +461,37 @@ This notebook is part of the process we have for adding entries to the NCL Index
                 <span class="n">ncl_results</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">python_results</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-5</span>
             <span class="p">)</span>  <span class="c1"># within 4 decimal points</span>
             <span class="nb">print</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="se">\n\t</span><span class="s2">ncl:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">ncl_results</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n\t</span><span class="s2">python:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">python_results</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;VALID:</span><span class="se">\n\t</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="se">\n\t</span><span class="s2">ncl:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">ncl_results</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n\t</span><span class="s2">python:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">python_results</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
             <span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;INVALID DIFFERENCE:</span><span class="se">\n\t</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="se">\n\t\t</span><span class="s2">ncl:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">ncl_results</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n\t\t</span><span class="s2">python:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">python_results</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;INVALID:</span><span class="se">\n\t</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="se">\n\t\t</span><span class="s2">ncl:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">ncl_results</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n\t\t</span><span class="s2">python:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">python_results</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
             <span class="p">)</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="o">!=</span> <span class="s2">&quot;Single Point -&gt; Invalid NCL&quot;</span><span class="p">:</span>
+                <span class="k">assert</span> <span class="kc">False</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Boulder, Boston, Houston: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>VALID:
+	Boulder, Boston, Houston: 
 	ncl:		1940856
 	python:		1940855.984630871
 
-Half of the World: 
+VALID:
+	Half of the World: 
 	ncl:		255032000
 	python:		255031995.77390912
 
-INVALID DIFFERENCE:
+INVALID:
 	Single Point -&gt; Invalid NCL: 
 		ncl:		-127516000
 		python:		0.0
 
-Single Degree: 
+VALID:
+	Single Degree: 
 	ncl:		9401.705
 	python:		9401.704877506347
-
-INVALID DIFFERENCE:
-	Full World: 
-		ncl:		510064000
-		python:		0.0
 </pre></div>
 </div>
 </div>
