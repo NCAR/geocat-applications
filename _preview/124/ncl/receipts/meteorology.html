@@ -386,21 +386,21 @@ This notebook is part of the process we have for adding entries to the NCL Index
 
 <span class="p">;</span> <span class="n">ncl</span> <span class="o">-</span><span class="n">n</span> <span class="n">heat_index_nws</span><span class="o">.</span><span class="n">ncl</span> <span class="o">&gt;&gt;</span> <span class="n">heat_index_nws_output</span><span class="o">.</span><span class="n">txt</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperature (F), Relative Humidity (%), Heat Index (F)&quot;</span><span class="p">)</span>
-<span class="n">do</span> <span class="n">tf</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="mi">79</span>
-	<span class="n">do</span> <span class="n">rh</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">40</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperature (F), Relative Humidity (%), Alternate Coefs (True/False), Heat Index (F)&quot;</span><span class="p">)</span>
+<span class="n">do</span> <span class="n">tf</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">115</span>
+	<span class="n">do</span> <span class="n">rh</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span>
 		<span class="n">begin</span>
 		<span class="n">heatindex</span> <span class="o">=</span> <span class="n">heat_index_nws</span><span class="p">(</span><span class="n">tf</span><span class="p">,</span><span class="n">rh</span><span class="p">,(</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="o">/</span><span class="p">),</span> <span class="kc">False</span><span class="p">)</span>
-		<span class="nb">print</span> <span class="p">(</span><span class="n">tf</span> <span class="o">+</span><span class="s2">&quot;,&quot;</span><span class="o">+</span> <span class="n">rh</span> <span class="o">+</span><span class="s2">&quot;,&quot;</span><span class="o">+</span> <span class="n">heatindex</span><span class="p">)</span>
+		<span class="nb">print</span> <span class="p">(</span><span class="n">tf</span> <span class="o">+</span><span class="s2">&quot;,&quot;</span><span class="o">+</span> <span class="n">rh</span> <span class="o">+</span><span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="s2">&quot;0&quot;</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">heatindex</span><span class="p">)</span>
 		<span class="n">end</span>
 	<span class="n">end</span> <span class="n">do</span>
 <span class="n">end</span> <span class="n">do</span>
 
-<span class="n">do</span> <span class="n">tf</span><span class="o">=</span><span class="mi">79</span><span class="p">,</span><span class="mi">100</span>
-	<span class="n">do</span> <span class="n">rh</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span><span class="mi">100</span>
+<span class="n">do</span> <span class="n">tf</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="mi">115</span>
+	<span class="n">do</span> <span class="n">rh</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span>
 		<span class="n">begin</span>
 		<span class="n">heatindex</span> <span class="o">=</span> <span class="n">heat_index_nws</span><span class="p">(</span><span class="n">tf</span><span class="p">,</span><span class="n">rh</span><span class="p">,(</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="o">/</span><span class="p">),</span> <span class="kc">True</span><span class="p">)</span>
-		<span class="nb">print</span> <span class="p">(</span><span class="n">tf</span> <span class="o">+</span><span class="s2">&quot;,&quot;</span><span class="o">+</span> <span class="n">rh</span> <span class="o">+</span><span class="s2">&quot;,&quot;</span><span class="o">+</span> <span class="n">heatindex</span><span class="p">)</span>
+		<span class="nb">print</span> <span class="p">(</span><span class="n">tf</span> <span class="o">+</span><span class="s2">&quot;,&quot;</span><span class="o">+</span> <span class="n">rh</span> <span class="o">+</span><span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="s2">&quot;1&quot;</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">heatindex</span><span class="p">)</span>
 		<span class="n">end</span>
 	<span class="n">end</span> <span class="n">do</span>
 <span class="n">end</span> <span class="n">do</span>
