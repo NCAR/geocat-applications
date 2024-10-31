@@ -695,13 +695,13 @@ This notebook is part of the process we have for adding entries to the NCL Index
                 <span class="n">diff_1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ncl_heat_index</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">-</span> <span class="n">geocat_heat_index</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
             <span class="n">coeff_type</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">alt_coeffs</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span>
-    <span class="sa">f</span><span class="s2">&quot;Mismatch between NCL and GeoCAT greater than 2° = </span><span class="si">{</span><span class="n">difference_from_ncl</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">ncl_heat_index</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="si">}</span><span class="s2">% (</span><span class="si">{</span><span class="n">difference_from_ncl</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">ncl_heat_index</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;Greater than 2° Difference between NCL and GeoCAT = </span><span class="si">{</span><span class="n">difference_from_ncl</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">ncl_heat_index</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="si">}</span><span class="s2">% (</span><span class="si">{</span><span class="n">difference_from_ncl</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">ncl_heat_index</span><span class="p">)</span><span class="si">}</span><span class="s2">)&quot;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mismatch between NCL and GeoCAT greater than 2° = 6.349137931034483% (1473/23200)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Greater than 2° Difference between NCL and GeoCAT = 6.349137931034483% (1473/23200)
 </pre></div>
 </div>
 </div>
@@ -714,13 +714,11 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="n">counts</span><span class="p">,</span> <span class="n">edges</span><span class="p">,</span> <span class="n">bars</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">coeff_type</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Greater than 2° (0/1 - True/False Alternate Coeffs)&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">bars</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Text(0, 0, &#39;48&#39;), Text(0, 0, &#39;1425&#39;)]
-</pre></div>
-</div>
 <img alt="../../_images/aa26c7a8f1c4363f8fa4dd48bfe9715615ec516075264dc585bf57b2112e74a3.png" src="../../_images/aa26c7a8f1c4363f8fa4dd48bfe9715615ec516075264dc585bf57b2112e74a3.png" />
 </div>
 </div>
@@ -728,50 +726,28 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">counts</span><span class="p">,</span> <span class="n">edges</span><span class="p">,</span> <span class="n">bars</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">diff_0</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Difference from NCL for Default Coefficients&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Degree Difference from NCL for Default Coefficients&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">bars</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Text(0, 0, &#39;5&#39;),
- Text(0, 0, &#39;5&#39;),
- Text(0, 0, &#39;5&#39;),
- Text(0, 0, &#39;4&#39;),
- Text(0, 0, &#39;5&#39;),
- Text(0, 0, &#39;5&#39;),
- Text(0, 0, &#39;4&#39;),
- Text(0, 0, &#39;5&#39;),
- Text(0, 0, &#39;5&#39;),
- Text(0, 0, &#39;5&#39;)]
-</pre></div>
-</div>
-<img alt="../../_images/42265b699f2936649e4f638f1900dc2464a005f42be52a6b0566bdde658995de.png" src="../../_images/42265b699f2936649e4f638f1900dc2464a005f42be52a6b0566bdde658995de.png" />
+<img alt="../../_images/84379a3971c5c6c9f30aa526d596c97ea09f8daf1789a91660da8b36ad715114.png" src="../../_images/84379a3971c5c6c9f30aa526d596c97ea09f8daf1789a91660da8b36ad715114.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">counts</span><span class="p">,</span> <span class="n">edges</span><span class="p">,</span> <span class="n">bars</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">diff_1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Difference from NCL for Alternate Coefficients&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Degree Difference from NCL for Alternate Coefficients&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">bars</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Text(0, 0, &#39;872&#39;),
- Text(0, 0, &#39;166&#39;),
- Text(0, 0, &#39;119&#39;),
- Text(0, 0, &#39;85&#39;),
- Text(0, 0, &#39;63&#39;),
- Text(0, 0, &#39;45&#39;),
- Text(0, 0, &#39;33&#39;),
- Text(0, 0, &#39;22&#39;),
- Text(0, 0, &#39;14&#39;),
- Text(0, 0, &#39;6&#39;)]
-</pre></div>
-</div>
-<img alt="../../_images/5f66441c02e8a42708922df08e2f93e36e8e05efe076f5f8e042174e209572fd.png" src="../../_images/5f66441c02e8a42708922df08e2f93e36e8e05efe076f5f8e042174e209572fd.png" />
+<img alt="../../_images/7100e496d4e557ffe983802bdbe88e8c42253de56b60f4dc01d5255a8116e17d.png" src="../../_images/7100e496d4e557ffe983802bdbe88e8c42253de56b60f4dc01d5255a8116e17d.png" />
 </div>
 </div>
 </section>
