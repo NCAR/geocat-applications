@@ -58,6 +58,7 @@ extensions = [
     'nbsphinx',
     'sphinx.ext.extlinks',
     'sphinxcontrib.bibtex',
+    'sphinx_copybutton',
 ]
 
 bibtex_bibfiles = ['references.bib']
@@ -240,7 +241,7 @@ html_theme_options = dict(
     use_repository_button=True,
     use_issues_button=True,
     home_page_in_toc=False,
-    extra_footer="<em>The National Center for Atmospheric Research is sponsored by the National Science Foundation. Any opinions, findings and conclusions or recommendations expressed in this material do not necessarily reflect the views of the National Science Foundation.</em>",
+    extra_footer="<em>This material is based upon work supported by the NSF National Center for Atmospheric Research, a major facility sponsored by the U.S. National Science Foundation and managed by the University Corporation for Atmospheric Research. Any opinions, findings and conclusions or recommendations expressed in this material do not necessarily reflect the views of the U.S. National Science Foundation.</em>",
 )
 
 # Add analytics
@@ -257,7 +258,12 @@ html_theme_options["analytics"] = {
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
-html_logo = '_static/images/logos/GeoCAT_nsf.svg'
+html_theme_options = {
+    "logo": {
+        "image_light": '_static/images/logos/NSF_NCAR_light.svg',
+        "image_dark": '_static/images/logos/NSF_NCAR_dark.svg',
+    }
+}
 
 # The name of an image file (relative to this directory) to use as a favicon of
 # the docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
@@ -382,9 +388,3 @@ nb_execution_excludepatterns = ['templates/*']
 
 # generate warning for all invalid links
 # nitpicky = True
-
-
-# Allow for changes to be made to the css in the theme_overrides file
-def setup(app):
-    app.add_css_file('theme_overrides.css')
-    # app.connect("builder-inited", update_gallery)
