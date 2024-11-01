@@ -38,4 +38,4 @@ and links to additional resources and references.
 
                 - `Climatology <climatology.ipynb>`_
                 - `Meteorology <meteorology.ipynb>`_
-                - `Great Circle <great_circle.ipynb>`_
+                - `Great circle <great_circle.ipynb>`_
