@@ -15,7 +15,7 @@ Python resources by category with relevant context and links to additional resou
 
             .. card:: Time
 
-                - `Dates and times <datetime.ipynb>`__
+                - :ref:`Dates and times <datetime.ipynb>`__
 
     .. grid-item::
 
@@ -24,8 +24,8 @@ Python resources by category with relevant context and links to additional resou
 
             .. card:: Math
 
-                - `General applied math <general_applied_math.ipynb>`__
-                - `Spectral analysis <spectral_analysis.ipynb>`__
+                - :ref:`General applied math <general_applied_math.ipynb>`__
+                - :ref:`Spectral analysis <spectral_analysis.ipynb>`__
 
     .. grid-item::
 
@@ -34,5 +34,5 @@ Python resources by category with relevant context and links to additional resou
 
             .. card:: Geoscience
 
-                - `Climatology <climatology.ipynb>`_
-                - `Humid heat metrics <humid_heat_metrics.ipynb>`__
+                - :ref:`Climatology <climatology.ipynb>`_
+                - :ref:`Humid heat metrics <humid_heat_metrics.ipynb>`__
