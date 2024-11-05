@@ -1,0 +1,56 @@
+name: linkcheck
+on:
+  workflow_dispatch:
+  schedule:
+     - cron: '30 0 * * *' # Daily “At 00:30”
+  pull_request:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -l {0}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: set environment variables
+        run: |
+          echo "TODAY=$(date +%Y-%m-%d)" >> $GITHUB_ENV
+
+      - name: environment setup
+        id: env-setup
+        continue-on-error: true
+        uses: mamba-org/setup-micromamba@v2
+        with:
+          environment-file: environment.yml
+          cache-environment: true
+          cache-environment-key: "build-${{env.TODAY}}"
+
+      - name: retry environment set up if failed
+        if: steps.env-setup.outcome == 'failure'
+        uses: mamba-org/setup-micromamba@v2
+        with:
+          download-micromamba: false
+          environment-file: environment.yml
+          cache-environment: true
+          cache-environment-key: "build-${{env.TODAY}}"
+
+      - name: Make docs with linkcheck
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 60
+          max_attempts: 3
+          command: |
+            eval "$(micromamba shell hook --shell bash)"
+            micromamba activate
+            micromamba activate geocat-applications
+            make linkcheck
