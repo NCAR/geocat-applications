@@ -388,3 +388,9 @@ nb_execution_excludepatterns = ['templates/*']
 
 # generate warning for all invalid links
 # nitpicky = True
+
+# turn off anchor checks for speed and to get around github's line number anchor issues
+linkcheck_anchors = False
+
+# ignore some links that work, but are disliked by linkcheck
+linkcheck_ignore = [r'https://doi.org/10.1080/104732299303296']
