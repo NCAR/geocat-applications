@@ -51,6 +51,19 @@
     <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-EQMBXF1D2V"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-EQMBXF1D2V');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-EQMBXF1D2V');
+            </script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ncl/receipts/days_in_month';</script>
     <link rel="icon" href="../../_static/GeoCAT_square.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -213,6 +226,70 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NCAR/geocat-applications" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NCAR/geocat-applications/edit/main/docs/ncl/receipts/days_in_month.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NCAR/geocat-applications/issues/new?title=Issue%20on%20page%20%2Fncl/receipts/days_in_month.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
 
 
 
@@ -465,37 +542,37 @@ Show the python code that replicates the NCL functionality. Don't worry about pr
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>gregorian: 
-	python:	[29, 28, 31, 29]
-	ncl:	[29, 28, 31, 28]
-
-noleap: 
-	python:	[28, 28, 31, 28]
-	ncl:	[28, 28, 31, 28]
-
-360_day: 
-	python:	[30, 30, 30, 30]
-	ncl:	[30, 30, 30, 30]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>all_leap: 
+	python:	[29, 29, 31, 29]
+	ncl:	[29, 29, 31, 29]
 
 julian: 
 	python:	[29, 28, 31, 29]
 	ncl:	[29, 28, 31, 29]
 
-all_leap: 
-	python:	[29, 29, 31, 29]
-	ncl:	[29, 29, 31, 29]
-
 366_day: 
 	python:	[29, 29, 31, 29]
 	ncl:	[29, 29, 31, 29]
+
+standard: 
+	python:	[29, 28, 31, 29]
+	ncl:	[29, 28, 31, 28]
+
+360_day: 
+	python:	[30, 30, 30, 30]
+	ncl:	[30, 30, 30, 30]
+
+gregorian: 
+	python:	[29, 28, 31, 29]
+	ncl:	[29, 28, 31, 28]
 
 365_day: 
 	python:	[28, 28, 31, 28]
 	ncl:	[28, 28, 31, 28]
 
-standard: 
-	python:	[29, 28, 31, 29]
-	ncl:	[29, 28, 31, 28]
+noleap: 
+	python:	[28, 28, 31, 28]
+	ncl:	[28, 28, 31, 28]
 
 none: 
 	ncl:	[29, 28, 31, 28]
@@ -521,10 +598,10 @@ proleptic_gregorian:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>gregorian: [29, 28, 31, 29] != [29, 28, 31, 28]
-standard: [29, 28, 31, 29] != [29, 28, 31, 28]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>none: calendar not available in python
 proleptic_gregorian: calendar not available in ncl
-none: calendar not available in python
+standard: [29, 28, 31, 29] != [29, 28, 31, 28]
+gregorian: [29, 28, 31, 29] != [29, 28, 31, 28]
 </pre></div>
 </div>
 </div>
@@ -605,6 +682,9 @@ By GeoCAT
   
   <div class="footer-item">
     
+<div class="extra_footer">
+  <em>This material is based upon work supported by the NSF National Center for Atmospheric Research, a major facility sponsored by the U.S. National Science Foundation and managed by the University Corporation for Atmospheric Research. Any opinions, findings and conclusions or recommendations expressed in this material do not necessarily reflect the views of the U.S. National Science Foundation.</em>
+</div>
   </div>
   
 </div>
