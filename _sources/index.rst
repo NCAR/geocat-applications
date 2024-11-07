@@ -43,7 +43,7 @@ Python Applications
 
             .. card:: Time
 
-                - :ref:`Dates and times <./applications/datetime.ipynb>`__
+                - `Dates and times <./applications/datetime.ipynb>`__
 
     .. grid-item::
 
@@ -52,8 +52,8 @@ Python Applications
 
             .. card:: Math
 
-                - :ref:`General applied math <./applications/general_applied_math.ipynb>`__
-                - :ref:`Spectral analysis <./applications/spectral_analysis.ipynb>`__
+                - `General applied math <./applications/general_applied_math.ipynb>`__
+                - `Spectral analysis <./applications/spectral_analysis.ipynb>`__
 
     .. grid-item::
 
@@ -62,8 +62,8 @@ Python Applications
 
             .. card:: Geoscience
 
-                - :ref:`Climatology <./applications/climatology.ipynb>`_
-                - :ref:`Humid heat metrics <./applications/humid_heat_metrics.ipynb>`__
+                - `Climatology <./applications/climatology.ipynb>`_
+                - `Humid heat metrics <./applications/humid_heat_metrics.ipynb>`__
 
 .. TIP::
     If you're looking for NCL to Python examples, please visit :ref:`ncl_applications`.
