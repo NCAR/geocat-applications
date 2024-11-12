@@ -51,6 +51,19 @@
     <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-EQMBXF1D2V"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-EQMBXF1D2V');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-EQMBXF1D2V');
+            </script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ncl/receipts/great_circle';</script>
     <link rel="icon" href="../../_static/GeoCAT_square.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -218,6 +231,70 @@
 
 
 
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NCAR/geocat-applications" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NCAR/geocat-applications/edit/main/docs/ncl/receipts/great_circle.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NCAR/geocat-applications/issues/new?title=Issue%20on%20page%20%2Fncl/receipts/great_circle.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-download-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
@@ -348,45 +425,73 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">;</span> <span class="n">area_poly_sphere</span>
 <span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span> <span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Built</span><span class="o">-</span><span class="ow">in</span><span class="o">/</span><span class="n">area_poly_sphere</span><span class="o">.</span><span class="n">shtml</span>
 
-<span class="p">;</span> <span class="n">Boulder</span><span class="p">,</span> <span class="n">Boston</span><span class="p">,</span> <span class="n">Houston</span>
-<span class="n">lat</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">40.0150</span><span class="p">,</span> <span class="mf">42.3601</span><span class="p">,</span> <span class="mf">29.5518</span><span class="o">/</span><span class="p">)</span>
-<span class="n">lon</span> <span class="o">=</span> <span class="p">(</span><span class="o">/-</span><span class="mf">105.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">71.0589</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.0982</span><span class="o">/</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">gc_clkwise</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">))</span>
+<span class="p">;</span> <span class="n">Boulder</span><span class="p">,</span> <span class="n">Boston</span><span class="p">,</span> <span class="n">Houston</span> <span class="p">(</span><span class="mi">3</span> <span class="n">Sides</span><span class="p">)</span>
+<span class="n">lat0</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">40.0150</span><span class="p">,</span> <span class="mf">42.3601</span><span class="p">,</span> <span class="mf">29.5518</span><span class="o">/</span><span class="p">)</span>
+<span class="n">lon0</span> <span class="o">=</span> <span class="p">(</span><span class="o">/-</span><span class="mf">105.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">71.0589</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.0982</span><span class="o">/</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gc_clkwise</span><span class="p">(</span><span class="n">lat0</span><span class="p">,</span> <span class="n">lon0</span><span class="p">))</span>
 <span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="kc">True</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">area_poly_sphere</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="mf">6370.997</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">area_poly_sphere</span><span class="p">(</span><span class="n">lat0</span><span class="p">,</span> <span class="n">lon0</span><span class="p">,</span> <span class="mf">6370.997</span><span class="p">))</span>
 <span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="mi">1940856</span>
 
-<span class="p">;</span> <span class="n">Half</span> <span class="n">of</span> <span class="n">the</span> <span class="n">World</span>
-<span class="n">lat</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="o">/</span><span class="p">)</span>
-<span class="n">lon</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">90.0</span><span class="o">/</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">gc_clkwise</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">))</span>
+<span class="p">;</span> <span class="n">Roughly</span> <span class="n">the</span> <span class="n">Four</span> <span class="n">Corners</span> <span class="n">of</span> <span class="n">Colorado</span> <span class="p">(</span><span class="mi">4</span> <span class="n">Sides</span><span class="p">)</span>
+<span class="n">lat1</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">41.00488</span><span class="p">,</span> <span class="mf">41.00203</span><span class="p">,</span> <span class="mf">37.00540</span><span class="p">,</span> <span class="mf">37.00051</span><span class="o">/</span><span class="p">)</span>
+<span class="n">lon1</span> <span class="o">=</span> <span class="p">(</span><span class="o">/-</span><span class="mf">109.05001</span><span class="p">,</span> <span class="o">-</span><span class="mf">102.05348</span><span class="p">,</span> <span class="o">-</span><span class="mf">103.04633</span><span class="p">,</span> <span class="o">-</span><span class="mf">109.04720</span><span class="o">/</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gc_clkwise</span><span class="p">(</span><span class="n">lat1</span><span class="p">,</span> <span class="n">lon1</span><span class="p">))</span>
 <span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="kc">True</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">area_poly_sphere</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="mf">6370.997</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">area_poly_sphere</span><span class="p">(</span><span class="n">lat1</span><span class="p">,</span> <span class="n">lon1</span><span class="p">,</span> <span class="mf">6370.997</span><span class="p">))</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="mf">250007.6</span>
+
+<span class="p">;</span> <span class="n">Caltech</span><span class="p">,</span> <span class="n">Alberta</span><span class="p">,</span> <span class="n">Greenwich</span><span class="p">,</span> <span class="n">Paris</span><span class="p">,</span> <span class="n">Madrid</span> <span class="p">(</span><span class="mi">5</span> <span class="n">Sides</span><span class="p">)</span>
+<span class="n">lat2</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">34.1377</span><span class="p">,</span> <span class="mf">53.9333</span><span class="p">,</span> <span class="mf">51.4934</span><span class="p">,</span> <span class="mf">48.8575</span><span class="p">,</span> <span class="mf">40.4167</span><span class="o">/</span><span class="p">)</span>
+<span class="n">lon2</span> <span class="o">=</span> <span class="p">(</span><span class="o">/-</span><span class="mf">118.1253</span><span class="p">,</span> <span class="o">-</span><span class="mf">116.5765</span><span class="p">,</span> <span class="mf">0.0098</span><span class="p">,</span> <span class="mf">2.3514</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.7033</span><span class="o">/</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gc_clkwise</span><span class="p">(</span><span class="n">lat2</span><span class="p">,</span> <span class="n">lon2</span><span class="p">))</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="kc">True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">area_poly_sphere</span><span class="p">(</span><span class="n">lat2</span><span class="p">,</span> <span class="n">lon2</span><span class="p">,</span> <span class="mf">6370.997</span><span class="p">))</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="mf">1.16348e+07</span>
+
+<span class="p">;;</span> <span class="n">Edge</span> <span class="n">Cases</span><span class="p">:</span>
+
+<span class="p">;</span> <span class="n">Crossing</span> <span class="n">the</span> <span class="n">Equator</span> <span class="p">(</span><span class="mi">0</span> <span class="n">degrees</span> <span class="n">Latitude</span><span class="p">)</span>
+<span class="p">;</span> <span class="n">Libreville</span><span class="p">,</span> <span class="n">Moanda</span><span class="p">,</span> <span class="n">San</span> <span class="n">Tome</span> <span class="ow">and</span> <span class="n">Principe</span>
+<span class="n">lat3</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">0.4078</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.9230</span><span class="p">,</span> <span class="mf">0.1864</span><span class="o">/</span><span class="p">)</span>
+<span class="n">lon3</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">9.4403</span><span class="p">,</span> <span class="mf">12.3636</span><span class="p">,</span> <span class="mf">6.6131</span><span class="o">/</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gc_clkwise</span><span class="p">(</span><span class="n">lat3</span><span class="p">,</span> <span class="n">lon3</span><span class="p">))</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="kc">True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">area_poly_sphere</span><span class="p">(</span><span class="n">lat3</span><span class="p">,</span> <span class="n">lon3</span><span class="p">,</span> <span class="mf">6370.997</span><span class="p">))</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="mf">114894.8</span>
+
+<span class="p">;</span> <span class="n">Crossing</span> <span class="n">the</span> <span class="n">Prime</span> <span class="n">Meridian</span> <span class="p">(</span><span class="mi">0</span> <span class="n">Degrees</span> <span class="n">Longitude</span><span class="p">)</span>
+<span class="p">;</span> <span class="n">Dublin</span><span class="p">,</span> <span class="n">Amsterdam</span><span class="p">,</span> <span class="n">Fishguard</span>
+<span class="n">lat4</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">53.3498</span><span class="p">,</span> <span class="mf">52.3676</span><span class="p">,</span> <span class="mf">51.9939</span><span class="o">/</span><span class="p">)</span>
+<span class="n">lon4</span> <span class="o">=</span> <span class="p">(</span><span class="o">/-</span><span class="mf">6.2603</span><span class="p">,</span> <span class="mf">4.9041</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.9760</span><span class="o">/</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gc_clkwise</span><span class="p">(</span><span class="n">lat4</span><span class="p">,</span> <span class="n">lon4</span><span class="p">))</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="kc">True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">area_poly_sphere</span><span class="p">(</span><span class="n">lat4</span><span class="p">,</span> <span class="n">lon4</span><span class="p">,</span> <span class="mf">6370.997</span><span class="p">))</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="mf">54450.39</span>
+
+<span class="p">;</span> <span class="n">Half</span> <span class="n">of</span> <span class="n">the</span> <span class="n">World</span>
+<span class="n">lat5</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="o">/</span><span class="p">)</span>
+<span class="n">lon5</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">90.0</span><span class="o">/</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gc_clkwise</span><span class="p">(</span><span class="n">lat5</span><span class="p">,</span> <span class="n">lon5</span><span class="p">))</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="kc">True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">area_poly_sphere</span><span class="p">(</span><span class="n">lat5</span><span class="p">,</span> <span class="n">lon5</span><span class="p">,</span> <span class="mf">6370.997</span><span class="p">))</span>
 <span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="mf">2.55032e+08</span>
 
 <span class="p">;</span> <span class="n">Single</span> <span class="n">Point</span> <span class="o">-&gt;</span> <span class="n">Invalid</span> <span class="n">NCL</span>
-<span class="n">lat</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="o">/</span><span class="p">)</span>
-<span class="n">lon</span> <span class="o">=</span> <span class="p">(</span><span class="o">/-</span><span class="mi">105</span><span class="p">,</span> <span class="o">-</span><span class="mi">105</span><span class="p">,</span> <span class="o">-</span><span class="mi">105</span><span class="p">,</span> <span class="o">-</span><span class="mi">105</span><span class="o">/</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">gc_clkwise</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">))</span>
+<span class="n">lat6</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="o">/</span><span class="p">)</span>
+<span class="n">lon6</span> <span class="o">=</span> <span class="p">(</span><span class="o">/-</span><span class="mi">105</span><span class="p">,</span> <span class="o">-</span><span class="mi">105</span><span class="p">,</span> <span class="o">-</span><span class="mi">105</span><span class="p">,</span> <span class="o">-</span><span class="mi">105</span><span class="o">/</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gc_clkwise</span><span class="p">(</span><span class="n">lat6</span><span class="p">,</span> <span class="n">lon6</span><span class="p">))</span>
 <span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="kc">True</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">area_poly_sphere</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="mf">6370.997</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">area_poly_sphere</span><span class="p">(</span><span class="n">lat6</span><span class="p">,</span> <span class="n">lon6</span><span class="p">,</span> <span class="mf">6370.997</span><span class="p">))</span>
 <span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="o">-</span><span class="mf">1.27516e+08</span>
 
 <span class="p">;</span> <span class="n">Single</span> <span class="n">Degree</span>
-<span class="n">lat</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">41</span><span class="o">/</span><span class="p">)</span>
-<span class="n">lon</span> <span class="o">=</span> <span class="p">(</span><span class="o">/-</span><span class="mi">105</span><span class="p">,</span> <span class="o">-</span><span class="mi">106</span><span class="p">,</span> <span class="o">-</span><span class="mi">106</span><span class="p">,</span> <span class="o">-</span><span class="mi">105</span><span class="o">/</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">gc_clkwise</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">))</span>
+<span class="n">lat7</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">41</span><span class="o">/</span><span class="p">)</span>
+<span class="n">lon7</span> <span class="o">=</span> <span class="p">(</span><span class="o">/-</span><span class="mi">105</span><span class="p">,</span> <span class="o">-</span><span class="mi">106</span><span class="p">,</span> <span class="o">-</span><span class="mi">106</span><span class="p">,</span> <span class="o">-</span><span class="mi">105</span><span class="o">/</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gc_clkwise</span><span class="p">(</span><span class="n">lat7</span><span class="p">,</span> <span class="n">lon7</span><span class="p">))</span>
 <span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="kc">True</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">area_poly_sphere</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="mf">6370.997</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">area_poly_sphere</span><span class="p">(</span><span class="n">lat7</span><span class="p">,</span> <span class="n">lon7</span><span class="p">,</span> <span class="mf">6370.997</span><span class="p">))</span>
 <span class="p">;(</span><span class="mi">0</span><span class="p">)</span>	<span class="mf">9401.705</span>
-
-<span class="p">;</span> <span class="n">Full</span> <span class="n">World</span>
-<span class="n">lat</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="o">-</span><span class="mi">90</span><span class="o">/</span><span class="p">)</span>
-<span class="n">lon</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mi">180</span><span class="p">,</span> <span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="mi">180</span><span class="o">/</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">gc_clkwise</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">))</span>
-<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="kc">True</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">area_poly_sphere</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="mf">6370.997</span><span class="p">))</span>
-<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="mf">5.10064e+08</span>
 </pre></div>
 </div>
 </section>
@@ -400,6 +505,10 @@ This notebook is part of the process we have for adding entries to the NCL Index
 
 <span class="n">poly_name</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s2">&quot;Boulder, Boston, Houston&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Four Corners of Colorado&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Caltech, Alberta, Greenwich, Paris, Madrid&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Crossing the Equator&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Crossing the Prime Meridian&quot;</span><span class="p">,</span>
     <span class="s2">&quot;Half of the World&quot;</span><span class="p">,</span>
     <span class="s2">&quot;Single Point -&gt; Invalid NCL&quot;</span><span class="p">,</span>
     <span class="s2">&quot;Single Degree&quot;</span><span class="p">,</span>
@@ -414,25 +523,32 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ncl_lat</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">[</span><span class="mf">40.0150</span><span class="p">,</span> <span class="mf">42.3601</span><span class="p">,</span> <span class="mf">29.5518</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">41.00488</span><span class="p">,</span> <span class="mf">41.00203</span><span class="p">,</span> <span class="mf">37.00540</span><span class="p">,</span> <span class="mf">37.00051</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">34.1377</span><span class="p">,</span> <span class="mf">53.9333</span><span class="p">,</span> <span class="mf">51.4934</span><span class="p">,</span> <span class="mf">48.8575</span><span class="p">,</span> <span class="mf">40.4167</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">0.4078</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.9230</span><span class="p">,</span> <span class="mf">0.1864</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">53.3498</span><span class="p">,</span> <span class="mf">52.3676</span><span class="p">,</span> <span class="mf">51.9939</span><span class="p">],</span>
     <span class="p">[</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
     <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span>
     <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">41</span><span class="p">],</span>
 <span class="p">]</span>
 <span class="n">ncl_lon</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">[</span><span class="o">-</span><span class="mf">105.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">71.0589</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.0982</span><span class="p">],</span>
+    <span class="p">[</span><span class="o">-</span><span class="mf">109.05001</span><span class="p">,</span> <span class="o">-</span><span class="mf">102.05348</span><span class="p">,</span> <span class="o">-</span><span class="mf">103.04633</span><span class="p">,</span> <span class="o">-</span><span class="mf">109.04720</span><span class="p">],</span>
+    <span class="p">[</span><span class="o">-</span><span class="mf">118.1253</span><span class="p">,</span> <span class="o">-</span><span class="mf">116.5765</span><span class="p">,</span> <span class="mf">0.0098</span><span class="p">,</span> <span class="mf">2.3514</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.7033</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">9.4403</span><span class="p">,</span> <span class="mf">12.3636</span><span class="p">,</span> <span class="mf">6.6131</span><span class="p">],</span>
+    <span class="p">[</span><span class="o">-</span><span class="mf">6.2603</span><span class="p">,</span> <span class="mf">4.9041</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.9760</span><span class="p">],</span>
     <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">90.0</span><span class="p">],</span>
-    <span class="p">[</span>
-        <span class="o">-</span><span class="mi">105</span><span class="p">,</span>
-        <span class="o">-</span><span class="mi">105</span><span class="p">,</span>
-        <span class="o">-</span><span class="mi">105</span><span class="p">,</span>
-        <span class="o">-</span><span class="mi">105</span><span class="p">,</span>
-    <span class="p">],</span>
+    <span class="p">[</span><span class="o">-</span><span class="mi">105</span><span class="p">,</span> <span class="o">-</span><span class="mi">105</span><span class="p">,</span> <span class="o">-</span><span class="mi">105</span><span class="p">,</span> <span class="o">-</span><span class="mi">105</span><span class="p">],</span>
     <span class="p">[</span><span class="o">-</span><span class="mi">105</span><span class="p">,</span> <span class="o">-</span><span class="mi">106</span><span class="p">,</span> <span class="o">-</span><span class="mi">106</span><span class="p">,</span> <span class="o">-</span><span class="mi">105</span><span class="p">],</span>
 <span class="p">]</span>
 <span class="n">ncl_results</span><span class="p">[</span><span class="n">poly_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">1940856</span>
-<span class="n">ncl_results</span><span class="p">[</span><span class="n">poly_name</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">255032000</span>
-<span class="n">ncl_results</span><span class="p">[</span><span class="n">poly_name</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">127516000</span>
-<span class="n">ncl_results</span><span class="p">[</span><span class="n">poly_name</span><span class="p">[</span><span class="mi">3</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">9401.705</span>
+<span class="n">ncl_results</span><span class="p">[</span><span class="n">poly_name</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">250007.6</span>
+<span class="n">ncl_results</span><span class="p">[</span><span class="n">poly_name</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">11634800</span>
+<span class="n">ncl_results</span><span class="p">[</span><span class="n">poly_name</span><span class="p">[</span><span class="mi">3</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">114894.8</span>
+<span class="n">ncl_results</span><span class="p">[</span><span class="n">poly_name</span><span class="p">[</span><span class="mi">4</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">54450.39</span>
+<span class="n">ncl_results</span><span class="p">[</span><span class="n">poly_name</span><span class="p">[</span><span class="mi">5</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">255032000</span>
+<span class="n">ncl_results</span><span class="p">[</span><span class="n">poly_name</span><span class="p">[</span><span class="mi">6</span><span class="p">]]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">127516000</span>
+<span class="n">ncl_results</span><span class="p">[</span><span class="n">poly_name</span><span class="p">[</span><span class="mi">7</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">9401.705</span>
 </pre></div>
 </div>
 </div>
@@ -480,6 +596,26 @@ This notebook is part of the process we have for adding entries to the NCL Index
 	Boulder, Boston, Houston: 
 	ncl:		1940856
 	python:		1940855.984630871
+
+VALID:
+	Four Corners of Colorado: 
+	ncl:		250007.6
+	python:		250007.81588628562
+
+VALID:
+	Caltech, Alberta, Greenwich, Paris, Madrid: 
+	ncl:		11634800
+	python:		11634798.025760762
+
+VALID:
+	Crossing the Equator: 
+	ncl:		114894.8
+	python:		114894.73868013734
+
+VALID:
+	Crossing the Prime Meridian: 
+	ncl:		54450.39
+	python:		54450.41832867822
 
 VALID:
 	Half of the World: 
@@ -574,6 +710,9 @@ By GeoCAT
   
   <div class="footer-item">
     
+<div class="extra_footer">
+  <em>This material is based upon work supported by the NSF National Center for Atmospheric Research, a major facility sponsored by the U.S. National Science Foundation and managed by the University Corporation for Atmospheric Research. Any opinions, findings and conclusions or recommendations expressed in this material do not necessarily reflect the views of the U.S. National Science Foundation.</em>
+</div>
   </div>
   
 </div>
