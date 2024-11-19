@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Receipts List</title>
+    <title>Great Circle</title>
   
   
   
@@ -64,7 +64,7 @@
                 gtag('js', new Date());
                 gtag('config', 'G-EQMBXF1D2V');
             </script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ncl/receipts/receipts';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ncl/ncl_entries/great_circle';</script>
     <link rel="icon" href="../../_static/GeoCAT_square.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -176,7 +176,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">NCL to Python</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../ncl_index/ncl_index.html">NCL Index</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ncl_entries/ncl_entries.html">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ncl_entries.html">Applications</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contributing</span></p>
 <ul class="nav bd-sidenav">
@@ -258,7 +258,7 @@
       
       
       
-      <li><a href="https://github.com/NCAR/geocat-applications/edit/main/docs/ncl/receipts/receipts.rst" target="_blank"
+      <li><a href="https://github.com/NCAR/geocat-applications/edit/main/docs/ncl/ncl_entries/great_circle.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -275,7 +275,7 @@
       
       
       
-      <li><a href="https://github.com/NCAR/geocat-applications/issues/new?title=Issue%20on%20page%20%2Fncl/receipts/receipts.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/NCAR/geocat-applications/issues/new?title=Issue%20on%20page%20%2Fncl/ncl_entries/great_circle.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -305,7 +305,7 @@
       
       
       
-      <li><a href="../../_sources/ncl/receipts/receipts.rst" target="_blank"
+      <li><a href="../../_sources/ncl/ncl_entries/great_circle.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -315,7 +315,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.rst</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -368,7 +368,9 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -379,11 +381,26 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Receipts List</h1>
+    <h1>Great Circle</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#area-poly-sphere">area_poly_sphere</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grab-and-go">Grab and Go</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-resources">Python Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-reading">Additional Reading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References:</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -393,25 +410,74 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="receipts-list">
-<span id="receipts"></span><h1>Receipts List<a class="headerlink" href="#receipts-list" title="Link to this heading">#</a></h1>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p><strong>This page is not meant to be useful to the typical user.</strong> It is meant to be a reference for developers working on
-the NCL Index or users interested in the “behind the curtain” details of how we verify entries to the NCL Index.</p>
-</div>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="climatology_functions.html">Climatology Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="days_in_month.html">days_in_month</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general_applied_math.html">General Applied Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="great_circle.html">Great Circle</a></li>
-<li class="toctree-l1"><a class="reference internal" href="meteorology.html">Meteorology</a></li>
-<li class="toctree-l1"><a class="reference internal" href="specx_anal.html">specx_anal</a></li>
-<li class="toctree-l1"><a class="reference internal" href="trigonometric_functions.html">Trigonometric Functions</a></li>
+  <section id="great-circle">
+<h1>Great Circle<a class="headerlink" href="#great-circle" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>This section covers great circle functions from NCL:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/area_poly_sphere.shtml">area_poly_sphere</a></p></li>
 </ul>
+</section>
+<section id="area-poly-sphere">
+<h2>area_poly_sphere<a class="headerlink" href="#area-poly-sphere" title="Link to this heading">#</a></h2>
+<p>NCL’s <code class="docutils literal notranslate"><span class="pre">area_poly_sphere</span></code>  calculates the area enclosed by an arbitrary polygon on the sphere</p>
+<div class="admonition alert alert-info">
+    <p class="admonition-title" style="font-weight:bold">Important Note</p>
+    Coordinates should be within the valid latitude/longitude range (-90° to 90° and -180° to 180°) and be in clockwise order
+</div>
+<p>Due to the shape of the Earth, the radius varies, but can be assumed to be a unit sphere with a radius of 6370997 m (based on the Clarke 1866 Authalic Sphere<a class="footnote-reference brackets" href="#footcite-usgs-1987" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> model)</p>
+<section id="grab-and-go">
+<h3>Grab and Go<a class="headerlink" href="#grab-and-go" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyproj</span> <span class="kn">import</span> <span class="n">Geod</span>
+
+<span class="c1"># Points in clockise order: Boulder, Boston, Houston</span>
+<span class="n">latitudes</span> <span class="o">=</span> <span class="p">[</span><span class="mf">40.0150</span><span class="p">,</span> <span class="mf">42.3601</span><span class="p">,</span> <span class="mf">29.5518</span><span class="p">]</span>  <span class="c1"># degrees</span>
+<span class="n">longitudes</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">105.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">71.0589</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.0982</span><span class="p">]</span>  <span class="c1"># degrees</span>
+
+<span class="n">geod</span> <span class="o">=</span> <span class="n">Geod</span><span class="p">(</span><span class="n">ellps</span><span class="o">=</span><span class="s2">&quot;sphere&quot;</span><span class="p">)</span>  <span class="c1"># radius = 6370997 m</span>
+<span class="n">poly_area_m</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">geod</span><span class="o">.</span><span class="n">polygon_area_perimeter</span><span class="p">(</span><span class="n">longitudes</span><span class="p">,</span> <span class="n">latitudes</span><span class="p">)</span>
+<span class="n">poly_area_km2</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">poly_area_m</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e-6</span>
+<span class="n">poly_area_km2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1940855.984630871
+</pre></div>
+</div>
+</div>
 </div>
 </section>
+</section>
+<hr class="docutils" />
+<section id="python-resources">
+<h2>Python Resources<a class="headerlink" href="#python-resources" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pyproj4.github.io/pyproj/stable/api/geod.html">pyroj.geod() great circle computations</a></p></li>
+</ul>
+</section>
+<section id="additional-reading">
+<h2>Additional Reading<a class="headerlink" href="#additional-reading" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.edwilliams.org/avform147.htm">Aviation Formulary for working with great circles</a></p></li>
+</ul>
+</section>
+<section id="references">
+<h2>References:<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<div class="docutils container" id="id2">
+</div>
+</section>
+</section>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="footcite-usgs-1987" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>John P. Snyder. Map projections: a working manual. 1987. <a class="reference external" href="https://doi.org/10.3133/pp1395">doi:10.3133/pp1395</a>.</p>
+</aside>
+</aside>
 
 
                 </article>
@@ -430,6 +496,29 @@ the NCL Index or users interested in the “behind the curtain” details of how
             </div>
             
             
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#area-poly-sphere">area_poly_sphere</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grab-and-go">Grab and Go</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-resources">Python Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-reading">Additional Reading</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References:</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
