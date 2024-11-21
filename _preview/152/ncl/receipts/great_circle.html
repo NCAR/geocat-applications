@@ -573,9 +573,9 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <h3>css2c<a class="headerlink" href="#css2c" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import geocat.datafiles as gdf</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geocat.datafiles</span> <span class="k">as</span> <span class="nn">gdf</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">astropy.coordinates.representation</span> <span class="kn">import</span> <span class="n">CartesianRepresentation</span><span class="p">,</span> <span class="n">UnitSphericalRepresentation</span>
+<span class="kn">from</span> <span class="nn">astropy.coordinates.representation</span> <span class="kn">import</span> <span class="n">UnitSphericalRepresentation</span>
 <span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">units</span>
 
 <span class="n">css2c_data</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;applications_files/ncl_outputs/css2c_output.txt&#39;</span><span class="p">)</span>
@@ -589,15 +589,39 @@ This notebook is part of the process we have for adding entries to the NCL Index
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">astropy.coordinates.representation</span> <span class="kn">import</span> <span class="n">CartesianRepresentation</span><span class="p">,</span> <span class="n">UnitSphericalRepresentation</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">astropy.coordinates.representation</span> <span class="kn">import</span> <span class="n">UnitSphericalRepresentation</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">units</span>
 <span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">css2c_data</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;applications_files/ncl_outputs/css2c_output.txt&#39;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">css2c_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">css2c_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">lat_lon</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="p">(</span><span class="n">css2c_data</span><span class="p">[::,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])))</span>
 
-<span class="ne">NameError</span>: name &#39;gdf&#39; is not defined
+<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.12/site-packages/geocat/datafiles/__init__.py:31,</span> in <span class="ni">get</span><span class="nt">(fname)</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span> <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">31</span>     <span class="k">return</span> <span class="n">POOCH</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+
+<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.12/site-packages/pooch/core.py:561,</span> in <span class="ni">Pooch.fetch</span><span class="nt">(self, fname, processor, downloader, progressbar)</span>
+<span class="g g-Whitespace">    </span><span class="mi">510</span> <span class="k">def</span> <span class="nf">fetch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> <span class="n">processor</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">downloader</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">progressbar</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">511</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">512</span><span class="sd">     Get the absolute path to a file in the local storage.</span>
+<span class="g g-Whitespace">    </span><span class="mi">513</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">559</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">560</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">561</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_assert_file_in_registry</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">563</span>     <span class="n">url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_url</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">564</span>     <span class="n">full_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">abspath</span> <span class="o">/</span> <span class="n">fname</span>
+
+<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.12/site-packages/pooch/core.py:609,</span> in <span class="ni">Pooch._assert_file_in_registry</span><span class="nt">(self, fname)</span>
+<span class="g g-Whitespace">    </span><span class="mi">604</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">605</span><span class="sd"> Check if a file is in the registry and raise :class:`ValueError` if</span>
+<span class="g g-Whitespace">    </span><span class="mi">606</span><span class="sd"> it&#39;s not.</span>
+<span class="g g-Whitespace">    </span><span class="mi">607</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">608</span> <span class="k">if</span> <span class="n">fname</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">registry</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">609</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File &#39;</span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s2">&#39; is not in the registry.&quot;</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: File &#39;applications_files/ncl_outputs/css2c_output.txt&#39; is not in the registry.
 </pre></div>
 </div>
 </div>
@@ -606,15 +630,17 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Collect Latitude and Longtiude Pairs</span>
 <span class="n">lat_lon</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">lat</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">lon</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="mi">180</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">lat</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="mi">90</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">lon</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="mi">180</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
         <span class="n">lat_lon</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">))</span>
 
 <span class="c1">## Calculate Cartesian coordinates</span>
 <span class="n">astropy_css2c</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">pair</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lat_lon</span><span class="p">):</span>
     <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="n">pair</span>
-    <span class="n">spherical_coords</span> <span class="o">=</span> <span class="n">UnitSphericalRepresentation</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="n">lat</span><span class="o">*</span><span class="n">units</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span> <span class="n">lon</span><span class="o">=</span><span class="n">lon</span><span class="o">*</span><span class="n">units</span><span class="o">.</span><span class="n">deg</span><span class="p">)</span>
+    <span class="n">spherical_coords</span> <span class="o">=</span> <span class="n">UnitSphericalRepresentation</span><span class="p">(</span>
+        <span class="n">lat</span><span class="o">=</span><span class="n">lat</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span> <span class="n">lon</span><span class="o">=</span><span class="n">lon</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">deg</span>
+    <span class="p">)</span>
     <span class="n">cart_coords</span> <span class="o">=</span> <span class="n">spherical_coords</span><span class="o">.</span><span class="n">to_cartesian</span><span class="p">()</span>
     <span class="n">astropy_css2c</span><span class="p">[</span><span class="n">pair</span><span class="p">]</span> <span class="o">=</span> <span class="n">cart_coords</span><span class="o">.</span><span class="n">xyz</span><span class="o">.</span><span class="n">value</span>
 </pre></div>
@@ -658,9 +684,9 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ncl_css2c</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
     <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">astropy_css2c</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-        <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">ncl_css2c</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span> <span class="n">astropy_css2c</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mf">0.000005</span>
-        <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">ncl_css2c</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span> <span class="n">astropy_css2c</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mf">0.000005</span>
-        <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">ncl_css2c</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span> <span class="n">astropy_css2c</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mf">0.000005</span>
+        <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">ncl_css2c</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">astropy_css2c</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mf">0.000005</span>
+        <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">ncl_css2c</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">astropy_css2c</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mf">0.000005</span>
+        <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">ncl_css2c</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">astropy_css2c</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mf">0.000005</span>
 </pre></div>
 </div>
 </div>
