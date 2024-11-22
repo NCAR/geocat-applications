@@ -1,0 +1,736 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Great Circle</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css?v=61b3970e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-EQMBXF1D2V"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-EQMBXF1D2V');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-EQMBXF1D2V');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ncl/receipts/great_circle';</script>
+    <link rel="icon" href="../../_static/GeoCAT_square.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/NSF_NCAR_light.svg" class="logo__image only-light" alt=" - Home"/>
+    <img src="../../_static/NSF_NCAR_dark.svg" class="logo__image only-dark pst-js-only" alt=" - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../GETTING_STARTED.html">Getting Started</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../applications/applications.html">Applications</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NCL to Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ncl_index/ncl_index.html">NCL Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ncl_entries/ncl_entries.html">Applications</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contributing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../CODE_OF_CONDUCT.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CONTRIBUTING.html">Contributor Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://github.com/NCAR/geocat-applications/issues">GitHub Issues</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://forms.gle/6DTo3ELLri4DAGfG8">Suggestion Box</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NCAR/geocat-applications" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NCAR/geocat-applications/edit/main/docs/ncl/receipts/great_circle.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NCAR/geocat-applications/issues/new?title=Issue%20on%20page%20%2Fncl/receipts/great_circle.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/ncl/receipts/great_circle.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Great Circle</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-covered">Functions covered</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ncl-code">NCL code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-functionality">Python Functionality</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#area-poly-sphere">area_poly_sphere</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">Comparison</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="great-circle">
+<h1>Great Circle<a class="headerlink" href="#great-circle" title="Link to this heading">#</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This is not meant to be a standalone notebook.
+This notebook is part of the process we have for adding entries to the NCL Index and is not meant to be used as tutorial or example code.</p>
+</div>
+<section id="functions-covered">
+<h2>Functions covered<a class="headerlink" href="#functions-covered" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/area_poly_sphere.shtml">area_poly_sphere</a></p></li>
+</ul>
+</section>
+<section id="ncl-code">
+<h2>NCL code<a class="headerlink" href="#ncl-code" title="Link to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">;</span> <span class="n">area_poly_sphere</span>
+<span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span> <span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Built</span><span class="o">-</span><span class="ow">in</span><span class="o">/</span><span class="n">area_poly_sphere</span><span class="o">.</span><span class="n">shtml</span>
+
+<span class="p">;</span> <span class="n">Boulder</span><span class="p">,</span> <span class="n">Boston</span><span class="p">,</span> <span class="n">Houston</span> <span class="p">(</span><span class="mi">3</span> <span class="n">Sides</span><span class="p">)</span>
+<span class="n">lat0</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">40.0150</span><span class="p">,</span> <span class="mf">42.3601</span><span class="p">,</span> <span class="mf">29.5518</span><span class="o">/</span><span class="p">)</span>
+<span class="n">lon0</span> <span class="o">=</span> <span class="p">(</span><span class="o">/-</span><span class="mf">105.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">71.0589</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.0982</span><span class="o">/</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gc_clkwise</span><span class="p">(</span><span class="n">lat0</span><span class="p">,</span> <span class="n">lon0</span><span class="p">))</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="kc">True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">area_poly_sphere</span><span class="p">(</span><span class="n">lat0</span><span class="p">,</span> <span class="n">lon0</span><span class="p">,</span> <span class="mf">6370.997</span><span class="p">))</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="mi">1940856</span>
+
+<span class="p">;</span> <span class="n">Roughly</span> <span class="n">the</span> <span class="n">Four</span> <span class="n">Corners</span> <span class="n">of</span> <span class="n">Colorado</span> <span class="p">(</span><span class="mi">4</span> <span class="n">Sides</span><span class="p">)</span>
+<span class="n">lat1</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">41.00488</span><span class="p">,</span> <span class="mf">41.00203</span><span class="p">,</span> <span class="mf">37.00540</span><span class="p">,</span> <span class="mf">37.00051</span><span class="o">/</span><span class="p">)</span>
+<span class="n">lon1</span> <span class="o">=</span> <span class="p">(</span><span class="o">/-</span><span class="mf">109.05001</span><span class="p">,</span> <span class="o">-</span><span class="mf">102.05348</span><span class="p">,</span> <span class="o">-</span><span class="mf">103.04633</span><span class="p">,</span> <span class="o">-</span><span class="mf">109.04720</span><span class="o">/</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gc_clkwise</span><span class="p">(</span><span class="n">lat1</span><span class="p">,</span> <span class="n">lon1</span><span class="p">))</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="kc">True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">area_poly_sphere</span><span class="p">(</span><span class="n">lat1</span><span class="p">,</span> <span class="n">lon1</span><span class="p">,</span> <span class="mf">6370.997</span><span class="p">))</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="mf">250007.6</span>
+
+<span class="p">;</span> <span class="n">Caltech</span><span class="p">,</span> <span class="n">Alberta</span><span class="p">,</span> <span class="n">Greenwich</span><span class="p">,</span> <span class="n">Paris</span><span class="p">,</span> <span class="n">Madrid</span> <span class="p">(</span><span class="mi">5</span> <span class="n">Sides</span><span class="p">)</span>
+<span class="n">lat2</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">34.1377</span><span class="p">,</span> <span class="mf">53.9333</span><span class="p">,</span> <span class="mf">51.4934</span><span class="p">,</span> <span class="mf">48.8575</span><span class="p">,</span> <span class="mf">40.4167</span><span class="o">/</span><span class="p">)</span>
+<span class="n">lon2</span> <span class="o">=</span> <span class="p">(</span><span class="o">/-</span><span class="mf">118.1253</span><span class="p">,</span> <span class="o">-</span><span class="mf">116.5765</span><span class="p">,</span> <span class="mf">0.0098</span><span class="p">,</span> <span class="mf">2.3514</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.7033</span><span class="o">/</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gc_clkwise</span><span class="p">(</span><span class="n">lat2</span><span class="p">,</span> <span class="n">lon2</span><span class="p">))</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="kc">True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">area_poly_sphere</span><span class="p">(</span><span class="n">lat2</span><span class="p">,</span> <span class="n">lon2</span><span class="p">,</span> <span class="mf">6370.997</span><span class="p">))</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="mf">1.16348e+07</span>
+
+<span class="p">;;</span> <span class="n">Edge</span> <span class="n">Cases</span><span class="p">:</span>
+
+<span class="p">;</span> <span class="n">Crossing</span> <span class="n">the</span> <span class="n">Equator</span> <span class="p">(</span><span class="mi">0</span> <span class="n">degrees</span> <span class="n">Latitude</span><span class="p">)</span>
+<span class="p">;</span> <span class="n">Libreville</span><span class="p">,</span> <span class="n">Moanda</span><span class="p">,</span> <span class="n">San</span> <span class="n">Tome</span> <span class="ow">and</span> <span class="n">Principe</span>
+<span class="n">lat3</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">0.4078</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.9230</span><span class="p">,</span> <span class="mf">0.1864</span><span class="o">/</span><span class="p">)</span>
+<span class="n">lon3</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">9.4403</span><span class="p">,</span> <span class="mf">12.3636</span><span class="p">,</span> <span class="mf">6.6131</span><span class="o">/</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gc_clkwise</span><span class="p">(</span><span class="n">lat3</span><span class="p">,</span> <span class="n">lon3</span><span class="p">))</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="kc">True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">area_poly_sphere</span><span class="p">(</span><span class="n">lat3</span><span class="p">,</span> <span class="n">lon3</span><span class="p">,</span> <span class="mf">6370.997</span><span class="p">))</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="mf">114894.8</span>
+
+<span class="p">;</span> <span class="n">Crossing</span> <span class="n">the</span> <span class="n">Prime</span> <span class="n">Meridian</span> <span class="p">(</span><span class="mi">0</span> <span class="n">Degrees</span> <span class="n">Longitude</span><span class="p">)</span>
+<span class="p">;</span> <span class="n">Dublin</span><span class="p">,</span> <span class="n">Amsterdam</span><span class="p">,</span> <span class="n">Fishguard</span>
+<span class="n">lat4</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">53.3498</span><span class="p">,</span> <span class="mf">52.3676</span><span class="p">,</span> <span class="mf">51.9939</span><span class="o">/</span><span class="p">)</span>
+<span class="n">lon4</span> <span class="o">=</span> <span class="p">(</span><span class="o">/-</span><span class="mf">6.2603</span><span class="p">,</span> <span class="mf">4.9041</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.9760</span><span class="o">/</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gc_clkwise</span><span class="p">(</span><span class="n">lat4</span><span class="p">,</span> <span class="n">lon4</span><span class="p">))</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="kc">True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">area_poly_sphere</span><span class="p">(</span><span class="n">lat4</span><span class="p">,</span> <span class="n">lon4</span><span class="p">,</span> <span class="mf">6370.997</span><span class="p">))</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="mf">54450.39</span>
+
+<span class="p">;</span> <span class="n">Half</span> <span class="n">of</span> <span class="n">the</span> <span class="n">World</span>
+<span class="n">lat5</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="o">/</span><span class="p">)</span>
+<span class="n">lon5</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">90.0</span><span class="o">/</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gc_clkwise</span><span class="p">(</span><span class="n">lat5</span><span class="p">,</span> <span class="n">lon5</span><span class="p">))</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="kc">True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">area_poly_sphere</span><span class="p">(</span><span class="n">lat5</span><span class="p">,</span> <span class="n">lon5</span><span class="p">,</span> <span class="mf">6370.997</span><span class="p">))</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="mf">2.55032e+08</span>
+
+<span class="p">;</span> <span class="n">Single</span> <span class="n">Point</span> <span class="o">-&gt;</span> <span class="n">Invalid</span> <span class="n">NCL</span>
+<span class="n">lat6</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="o">/</span><span class="p">)</span>
+<span class="n">lon6</span> <span class="o">=</span> <span class="p">(</span><span class="o">/-</span><span class="mi">105</span><span class="p">,</span> <span class="o">-</span><span class="mi">105</span><span class="p">,</span> <span class="o">-</span><span class="mi">105</span><span class="p">,</span> <span class="o">-</span><span class="mi">105</span><span class="o">/</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gc_clkwise</span><span class="p">(</span><span class="n">lat6</span><span class="p">,</span> <span class="n">lon6</span><span class="p">))</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="kc">True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">area_poly_sphere</span><span class="p">(</span><span class="n">lat6</span><span class="p">,</span> <span class="n">lon6</span><span class="p">,</span> <span class="mf">6370.997</span><span class="p">))</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="o">-</span><span class="mf">1.27516e+08</span>
+
+<span class="p">;</span> <span class="n">Single</span> <span class="n">Degree</span>
+<span class="n">lat7</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">41</span><span class="o">/</span><span class="p">)</span>
+<span class="n">lon7</span> <span class="o">=</span> <span class="p">(</span><span class="o">/-</span><span class="mi">105</span><span class="p">,</span> <span class="o">-</span><span class="mi">106</span><span class="p">,</span> <span class="o">-</span><span class="mi">106</span><span class="p">,</span> <span class="o">-</span><span class="mi">105</span><span class="o">/</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gc_clkwise</span><span class="p">(</span><span class="n">lat7</span><span class="p">,</span> <span class="n">lon7</span><span class="p">))</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="kc">True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">area_poly_sphere</span><span class="p">(</span><span class="n">lat7</span><span class="p">,</span> <span class="n">lon7</span><span class="p">,</span> <span class="mf">6370.997</span><span class="p">))</span>
+<span class="p">;(</span><span class="mi">0</span><span class="p">)</span>	<span class="mf">9401.705</span>
+</pre></div>
+</div>
+</section>
+<section id="python-functionality">
+<h2>Python Functionality<a class="headerlink" href="#python-functionality" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">ncl_results</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="n">poly_name</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;Boulder, Boston, Houston&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Four Corners of Colorado&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Caltech, Alberta, Greenwich, Paris, Madrid&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Crossing the Equator&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Crossing the Prime Meridian&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Half of the World&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Single Point -&gt; Invalid NCL&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Single Degree&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="area-poly-sphere">
+<h3>area_poly_sphere<a class="headerlink" href="#area-poly-sphere" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ncl_lat</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="mf">40.0150</span><span class="p">,</span> <span class="mf">42.3601</span><span class="p">,</span> <span class="mf">29.5518</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">41.00488</span><span class="p">,</span> <span class="mf">41.00203</span><span class="p">,</span> <span class="mf">37.00540</span><span class="p">,</span> <span class="mf">37.00051</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">34.1377</span><span class="p">,</span> <span class="mf">53.9333</span><span class="p">,</span> <span class="mf">51.4934</span><span class="p">,</span> <span class="mf">48.8575</span><span class="p">,</span> <span class="mf">40.4167</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">0.4078</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.9230</span><span class="p">,</span> <span class="mf">0.1864</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">53.3498</span><span class="p">,</span> <span class="mf">52.3676</span><span class="p">,</span> <span class="mf">51.9939</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">41</span><span class="p">],</span>
+<span class="p">]</span>
+<span class="n">ncl_lon</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="o">-</span><span class="mf">105.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">71.0589</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.0982</span><span class="p">],</span>
+    <span class="p">[</span><span class="o">-</span><span class="mf">109.05001</span><span class="p">,</span> <span class="o">-</span><span class="mf">102.05348</span><span class="p">,</span> <span class="o">-</span><span class="mf">103.04633</span><span class="p">,</span> <span class="o">-</span><span class="mf">109.04720</span><span class="p">],</span>
+    <span class="p">[</span><span class="o">-</span><span class="mf">118.1253</span><span class="p">,</span> <span class="o">-</span><span class="mf">116.5765</span><span class="p">,</span> <span class="mf">0.0098</span><span class="p">,</span> <span class="mf">2.3514</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.7033</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">9.4403</span><span class="p">,</span> <span class="mf">12.3636</span><span class="p">,</span> <span class="mf">6.6131</span><span class="p">],</span>
+    <span class="p">[</span><span class="o">-</span><span class="mf">6.2603</span><span class="p">,</span> <span class="mf">4.9041</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.9760</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">90.0</span><span class="p">],</span>
+    <span class="p">[</span><span class="o">-</span><span class="mi">105</span><span class="p">,</span> <span class="o">-</span><span class="mi">105</span><span class="p">,</span> <span class="o">-</span><span class="mi">105</span><span class="p">,</span> <span class="o">-</span><span class="mi">105</span><span class="p">],</span>
+    <span class="p">[</span><span class="o">-</span><span class="mi">105</span><span class="p">,</span> <span class="o">-</span><span class="mi">106</span><span class="p">,</span> <span class="o">-</span><span class="mi">106</span><span class="p">,</span> <span class="o">-</span><span class="mi">105</span><span class="p">],</span>
+<span class="p">]</span>
+<span class="n">ncl_results</span><span class="p">[</span><span class="n">poly_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">1940856</span>
+<span class="n">ncl_results</span><span class="p">[</span><span class="n">poly_name</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">250007.6</span>
+<span class="n">ncl_results</span><span class="p">[</span><span class="n">poly_name</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">11634800</span>
+<span class="n">ncl_results</span><span class="p">[</span><span class="n">poly_name</span><span class="p">[</span><span class="mi">3</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">114894.8</span>
+<span class="n">ncl_results</span><span class="p">[</span><span class="n">poly_name</span><span class="p">[</span><span class="mi">4</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">54450.39</span>
+<span class="n">ncl_results</span><span class="p">[</span><span class="n">poly_name</span><span class="p">[</span><span class="mi">5</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">255032000</span>
+<span class="n">ncl_results</span><span class="p">[</span><span class="n">poly_name</span><span class="p">[</span><span class="mi">6</span><span class="p">]]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">127516000</span>
+<span class="n">ncl_results</span><span class="p">[</span><span class="n">poly_name</span><span class="p">[</span><span class="mi">7</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">9401.705</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyproj</span> <span class="kn">import</span> <span class="n">Geod</span>
+
+<span class="n">python_results</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">geod</span> <span class="o">=</span> <span class="n">Geod</span><span class="p">(</span><span class="n">ellps</span><span class="o">=</span><span class="s2">&quot;sphere&quot;</span><span class="p">)</span>  <span class="c1"># radius = 6370997 m</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">poly_name</span><span class="p">)):</span>
+    <span class="n">poly_area_m</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">geod</span><span class="o">.</span><span class="n">polygon_area_perimeter</span><span class="p">(</span><span class="n">ncl_lon</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ncl_lat</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">poly_area_km2</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">poly_area_m</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e-6</span>
+    <span class="n">python_results</span><span class="p">[</span><span class="n">poly_name</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">poly_area_km2</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="comparison">
+<h2>Comparison<a class="headerlink" href="#comparison" title="Link to this heading">#</a></h2>
+<div class="admonition alert alert-info">
+    <p class="admonition-title" style="font-weight:bold">Important Note</p>
+    NCL does not return a valid value for a single point ("Single Point -> Invalid NCL") where Python does, so this error is ignored below
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ncl_results</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">python_results</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">python_results</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span>
+                <span class="n">ncl_results</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">python_results</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-5</span>
+            <span class="p">)</span>  <span class="c1"># within 4 decimal points</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;VALID:</span><span class="se">\n\t</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="se">\n\t</span><span class="s2">ncl:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">ncl_results</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n\t</span><span class="s2">python:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">python_results</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;INVALID:</span><span class="se">\n\t</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="se">\n\t\t</span><span class="s2">ncl:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">ncl_results</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n\t\t</span><span class="s2">python:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">python_results</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="o">!=</span> <span class="s2">&quot;Single Point -&gt; Invalid NCL&quot;</span><span class="p">:</span>
+                <span class="k">assert</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>VALID:
+	Boulder, Boston, Houston: 
+	ncl:		1940856
+	python:		1940855.984630871
+
+VALID:
+	Four Corners of Colorado: 
+	ncl:		250007.6
+	python:		250007.81588628562
+
+VALID:
+	Caltech, Alberta, Greenwich, Paris, Madrid: 
+	ncl:		11634800
+	python:		11634798.025760762
+
+VALID:
+	Crossing the Equator: 
+	ncl:		114894.8
+	python:		114894.73868013734
+
+VALID:
+	Crossing the Prime Meridian: 
+	ncl:		54450.39
+	python:		54450.41832867822
+
+VALID:
+	Half of the World: 
+	ncl:		255032000
+	python:		255031995.77390912
+
+INVALID:
+	Single Point -&gt; Invalid NCL: 
+		ncl:		-127516000
+		python:		0.0
+
+VALID:
+	Single Degree: 
+	ncl:		9401.705
+	python:		9401.704877506347
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-covered">Functions covered</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ncl-code">NCL code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-functionality">Python Functionality</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#area-poly-sphere">area_poly_sphere</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">Comparison</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By GeoCAT
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, University Corporation for Atmospheric Research.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <em>This material is based upon work supported by the NSF National Center for Atmospheric Research, a major facility sponsored by the U.S. National Science Foundation and managed by the University Corporation for Atmospheric Research. Any opinions, findings and conclusions or recommendations expressed in this material do not necessarily reflect the views of the U.S. National Science Foundation.</em>
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
