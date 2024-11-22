@@ -591,11 +591,13 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#### Collect NCL values for satvpr_temp_fao56 from geocat-datafiles</span>
-<span class="c1">#import geocat.datafiles as gdf</span>
+<span class="c1"># import geocat.datafiles as gdf</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="c1">#satvpr_temp_fao56_data = gdf.get(&#39;applications_files/ncl_outputs/daylight_fao56_output.txt&#39;)</span>
-<span class="n">satvpr_temp_fao56_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;satvpr_temp_fao56_output.txt&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="c1"># satvpr_temp_fao56_data = gdf.get(&#39;applications_files/ncl_outputs/daylight_fao56_output.txt&#39;)</span>
+<span class="n">satvpr_temp_fao56_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span>
+    <span class="s2">&quot;satvpr_temp_fao56_output.txt&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -604,8 +606,10 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1">#satvpr_temp_fao56_data = gdf.get(&#39;applications_files/ncl_outputs/daylight_fao56_output.txt&#39;)</span>
-<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">satvpr_temp_fao56_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;satvpr_temp_fao56_output.txt&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># satvpr_temp_fao56_data = gdf.get(&#39;applications_files/ncl_outputs/daylight_fao56_output.txt&#39;)</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">satvpr_temp_fao56_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="s2">&quot;satvpr_temp_fao56_output.txt&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="p">)</span>
 
 <span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.12/site-packages/numpy/lib/npyio.py:1373,</span> in <span class="ni">loadtxt</span><span class="nt">(fname, dtype, comments, delimiter, converters, skiprows, usecols, unpack, ndmin, encoding, max_rows, quotechar, like)</span>
 <span class="g g-Whitespace">   </span><span class="mi">1370</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">delimiter</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">):</span>
@@ -647,7 +651,9 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Collect NCL `satvpr_temp_fao56` value and associated (temp, satvpr_temp) values</span>
-<span class="n">ncl_satvpr_temp_fao56</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">satvpr_temp_fao56_data</span><span class="p">[::,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">satvpr_temp_fao56_data</span><span class="p">[::,</span> <span class="mi">1</span><span class="p">]))</span>
+<span class="n">ncl_satvpr_temp_fao56</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="nb">zip</span><span class="p">(</span><span class="n">satvpr_temp_fao56_data</span><span class="p">[::,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">satvpr_temp_fao56_data</span><span class="p">[::,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -659,7 +665,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 
 <span class="n">geocat_satvpr_temp_fao56</span> <span class="o">=</span> <span class="p">{}</span>
 
-<span class="k">for</span> <span class="n">temp</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">33</span><span class="p">,</span> <span class="mi">212</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">temp</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">33</span><span class="p">,</span> <span class="mi">212</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
     <span class="n">geocat_satvpr_temp_fao56</span><span class="p">[</span><span class="n">temp</span><span class="p">]</span> <span class="o">=</span> <span class="n">saturation_vapor_pressure</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
 </pre></div>
 </div>
