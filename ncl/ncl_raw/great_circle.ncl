@@ -68,3 +68,18 @@ print(gc_clkwise(lat7, lon7))
 ; (0)	True
 print(area_poly_sphere(lat7, lon7, 6370.997))
 ;(0)	9401.705
+
+; css2c
+; Adapted from https://www.ncl.ucar.edu/Document/Functions/Built-in/css2c.shtml
+
+; ncl -n css2c.ncl >> css2c_output.txt
+
+print("Latitude (Degree), Longitude (Degree), Cartesian X, Cartesian Y, Cartesian Z")
+do lat=-90,90
+	do lon=-180,180
+		begin
+		cart = css2c(lat, lon)
+		print (lat + "," + lon + "," + cart(0,0) + "," + cart(1,0) + "," + cart(2,0))
+		end
+	end do
+end do
