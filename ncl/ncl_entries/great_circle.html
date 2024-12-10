@@ -396,6 +396,10 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grab-and-go">Grab and Go</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#css2c">css2c</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Grab and Go</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-resources">Python Resources</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-reading">Additional Reading</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References:</a></li>
@@ -417,11 +421,12 @@
 <p>This section covers great circle functions from NCL:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/area_poly_sphere.shtml">area_poly_sphere</a></p></li>
+<li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/css2c.shtml">css2c</a></p></li>
 </ul>
 </section>
 <section id="area-poly-sphere">
 <h2>area_poly_sphere<a class="headerlink" href="#area-poly-sphere" title="Link to this heading">#</a></h2>
-<p>NCL’s <code class="docutils literal notranslate"><span class="pre">area_poly_sphere</span></code>  calculates the area enclosed by an arbitrary polygon on the sphere</p>
+<p>NCL’s <code class="docutils literal notranslate"><span class="pre">area_poly_sphere</span></code> calculates the area enclosed by an arbitrary polygon on the sphere</p>
 <div class="admonition alert alert-info">
     <p class="admonition-title" style="font-weight:bold">Important Note</p>
     Coordinates should be within the valid latitude/longitude range (-90° to 90° and -180° to 180°) and be in clockwise order
@@ -452,11 +457,43 @@
 </div>
 </section>
 </section>
+<section id="css2c">
+<h2>css2c<a class="headerlink" href="#css2c" title="Link to this heading">#</a></h2>
+<p>NCL’s <code class="docutils literal notranslate"><span class="pre">css2c</span></code> converts spherical (latitude/longitude) coordinates to Cartesian coordinates on a unit sphere</p>
+<section id="id2">
+<h3>Grab and Go<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.coordinates.representation</span> <span class="kn">import</span> <span class="n">UnitSphericalRepresentation</span>
+<span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">units</span>
+
+<span class="n">lat</span> <span class="o">=</span> <span class="mf">40.0150</span>
+<span class="n">lon</span> <span class="o">=</span> <span class="o">-</span><span class="mf">105.2705</span>
+
+<span class="n">spherical_coords</span> <span class="o">=</span> <span class="n">UnitSphericalRepresentation</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="n">lat</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span> <span class="n">lon</span><span class="o">=</span><span class="n">lon</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">deg</span><span class="p">)</span>
+<span class="n">cart_coords</span> <span class="o">=</span> <span class="n">spherical_coords</span><span class="o">.</span><span class="n">to_cartesian</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;X = </span><span class="si">{</span><span class="n">cart_coords</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Y = </span><span class="si">{</span><span class="n">cart_coords</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Z = </span><span class="si">{</span><span class="n">cart_coords</span><span class="o">.</span><span class="n">z</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X = -0.20171369272651396
+Y = -0.7388354627678497
+Z = 0.6429881376224998
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
 <hr class="docutils" />
 <section id="python-resources">
 <h2>Python Resources<a class="headerlink" href="#python-resources" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://pyproj4.github.io/pyproj/stable/api/geod.html">pyroj.geod() great circle computations</a></p></li>
+<li><p><a class="reference external" href="https://docs.astropy.org/en/stable/coordinates/representations.html">Astropy Coordinate Systems</a></p></li>
 </ul>
 </section>
 <section id="additional-reading">
@@ -467,7 +504,7 @@
 </section>
 <section id="references">
 <h2>References:<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
-<div class="docutils container" id="id2">
+<div class="docutils container" id="id3">
 </div>
 </section>
 </section>
@@ -510,6 +547,10 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#area-poly-sphere">area_poly_sphere</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grab-and-go">Grab and Go</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#css2c">css2c</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Grab and Go</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-resources">Python Resources</a></li>

@@ -393,9 +393,14 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ncl-code">NCL code</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-functionality">Python Functionality</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#area-poly-sphere">area_poly_sphere</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#css2c">css2c</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">Comparison</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">Comparison</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">area_poly_sphere</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">css2c</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -418,6 +423,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <h2>Functions covered<a class="headerlink" href="#functions-covered" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/area_poly_sphere.shtml">area_poly_sphere</a></p></li>
+<li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/css2c.shtml">css2c</a></p></li>
 </ul>
 </section>
 <section id="ncl-code">
@@ -492,11 +498,28 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="kc">True</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">area_poly_sphere</span><span class="p">(</span><span class="n">lat7</span><span class="p">,</span> <span class="n">lon7</span><span class="p">,</span> <span class="mf">6370.997</span><span class="p">))</span>
 <span class="p">;(</span><span class="mi">0</span><span class="p">)</span>	<span class="mf">9401.705</span>
+
+<span class="p">;</span> <span class="n">css2c</span>
+<span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span> <span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Built</span><span class="o">-</span><span class="ow">in</span><span class="o">/</span><span class="n">css2c</span><span class="o">.</span><span class="n">shtml</span>
+
+<span class="p">;</span> <span class="n">ncl</span> <span class="o">-</span><span class="n">n</span> <span class="n">css2c</span><span class="o">.</span><span class="n">ncl</span> <span class="o">&gt;&gt;</span> <span class="n">css2c_output</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Latitude (Degree), Longitude (Degree), Cartesian X, Cartesian Y, Cartesian Z&quot;</span><span class="p">)</span>
+<span class="n">do</span> <span class="n">lat</span><span class="o">=-</span><span class="mi">90</span><span class="p">,</span><span class="mi">90</span>
+	<span class="n">do</span> <span class="n">lon</span><span class="o">=-</span><span class="mi">180</span><span class="p">,</span><span class="mi">180</span>
+		<span class="n">begin</span>
+		<span class="n">cart</span> <span class="o">=</span> <span class="n">css2c</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">)</span>
+		<span class="nb">print</span> <span class="p">(</span><span class="n">lat</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">lon</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">cart</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">cart</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">cart</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+		<span class="n">end</span>
+	<span class="n">end</span> <span class="n">do</span>
+<span class="n">end</span> <span class="n">do</span>
 </pre></div>
 </div>
 </section>
 <section id="python-functionality">
 <h2>Python Functionality<a class="headerlink" href="#python-functionality" title="Link to this heading">#</a></h2>
+<section id="area-poly-sphere">
+<h3>area_poly_sphere<a class="headerlink" href="#area-poly-sphere" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
@@ -513,15 +536,8 @@ This notebook is part of the process we have for adding entries to the NCL Index
     <span class="s2">&quot;Single Point -&gt; Invalid NCL&quot;</span><span class="p">,</span>
     <span class="s2">&quot;Single Degree&quot;</span><span class="p">,</span>
 <span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<section id="area-poly-sphere">
-<h3>area_poly_sphere<a class="headerlink" href="#area-poly-sphere" title="Link to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ncl_lat</span> <span class="o">=</span> <span class="p">[</span>
+
+<span class="n">ncl_lat</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">[</span><span class="mf">40.0150</span><span class="p">,</span> <span class="mf">42.3601</span><span class="p">,</span> <span class="mf">29.5518</span><span class="p">],</span>
     <span class="p">[</span><span class="mf">41.00488</span><span class="p">,</span> <span class="mf">41.00203</span><span class="p">,</span> <span class="mf">37.00540</span><span class="p">,</span> <span class="mf">37.00051</span><span class="p">],</span>
     <span class="p">[</span><span class="mf">34.1377</span><span class="p">,</span> <span class="mf">53.9333</span><span class="p">,</span> <span class="mf">51.4934</span><span class="p">,</span> <span class="mf">48.8575</span><span class="p">,</span> <span class="mf">40.4167</span><span class="p">],</span>
@@ -549,13 +565,8 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="n">ncl_results</span><span class="p">[</span><span class="n">poly_name</span><span class="p">[</span><span class="mi">5</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">255032000</span>
 <span class="n">ncl_results</span><span class="p">[</span><span class="n">poly_name</span><span class="p">[</span><span class="mi">6</span><span class="p">]]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">127516000</span>
 <span class="n">ncl_results</span><span class="p">[</span><span class="n">poly_name</span><span class="p">[</span><span class="mi">7</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">9401.705</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyproj</span> <span class="kn">import</span> <span class="n">Geod</span>
+
+<span class="kn">from</span> <span class="nn">pyproj</span> <span class="kn">import</span> <span class="n">Geod</span>
 
 <span class="n">python_results</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="n">geod</span> <span class="o">=</span> <span class="n">Geod</span><span class="p">(</span><span class="n">ellps</span><span class="o">=</span><span class="s2">&quot;sphere&quot;</span><span class="p">)</span>  <span class="c1"># radius = 6370997 m</span>
@@ -568,9 +579,57 @@ This notebook is part of the process we have for adding entries to the NCL Index
 </div>
 </div>
 </section>
+<section id="css2c">
+<h3>css2c<a class="headerlink" href="#css2c" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geocat.datafiles</span> <span class="k">as</span> <span class="nn">gdf</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">astropy.coordinates.representation</span> <span class="kn">import</span> <span class="n">UnitSphericalRepresentation</span>
+<span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">units</span>
+
+<span class="n">css2c_data</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;applications_files/ncl_outputs/css2c_output.txt&#39;</span><span class="p">)</span>
+<span class="n">css2c_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">css2c_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+
+<span class="n">lat_lon</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="p">(</span><span class="n">css2c_data</span><span class="p">[::,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])))</span>
+<span class="n">cart_values</span> <span class="o">=</span> <span class="n">css2c_data</span><span class="p">[::,</span> <span class="mi">2</span><span class="p">:]</span>
+<span class="n">ncl_css2c</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">lat_lon</span><span class="p">,</span> <span class="n">cart_values</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/ncl_outputs/css2c_output.txt&#39; from &#39;https://github.com/NCAR/GeoCAT-datafiles/raw/main/applications_files/ncl_outputs/css2c_output.txt&#39; to &#39;/home/runner/.cache/geocat&#39;.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Collect Latitude and Longtiude Pairs</span>
+<span class="n">lat_lon</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">lat</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="mi">90</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">lon</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="mi">180</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">lat_lon</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">))</span>
+
+<span class="c1">## Calculate Cartesian coordinates</span>
+<span class="n">astropy_css2c</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">pair</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lat_lon</span><span class="p">):</span>
+    <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="n">pair</span>
+    <span class="n">spherical_coords</span> <span class="o">=</span> <span class="n">UnitSphericalRepresentation</span><span class="p">(</span>
+        <span class="n">lat</span><span class="o">=</span><span class="n">lat</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span> <span class="n">lon</span><span class="o">=</span><span class="n">lon</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">deg</span>
+    <span class="p">)</span>
+    <span class="n">cart_coords</span> <span class="o">=</span> <span class="n">spherical_coords</span><span class="o">.</span><span class="n">to_cartesian</span><span class="p">()</span>
+    <span class="n">astropy_css2c</span><span class="p">[</span><span class="n">pair</span><span class="p">]</span> <span class="o">=</span> <span class="n">cart_coords</span><span class="o">.</span><span class="n">xyz</span><span class="o">.</span><span class="n">value</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="comparison">
 <h2>Comparison<a class="headerlink" href="#comparison" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h3>area_poly_sphere<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <div class="admonition alert alert-info">
     <p class="admonition-title" style="font-weight:bold">Important Note</p>
     NCL does not return a valid value for a single point ("Single Point -> Invalid NCL") where Python does, so this error is ignored below
@@ -639,6 +698,21 @@ VALID:
 </div>
 </div>
 </section>
+<section id="id2">
+<h3>css2c<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ncl_css2c</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">astropy_css2c</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">ncl_css2c</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">astropy_css2c</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mf">0.000005</span>
+        <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">ncl_css2c</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">astropy_css2c</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mf">0.000005</span>
+        <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">ncl_css2c</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">astropy_css2c</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mf">0.000005</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
 </section>
 
 
@@ -673,9 +747,14 @@ VALID:
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ncl-code">NCL code</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-functionality">Python Functionality</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#area-poly-sphere">area_poly_sphere</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#css2c">css2c</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">Comparison</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">Comparison</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">area_poly_sphere</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">css2c</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
