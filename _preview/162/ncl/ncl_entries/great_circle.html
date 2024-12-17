@@ -500,7 +500,10 @@ Z = 0.6429881376224998
 <h3>Grab and Go<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.coordinates.representation</span> <span class="kn">import</span> <span class="n">CartesianRepresentation</span><span class="p">,</span> <span class="n">SphericalRepresentation</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.coordinates.representation</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">CartesianRepresentation</span><span class="p">,</span>
+    <span class="n">SphericalRepresentation</span><span class="p">,</span>
+<span class="p">)</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.20171369272651396</span>
@@ -512,7 +515,9 @@ Z = 0.6429881376224998
 
 <span class="c1"># convert latitude/longitude from radians to degrees</span>
 <span class="n">lat_deg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">spherical_coords</span><span class="o">.</span><span class="n">lat</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
-<span class="n">lon_deg</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">spherical_coords</span><span class="o">.</span><span class="n">lon</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="o">+</span> <span class="mi">180</span><span class="p">)</span> <span class="o">%</span> <span class="mi">360</span> <span class="o">-</span> <span class="mi">180</span> <span class="c1"># keep longitude between -180 to 180</span>
+<span class="n">lon_deg</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">spherical_coords</span><span class="o">.</span><span class="n">lon</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="o">+</span> <span class="mi">180</span>
+<span class="p">)</span> <span class="o">%</span> <span class="mi">360</span> <span class="o">-</span> <span class="mi">180</span>  <span class="c1"># keep longitude between -180 to 180</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Latitude = </span><span class="si">{</span><span class="n">lat_deg</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Longitude = </span><span class="si">{</span><span class="n">lon_deg</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
