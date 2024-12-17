@@ -83,3 +83,23 @@ do lat=-90,90
 		end
 	end do
 end do
+
+; csc2s
+; Adapted from https://www.ncl.ucar.edu/Document/Functions/Built-in/csc2s.shtml
+
+; ncl -n csc2s.ncl >> csc2s_output.txt
+
+print("Cartesian X, Cartesian Y, Cartesian Z, Latitude (Degree), Longitude (Degree)")
+do lat=-90,90
+	do lon=-180,180
+		begin
+		cart = css2c(lat, lon)
+		; determine a list of xyz coordinates based on lat/lon
+		x = cart(0,0)
+		y = cart(1,0)
+		z = cart(2,0)
+		sph = csc2s(x, y, z)
+		print(x + "," + y + "," + z + "," + sph(0,0) + "," + sph(1,0))
+		end
+	end do
+end do
