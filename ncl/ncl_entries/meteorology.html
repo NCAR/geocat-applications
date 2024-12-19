@@ -409,6 +409,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Grab and Go</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#satvpr-tdew-fao56">satvpr_tdew_fao56</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-resources">Python Resources</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-reading">Additional Reading</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References:</a></li>
@@ -432,6 +433,7 @@
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/dewtemp_trh.shtml">dewtemp_trh</a></p></li>
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Crop/daylight_fao56.shtml">daylight_fao56</a></p></li>
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Crop/satvpr_temp_fao56.shtml">satvpr_temp_fao56</a></p></li>
+<li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Crop/satvpr_tdew_fao56.shtml">satvpr_tdew_fao56</a></p></li>
 </ul>
 </section>
 <section id="dewtemp-trh">
@@ -568,6 +570,44 @@
 </div>
 </section>
 </section>
+<section id="satvpr-tdew-fao56">
+<h2>satvpr_tdew_fao56<a class="headerlink" href="#satvpr-tdew-fao56" title="Link to this heading">#</a></h2>
+<p>NCL’s <code class="docutils literal notranslate"><span class="pre">satvpr_tdew_fao56</span></code> calculates the actual saturation vapor pressure using dewpoint temperature as described in the Food and Agriculture Organization (FAO) Irrigation and Drainage Paper 56 <a class="reference external" href="https://www.fao.org/4/x0490e/x0490e07.htm">(Chapter 3, Equation 14)</a> <a class="footnote-reference brackets" href="#footcite-allan-fao-1998" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Input: Single Value</span>
+<span class="kn">from</span> <span class="nn">geocat.comp</span> <span class="kn">import</span> <span class="n">actual_saturation_vapor_pressure</span>
+
+<span class="n">temp</span> <span class="o">=</span> <span class="mi">35</span>  <span class="c1"># Fahrenheit</span>
+
+<span class="n">actual_saturation_vapor_pressure</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array(0.68898447)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Input: List/Array</span>
+<span class="kn">from</span> <span class="nn">geocat.comp</span> <span class="kn">import</span> <span class="n">actual_saturation_vapor_pressure</span>
+
+<span class="n">temp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">35</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">200</span><span class="p">]</span>  <span class="c1"># Fahrenheit</span>
+
+<span class="n">actual_saturation_vapor_pressure</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.68898447,  1.76730647,  3.49620825, 80.00607017])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 <hr class="docutils" />
 <section id="python-resources">
 <h2>Python Resources<a class="headerlink" href="#python-resources" title="Link to this heading">#</a></h2>
@@ -576,6 +616,7 @@
 <li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.constants.convert_temperature.html">Convert between different temperature scales in SciPy</a></p></li>
 <li><p><a class="reference external" href="https://geocat-comp.readthedocs.io/en/latest/user_api/generated/geocat.comp.meteorology.max_daylight.html">GeoCAT-comp <code class="docutils literal notranslate"><span class="pre">max_daylight</span></code> Documentation</a></p></li>
 <li><p><a class="reference external" href="https://geocat-comp.readthedocs.io/en/latest/user_api/generated/geocat.comp.meteorology.saturation_vapor_pressure.html">GeoCAT-comp <code class="docutils literal notranslate"><span class="pre">saturation_vapor_pressure</span></code> Documentation</a></p></li>
+<li><p><a class="reference external" href="https://geocat-comp.readthedocs.io/en/latest/user_api/generated/geocat.comp.meteorology.actual_saturation_vapor_pressure.html">GeoCAT-comp <code class="docutils literal notranslate"><span class="pre">actual_saturation_vapor_pressure</span></code> Documentation</a></p></li>
 </ul>
 </section>
 <section id="additional-reading">
@@ -586,7 +627,7 @@
 </section>
 <section id="references">
 <h2>References:<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
-<div class="docutils container" id="id6">
+<div class="docutils container" id="id7">
 </div>
 </section>
 </section>
@@ -598,7 +639,7 @@
 </aside>
 <aside class="footnote brackets" id="footcite-allan-fao-1998" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id4">2</a>)</span>
+<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id4">2</a>,<a role="doc-backlink" href="#id6">3</a>)</span>
 <p>Richard Allan, L. Pereira, and Martin Smith. <em>Crop evapotranspiration - Guidelines for computing crop water requirements - FAO Irrigation and drainage paper 56</em>. Volume 56. FAO, 01 1998.</p>
 </aside>
 </aside>
@@ -644,6 +685,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Grab and Go</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#satvpr-tdew-fao56">satvpr_tdew_fao56</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-resources">Python Resources</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-reading">Additional Reading</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References:</a></li>
