@@ -721,10 +721,12 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="kn">import</span> <span class="nn">geocat.datafiles</span> <span class="k">as</span> <span class="nn">gdf</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="c1">#satvpr_slope_fao56_data = gdf.get(</span>
+<span class="c1"># satvpr_slope_fao56_data = gdf.get(</span>
 <span class="c1">#    &#39;applications_files/ncl_outputs/satvpr_slope_fao56_output.txt&#39;</span>
-<span class="c1">#)</span>
-<span class="n">satvpr_slope_fao56_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;../ncl_raw/satvpr_slope_fao56_output.txt&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="c1"># )</span>
+<span class="n">satvpr_slope_fao56_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span>
+    <span class="s2">&quot;../ncl_raw/satvpr_slope_fao56_output.txt&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -733,10 +735,12 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1">#satvpr_slope_fao56_data = gdf.get(</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># satvpr_slope_fao56_data = gdf.get(</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1">#    &#39;applications_files/ncl_outputs/satvpr_slope_fao56_output.txt&#39;</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1">#)</span>
-<span class="ne">----&gt; </span><span class="mi">8</span> <span class="n">satvpr_slope_fao56_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;../ncl_raw/satvpr_slope_fao56_output.txt&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1"># )</span>
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="n">satvpr_slope_fao56_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="s2">&quot;../ncl_raw/satvpr_slope_fao56_output.txt&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="p">)</span>
 
 <span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.12/site-packages/numpy/lib/npyio.py:1373,</span> in <span class="ni">loadtxt</span><span class="nt">(fname, dtype, comments, delimiter, converters, skiprows, usecols, unpack, ndmin, encoding, max_rows, quotechar, like)</span>
 <span class="g g-Whitespace">   </span><span class="mi">1370</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">delimiter</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">):</span>
