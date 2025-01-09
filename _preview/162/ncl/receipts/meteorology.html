@@ -16,8 +16,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -27,10 +27,10 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -38,10 +38,10 @@
     <link rel="stylesheet" type="text/css" href="../../_static/style.css?v=61b3970e" />
   
   <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
@@ -193,9 +193,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -395,12 +400,16 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dewtemp-trh">dewtemp_trh</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#daylight-fao56">daylight_fao56</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#satvpr-temp-fao56">satvpr_temp_fao56</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#satvpr-tdew-fao56">satvpr_tdew_fao56</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#satvpr-slope-fao56">satvpr_slope_fao56</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">Comparison</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">dewtemp_trh</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">daylight_fao56</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">satvpr_temp_fao56</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">satvpr_tdew_fao56</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">satvpr_slope_fao56</a></li>
 </ul>
 </li>
 </ul>
@@ -427,12 +436,14 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/dewtemp_trh.shtml">dewtemp_trh</a></p></li>
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Crop/daylight_fao56.shtml">daylight_fao56</a></p></li>
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Crop/satvpr_temp_fao56.shtml">satvpr_temp_fao56</a></p></li>
+<li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Crop/satvpr_tdew_fao56.shtml">satvpr_tdew_fao56</a></p></li>
+<li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Crop/satvpr_slope_fao56.shtml">satvpr_slope_fao56</a></p></li>
 </ul>
 </section>
 <section id="ncl-code">
 <h2>NCL code<a class="headerlink" href="#ncl-code" title="Link to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">;</span> <span class="n">daylight_fao56</span>
-<span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span> <span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Crop</span><span class="o">/</span><span class="n">daylight_fao56</span><span class="o">.</span><span class="n">shtml</span>
+<span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span><span class="w"> </span><span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Crop</span><span class="o">/</span><span class="n">daylight_fao56</span><span class="o">.</span><span class="n">shtml</span>
 
 <span class="p">;</span> <span class="n">ncl</span> <span class="o">-</span><span class="n">n</span> <span class="n">daylight_fao56</span><span class="o">.</span><span class="n">ncl</span> <span class="o">&gt;&gt;</span> <span class="n">daylight_fao56_output</span><span class="o">.</span><span class="n">txt</span>
 
@@ -447,7 +458,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="n">end</span> <span class="n">do</span>
 
 <span class="p">;</span> <span class="n">dewtemp_trh</span>
-<span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span> <span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Built</span><span class="o">-</span><span class="ow">in</span><span class="o">/</span><span class="n">dewtemp_trh</span><span class="o">.</span><span class="n">shtml</span>
+<span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span><span class="w"> </span><span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Built</span><span class="o">-</span><span class="ow">in</span><span class="o">/</span><span class="n">dewtemp_trh</span><span class="o">.</span><span class="n">shtml</span>
 
 <span class="p">;</span> <span class="n">ncl</span> <span class="o">-</span><span class="n">n</span> <span class="n">dewtemp_trh</span><span class="o">.</span><span class="n">ncl</span> <span class="o">&gt;&gt;</span> <span class="n">dewtemp_trh_output</span><span class="o">.</span><span class="n">txt</span>
 
@@ -462,7 +473,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="n">end</span> <span class="n">do</span>
 
 <span class="p">;</span> <span class="n">satvpr_temp_fao56</span>
-<span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span> <span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Crop</span><span class="o">/</span><span class="n">satvpr_temp_fao56</span><span class="o">.</span><span class="n">shtml</span>
+<span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span><span class="w"> </span><span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Crop</span><span class="o">/</span><span class="n">satvpr_temp_fao56</span><span class="o">.</span><span class="n">shtml</span>
 
 <span class="p">;</span> <span class="n">ncl</span> <span class="o">-</span><span class="n">n</span> <span class="n">satvpr_temp_fao56</span><span class="o">.</span><span class="n">ncl</span> <span class="o">&gt;&gt;</span> <span class="n">satvpr_temp_fao56_output</span><span class="o">.</span><span class="n">txt</span>
 
@@ -471,6 +482,32 @@ This notebook is part of the process we have for adding entries to the NCL Index
 	<span class="n">begin</span>
 		<span class="n">sat_vpr_pressure</span> <span class="o">=</span> <span class="n">satvpr_temp_fao56</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="p">(</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="o">/</span><span class="p">))</span>
 		<span class="nb">print</span> <span class="p">(</span><span class="n">temp</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">sat_vpr_pressure</span><span class="p">)</span>
+	<span class="n">end</span>
+<span class="n">end</span> <span class="n">do</span>
+
+<span class="p">;</span> <span class="n">satvpr_tdew_fao56</span>
+<span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span><span class="w"> </span><span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Crop</span><span class="o">/</span><span class="n">satvpr_tdew_fao56</span><span class="o">.</span><span class="n">shtml</span>
+
+<span class="p">;</span> <span class="n">ncl</span> <span class="o">-</span><span class="n">n</span> <span class="n">satvpr_tdew_fao56</span><span class="o">.</span><span class="n">ncl</span> <span class="o">&gt;&gt;</span> <span class="n">satvpr_tdew_fao56_output</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperature (F), Actual Saturation Vapor Pressure (kPa)&quot;</span><span class="p">)</span>
+<span class="n">do</span> <span class="n">temp</span><span class="o">=</span><span class="mi">33</span><span class="p">,</span><span class="mi">212</span>
+	<span class="n">begin</span>
+		<span class="n">act_sat_vpr_pressure</span> <span class="o">=</span> <span class="n">satvpr_tdew_fao56</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="p">(</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="o">/</span><span class="p">))</span>
+		<span class="nb">print</span> <span class="p">(</span><span class="n">temp</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">act_sat_vpr_pressure</span><span class="p">)</span>
+	<span class="n">end</span>
+<span class="n">end</span> <span class="n">do</span>
+
+<span class="p">;</span> <span class="n">satvpr_slope_fao56</span>
+<span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span><span class="w"> </span><span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Crop</span><span class="o">/</span><span class="n">satvpr_slope_fao56</span><span class="o">.</span><span class="n">shtml</span>
+
+<span class="p">;</span> <span class="n">ncl</span> <span class="o">-</span><span class="n">n</span> <span class="n">satvpr_slope_fao56</span><span class="o">.</span><span class="n">ncl</span> <span class="o">&gt;&gt;</span> <span class="n">satvpr_slope_fao56_output</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperature (F), Slope of Saturation Vapor Pressure Curve (kPa)&quot;</span><span class="p">)</span>
+<span class="n">do</span> <span class="n">temp</span><span class="o">=</span><span class="mi">33</span><span class="p">,</span><span class="mi">212</span>
+	<span class="n">begin</span>
+		<span class="n">slope_satvpr</span> <span class="o">=</span> <span class="n">satvpr_slope_fao56</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="p">(</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="o">/</span><span class="p">))</span>
+		<span class="nb">print</span> <span class="p">(</span><span class="n">temp</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">slope_satvpr</span><span class="p">)</span>
 	<span class="n">end</span>
 <span class="n">end</span> <span class="n">do</span>
 </pre></div>
@@ -483,8 +520,8 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#### Collect NCL values for dewtemp_trh from geocat-datafiles</span>
-<span class="kn">import</span> <span class="nn">geocat.datafiles</span> <span class="k">as</span> <span class="nn">gdf</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geocat.datafiles</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gdf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">dewtemp_data</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;applications_files/ncl_outputs/dewtemp_trh_output.txt&#39;</span><span class="p">)</span>
 <span class="n">dewtemp_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">dewtemp_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
@@ -517,7 +554,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
         <span class="n">tk_rh</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">tk</span><span class="p">,</span> <span class="n">rh</span><span class="p">))</span>
 
 <span class="c1">### Calculate GeoCAT-Comp `dewtemp` value and tk/rh</span>
-<span class="kn">from</span> <span class="nn">geocat.comp</span> <span class="kn">import</span> <span class="n">dewtemp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geocat.comp</span><span class="w"> </span><span class="kn">import</span> <span class="n">dewtemp</span>
 
 <span class="n">geocat_dewtemp</span> <span class="o">=</span> <span class="p">{}</span>
 
@@ -534,8 +571,8 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#### Collect NCL values for daylight_fao56 from geocat-datafiles</span>
-<span class="kn">import</span> <span class="nn">geocat.datafiles</span> <span class="k">as</span> <span class="nn">gdf</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geocat.datafiles</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gdf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">daylight_data</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;applications_files/ncl_outputs/daylight_fao56_output.txt&#39;</span><span class="p">)</span>
 <span class="n">daylight_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">daylight_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
@@ -568,7 +605,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
         <span class="n">doy_lat</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">doy</span><span class="p">,</span> <span class="n">lat</span><span class="p">))</span>
 
 <span class="c1">### Calculate GeoCAT-Comp `daylight_fao56` value and doy/lat</span>
-<span class="kn">from</span> <span class="nn">geocat.comp</span> <span class="kn">import</span> <span class="n">max_daylight</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geocat.comp</span><span class="w"> </span><span class="kn">import</span> <span class="n">max_daylight</span>
 
 <span class="n">geocat_daylight</span> <span class="o">=</span> <span class="p">{}</span>
 
@@ -591,8 +628,8 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#### Collect NCL values for satvpr_temp_fao56 from geocat-datafiles</span>
-<span class="kn">import</span> <span class="nn">geocat.datafiles</span> <span class="k">as</span> <span class="nn">gdf</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geocat.datafiles</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gdf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">satvpr_temp_fao56_data</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
     <span class="s1">&#39;applications_files/ncl_outputs/satvpr_temp_fao56_output.txt&#39;</span>
@@ -619,13 +656,103 @@ This notebook is part of the process we have for adding entries to the NCL Index
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Calculate GeoCAT-Comp `satvpr_temp_fao56`</span>
-<span class="kn">from</span> <span class="nn">geocat.comp</span> <span class="kn">import</span> <span class="n">saturation_vapor_pressure</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Calculate GeoCAT-Comp `saturation_vapor_pressure`</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geocat.comp</span><span class="w"> </span><span class="kn">import</span> <span class="n">saturation_vapor_pressure</span>
 
 <span class="n">geocat_satvpr_temp_fao56</span> <span class="o">=</span> <span class="p">{}</span>
 
 <span class="k">for</span> <span class="n">temp</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">33</span><span class="p">,</span> <span class="mi">212</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
     <span class="n">geocat_satvpr_temp_fao56</span><span class="p">[</span><span class="n">temp</span><span class="p">]</span> <span class="o">=</span> <span class="n">saturation_vapor_pressure</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="satvpr-tdew-fao56">
+<h3>satvpr_tdew_fao56<a class="headerlink" href="#satvpr-tdew-fao56" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#### Collect NCL values for satvpr_tdew_fao56 from geocat-datafiles</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geocat.datafiles</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gdf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">satvpr_tdew_fao56_data</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="s1">&#39;applications_files/ncl_outputs/satvpr_tdew_fao56_output.txt&#39;</span>
+<span class="p">)</span>
+<span class="n">satvpr_tdew_fao56_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">satvpr_tdew_fao56_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/ncl_outputs/satvpr_tdew_fao56_output.txt&#39; from &#39;https://github.com/NCAR/GeoCAT-datafiles/raw/main/applications_files/ncl_outputs/satvpr_tdew_fao56_output.txt&#39; to &#39;/home/runner/.cache/geocat&#39;.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Collect NCL `satvpr_tdew_fao56` value and associated (temp, act_sat_vapr_pressure) values</span>
+<span class="n">ncl_satvpr_tdew_fao56</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="nb">zip</span><span class="p">(</span><span class="n">satvpr_tdew_fao56_data</span><span class="p">[::,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">satvpr_tdew_fao56_data</span><span class="p">[::,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Calculate GeoCAT-Comp `actual_saturation_vapor_pressure`</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geocat.comp</span><span class="w"> </span><span class="kn">import</span> <span class="n">actual_saturation_vapor_pressure</span>
+
+<span class="n">geocat_satvpr_tdew_fao56</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">temp</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">33</span><span class="p">,</span> <span class="mi">212</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">geocat_satvpr_tdew_fao56</span><span class="p">[</span><span class="n">temp</span><span class="p">]</span> <span class="o">=</span> <span class="n">actual_saturation_vapor_pressure</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="satvpr-slope-fao56">
+<h3>satvpr_slope_fao56<a class="headerlink" href="#satvpr-slope-fao56" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#### Collect NCL values for satvpr_slope_fao56 from geocat-datafiles</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geocat.datafiles</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gdf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">satvpr_slope_fao56_data</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="s1">&#39;applications_files/ncl_outputs/satvpr_slope_fao56_output.txt&#39;</span>
+<span class="p">)</span>
+<span class="n">satvpr_slope_fao56_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">satvpr_slope_fao56_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/ncl_outputs/satvpr_slope_fao56_output.txt&#39; from &#39;https://github.com/NCAR/GeoCAT-datafiles/raw/main/applications_files/ncl_outputs/satvpr_slope_fao56_output.txt&#39; to &#39;/home/runner/.cache/geocat&#39;.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Collect NCL `satvpr_slope_fao56` value and associated (temp, slope_satvpr) values</span>
+<span class="n">ncl_satvpr_slope_fao56</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="nb">zip</span><span class="p">(</span><span class="n">satvpr_slope_fao56_data</span><span class="p">[::,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">satvpr_slope_fao56_data</span><span class="p">[::,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Calculate GeoCAT-Comp `saturation_vapor_pressure_slope`</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geocat.comp</span><span class="w"> </span><span class="kn">import</span> <span class="n">saturation_vapor_pressure_slope</span>
+
+<span class="n">geocat_satvpr_slope_fao56</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">temp</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">33</span><span class="p">,</span> <span class="mi">212</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">geocat_satvpr_slope_fao56</span><span class="p">[</span><span class="n">temp</span><span class="p">]</span> <span class="o">=</span> <span class="n">saturation_vapor_pressure_slope</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -638,7 +765,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <h3>dewtemp_trh<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 
 <span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">ncl_dewtemp</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
     <span class="k">try</span><span class="p">:</span>
@@ -731,7 +858,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <h3>daylight_fao56<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 
 <span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">ncl_daylight</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
     <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span>
@@ -746,11 +873,41 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <h3>satvpr_temp_fao56<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 
 <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ncl_satvpr_temp_fao56</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
     <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span>
         <span class="n">ncl_satvpr_temp_fao56</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">geocat_satvpr_temp_fao56</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-05</span>
+    <span class="p">)</span>  <span class="c1"># within 5 decimal points</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id4">
+<h3>satvpr_tdew_fao56<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ncl_satvpr_tdew_fao56</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span>
+        <span class="n">ncl_satvpr_tdew_fao56</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">geocat_satvpr_tdew_fao56</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-05</span>
+    <span class="p">)</span>  <span class="c1"># within 5 decimal points</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id5">
+<h3>satvpr_slope_fao56<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ncl_satvpr_slope_fao56</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span>
+        <span class="n">ncl_satvpr_slope_fao56</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">geocat_satvpr_slope_fao56</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-05</span>
     <span class="p">)</span>  <span class="c1"># within 5 decimal points</span>
 </pre></div>
 </div>
@@ -794,12 +951,16 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dewtemp-trh">dewtemp_trh</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#daylight-fao56">daylight_fao56</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#satvpr-temp-fao56">satvpr_temp_fao56</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#satvpr-tdew-fao56">satvpr_tdew_fao56</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#satvpr-slope-fao56">satvpr_slope_fao56</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">Comparison</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">dewtemp_trh</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">daylight_fao56</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">satvpr_temp_fao56</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">satvpr_tdew_fao56</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">satvpr_slope_fao56</a></li>
 </ul>
 </li>
 </ul>
@@ -826,7 +987,7 @@ By GeoCAT
 
   <p class="copyright">
     
-      © Copyright 2024, University Corporation for Atmospheric Research.
+      © Copyright 2025, University Corporation for Atmospheric Research.
       <br/>
     
   </p>
@@ -853,8 +1014,8 @@ By GeoCAT
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>
