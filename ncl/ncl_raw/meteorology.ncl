@@ -40,3 +40,29 @@ do temp=33,212
 		print (temp + "," + sat_vpr_pressure)
 	end
 end do
+
+; satvpr_tdew_fao56
+; Adapted from https://www.ncl.ucar.edu/Document/Functions/Crop/satvpr_tdew_fao56.shtml
+
+; ncl -n satvpr_tdew_fao56.ncl >> satvpr_tdew_fao56_output.txt
+
+print("Temperature (F), Actual Saturation Vapor Pressure (kPa)")
+do temp=33,212
+	begin
+		act_sat_vpr_pressure = satvpr_tdew_fao56(temp, (/2, 2/))
+		print (temp + "," + act_sat_vpr_pressure)
+	end
+end do
+
+; satvpr_slope_fao56
+; Adapted from https://www.ncl.ucar.edu/Document/Functions/Crop/satvpr_slope_fao56.shtml
+
+; ncl -n satvpr_slope_fao56.ncl >> satvpr_slope_fao56_output.txt
+
+print("Temperature (F), Slope of Saturation Vapor Pressure Curve (kPa)")
+do temp=33,212
+	begin
+		slope_satvpr = satvpr_slope_fao56(temp, (/2, 2/))
+		print (temp + "," + slope_satvpr)
+	end
+end do
