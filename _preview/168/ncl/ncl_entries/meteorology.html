@@ -443,6 +443,10 @@
 <section id="dewtemp-trh">
 <h2>dewtemp_trh<a class="headerlink" href="#dewtemp-trh" title="Link to this heading">#</a></h2>
 <p>NCL’s <code class="docutils literal notranslate"><span class="pre">dewtemp_trh</span></code> calculates the dew point temperature given temperature and relative humidity using the equations from John Dutton’s <em>“Ceaseless Wind”</em> (pg. 273-274)<a class="footnote-reference brackets" href="#footcite-dutton-1986" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> and returns a temperature in Kelvin</p>
+<p>For the gas constant for water vapor of 461.5 <span class="math notranslate nohighlight">\(\frac{J}{K*kg}\)</span> (<span class="math notranslate nohighlight">\(\frac{461.5}{1000 * 4.186} \frac{cal}{g*k}\)</span>) and the empirical value of the latent heat is (pg. 273, Problem 8.3.1):</p>
+<p><span class="math notranslate nohighlight">\(L_{lv} = 597.3 - 0.57(T - 273)\)</span></p>
+<p>Then, where <span class="math notranslate nohighlight">\(h\)</span> is the relative humidity and <span class="math notranslate nohighlight">\(R_{v}\)</span> is the gas constant of water vapor, the dew point temperature (solved for as <span class="math notranslate nohighlight">\(T_D\)</span>) (pg. 273, Equation 6) is:</p>
+<p><span class="math notranslate nohighlight">\(T_D = \frac{T * L_{lv}}{L_{lv} - R_{v}Tlog(h)}\)</span></p>
 <div class="admonition alert alert-info">
     <p class="admonition-title" style="font-weight:bold">Important Note</p>
     To convert from Kelvin to Celsius <code>-273.15</code> and to convert from Celsius to Kelvin <code>+273.15</code>
