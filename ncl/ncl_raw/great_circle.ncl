@@ -99,7 +99,7 @@ do lat=-90,90
 		y = cart(1,0)
 		z = cart(2,0)
 		sph = csc2s(x, y, z)
-		print(x + "," + y + "," + z + "," + sph(0,0) + "," + sph(1,0))
+		print(lat + "," + lon + "," + x + "," + y + "," + z + "," + sph(0,0) + "," + sph(1,0))
 		end
 	end do
 end do
