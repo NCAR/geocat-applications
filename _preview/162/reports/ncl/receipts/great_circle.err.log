@@ -28,9 +28,11 @@ import numpy as np
 # csc2s_data = gdf.get('applications_files/ncl_outputs/csc2s_output.txt')
 csc2s_data = np.loadtxt("../ncl_raw/csc2s_output.txt", delimiter=',', skiprows=6)
 
-cart_values = csc2s_data[::, 0:3]
-lat_lon = tuple(map(tuple, (csc2s_data[::, 3:])))
-ncl_csc2s = dict(zip(lat_lon, cart_values))
+input_lat_lon = tuple(map(tuple, csc2s_data[::, 0:2]))
+cart_values = tuple(map(tuple, (csc2s_data[::, 2:5])))
+output_lat_lon = tuple(map(tuple, (csc2s_data[::, 5:])))
+ncl_csc2s = dict(zip(input_lat_lon, cart_values))
+ncl_csc2s_input_output = dict(zip(input_lat_lon, output_lat_lon))
 ------------------
 
 
@@ -40,8 +42,8 @@ Cell [0;32mIn[4], line 9[0m
 [1;32m      6[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mnumpy[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mnp[39;00m
 [1;32m      8[0m [38;5;66;03m# csc2s_data = gdf.get('applications_files/ncl_outputs/csc2s_output.txt')[39;00m
 [0;32m----> 9[0m csc2s_data [38;5;241m=[39m [43mnp[49m[38;5;241;43m.[39;49m[43mloadtxt[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43m../ncl_raw/csc2s_output.txt[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[43mdelimiter[49m[38;5;241;43m=[39;49m[38;5;124;43m'[39;49m[38;5;124;43m,[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[43mskiprows[49m[38;5;241;43m=[39;49m[38;5;241;43m6[39;49m[43m)[49m
-[1;32m     11[0m cart_values [38;5;241m=[39m csc2s_data[::, [38;5;241m0[39m:[38;5;241m3[39m]
-[1;32m     12[0m lat_lon [38;5;241m=[39m [38;5;28mtuple[39m([38;5;28mmap[39m([38;5;28mtuple[39m, (csc2s_data[::, [38;5;241m3[39m:])))
+[1;32m     11[0m input_lat_lon [38;5;241m=[39m [38;5;28mtuple[39m([38;5;28mmap[39m([38;5;28mtuple[39m, csc2s_data[::, [38;5;241m0[39m:[38;5;241m2[39m]))
+[1;32m     12[0m cart_values [38;5;241m=[39m [38;5;28mtuple[39m([38;5;28mmap[39m([38;5;28mtuple[39m, (csc2s_data[::, [38;5;241m2[39m:[38;5;241m5[39m])))
 
 File [0;32m~/micromamba/envs/geocat-applications/lib/python3.12/site-packages/numpy/lib/npyio.py:1373[0m, in [0;36mloadtxt[0;34m(fname, dtype, comments, delimiter, converters, skiprows, usecols, unpack, ndmin, encoding, max_rows, quotechar, like)[0m
 [1;32m   1370[0m [38;5;28;01mif[39;00m [38;5;28misinstance[39m(delimiter, [38;5;28mbytes[39m):
