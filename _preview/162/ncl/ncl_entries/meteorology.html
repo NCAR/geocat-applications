@@ -64,6 +64,8 @@
                 gtag('js', new Date());
                 gtag('config', 'G-EQMBXF1D2V');
             </script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "tex2jax_ignore|mathjax_ignore|document", "processClass": "tex2jax_process|mathjax_process|math|output_area", "displayMath": [["$$", "$$"], ["\\[", "\\]"]]}, "HTML-CSS": {"linebreaks": {"automatic": true, "width": "container"}, "fonts": {"availableFonts": ["TeX"], "preferredFont": "TeX", "webFont": "TeX"}}, "CommonHTML": {"linebreaks": {"automatic": true, "width": "container"}}, "SVG": {"linebreaks": {"automatic": true, "width": "container"}}})</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ncl/ncl_entries/meteorology';</script>
     <link rel="icon" href="../../_static/GeoCAT_square.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -402,11 +404,11 @@
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#daylight-fao56">daylight_fao56</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Grab and Go</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Grab and Go</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#satvpr-temp-fao56">satvpr_temp_fao56</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Grab and Go</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Grab and Go</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#satvpr-tdew-fao56">satvpr_tdew_fao56</a></li>
@@ -440,7 +442,11 @@
 </section>
 <section id="dewtemp-trh">
 <h2>dewtemp_trh<a class="headerlink" href="#dewtemp-trh" title="Link to this heading">#</a></h2>
-<p>NCL’s <code class="docutils literal notranslate"><span class="pre">dewtemp_trh</span></code> calculates the dew point temperature given temperature and relative humidity using the equations from John Dutton’s <em>“Ceaseless Wind”</em> (pg. 273-274)<a class="footnote-reference brackets" href="#footcite-dutton-1986" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> and returns a temperature in Kelvin</p>
+<p>NCL’s <code class="docutils literal notranslate"><span class="pre">dewtemp_trh</span></code> calculates the dew point temperature given temperature and relative humidity using the equations from John Dutton’s <em>“Ceaseless Wind”</em> (pg. 273-274)<a class="footnote-reference brackets" href="#footcite-dutton-1986" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> and returns a temperature in Kelvin.</p>
+<p>Where, for the gas constant of water vapor (<span class="math notranslate nohighlight">\(R_{v}\)</span>)of 461.5 <span class="math notranslate nohighlight">\(\frac{J}{K*kg}\)</span> (<span class="math notranslate nohighlight">\(\frac{461.5}{1000 * 4.186} \frac{cal}{g*k}\)</span>), the empirical value of the latent heat (pg. 273, Problem 8.3.1) is:</p>
+<p><span class="math notranslate nohighlight">\(L_{lv} = 597.3 - 0.57(T - 273)\)</span></p>
+<p>So, when <span class="math notranslate nohighlight">\(h\)</span> is the relative humidity, the dew point temperature (pg. 273, Equation 6, solved for as <span class="math notranslate nohighlight">\(T_D\)</span>) is:</p>
+<p><span class="math notranslate nohighlight">\(T_D = \frac{T * L_{lv}}{L_{lv} - R_{v}Tlog(h)}\)</span></p>
 <div class="admonition alert alert-info">
     <p class="admonition-title" style="font-weight:bold">Important Note</p>
     To convert from Kelvin to Celsius <code>-273.15</code> and to convert from Celsius to Kelvin <code>+273.15</code>
@@ -486,9 +492,13 @@
 </section>
 <section id="daylight-fao56">
 <h2>daylight_fao56<a class="headerlink" href="#daylight-fao56" title="Link to this heading">#</a></h2>
-<p>NCL’s <code class="docutils literal notranslate"><span class="pre">daylight_fao56</span></code> calculates the maximum number of daylight hours as described in the Food and Agriculture Organization (FAO) Irrigation and Drainage Paper 56 <a class="reference external" href="https://www.fao.org/4/X0490E/x0490e07.htm#chapter%203%20%20%20meteorological%20data">(Chapter 3, Equation 34)</a> <a class="footnote-reference brackets" href="#footcite-allan-fao-1998" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p>
-<section id="id3">
-<h3>Grab and Go<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>NCL’s <code class="docutils literal notranslate"><span class="pre">daylight_fao56</span></code> calculates the maximum number of daylight hours as described in the Food and Agriculture Organization (FAO) Irrigation and Drainage Paper 56 <a class="reference external" href="https://www.fao.org/4/X0490E/x0490e07.htm#chapter%203%20%20%20meteorological%20data">(Chapter 3, Equation 34)</a> <a class="footnote-reference brackets" href="#footcite-allan-fao-1998" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
+<p>Where the maximum number of daylight hours, <span class="math notranslate nohighlight">\(N\)</span>, is:</p>
+<p><span class="math notranslate nohighlight">\(N = \frac{24}{{\pi}} {\omega}_{s}\)</span></p>
+<p>And <span class="math notranslate nohighlight">\({\omega}_{s}\)</span> is the sunset hour angle in radians <a class="reference external" href="https://www.fao.org/4/X0490E/x0490e07.htm#chapter%203%20%20%20meteorological%20data">(Chapter 3, Equation 25)</a> <a class="footnote-reference brackets" href="#footcite-allan-fao-1998" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> which is calculated from the latitude of the observer on Earth (<span class="math notranslate nohighlight">\(\phi\)</span>) and the sun’s declination (<span class="math notranslate nohighlight">\(\delta\)</span>):</p>
+<p><span class="math notranslate nohighlight">\({\omega}_{s} = arccos[-tan({\phi})tan({\delta})]\)</span></p>
+<section id="id4">
+<h3>Grab and Go<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Input: Single Value</span>
@@ -533,9 +543,11 @@
 </section>
 <section id="satvpr-temp-fao56">
 <h2>satvpr_temp_fao56<a class="headerlink" href="#satvpr-temp-fao56" title="Link to this heading">#</a></h2>
-<p>NCL’s <code class="docutils literal notranslate"><span class="pre">satvpr_temp_fao56</span></code> calculates saturation vapor pressure using temperature as described in the Food and Agriculture Organization (FAO) Irrigation and Drainage Paper 56 <a class="reference external" href="https://www.fao.org/4/x0490e/x0490e07.htm">(Chapter 3, Equation 11)</a> <a class="footnote-reference brackets" href="#footcite-allan-fao-1998" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p>
-<section id="id5">
-<h3>Grab and Go<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>NCL’s <code class="docutils literal notranslate"><span class="pre">satvpr_temp_fao56</span></code> calculates saturation vapor pressure using temperature as described in the Food and Agriculture Organization (FAO) Irrigation and Drainage Paper 56 <a class="reference external" href="https://www.fao.org/4/x0490e/x0490e07.htm">(Chapter 3, Equation 11)</a> <a class="footnote-reference brackets" href="#footcite-allan-fao-1998" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
+<p>Where the saturation vapor pressure, <span class="math notranslate nohighlight">\(e^°\)</span> (kPa), at air temperature <span class="math notranslate nohighlight">\(T\)</span> (°C) is calculated as:</p>
+<p><span class="math notranslate nohighlight">\(e^°(T) = 0.6108 {\exp}[\frac{17.27T}{T + 237.3}]\)</span></p>
+<section id="id6">
+<h3>Grab and Go<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Input: Single Value</span>
@@ -574,7 +586,9 @@
 </section>
 <section id="satvpr-tdew-fao56">
 <h2>satvpr_tdew_fao56<a class="headerlink" href="#satvpr-tdew-fao56" title="Link to this heading">#</a></h2>
-<p>NCL’s <code class="docutils literal notranslate"><span class="pre">satvpr_tdew_fao56</span></code> calculates the actual saturation vapor pressure using dewpoint temperature as described in the Food and Agriculture Organization (FAO) Irrigation and Drainage Paper 56 <a class="reference external" href="https://www.fao.org/4/x0490e/x0490e07.htm">(Chapter 3, Equation 14)</a> <a class="footnote-reference brackets" href="#footcite-allan-fao-1998" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p>
+<p>NCL’s <code class="docutils literal notranslate"><span class="pre">satvpr_tdew_fao56</span></code> calculates the actual saturation vapor pressure using dewpoint temperature as described in the Food and Agriculture Organization (FAO) Irrigation and Drainage Paper 56 <a class="reference external" href="https://www.fao.org/4/x0490e/x0490e07.htm">(Chapter 3, Equation 14)</a> <a class="footnote-reference brackets" href="#footcite-allan-fao-1998" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
+<p>Where the actual vapor pressure, <span class="math notranslate nohighlight">\(e_{a}\)</span> (kPa), is saturation vapor pressure at a specific dewpoint temperature, <span class="math notranslate nohighlight">\(T_{dew}\)</span> (°C), which is calculated as:</p>
+<p><span class="math notranslate nohighlight">\(e_{a} = e^°(T_{dew}) = 0.6108 {\exp}[\frac{17.27 T_{dew}}{T_{dew} + 237.3}]\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Input: Single Value</span>
@@ -612,7 +626,9 @@
 </section>
 <section id="satvpr-slope-fao56">
 <h2>satvpr_slope_fao56<a class="headerlink" href="#satvpr-slope-fao56" title="Link to this heading">#</a></h2>
-<p>NCL’s <code class="docutils literal notranslate"><span class="pre">satvpr_slope_fao56</span></code> calculates the slope of the saturation vapor pressure curve as described in the Food and Agriculture Organization (FAO) Irrigation and Drainage Paper 56 <a class="reference external" href="https://www.fao.org/4/x0490e/x0490e07.htm">(Chapter 3, Equation 13)</a> <a class="footnote-reference brackets" href="#footcite-allan-fao-1998" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p>
+<p>NCL’s <code class="docutils literal notranslate"><span class="pre">satvpr_slope_fao56</span></code> calculates the slope of the saturation vapor pressure curve as described in the Food and Agriculture Organization (FAO) Irrigation and Drainage Paper 56 <a class="reference external" href="https://www.fao.org/4/x0490e/x0490e07.htm">(Chapter 3, Equation 13)</a> <a class="footnote-reference brackets" href="#footcite-allan-fao-1998" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
+<p>Where the slope of saturation vapor pressure curve, <span class="math notranslate nohighlight">\({\Delta}\)</span> (kPa), at air temperature <span class="math notranslate nohighlight">\(T\)</span> (°C) is calculated as:</p>
+<p><span class="math notranslate nohighlight">\({\Delta} = \frac{4098 (0.6108 {\exp}[\frac{17.27T}{T + 237.3}])}{(T + 237.3)^2}\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Input: Single Value</span>
@@ -668,7 +684,7 @@
 </section>
 <section id="references">
 <h2>References:<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
-<div class="docutils container" id="id8">
+<div class="docutils container" id="id9">
 </div>
 </section>
 </section>
@@ -680,7 +696,7 @@
 </aside>
 <aside class="footnote brackets" id="footcite-allan-fao-1998" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
-<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id4">2</a>,<a role="doc-backlink" href="#id6">3</a>,<a role="doc-backlink" href="#id7">4</a>)</span>
+<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id3">2</a>,<a role="doc-backlink" href="#id5">3</a>,<a role="doc-backlink" href="#id7">4</a>,<a role="doc-backlink" href="#id8">5</a>)</span>
 <p>Richard Allan, L. Pereira, and Martin Smith. <em>Crop evapotranspiration - Guidelines for computing crop water requirements - FAO Irrigation and drainage paper 56</em>. Volume 56. FAO, 01 1998.</p>
 </aside>
 </aside>
@@ -719,11 +735,11 @@
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#daylight-fao56">daylight_fao56</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Grab and Go</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Grab and Go</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#satvpr-temp-fao56">satvpr_temp_fao56</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Grab and Go</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Grab and Go</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#satvpr-tdew-fao56">satvpr_tdew_fao56</a></li>
