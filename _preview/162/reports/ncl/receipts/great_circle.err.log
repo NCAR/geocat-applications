@@ -1,4 +1,17 @@
 Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/geocat-applications/lib/python3.12/site-packages/nbclient/client.py", line 782, in _async_poll_for_reply
+    msg = await ensure_async(self.kc.shell_channel.get_msg(timeout=new_timeout))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/micromamba/envs/geocat-applications/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 198, in ensure_async
+    result = await obj
+             ^^^^^^^^^
+  File "/home/runner/micromamba/envs/geocat-applications/lib/python3.12/site-packages/jupyter_client/channels.py", line 313, in get_msg
+    raise Empty
+_queue.Empty
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
   File "/home/runner/micromamba/envs/geocat-applications/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
   File "/home/runner/micromamba/envs/geocat-applications/lib/python3.12/site-packages/nbclient/client.py", line 1319, in execute
@@ -12,70 +25,27 @@ Traceback (most recent call last):
            ^^^^^^^^^^^^^^^
   File "/home/runner/micromamba/envs/geocat-applications/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
     await self.async_execute_cell(
-  File "/home/runner/micromamba/envs/geocat-applications/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
-    await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/home/runner/micromamba/envs/geocat-applications/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
-    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
-nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
-------------------
-import geocat.datafiles as gdf
-from astropy.coordinates.representation import (
-    CartesianRepresentation,
-    SphericalRepresentation,
-)
-import numpy as np
-
-# csc2s_data = gdf.get('applications_files/ncl_outputs/csc2s_output.txt')
-csc2s_data = np.loadtxt("../ncl_raw/csc2s_output.txt", delimiter=',', skiprows=6)
-
-input_lat_lon = tuple(map(tuple, csc2s_data[::, 0:2]))
-cart_values = tuple(map(tuple, (csc2s_data[::, 2:5])))
-output_lat_lon = tuple(map(tuple, (csc2s_data[::, 5:])))
-ncl_csc2s = dict(zip(input_lat_lon, cart_values))
-ncl_csc2s_input_output = dict(zip(input_lat_lon, output_lat_lon))
-------------------
-
-
-[0;31m---------------------------------------------------------------------------[0m
-[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
-Cell [0;32mIn[4], line 9[0m
-[1;32m      6[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mnumpy[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mnp[39;00m
-[1;32m      8[0m [38;5;66;03m# csc2s_data = gdf.get('applications_files/ncl_outputs/csc2s_output.txt')[39;00m
-[0;32m----> 9[0m csc2s_data [38;5;241m=[39m [43mnp[49m[38;5;241;43m.[39;49m[43mloadtxt[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43m../ncl_raw/csc2s_output.txt[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[43mdelimiter[49m[38;5;241;43m=[39;49m[38;5;124;43m'[39;49m[38;5;124;43m,[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[43mskiprows[49m[38;5;241;43m=[39;49m[38;5;241;43m6[39;49m[43m)[49m
-[1;32m     11[0m input_lat_lon [38;5;241m=[39m [38;5;28mtuple[39m([38;5;28mmap[39m([38;5;28mtuple[39m, csc2s_data[::, [38;5;241m0[39m:[38;5;241m2[39m]))
-[1;32m     12[0m cart_values [38;5;241m=[39m [38;5;28mtuple[39m([38;5;28mmap[39m([38;5;28mtuple[39m, (csc2s_data[::, [38;5;241m2[39m:[38;5;241m5[39m])))
-
-File [0;32m~/micromamba/envs/geocat-applications/lib/python3.12/site-packages/numpy/lib/npyio.py:1373[0m, in [0;36mloadtxt[0;34m(fname, dtype, comments, delimiter, converters, skiprows, usecols, unpack, ndmin, encoding, max_rows, quotechar, like)[0m
-[1;32m   1370[0m [38;5;28;01mif[39;00m [38;5;28misinstance[39m(delimiter, [38;5;28mbytes[39m):
-[1;32m   1371[0m     delimiter [38;5;241m=[39m delimiter[38;5;241m.[39mdecode([38;5;124m'[39m[38;5;124mlatin1[39m[38;5;124m'[39m)
-[0;32m-> 1373[0m arr [38;5;241m=[39m [43m_read[49m[43m([49m[43mfname[49m[43m,[49m[43m [49m[43mdtype[49m[38;5;241;43m=[39;49m[43mdtype[49m[43m,[49m[43m [49m[43mcomment[49m[38;5;241;43m=[39;49m[43mcomment[49m[43m,[49m[43m [49m[43mdelimiter[49m[38;5;241;43m=[39;49m[43mdelimiter[49m[43m,[49m
-[1;32m   1374[0m [43m            [49m[43mconverters[49m[38;5;241;43m=[39;49m[43mconverters[49m[43m,[49m[43m [49m[43mskiplines[49m[38;5;241;43m=[39;49m[43mskiprows[49m[43m,[49m[43m [49m[43musecols[49m[38;5;241;43m=[39;49m[43musecols[49m[43m,[49m
-[1;32m   1375[0m [43m            [49m[43munpack[49m[38;5;241;43m=[39;49m[43munpack[49m[43m,[49m[43m [49m[43mndmin[49m[38;5;241;43m=[39;49m[43mndmin[49m[43m,[49m[43m [49m[43mencoding[49m[38;5;241;43m=[39;49m[43mencoding[49m[43m,[49m
-[1;32m   1376[0m [43m            [49m[43mmax_rows[49m[38;5;241;43m=[39;49m[43mmax_rows[49m[43m,[49m[43m [49m[43mquote[49m[38;5;241;43m=[39;49m[43mquotechar[49m[43m)[49m
-[1;32m   1378[0m [38;5;28;01mreturn[39;00m arr
-
-File [0;32m~/micromamba/envs/geocat-applications/lib/python3.12/site-packages/numpy/lib/npyio.py:992[0m, in [0;36m_read[0;34m(fname, delimiter, comment, quote, imaginary_unit, usecols, skiplines, max_rows, converters, ndmin, unpack, dtype, encoding)[0m
-[1;32m    990[0m     fname [38;5;241m=[39m os[38;5;241m.[39mfspath(fname)
-[1;32m    991[0m [38;5;28;01mif[39;00m [38;5;28misinstance[39m(fname, [38;5;28mstr[39m):
-[0;32m--> 992[0m     fh [38;5;241m=[39m [43mnp[49m[38;5;241;43m.[39;49m[43mlib[49m[38;5;241;43m.[39;49m[43m_datasource[49m[38;5;241;43m.[39;49m[43mopen[49m[43m([49m[43mfname[49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mrt[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[43mencoding[49m[38;5;241;43m=[39;49m[43mencoding[49m[43m)[49m
-[1;32m    993[0m     [38;5;28;01mif[39;00m encoding [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
-[1;32m    994[0m         encoding [38;5;241m=[39m [38;5;28mgetattr[39m(fh, [38;5;124m'[39m[38;5;124mencoding[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mlatin1[39m[38;5;124m'[39m)
-
-File [0;32m~/micromamba/envs/geocat-applications/lib/python3.12/site-packages/numpy/lib/_datasource.py:193[0m, in [0;36mopen[0;34m(path, mode, destpath, encoding, newline)[0m
-[1;32m    156[0m [38;5;250m[39m[38;5;124;03m"""[39;00m
-[1;32m    157[0m [38;5;124;03mOpen `path` with `mode` and return the file object.[39;00m
-[1;32m    158[0m 
-[0;32m   (...)[0m
-[1;32m    189[0m 
-[1;32m    190[0m [38;5;124;03m"""[39;00m
-[1;32m    192[0m ds [38;5;241m=[39m DataSource(destpath)
-[0;32m--> 193[0m [38;5;28;01mreturn[39;00m [43mds[49m[38;5;241;43m.[39;49m[43mopen[49m[43m([49m[43mpath[49m[43m,[49m[43m [49m[43mmode[49m[43m,[49m[43m [49m[43mencoding[49m[38;5;241;43m=[39;49m[43mencoding[49m[43m,[49m[43m [49m[43mnewline[49m[38;5;241;43m=[39;49m[43mnewline[49m[43m)[49m
-
-File [0;32m~/micromamba/envs/geocat-applications/lib/python3.12/site-packages/numpy/lib/_datasource.py:533[0m, in [0;36mDataSource.open[0;34m(self, path, mode, encoding, newline)[0m
-[1;32m    530[0m     [38;5;28;01mreturn[39;00m _file_openers[ext](found, mode[38;5;241m=[39mmode,
-[1;32m    531[0m                               encoding[38;5;241m=[39mencoding, newline[38;5;241m=[39mnewline)
-[1;32m    532[0m [38;5;28;01melse[39;00m:
-[0;32m--> 533[0m     [38;5;28;01mraise[39;00m [38;5;167;01mFileNotFoundError[39;00m([38;5;124mf[39m[38;5;124m"[39m[38;5;132;01m{[39;00mpath[38;5;132;01m}[39;00m[38;5;124m not found.[39m[38;5;124m"[39m)
-
-[0;31mFileNotFoundError[0m: ../ncl_raw/csc2s_output.txt not found.
+  File "/home/runner/micromamba/envs/geocat-applications/lib/python3.12/site-packages/nbclient/client.py", line 1005, in async_execute_cell
+    exec_reply = await self.task_poll_for_reply
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/micromamba/envs/geocat-applications/lib/python3.12/site-packages/nbclient/client.py", line 806, in _async_poll_for_reply
+    error_on_timeout_execute_reply = await self._async_handle_timeout(timeout, cell)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/micromamba/envs/geocat-applications/lib/python3.12/site-packages/nbclient/client.py", line 856, in _async_handle_timeout
+    raise CellTimeoutError.error_from_timeout_and_cell(
+nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 30 seconds.
+The message was: Cell execution timed out.
+Here is a preview of the cell contents:
+-------------------
+for i, key in enumerate(ncl_csc2s.keys()):
+    try:
+        assert abs(key[0] - list(astropy_csc2s.keys())[i][0]) < 0.0005
+        assert abs(key[1] - list(astropy_csc2s.keys())[i][1]) < 0.0005
+    except Exception:
+        if abs(ncl_csc2s_input_output[key][0]) != 90 and abs(ncl_csc2s_input_output[key][1]) != 180:
+            # Expected places where input lat/lon will not match output lat/lon in NCL
+            # NCL produces flipped longitude value for +/-90 latitude, example: (90,-179)->(90,1)
+            # NCL produces flipped longitude value for all latitude values when longitude is 180, example: (79,-180)->(79,180)
+            assert False
+-------------------
 
