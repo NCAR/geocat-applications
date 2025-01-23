@@ -89,7 +89,7 @@ end do
 
 ; ncl -n csc2s.ncl >> csc2s_output.txt
 
-print("Cartesian X, Cartesian Y, Cartesian Z, Latitude (Degree), Longitude (Degree)")
+print("Input Latitude (Degree), Input Longitude (Degree), Cartesian X, Cartesian Y, Cartesian Z, Output Latitude (Degree), Output Longitude (Degree)")
 do lat=-90,90
 	do lon=-180,180
 		begin
