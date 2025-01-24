@@ -821,6 +821,7 @@ VALID:
             <span class="nb">abs</span><span class="p">(</span><span class="n">ncl_csc2s_input_output</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">!=</span> <span class="mi">90</span>
             <span class="ow">and</span> <span class="nb">abs</span><span class="p">(</span><span class="n">ncl_csc2s_input_output</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="o">!=</span> <span class="mi">180</span>
         <span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="ne">Exception</span><span class="p">)</span>
             <span class="c1"># Expected places where input lat/lon will not match output lat/lon in NCL</span>
             <span class="c1"># NCL produces flipped longitude value for +/-90 latitude, example: (90,-179)-&gt;(90,1)</span>
             <span class="c1"># NCL produces flipped longitude value for all latitude values when longitude is 180, example: (79,-180)-&gt;(79,180)</span>
@@ -840,6 +841,7 @@ VALID:
             <span class="nb">abs</span><span class="p">(</span><span class="n">ncl_csc2s_input_output</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">!=</span> <span class="mi">90</span>
             <span class="ow">and</span> <span class="nb">abs</span><span class="p">(</span><span class="n">ncl_csc2s_input_output</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="o">!=</span> <span class="mi">180</span>
         <span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="ne">Exception</span><span class="p">)</span>
             <span class="c1"># Expected places where input lat/lon will not match output lat/lon in NCL</span>
             <span class="c1"># NCL produces flipped longitude value for +/-90 latitude, example: (90,-179)-&gt;(90,1)</span>
             <span class="c1"># NCL produces flipped longitude value for all latitude values when longitude is 180, example: (79,-180)-&gt;(79,180)</span>
@@ -858,9 +860,7 @@ VALID:
 <span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="k">if</span> <span class="p">(</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span>         <span class="nb">abs</span><span class="p">(</span><span class="n">ncl_csc2s_input_output</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">!=</span> <span class="mi">90</span>
 <span class="g g-Whitespace">      </span><span class="mi">8</span>         <span class="ow">and</span> <span class="nb">abs</span><span class="p">(</span><span class="n">ncl_csc2s_input_output</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="o">!=</span> <span class="mi">180</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span>         <span class="c1"># NCL produces flipped longitude value for +/-90 latitude, example: (90,-179)-&gt;(90,1)</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span>         <span class="c1"># NCL produces flipped longitude value for all latitude values when longitude is 180, example: (79,-180)-&gt;(79,180)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="p">):</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
