@@ -769,7 +769,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="kn">import</span><span class="w"> </span><span class="nn">geocat.datafiles</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gdf</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="c1">#relhum_data = gdf.get(&#39;applications_files/ncl_outputs/relhum_output.txt&#39;)</span>
+<span class="c1"># relhum_data = gdf.get(&#39;applications_files/ncl_outputs/relhum_output.txt&#39;)</span>
 <span class="n">relhum_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;../ncl_raw/relhum_output.txt&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -779,7 +779,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">16</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1">#relhum_data = gdf.get(&#39;applications_files/ncl_outputs/relhum_output.txt&#39;)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># relhum_data = gdf.get(&#39;applications_files/ncl_outputs/relhum_output.txt&#39;)</span>
 <span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">relhum_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;../ncl_raw/relhum_output.txt&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 
 <span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.12/site-packages/numpy/lib/npyio.py:1373,</span> in <span class="ni">loadtxt</span><span class="nt">(fname, dtype, comments, delimiter, converters, skiprows, usecols, unpack, ndmin, encoding, max_rows, quotechar, like)</span>
@@ -834,9 +834,9 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Collect Temperature, Mixing Ratio, Pressure</span>
 <span class="n">temp_mr_press</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">temp</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">273</span><span class="p">,</span><span class="mi">374</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">mr</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">press</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span><span class="mi">15000</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">500</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">temp</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">273</span><span class="p">,</span> <span class="mi">374</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">mr</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">press</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">15000</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">500</span><span class="p">):</span>
             <span class="n">temp_mr_press</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">temp</span><span class="p">,</span> <span class="n">mr</span><span class="p">,</span> <span class="n">press</span><span class="p">))</span>
 
 <span class="c1">### Calculate GeoCAT-Comp `daylight_fao56` value and doy/lat</span>
