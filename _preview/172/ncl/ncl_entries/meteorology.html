@@ -670,7 +670,7 @@
 <h2>relhum<a class="headerlink" href="#relhum" title="Link to this heading">#</a></h2>
 <p>NCL’s <code class="docutils literal notranslate"><span class="pre">relhum</span></code> calculates relative humidity given temperature, mixing ratio, and pressure as described in “Improved Magnus Form Approximation of Saturation Vapor Pressure”<a class="footnote-reference brackets" href="#footcite-magnus-1996" id="id9" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a></p>
 <p>Where the percent of relative humidity (<span class="math notranslate nohighlight">\({\Psi}\)</span>) is:</p>
-<p>{math]<code class="docutils literal notranslate"><span class="pre">{\Psi}</span> <span class="pre">=</span> <span class="pre">w</span> <span class="pre">(\frac{p</span> <span class="pre">-</span> <span class="pre">0.378</span> <span class="pre">*</span> <span class="pre">e_s}{0.622</span> <span class="pre">*</span> <span class="pre">e_s})</span> <span class="pre">*</span> <span class="pre">100</span></code></p>
+<p><span class="math notranslate nohighlight">\({\Psi} = w (\frac{p - 0.378 * e_s}{0.622 * e_s}) * 100\)</span></p>
 <p>Where <span class="math notranslate nohighlight">\(w\)</span> is the mass mixing ratio of water vapor and dry air, <span class="math notranslate nohighlight">\(p\)</span> is pressure, and <span class="math notranslate nohighlight">\(e_s\)</span> is the saturation vapor pressure for a given temperature.</p>
 <p>The constant <code class="docutils literal notranslate"><span class="pre">0.622</span></code> represents the ratio of the specific water vapor mass (<span class="math notranslate nohighlight">\(M_w\)</span>) in g/mol and the specific dry air mass (<span class="math notranslate nohighlight">\(M_d\)</span>) in is the specific dry air mass in g/mol:</p>
 <p><span class="math notranslate nohighlight">\(\frac{M_w}{M_d} = \frac{18.02}{28.9634) = 0.622\)</span></p>
@@ -681,7 +681,7 @@
 
 <span class="n">temp</span> <span class="o">=</span> <span class="mf">303.15</span>  <span class="c1"># Kelvin</span>
 <span class="n">mixing_ratio</span> <span class="o">=</span> <span class="mf">0.018</span>
-<span class="n">pressure</span> <span class="o">=</span> <span class="mi">101325</span>  <span class="c1"># Pa</span>
+<span class="n">pressure</span> <span class="o">=</span> <span class="mi">101325</span> <span class="c1"># Pa</span>
 
 <span class="n">relhum</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">mixing_ratio</span><span class="p">,</span> <span class="n">pressure</span><span class="p">)</span>
 </pre></div>
@@ -699,8 +699,8 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">geocat.comp</span><span class="w"> </span><span class="kn">import</span> <span class="n">relhum</span>
 
 <span class="n">temp</span> <span class="o">=</span> <span class="p">[</span><span class="mf">375.15</span><span class="p">,</span> <span class="mf">303.15</span><span class="p">,</span> <span class="mf">315.15</span><span class="p">]</span>  <span class="c1"># Kelvin</span>
-<span class="n">mixing_ratio</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.018</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">]</span>
-<span class="n">pressure</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100325</span><span class="p">,</span> <span class="mi">101325</span><span class="p">,</span> <span class="mi">101400</span><span class="p">]</span>  <span class="c1"># Pa</span>
+<span class="n">mixing_ratio</span> <span class="o">=</span> <span class="p">[</span><span class="mf">.5</span><span class="p">,</span> <span class="mf">0.018</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">]</span>
+<span class="n">pressure</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100325</span><span class="p">,</span> <span class="mi">101325</span><span class="p">,</span> <span class="mi">101400</span><span class="p">]</span> <span class="c1"># Pa</span>
 
 <span class="n">relhum</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">mixing_ratio</span><span class="p">,</span> <span class="n">pressure</span><span class="p">)</span>
 </pre></div>
