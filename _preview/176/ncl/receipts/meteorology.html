@@ -513,6 +513,16 @@ This notebook is part of the process we have for adding entries to the NCL Index
 		<span class="nb">print</span> <span class="p">(</span><span class="n">temp</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">slope_satvpr</span><span class="p">)</span>
 	<span class="n">end</span>
 <span class="n">end</span> <span class="n">do</span>
+
+<span class="p">;</span> <span class="n">coriolis_param</span>
+<span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span><span class="w"> </span><span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Contributed</span><span class="o">/</span><span class="n">coriolis_param</span><span class="o">.</span><span class="n">shtml</span>
+
+<span class="p">;</span> <span class="n">ncl</span> <span class="o">-</span><span class="n">n</span> <span class="n">coriolis_param</span><span class="o">.</span><span class="n">ncl</span> <span class="o">&gt;&gt;</span> <span class="n">coriolis_param_output</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Latitude (Degree), Coriolis Parameter&quot;</span><span class="p">)</span>
+<span class="n">do</span> <span class="n">lat</span><span class="o">=-</span><span class="mi">90</span><span class="p">,</span><span class="mi">90</span>
+	<span class="nb">print</span><span class="p">(</span><span class="n">lat</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">coriolis_param</span><span class="p">(</span><span class="n">lat</span><span class="p">))</span>
+<span class="n">end</span> <span class="n">do</span>
 </pre></div>
 </div>
 </section>
