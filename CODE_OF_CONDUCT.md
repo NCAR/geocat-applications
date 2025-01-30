@@ -2,13 +2,15 @@
 
 ## Our Pledge
 
-We, as contributors, creators, stewards, and maintainers (participants), of GeoCAT-applications pledge to make participation in our software, system or hardware project and community a safe, productive, welcoming and inclusive experience for everyone. All participants are required to abide by this Code of Conduct. This includes respectful treatment of everyone regardless of age, body size, disability, ethnicity, gender identity or expression, level of experience, nationality, political affiliation, veteran status, pregnancy, genetic information, physical appearance, race, religion, or sexual orientation, as well as any other characteristic protected under applicable US federal or state law.
+We, as contributors, creators, stewards, and maintainers (participants), of GeoCAT-applications pledge to make participation in our software, system or hardware project and community a safe, healthy, open, productive, and harrassment-free experience for everyone, protected under applicable US federal or state law.
+
+All participants are required to abide by this Code of Conduct.
 
 ## Our Standards
 
 Examples of behaviors that contribute to a positive environment include:
 
-- All participants are treated with respect and consideration, valuing a diversity of views and opinions
+- All participants are treated with respect and consideration, valuing various views and opinions
 - Be considerate, respectful, and collaborative
 - Communicate openly with respect for others, critiquing ideas rather than individuals and gracefully accepting criticism
 - Acknowledging the contributions of others
@@ -19,8 +21,8 @@ Examples of behaviors that contribute to a positive environment include:
 
 Examples of unacceptable behavior include, but are not limited to:
 
-- Harassment, intimidation, or discrimination in any form
-- Physical, verbal, or written abuse by anyone to anyone, including repeated use of pronouns other than those requested
+- Harassment or intimidation in any form
+- Physical, verbal, or written abuse by anyone to anyone
 - Unwelcome sexual attention or advances
 - Personal attacks directed at other guests, members, participants, etc.
 - Publishing others’ private information, such as a physical or electronic address, without explicit permission
@@ -47,8 +49,8 @@ Instances of unacceptable behavior can be brought to the attention of the projec
 
 ## Consequences
 
-Upon receipt of a complaint, the project administrator(s) may take any action deemed necessary and appropriate under the circumstances. Such action can include things such as: removing, editing, or rejecting comments, commits, code, wiki edits, email, issues, and other contributions that are not aligned to this Code of Conduct, or banning temporarily or permanently any contributor for other behaviors that are deemed inappropriate, threatening, offensive, or harmful. Project administrators also have the right to report violations to UCAR HR and/or UCAR’s Office of Diversity, Equity and Inclusion (ODEI), as well as a participant’s home institution and/or law enforcement. In the event an incident is reported to UCAR, UCAR will follow its Harassment Reporting and Complaint Procedure.
+Upon receipt of a complaint, the project administrator(s) may take any action deemed necessary and appropriate under the circumstances. Such action can include things such as: removing, editing, or rejecting comments, commits, code, wiki edits, email, issues, and other contributions that are not aligned to this Code of Conduct, or banning temporarily or permanently any contributor for other behaviors that are deemed inappropriate, threatening, offensive, or harmful. Project administrators also have the right to report violations to UCAR's HR, as well as a participant’s home institution and/or law enforcement. In the event an incident is reported to UCAR, UCAR will follow its Harassment Reporting and Complaint Procedure.
 
 ## Attribution
 
-This Code of Conduct was originally adapted from the Contributor Covenant, version 1.4. We then aligned it with the UCAR Participant Code of Conduct, which also borrows from the American Geophysical Union (AGU) Code of Conduct. The UCAR Participant Code of Conduct applies to both UCAR employees as well as participants in activities run by UCAR. The original version of this for all software projects that have strong management from UCAR or UCAR staff is available on the UCAR website at [https://doi.org/10.5065/6w2c-a132](https://doi.org/10.5065/6w2c-a132). The date that it was adopted by this project was 13 May 2024. When responding to complaints, UCAR HR and ODEI will do so based on the latest published version. Therefore, any project-specific changes should follow the Process for Changes section above.
+This Code of Conduct was originally adapted from the Contributor Covenant, version 1.4. We then aligned it with the UCAR Participant Code of Conduct, which also borrows from the American Geophysical Union (AGU) Code of Conduct. The UCAR Participant Code of Conduct applies to both UCAR employees as well as participants in activities run by UCAR. The original version of this for all software projects that have strong management from UCAR or UCAR staff is available on the UCAR website at [https://doi.org/10.5065/6w2c-a132](https://doi.org/10.5065/6w2c-a132). The date that it was adopted by this project was 13 May 2024. When responding to complaints, UCAR HR will do so based on the latest published version. Therefore, any project-specific changes should follow the Process for Changes section above.
