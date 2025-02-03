@@ -1,3 +1,18 @@
+; dewtemp_trh
+; Adapted from https://www.ncl.ucar.edu/Document/Functions/Built-in/dewtemp_trh.shtml
+
+; ncl -n dewtemp_trh.ncl >> dewtemp_trh_output.txt
+
+print("Temperature (K), Relative Humidity (%), Dew Temperature (C)")
+do tk=273,374
+	do rh=1,100
+		begin
+		dewtemp = dewtemp_trh(tk,rh)-273.15
+		print (tk +","+ rh +","+ dewtemp)
+		end
+	end do
+end do
+
 ; daylight_fao56
 ; Adapted from https://www.ncl.ucar.edu/Document/Functions/Crop/daylight_fao56.shtml
 
@@ -13,20 +28,17 @@ do doy=0,365
 	end do
 end do
 
-; dewtemp_trh
-; Adapted from https://www.ncl.ucar.edu/Document/Functions/Built-in/dewtemp_trh.shtml
+; heat_index_nws
+; https://www.ncl.ucar.edu/Document/Functions/Contributed/heat_index_nws.shtml
 
-; ncl -n dewtemp_trh.ncl >> dewtemp_trh_output.txt
+; ncl -n heat_index_nws.ncl >> heat_index_nws_output.txt
 
-print("Temperature (K), Relative Humidity (%), Dew Temperature (C)")
-do tk=273,374
+print("Temperature (F), Relative Humidity (%), Alternate Coefs (True/False), Heat Index (F)")
+do tf=0, 115
 	do rh=1,100
 		begin
-		dewtemp = dewtemp_trh(tk,rh)-273.15
-		print (tk +","+ rh +","+ dewtemp)
-		end
-	end do
-end do
+		heatindex = heat_index_nws(tf,rh,(/2,2/), False)
+		print (tf +","+ rh +"," + "0" + "," + heatindex)
 
 ; satvpr_temp_fao56
 ; Adapted from https://www.ncl.ucar.edu/Document/Functions/Crop/satvpr_temp_fao56.shtml
