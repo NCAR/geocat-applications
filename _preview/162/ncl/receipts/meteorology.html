@@ -402,6 +402,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#satvpr-temp-fao56">satvpr_temp_fao56</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#satvpr-tdew-fao56">satvpr_tdew_fao56</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#satvpr-slope-fao56">satvpr_slope_fao56</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coriolis-param">coriolis_param</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">Comparison</a><ul class="nav section-nav flex-column">
@@ -410,6 +411,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">satvpr_temp_fao56</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">satvpr_tdew_fao56</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">satvpr_slope_fao56</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">coriolis_param</a></li>
 </ul>
 </li>
 </ul>
@@ -438,6 +440,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Crop/satvpr_temp_fao56.shtml">satvpr_temp_fao56</a></p></li>
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Crop/satvpr_tdew_fao56.shtml">satvpr_tdew_fao56</a></p></li>
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Crop/satvpr_slope_fao56.shtml">satvpr_slope_fao56</a></p></li>
+<li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Contributed/coriolis_param.shtml">coriolis_param</a></p></li>
 </ul>
 </section>
 <section id="ncl-code">
@@ -509,6 +512,16 @@ This notebook is part of the process we have for adding entries to the NCL Index
 		<span class="n">slope_satvpr</span> <span class="o">=</span> <span class="n">satvpr_slope_fao56</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="p">(</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="o">/</span><span class="p">))</span>
 		<span class="nb">print</span> <span class="p">(</span><span class="n">temp</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">slope_satvpr</span><span class="p">)</span>
 	<span class="n">end</span>
+<span class="n">end</span> <span class="n">do</span>
+
+<span class="p">;</span> <span class="n">coriolis_param</span>
+<span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span><span class="w"> </span><span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Contributed</span><span class="o">/</span><span class="n">coriolis_param</span><span class="o">.</span><span class="n">shtml</span>
+
+<span class="p">;</span> <span class="n">ncl</span> <span class="o">-</span><span class="n">n</span> <span class="n">coriolis_param</span><span class="o">.</span><span class="n">ncl</span> <span class="o">&gt;&gt;</span> <span class="n">coriolis_param_output</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Latitude (Degree), Coriolis Parameter&quot;</span><span class="p">)</span>
+<span class="n">do</span> <span class="n">lat</span><span class="o">=-</span><span class="mi">90</span><span class="p">,</span><span class="mi">90</span>
+	<span class="nb">print</span><span class="p">(</span><span class="n">lat</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">coriolis_param</span><span class="p">(</span><span class="n">lat</span><span class="p">))</span>
 <span class="n">end</span> <span class="n">do</span>
 </pre></div>
 </div>
@@ -758,6 +771,50 @@ This notebook is part of the process we have for adding entries to the NCL Index
 </div>
 </div>
 </section>
+<section id="coriolis-param">
+<h3>coriolis_param<a class="headerlink" href="#coriolis-param" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#### Collect NCL values for coriolis_param from geocat-datafiles</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geocat.datafiles</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gdf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">coriolis_param_data</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="s1">&#39;applications_files/ncl_outputs/coriolis_param_output.txt&#39;</span>
+<span class="p">)</span>
+<span class="n">coriolis_param_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">coriolis_param_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/ncl_outputs/coriolis_param_output.txt&#39; from &#39;https://github.com/NCAR/GeoCAT-datafiles/raw/main/applications_files/ncl_outputs/coriolis_param_output.txt&#39; to &#39;/home/runner/.cache/geocat&#39;.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Collect NCL `coriolis_param_data` value and associated coriolis parameter values</span>
+<span class="n">ncl_coriolis_param</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">coriolis_param_data</span><span class="p">[::,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">coriolis_param_data</span><span class="p">[::,</span> <span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Calculate MetPy &quot;coriolis_parameter&quot;</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">metpy.calc</span><span class="w"> </span><span class="kn">import</span> <span class="n">coriolis_parameter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">metpy.units</span><span class="w"> </span><span class="kn">import</span> <span class="n">units</span>
+
+<span class="n">metpy_coriolis_para</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">lat</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="mi">90</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">metpy_coriolis_para</span><span class="p">[</span><span class="n">lat</span><span class="p">]</span> <span class="o">=</span> <span class="n">coriolis_parameter</span><span class="p">(</span><span class="n">lat</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">degree</span><span class="p">)</span><span class="o">.</span><span class="n">magnitude</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="comparison">
 <h2>Comparison<a class="headerlink" href="#comparison" title="Link to this heading">#</a></h2>
@@ -914,6 +971,21 @@ This notebook is part of the process we have for adding entries to the NCL Index
 </div>
 </div>
 </section>
+<section id="id6">
+<h3>coriolis_param<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ncl_coriolis_param</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span>
+        <span class="n">ncl_coriolis_param</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">metpy_coriolis_para</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-04</span>
+    <span class="p">)</span>  <span class="c1"># within 4 decimal points</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 </section>
 
@@ -953,6 +1025,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#satvpr-temp-fao56">satvpr_temp_fao56</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#satvpr-tdew-fao56">satvpr_tdew_fao56</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#satvpr-slope-fao56">satvpr_slope_fao56</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coriolis-param">coriolis_param</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">Comparison</a><ul class="nav section-nav flex-column">
@@ -961,6 +1034,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">satvpr_temp_fao56</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">satvpr_tdew_fao56</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">satvpr_slope_fao56</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">coriolis_param</a></li>
 </ul>
 </li>
 </ul>
