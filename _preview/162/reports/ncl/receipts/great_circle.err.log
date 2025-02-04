@@ -37,8 +37,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['for i, key in enumerate(ncl_csc2s.keys()):', '    try:', '        assert abs(key[0] - list(astropy_csc2s.keys())[i][0]) < 0.0005', '        assert abs(key[1] - list(astropy_csc2s.keys())[i][1]) < 0.0005', '    except Exception:']
+['# Verify conversions from cartesian coordinates to latitude/longtiude', 'for i, key in enumerate(ncl_csc2s.keys()):', '    try:', '        assert abs(key[0] - list(astropy_csc2s.keys())[i][0]) < 0.0005', '        assert abs(key[1] - list(astropy_csc2s.keys())[i][1]) < 0.0005']
 ...
-['            print(Exception)', '            # Expected places where input lat/lon will not match output lat/lon in NCL', '            # NCL produces flipped longitude value for +/-90 latitude, example: (90,-179)->(90,1)', '            # NCL produces flipped longitude value for all latitude values when longitude is 180, example: (79,-180)->(79,180)', '            assert False']
+['            print(abs(key[1] - list(astropy_csc2s.keys())[i][1]))', '            # Expected places where input lat/lon will not match output lat/lon in NCL', '            # NCL produces flipped longitude value for +/-90 latitude, example: (90,-179)->(90,1)', '            # NCL produces flipped longitude value for all latitude values when longitude is 180, example: (79,-180)->(79,180)', '            assert False']
 -------------------
 
