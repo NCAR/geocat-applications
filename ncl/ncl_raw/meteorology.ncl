@@ -67,6 +67,16 @@ do temp=33,212
 	end
 end do
 
+; coriolis_param
+; Adapted from https://www.ncl.ucar.edu/Document/Functions/Contributed/coriolis_param.shtml
+
+; ncl -n coriolis_param.ncl >> coriolis_param_output.txt
+
+print("Latitude (Degree), Coriolis Parameter")
+do lat=-90,90
+	print(lat + "," + coriolis_param(lat))
+end do
+
 ; relhum
 ; Adapted from https://www.ncl.ucar.edu/Document/Functions/Built-in/relhum.shtml
 
@@ -82,4 +92,3 @@ do tk=273,290
 			end
 		end do
 	end do
-end do
