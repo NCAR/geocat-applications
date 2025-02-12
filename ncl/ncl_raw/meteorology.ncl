@@ -66,3 +66,20 @@ do temp=33,212
 		print (temp + "," + slope_satvpr)
 	end
 end do
+
+; relhum
+; Adapted from https://www.ncl.ucar.edu/Document/Functions/Built-in/relhum.shtml
+
+; ncl -n relhum.ncl >> relhum_output.txt
+
+print("Temperature (K), Mixing Ratio (KG/KG), Pressure (Pa)")
+do tk=273,290
+	do mr=1,100
+		do ppa=10000,15000,500
+			begin
+				rh = relhum(tk, mr, ppa)
+				print (tk + "," + mr + "," + ppa + "," + rh)
+			end
+		end do
+	end do
+end do
