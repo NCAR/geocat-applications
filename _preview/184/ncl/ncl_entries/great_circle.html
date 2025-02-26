@@ -568,14 +568,15 @@ Longitude = -105.27049999999997
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Shoelace Formula for Signed Polygon Area</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
+
 <span class="k">def</span><span class="w"> </span><span class="nf">is_clockwise</span><span class="p">(</span><span class="n">pt_lst</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="c1"># positive = clockwise, negative = counterclockwise</span>
-    <span class="n">lat</span> <span class="o">=</span> <span class="n">pt_lst</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># X</span>
-    <span class="n">lon</span> <span class="o">=</span> <span class="n">pt_lst</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># Y</span>
+    <span class="n">lat</span> <span class="o">=</span> <span class="n">pt_lst</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># X</span>
+    <span class="n">lon</span> <span class="o">=</span> <span class="n">pt_lst</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># Y</span>
     <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lat</span><span class="p">))</span>
-    <span class="n">area</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">lat</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">lon</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">lat</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">lon</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">area</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">lat</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">lon</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">lat</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">lon</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">area</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="c1"># clockwise -&gt; postive</span>
+        <span class="c1"># clockwise -&gt; positive</span>
         <span class="k">return</span> <span class="kc">True</span>
     <span class="k">if</span> <span class="n">area</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
         <span class="c1"># counterclockwise -&gt; negative</span>
@@ -590,9 +591,7 @@ Longitude = -105.27049999999997
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clockwise -&gt; True</span>
 
 <span class="c1"># Boulder, Boston, Houston</span>
-<span class="n">pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="mf">40.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">),</span>
-               <span class="p">(</span><span class="mf">42.3601</span><span class="p">,</span> <span class="o">-</span><span class="mf">71.0589</span><span class="p">),</span>
-               <span class="p">(</span><span class="mf">29.5518</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.0982</span><span class="p">)])</span>
+<span class="n">pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="mf">40.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">),</span> <span class="p">(</span><span class="mf">42.3601</span><span class="p">,</span> <span class="o">-</span><span class="mf">71.0589</span><span class="p">),</span> <span class="p">(</span><span class="mf">29.5518</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.0982</span><span class="p">)])</span>
 
 <span class="n">is_clockwise</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span>
 </pre></div>
@@ -609,9 +608,7 @@ Longitude = -105.27049999999997
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Counterclockwise -&gt; False</span>
 
 <span class="c1"># Houston, Boston, Boulder</span>
-<span class="n">pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="mf">29.5518</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.0982</span><span class="p">),</span>
-               <span class="p">(</span><span class="mf">42.3601</span><span class="p">,</span> <span class="o">-</span><span class="mf">71.0589</span><span class="p">),</span>
-               <span class="p">(</span><span class="mf">40.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">)])</span>
+<span class="n">pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="mf">29.5518</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.0982</span><span class="p">),</span> <span class="p">(</span><span class="mf">42.3601</span><span class="p">,</span> <span class="o">-</span><span class="mf">71.0589</span><span class="p">),</span> <span class="p">(</span><span class="mf">40.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">)])</span>
 
 <span class="n">is_clockwise</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span>
 </pre></div>
@@ -628,9 +625,7 @@ Longitude = -105.27049999999997
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Co-linear -&gt; False</span>
 
 <span class="c1"># Boulder and two points at higher latitude</span>
-<span class="n">pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="mf">42.3601</span><span class="p">,</span> <span class="o">-</span><span class="mf">71.0589</span><span class="p">),</span>
-               <span class="p">(</span><span class="mf">43.3601</span><span class="p">,</span> <span class="o">-</span><span class="mf">71.0589</span><span class="p">),</span>
-               <span class="p">(</span><span class="mf">44.3601</span><span class="p">,</span> <span class="o">-</span><span class="mf">71.0589</span><span class="p">)])</span>
+<span class="n">pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="mf">42.3601</span><span class="p">,</span> <span class="o">-</span><span class="mf">71.0589</span><span class="p">),</span> <span class="p">(</span><span class="mf">43.3601</span><span class="p">,</span> <span class="o">-</span><span class="mf">71.0589</span><span class="p">),</span> <span class="p">(</span><span class="mf">44.3601</span><span class="p">,</span> <span class="o">-</span><span class="mf">71.0589</span><span class="p">)])</span>
 
 <span class="n">is_clockwise</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span>
 </pre></div>
