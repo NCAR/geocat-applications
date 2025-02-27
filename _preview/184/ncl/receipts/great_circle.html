@@ -421,6 +421,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">area_poly_sphere</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">css2c</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">csc2s</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">gc_clkwise</a></li>
 </ul>
 </li>
 </ul>
@@ -723,6 +724,108 @@ This notebook is part of the process we have for adding entries to the NCL Index
 </section>
 <section id="gc-clkwise">
 <h3>gc_clkwise<a class="headerlink" href="#gc-clkwise" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ncl_gc_clkwise</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="n">pts_name</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;Boulder, Boston, Houston&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Houston, Boston, Boulder&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Four Corners of Colorado&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Four Corners of Colorado in Reverse&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Caltech, Alberta, Greenwich, Paris, Madrid&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Madrid, Paris, Greenwich, Alberta, Caltech&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Crossing the Equator&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Crossing the Prime Meridian&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Square - Half of the World&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Horizontal - Left to Right&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Horizontal - Right to Left&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Co-Linear - Vertical&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">ncl_lat</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="mf">40.0150</span><span class="p">,</span> <span class="mf">42.3601</span><span class="p">,</span> <span class="mf">29.5518</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">29.5518</span><span class="p">,</span> <span class="mf">42.3601</span><span class="p">,</span> <span class="mf">40.015</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">41.00488</span><span class="p">,</span> <span class="mf">41.00203</span><span class="p">,</span> <span class="mf">37.00540</span><span class="p">,</span> <span class="mf">37.00051</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">37.00051</span><span class="p">,</span> <span class="mf">37.0054</span><span class="p">,</span> <span class="mf">41.00203</span><span class="p">,</span> <span class="mf">41.00488</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">34.1377</span><span class="p">,</span> <span class="mf">53.9333</span><span class="p">,</span> <span class="mf">51.4934</span><span class="p">,</span> <span class="mf">48.8575</span><span class="p">,</span> <span class="mf">40.4167</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">40.4167</span><span class="p">,</span> <span class="mf">48.8575</span><span class="p">,</span> <span class="mf">51.4934</span><span class="p">,</span> <span class="mf">53.9333</span><span class="p">,</span> <span class="mf">34.1377</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">0.4078</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.9230</span><span class="p">,</span> <span class="mf">0.1864</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">53.3498</span><span class="p">,</span> <span class="mf">52.3676</span><span class="p">,</span> <span class="mf">51.9939</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">],</span>
+<span class="p">]</span>
+<span class="n">ncl_lon</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="o">-</span><span class="mf">105.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">71.0589</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.0982</span><span class="p">],</span>
+    <span class="p">[</span><span class="o">-</span><span class="mf">95.0982</span><span class="p">,</span> <span class="o">-</span><span class="mf">71.0589</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">],</span>
+    <span class="p">[</span><span class="o">-</span><span class="mf">109.05001</span><span class="p">,</span> <span class="o">-</span><span class="mf">102.05348</span><span class="p">,</span> <span class="o">-</span><span class="mf">103.04633</span><span class="p">,</span> <span class="o">-</span><span class="mf">109.04720</span><span class="p">],</span>
+    <span class="p">[</span><span class="o">-</span><span class="mf">109.0472</span><span class="p">,</span> <span class="o">-</span><span class="mf">103.04633</span><span class="p">,</span> <span class="o">-</span><span class="mf">102.05348</span><span class="p">,</span> <span class="o">-</span><span class="mf">109.05001</span><span class="p">],</span>
+    <span class="p">[</span><span class="o">-</span><span class="mf">118.1253</span><span class="p">,</span> <span class="o">-</span><span class="mf">116.5765</span><span class="p">,</span> <span class="mf">0.0098</span><span class="p">,</span> <span class="mf">2.3514</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.7033</span><span class="p">],</span>
+    <span class="p">[</span><span class="o">-</span><span class="mf">3.7033</span><span class="p">,</span> <span class="mf">2.3514</span><span class="p">,</span> <span class="mf">0.0098</span><span class="p">,</span> <span class="o">-</span><span class="mf">116.5765</span><span class="p">,</span> <span class="o">-</span><span class="mf">118.1253</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">9.4403</span><span class="p">,</span> <span class="mf">12.3636</span><span class="p">,</span> <span class="mf">6.6131</span><span class="p">],</span>
+    <span class="p">[</span><span class="o">-</span><span class="mf">6.2603</span><span class="p">,</span> <span class="mf">4.9041</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.9760</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">90.0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">30.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">],</span>
+<span class="p">]</span>
+<span class="n">ncl_gc_clkwise</span><span class="p">[</span><span class="n">pts_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">ncl_gc_clkwise</span><span class="p">[</span><span class="n">pts_name</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="n">ncl_gc_clkwise</span><span class="p">[</span><span class="n">pts_name</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">ncl_gc_clkwise</span><span class="p">[</span><span class="n">pts_name</span><span class="p">[</span><span class="mi">3</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="n">ncl_gc_clkwise</span><span class="p">[</span><span class="n">pts_name</span><span class="p">[</span><span class="mi">4</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">ncl_gc_clkwise</span><span class="p">[</span><span class="n">pts_name</span><span class="p">[</span><span class="mi">5</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="n">ncl_gc_clkwise</span><span class="p">[</span><span class="n">pts_name</span><span class="p">[</span><span class="mi">6</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">ncl_gc_clkwise</span><span class="p">[</span><span class="n">pts_name</span><span class="p">[</span><span class="mi">7</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">ncl_gc_clkwise</span><span class="p">[</span><span class="n">pts_name</span><span class="p">[</span><span class="mi">8</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="n">ncl_gc_clkwise</span><span class="p">[</span><span class="n">pts_name</span><span class="p">[</span><span class="mi">9</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">ncl_gc_clkwise</span><span class="p">[</span><span class="n">pts_name</span><span class="p">[</span><span class="mi">10</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">ncl_gc_clkwise</span><span class="p">[</span><span class="n">pts_name</span><span class="p">[</span><span class="mi">11</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Shoelace Formula for Signed Polygon Area</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">is_clockwise</span><span class="p">(</span><span class="n">pt_lst</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="c1"># positive = clockwise, negative = counterclockwise</span>
+    <span class="n">lat</span> <span class="o">=</span> <span class="n">pt_lst</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># X</span>
+    <span class="n">lon</span> <span class="o">=</span> <span class="n">pt_lst</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># Y</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lat</span><span class="p">))</span>
+    <span class="n">area</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">lat</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">lon</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">lat</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">lon</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">area</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># clockwise -&gt; positive</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">if</span> <span class="n">area</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># counterclockwise -&gt; negative</span>
+        <span class="c1"># co-linear -&gt; zero</span>
+        <span class="k">return</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">python_gc_clkwise</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pts_name</span><span class="p">)):</span>
+    <span class="n">is_clkwise</span> <span class="o">=</span> <span class="n">is_clockwise</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">ncl_lon</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ncl_lat</span><span class="p">[</span><span class="n">i</span><span class="p">]]))</span>
+    <span class="n">python_gc_clkwise</span><span class="p">[</span><span class="n">pts_name</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">is_clkwise</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="comparison">
@@ -872,6 +975,91 @@ VALID:
 </div>
 </div>
 </section>
+<section id="id4">
+<h3>gc_clkwise<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ncl_gc_clkwise</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">python_gc_clkwise</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span>
+                <span class="n">ncl_gc_clkwise</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">python_gc_clkwise</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-5</span>
+            <span class="p">)</span>  <span class="c1"># within 4 decimal points</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;VALID:</span><span class="se">\n\t</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="se">\n\t</span><span class="s2">ncl:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">ncl_gc_clkwise</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n\t</span><span class="s2">python:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">python_gc_clkwise</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;INVALID:</span><span class="se">\n\t</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="se">\n\t\t</span><span class="s2">ncl:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">ncl_gc_clkwise</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n\t\t</span><span class="s2">python:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">python_gc_clkwise</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>VALID:
+	Boulder, Boston, Houston: 
+	ncl:		False
+	python:		False
+
+INVALID:
+	Houston, Boston, Boulder: 
+		ncl:		True
+		python:		False
+
+INVALID:
+	Four Corners of Colorado: 
+		ncl:		True
+		python:		False
+
+VALID:
+	Four Corners of Colorado in Reverse: 
+	ncl:		False
+	python:		False
+
+INVALID:
+	Caltech, Alberta, Greenwich, Paris, Madrid: 
+		ncl:		True
+		python:		False
+
+VALID:
+	Madrid, Paris, Greenwich, Alberta, Caltech: 
+	ncl:		False
+	python:		False
+
+INVALID:
+	Crossing the Equator: 
+		ncl:		True
+		python:		False
+
+INVALID:
+	Crossing the Prime Meridian: 
+		ncl:		True
+		python:		False
+
+VALID:
+	Square - Half of the World: 
+	ncl:		False
+	python:		False
+
+INVALID:
+	Horizontal - Left to Right: 
+		ncl:		True
+		python:		False
+
+INVALID:
+	Horizontal - Right to Left: 
+		ncl:		True
+		python:		False
+
+INVALID:
+	Co-Linear - Vertical: 
+		ncl:		True
+		python:		False
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 </section>
 
@@ -915,6 +1103,7 @@ VALID:
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">area_poly_sphere</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">css2c</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">csc2s</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">gc_clkwise</a></li>
 </ul>
 </li>
 </ul>
