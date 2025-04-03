@@ -776,13 +776,13 @@ The percent of relative humidity (<span class="math notranslate nohighlight">\({
 <p><span class="math notranslate nohighlight">\({P_v} = c \exp^{\frac{a * T}{b + T}}\)</span></p>
 <p>Where <span class="math notranslate nohighlight">\(c\)</span> is vapor pressure of water at 0 degrees Celsius (Pa), and <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are saturation vapor pressure coefficient approximations over ice, as defined by the AEDki model.<a class="footnote-reference brackets" href="#footcite-notes-magnus-form" id="id11" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a></p>
 <p><span class="math notranslate nohighlight">\(a = 22.571\)</span>, <span class="math notranslate nohighlight">\(b = 273.71\)</span>, <span class="math notranslate nohighlight">\(c = 6.1128\)</span></p>
-<p>Then, the specific humidity (<span class="math notranslate nohighlight">\(q_{st}\)</span>) is calculated as:</p>
+<p>Then, the specific humidity (<span class="math notranslate nohighlight">\(q_{st}\)</span>) is calculated with <span class="math notranslate nohighlight">\(p\)</span> as pressure:</p>
 <p><span class="math notranslate nohighlight">\(q_{st} = \frac{0.622 * P_v}{(p * 0.1) - 0.378 * P_v}\)</span></p>
 <p>The constant <code class="docutils literal notranslate"><span class="pre">0.622</span></code> represents the ratio of the molar mass of vapor (<span class="math notranslate nohighlight">\(M_w\)</span>) and dry air (<span class="math notranslate nohighlight">\(M_d\)</span>) in g/mol:</p>
 <p><span class="math notranslate nohighlight">\(\frac{M_w}{M_d} = \frac{18.02}{28.9634} = 0.622\)</span></p>
 <p>And the <code class="docutils literal notranslate"><span class="pre">0.378</span></code> represents a correction constant where:</p>
 <p><span class="math notranslate nohighlight">\(1 - \frac{M_w}{M_d} = 1 - 0.622 = 0.378\)</span></p>
-<p>The percent of relative humidity (<span class="math notranslate nohighlight">\({\Psi}\)</span>) is calculated as:</p>
+<p>The percent of relative humidity (<span class="math notranslate nohighlight">\({\Psi}\)</span>) is calculated with <span class="math notranslate nohighlight">\(w\)</span> as the mixing ratio:</p>
 <p><span class="math notranslate nohighlight">\({\Psi} = 100 * \frac{w}{q_{st}}\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
