@@ -93,3 +93,20 @@ do tk=273,290
 		end do
 	end do
 end do
+
+; relhum_ice
+; Adapted from https://www.ncl.ucar.edu/Document/Functions/Built-in/relhum_ice.shtml
+
+; ncl -n relhum_ice.ncl >> relhum_ice_output.txt
+
+print("Temperature (K), Mixing Ratio (KG/KG), Pressure (Pa)")
+do tk=173,273
+	do mr=1,100
+		do ppa=10000,15000,500
+			begin
+				rh = relhum_ice(tk, mr, ppa)
+				print (tk + "," + mr + "," + ppa + "," + rh)
+			end
+		end do
+	end do
+end do
