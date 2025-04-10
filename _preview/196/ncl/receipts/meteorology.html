@@ -978,8 +978,10 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="kn">import</span><span class="w"> </span><span class="nn">geocat.datafiles</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gdf</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="c1">#relhum_water_data = gdf.get(&#39;applications_files/ncl_outputs/relhum_water_output.txt&#39;)</span>
-<span class="n">relhum_water_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;../ncl_raw/relhum_water_output.txt&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="c1"># relhum_water_data = gdf.get(&#39;applications_files/ncl_outputs/relhum_water_output.txt&#39;)</span>
+<span class="n">relhum_water_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span>
+    <span class="s2">&quot;../ncl_raw/relhum_water_output.txt&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -988,8 +990,10 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">25</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1">#relhum_water_data = gdf.get(&#39;applications_files/ncl_outputs/relhum_water_output.txt&#39;)</span>
-<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">relhum_water_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;../ncl_raw/relhum_water_output.txt&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># relhum_water_data = gdf.get(&#39;applications_files/ncl_outputs/relhum_water_output.txt&#39;)</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">relhum_water_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="s2">&quot;../ncl_raw/relhum_water_output.txt&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="p">)</span>
 
 <span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.13/site-packages/numpy/lib/_npyio_impl.py:1395,</span> in <span class="ni">loadtxt</span><span class="nt">(fname, dtype, comments, delimiter, converters, skiprows, usecols, unpack, ndmin, encoding, max_rows, quotechar, like)</span>
 <span class="g g-Whitespace">   </span><span class="mi">1392</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">delimiter</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">):</span>
@@ -1203,9 +1207,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 
 <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ncl_relhum_water</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-    <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span>
-        <span class="n">ncl_relhum_water</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">geocat_relhum_water</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-00</span>
-    <span class="p">)</span> 
+    <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">ncl_relhum_water</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">geocat_relhum_water</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-00</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

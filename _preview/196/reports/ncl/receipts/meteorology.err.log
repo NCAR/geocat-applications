@@ -32,8 +32,10 @@ nbclient.exceptions.CellExecutionError: An error occurred while executing the fo
 import geocat.datafiles as gdf
 import numpy as np
 
-#relhum_water_data = gdf.get('applications_files/ncl_outputs/relhum_water_output.txt')
-relhum_water_data = np.loadtxt("../ncl_raw/relhum_water_output.txt", delimiter=',', skiprows=6)
+# relhum_water_data = gdf.get('applications_files/ncl_outputs/relhum_water_output.txt')
+relhum_water_data = np.loadtxt(
+    "../ncl_raw/relhum_water_output.txt", delimiter=',', skiprows=6
+)
 ------------------
 
 
@@ -41,8 +43,10 @@ relhum_water_data = np.loadtxt("../ncl_raw/relhum_water_output.txt", delimiter='
 [31mFileNotFoundError[39m                         Traceback (most recent call last)
 [36mCell[39m[36m [39m[32mIn[25][39m[32m, line 6[39m
 [32m      3[39m [38;5;28;01mimport[39;00m[38;5;250m [39m[34;01mnumpy[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[34;01mnp[39;00m
-[32m      5[39m [38;5;66;03m#relhum_water_data = gdf.get('applications_files/ncl_outputs/relhum_water_output.txt')[39;00m
-[32m----> [39m[32m6[39m relhum_water_data = [43mnp[49m[43m.[49m[43mloadtxt[49m[43m([49m[33;43m"[39;49m[33;43m../ncl_raw/relhum_water_output.txt[39;49m[33;43m"[39;49m[43m,[49m[43m [49m[43mdelimiter[49m[43m=[49m[33;43m'[39;49m[33;43m,[39;49m[33;43m'[39;49m[43m,[49m[43m [49m[43mskiprows[49m[43m=[49m[32;43m6[39;49m[43m)[49m
+[32m      5[39m [38;5;66;03m# relhum_water_data = gdf.get('applications_files/ncl_outputs/relhum_water_output.txt')[39;00m
+[32m----> [39m[32m6[39m relhum_water_data = [43mnp[49m[43m.[49m[43mloadtxt[49m[43m([49m
+[32m      7[39m [43m    [49m[33;43m"[39;49m[33;43m../ncl_raw/relhum_water_output.txt[39;49m[33;43m"[39;49m[43m,[49m[43m [49m[43mdelimiter[49m[43m=[49m[33;43m'[39;49m[33;43m,[39;49m[33;43m'[39;49m[43m,[49m[43m [49m[43mskiprows[49m[43m=[49m[32;43m6[39;49m
+[32m      8[39m [43m)[49m
 
 [36mFile [39m[32m~/micromamba/envs/geocat-applications/lib/python3.13/site-packages/numpy/lib/_npyio_impl.py:1395[39m, in [36mloadtxt[39m[34m(fname, dtype, comments, delimiter, converters, skiprows, usecols, unpack, ndmin, encoding, max_rows, quotechar, like)[39m
 [32m   1392[39m [38;5;28;01mif[39;00m [38;5;28misinstance[39m(delimiter, [38;5;28mbytes[39m):
