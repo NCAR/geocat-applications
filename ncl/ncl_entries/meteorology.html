@@ -423,6 +423,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#satvpr-slope-fao56">satvpr_slope_fao56</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coriolis-param">coriolis_param</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relhum">relhum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relhum-ice">relhum_ice</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-resources">Python Resources</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-reading">Additional Reading</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References:</a></li>
@@ -450,6 +451,7 @@ document.write(`
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Crop/satvpr_slope_fao56.shtml">satvpr_slope_fao56</a></p></li>
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Contributed/coriolis_param.shtml">coriolis_param</a></p></li>
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/relhum.shtml">relhum</a></p></li>
+<li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/relhum_ice.shtml">relhum_ice</a></p></li>
 </ul>
 </section>
 <section id="dewtemp-trh">
@@ -767,6 +769,60 @@ The percent of relative humidity (<span class="math notranslate nohighlight">\({
 </div>
 </div>
 </section>
+<section id="relhum-ice">
+<h2>relhum_ice<a class="headerlink" href="#relhum-ice" title="Link to this heading">#</a></h2>
+<p>NCL’s <code class="docutils literal notranslate"><span class="pre">relhum_ice</span></code> calculates relative humidity with respect to ice, given temperature, mixing ratio, and pressure.</p>
+<p>First,the approximation of vapor pressure is calculated from the Magnus Form.<a class="footnote-reference brackets" href="#footcite-magnus-form" id="id10" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a></p>
+<p><span class="math notranslate nohighlight">\({P_v} = c \exp^{\frac{a * T}{b + T}}\)</span></p>
+<p>Where <span class="math notranslate nohighlight">\(c\)</span> is vapor pressure of water at 0 degrees Celsius (Pa), and <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are saturation vapor pressure coefficient approximations over ice, as defined by the AEDki model.<a class="footnote-reference brackets" href="#footcite-notes-magnus-form" id="id11" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a></p>
+<p><span class="math notranslate nohighlight">\(a = 22.571\)</span>, <span class="math notranslate nohighlight">\(b = 273.71\)</span>, <span class="math notranslate nohighlight">\(c = 6.1128\)</span></p>
+<p>Then, the specific humidity (<span class="math notranslate nohighlight">\(q_{st}\)</span>) is calculated with <span class="math notranslate nohighlight">\(p\)</span> as pressure:</p>
+<p><span class="math notranslate nohighlight">\(q_{st} = \frac{0.622 * P_v}{(p * 0.1) - 0.378 * P_v}\)</span></p>
+<p>The constant <code class="docutils literal notranslate"><span class="pre">0.622</span></code> represents the ratio of the molar mass of vapor (<span class="math notranslate nohighlight">\(M_w\)</span>) and dry air (<span class="math notranslate nohighlight">\(M_d\)</span>) in g/mol:</p>
+<p><span class="math notranslate nohighlight">\(\frac{M_w}{M_d} = \frac{18.02}{28.9634} = 0.622\)</span></p>
+<p>And the <code class="docutils literal notranslate"><span class="pre">0.378</span></code> represents a correction constant where:</p>
+<p><span class="math notranslate nohighlight">\(1 - \frac{M_w}{M_d} = 1 - 0.622 = 0.378\)</span></p>
+<p>The percent of relative humidity (<span class="math notranslate nohighlight">\({\Psi}\)</span>) is calculated with <span class="math notranslate nohighlight">\(w\)</span> as the mixing ratio:</p>
+<p><span class="math notranslate nohighlight">\({\Psi} = 100 * \frac{w}{q_{st}}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Input: Single Value</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geocat.comp</span><span class="w"> </span><span class="kn">import</span> <span class="n">relhum_ice</span>
+
+<span class="n">temp</span> <span class="o">=</span> <span class="mf">268.15</span>  <span class="c1"># Kelvin</span>
+<span class="n">mixing_ratio</span> <span class="o">=</span> <span class="mf">0.0037</span>
+<span class="n">pressure</span> <span class="o">=</span> <span class="mi">100000</span>  <span class="c1"># Pa</span>
+
+<span class="n">relhum_ice</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">mixing_ratio</span><span class="p">,</span> <span class="n">pressure</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(147.88012516016957)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Input: List/Array</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geocat.comp</span><span class="w"> </span><span class="kn">import</span> <span class="n">relhum_ice</span>
+
+<span class="n">temp</span> <span class="o">=</span> <span class="p">[</span><span class="mf">268.15</span><span class="p">,</span> <span class="mf">258.15</span><span class="p">,</span> <span class="mf">250.15</span><span class="p">]</span>  <span class="c1"># Kelvin</span>
+<span class="n">mixing_ratio</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0037</span><span class="p">,</span> <span class="mf">0.018</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">]</span>
+<span class="n">pressure</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100000</span><span class="p">,</span> <span class="mi">100325</span><span class="p">,</span> <span class="mi">101325</span><span class="p">]</span>  <span class="c1"># Pa</span>
+
+<span class="n">relhum_ice</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">mixing_ratio</span><span class="p">,</span> <span class="n">pressure</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 147.88012516, 1756.81983351,  211.26793555])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 <hr class="docutils" />
 <section id="python-resources">
 <h2>Python Resources<a class="headerlink" href="#python-resources" title="Link to this heading">#</a></h2>
@@ -779,6 +835,7 @@ The percent of relative humidity (<span class="math notranslate nohighlight">\({
 <li><p><a class="reference external" href="https://geocat-comp.readthedocs.io/en/latest/user_api/generated/geocat.comp.meteorology.saturation_vapor_pressure_slope.html">GeoCAT-comp <code class="docutils literal notranslate"><span class="pre">saturation_vapor_pressure_slope</span></code> Documentation</a></p></li>
 <li><p><a class="reference external" href="https://unidata.github.io/MetPy/latest/api/generated/metpy.calc.coriolis_parameter.html">MetPy <code class="docutils literal notranslate"><span class="pre">coriolis_parameter</span></code> Documentation</a></p></li>
 <li><p><a class="reference external" href="https://geocat-comp.readthedocs.io/en/v2023.06.0/user_api/generated/geocat.comp.meteorology.relhum.html">GeoCAT-comp <code class="docutils literal notranslate"><span class="pre">relhum</span></code> Documentation</a></p></li>
+<li><p><a class="reference external" href="https://geocat-comp.readthedocs.io/en/latest/user_api/generated/geocat.comp.meteorology.relhum_ice.html">GeoCAT-comp <code class="docutils literal notranslate"><span class="pre">relhum_ice</span></code> Documentation</a></p></li>
 </ul>
 </section>
 <section id="additional-reading">
@@ -790,7 +847,7 @@ The percent of relative humidity (<span class="math notranslate nohighlight">\({
 </section>
 <section id="references">
 <h2>References:<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
-<div class="docutils container" id="id10">
+<div class="docutils container" id="id12">
 </div>
 </section>
 </section>
@@ -808,6 +865,14 @@ The percent of relative humidity (<span class="math notranslate nohighlight">\({
 <aside class="footnote brackets" id="footcite-hobbs-wallace-1997" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id9">3</a><span class="fn-bracket">]</span></span>
 <p>Peter V. Hobbs and John Michael Wallace. <em>Atmospheric Science: An Introductory Survey</em>. Academic Press, 1977.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-magnus-form" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id10">4</a><span class="fn-bracket">]</span></span>
+<p>Oleg A Alduchov and Robert E. Eskridge. Improved magnus form approximation of saturation vapor pressure. 1997. <a class="reference external" href="https://doi.org/10.2172/548871">doi:10.2172/548871</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-notes-magnus-form" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id11">5</a><span class="fn-bracket">]</span></span>
+<p>Oleg A Alduchov and Robert E. Eskridge. Notes and correspondence: improved magnus form approximation of saturation vapor pressure. 1996. <a class="reference external" href="https://doi.org/10.1175/1520-0450(1996)035%3C0601:IMFAOS%3E2.0.CO;2">doi:10.1175/1520-0450(1996)035%3C0601:IMFAOS%3E2.0.CO;2</a>.</p>
 </aside>
 </aside>
 
@@ -855,6 +920,7 @@ The percent of relative humidity (<span class="math notranslate nohighlight">\({
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#satvpr-slope-fao56">satvpr_slope_fao56</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coriolis-param">coriolis_param</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relhum">relhum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relhum-ice">relhum_ice</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-resources">Python Resources</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-reading">Additional Reading</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References:</a></li>

@@ -412,6 +412,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#satvpr-slope-fao56">satvpr_slope_fao56</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coriolis-param">coriolis_param</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relhum">relhum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relhum-ice">relhum_ice</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">Comparison</a><ul class="nav section-nav flex-column">
@@ -422,6 +423,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">satvpr_slope_fao56</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">coriolis_param</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">relhum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">relhum_ice</a></li>
 </ul>
 </li>
 </ul>
@@ -452,6 +454,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Crop/satvpr_slope_fao56.shtml">satvpr_slope_fao56</a></p></li>
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Contributed/coriolis_param.shtml">coriolis_param</a></p></li>
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/relhum.shtml">relhum</a></p></li>
+<li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/relhum_ice.shtml">relhum_ice</a></p></li>
 </ul>
 </section>
 <section id="ncl-code">
@@ -546,6 +549,23 @@ This notebook is part of the process we have for adding entries to the NCL Index
 		<span class="n">do</span> <span class="n">ppa</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span><span class="mi">15000</span><span class="p">,</span><span class="mi">500</span>
 			<span class="n">begin</span>
 				<span class="n">rh</span> <span class="o">=</span> <span class="n">relhum</span><span class="p">(</span><span class="n">tk</span><span class="p">,</span> <span class="n">mr</span><span class="p">,</span> <span class="n">ppa</span><span class="p">)</span>
+				<span class="nb">print</span> <span class="p">(</span><span class="n">tk</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">mr</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">ppa</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">rh</span><span class="p">)</span>
+			<span class="n">end</span>
+		<span class="n">end</span> <span class="n">do</span>
+	<span class="n">end</span> <span class="n">do</span>
+<span class="n">end</span> <span class="n">do</span>
+
+<span class="p">;</span> <span class="n">relhum_ice</span>
+<span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span><span class="w"> </span><span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Built</span><span class="o">-</span><span class="ow">in</span><span class="o">/</span><span class="n">relhum_ice</span><span class="o">.</span><span class="n">shtml</span>
+
+<span class="p">;</span> <span class="n">ncl</span> <span class="o">-</span><span class="n">n</span> <span class="n">relhum_ice</span><span class="o">.</span><span class="n">ncl</span> <span class="o">&gt;&gt;</span> <span class="n">relhum_ice_output</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperature (K), Mixing Ratio (KG/KG), Pressure (Pa)&quot;</span><span class="p">)</span>
+<span class="n">do</span> <span class="n">tk</span><span class="o">=</span><span class="mi">173</span><span class="p">,</span><span class="mi">273</span>
+	<span class="n">do</span> <span class="n">mr</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span>
+		<span class="n">do</span> <span class="n">ppa</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span><span class="mi">15000</span><span class="p">,</span><span class="mi">500</span>
+			<span class="n">begin</span>
+				<span class="n">rh</span> <span class="o">=</span> <span class="n">relhum_ice</span><span class="p">(</span><span class="n">tk</span><span class="p">,</span> <span class="n">mr</span><span class="p">,</span> <span class="n">ppa</span><span class="p">)</span>
 				<span class="nb">print</span> <span class="p">(</span><span class="n">tk</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">mr</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">ppa</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">rh</span><span class="p">)</span>
 			<span class="n">end</span>
 		<span class="n">end</span> <span class="n">do</span>
@@ -882,7 +902,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
         <span class="k">for</span> <span class="n">press</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">15000</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">500</span><span class="p">):</span>
             <span class="n">temp_mr_press</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">temp</span><span class="p">,</span> <span class="n">mr</span><span class="p">,</span> <span class="n">press</span><span class="p">))</span>
 
-<span class="c1">### Calculate GeoCAT-Comp `daylight_fao56` value and doy/lat</span>
+<span class="c1">### Calculate GeoCAT-Comp `relhum` value and temp/mixing ratio/pressure</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">geocat.comp</span><span class="w"> </span><span class="kn">import</span> <span class="n">relhum</span>
 
 <span class="n">geocat_relhum</span> <span class="o">=</span> <span class="p">{}</span>
@@ -890,6 +910,58 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">variables</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">temp_mr_press</span><span class="p">):</span>
     <span class="n">temp</span><span class="p">,</span> <span class="n">mr</span><span class="p">,</span> <span class="n">press</span> <span class="o">=</span> <span class="n">variables</span>
     <span class="n">geocat_relhum</span><span class="p">[</span><span class="n">variables</span><span class="p">]</span> <span class="o">=</span> <span class="n">relhum</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">mr</span><span class="p">,</span> <span class="n">press</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="relhum-ice">
+<h3>relhum_ice<a class="headerlink" href="#relhum-ice" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#### Collect NCL values for relhum from geocat-datafiles</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geocat.datafiles</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gdf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">relhum_ice_data</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;applications_files/ncl_outputs/relhum_ice_output.txt&#39;</span><span class="p">)</span>
+<span class="n">relhum_ice_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">relhum_ice_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/ncl_outputs/relhum_ice_output.txt&#39; from &#39;https://github.com/NCAR/GeoCAT-datafiles/raw/main/applications_files/ncl_outputs/relhum_ice_output.txt&#39; to &#39;/home/runner/.cache/geocat&#39;.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Collect NCL `relhum_ice` value and associated (temp, mixing ratio) values</span>
+<span class="n">ncl_relhum_ice</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">temp_mr_press</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="n">relhum_ice_data</span><span class="p">[::,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]))</span>
+<span class="n">relhum_ice_values</span> <span class="o">=</span> <span class="n">relhum_ice_data</span><span class="p">[::,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">ncl_relhum_ice</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">temp_mr_press</span><span class="p">,</span> <span class="n">relhum_ice_values</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Collect Temperature, Mixing Ratio, Pressure</span>
+<span class="n">temp_mr_press</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">temp</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">173</span><span class="p">,</span> <span class="mi">273</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">mr</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">press</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">15000</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">500</span><span class="p">):</span>
+            <span class="n">temp_mr_press</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">temp</span><span class="p">,</span> <span class="n">mr</span><span class="p">,</span> <span class="n">press</span><span class="p">))</span>
+
+<span class="c1">### Calculate GeoCAT-Comp `relhum_ice` value and temp/mixing ratio/pressure</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geocat.comp</span><span class="w"> </span><span class="kn">import</span> <span class="n">relhum_ice</span>
+
+<span class="n">geocat_relhum_ice</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">variables</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">temp_mr_press</span><span class="p">):</span>
+    <span class="n">temp</span><span class="p">,</span> <span class="n">mr</span><span class="p">,</span> <span class="n">press</span> <span class="o">=</span> <span class="n">variables</span>
+    <span class="n">geocat_relhum_ice</span><span class="p">[</span><span class="n">variables</span><span class="p">]</span> <span class="o">=</span> <span class="n">relhum_ice</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">mr</span><span class="p">,</span> <span class="n">press</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1081,6 +1153,21 @@ This notebook is part of the process we have for adding entries to the NCL Index
 </div>
 </div>
 </section>
+<section id="id8">
+<h3>relhum_ice<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ncl_relhum_ice</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span>
+        <span class="n">ncl_relhum_ice</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">geocat_relhum_ice</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-05</span>
+    <span class="p">)</span>  <span class="c1"># within 5 decimal points</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 </section>
 
@@ -1121,6 +1208,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#satvpr-slope-fao56">satvpr_slope_fao56</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coriolis-param">coriolis_param</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relhum">relhum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relhum-ice">relhum_ice</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">Comparison</a><ul class="nav section-nav flex-column">
@@ -1131,6 +1219,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">satvpr_slope_fao56</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">coriolis_param</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">relhum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">relhum_ice</a></li>
 </ul>
 </li>
 </ul>
