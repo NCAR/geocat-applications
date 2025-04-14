@@ -110,3 +110,20 @@ do tk=173,273
 		end do
 	end do
 end do
+
+; relhum_water
+; Adapted from https://www.ncl.ucar.edu/Document/Functions/Built-in/relhum_water.shtml
+
+; ncl -n relhum_water.ncl >> relhum_water_output.txt
+
+print("Temperature (K), Mixing Ratio (KG/KG), Pressure (Pa)")
+do tk=273,373
+	do mr=1,100
+		do ppa=10000,15000,500
+			begin
+				rh = relhum_water(tk, mr, ppa)
+				print (tk + "," + mr + "," + ppa + "," + rh)
+			end
+		end do
+	end do
+end do
