@@ -84,7 +84,7 @@ end do
 
 print("Temperature (K), Mixing Ratio (KG/KG), Pressure (Pa)")
 do tk=273,290
-	do mr=1,100
+	do mr=0.01,0.05,0.01
 		do ppa=10000,15000,500
 			begin
 				rh = relhum(tk, mr, ppa)
@@ -101,7 +101,7 @@ end do
 
 print("Temperature (K), Mixing Ratio (KG/KG), Pressure (Pa)")
 do tk=173,273
-	do mr=1,100
+	do mr=0.01,0.05,0.01
 		do ppa=10000,15000,500
 			begin
 				rh = relhum_ice(tk, mr, ppa)
