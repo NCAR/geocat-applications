@@ -127,3 +127,22 @@ do tk=273,373
 		end do
 	end do
 end do
+
+; dpres_plevel
+; Adapted from https://www.ncl.ucar.edu/Document/Functions/Built-in/dpres_plevel.shtml
+
+; ncl -n dpres_plevel.ncl >> dpres_plevel_output.txt
+
+print("Surface Pressure (hpa), Pressure Level (hPa), Delta Pressure (hPa)")
+plev = (/ 1000.,950.,900.,850.,800.,750.,700.,650.,600., \
+             550.,500.,450.,400.,350.,300.,250.,200., \
+             175.,150.,125.,100., 80., 70., 60., 50., \
+              40., 30., 25., 20. /)
+do psfc=1000,1050
+	begin
+		dp = dpres_plevel(plev,psfc,min(plev),0)
+		do i=0,dimsizes(plev)-1
+			print (psfc + "," + plev(i) + "," + dp)
+		end do
+	end
+end do
