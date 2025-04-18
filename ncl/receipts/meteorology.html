@@ -548,7 +548,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperature (K), Mixing Ratio (KG/KG), Pressure (Pa)&quot;</span><span class="p">)</span>
 <span class="n">do</span> <span class="n">tk</span><span class="o">=</span><span class="mi">273</span><span class="p">,</span><span class="mi">290</span>
-	<span class="n">do</span> <span class="n">mr</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span>
+	<span class="n">do</span> <span class="n">mr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.01</span>
 		<span class="n">do</span> <span class="n">ppa</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span><span class="mi">15000</span><span class="p">,</span><span class="mi">500</span>
 			<span class="n">begin</span>
 				<span class="n">rh</span> <span class="o">=</span> <span class="n">relhum</span><span class="p">(</span><span class="n">tk</span><span class="p">,</span> <span class="n">mr</span><span class="p">,</span> <span class="n">ppa</span><span class="p">)</span>
@@ -565,7 +565,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperature (K), Mixing Ratio (KG/KG), Pressure (Pa)&quot;</span><span class="p">)</span>
 <span class="n">do</span> <span class="n">tk</span><span class="o">=</span><span class="mi">173</span><span class="p">,</span><span class="mi">273</span>
-	<span class="n">do</span> <span class="n">mr</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span>
+	<span class="n">do</span> <span class="n">mr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.01</span>
 		<span class="n">do</span> <span class="n">ppa</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span><span class="mi">15000</span><span class="p">,</span><span class="mi">500</span>
 			<span class="n">begin</span>
 				<span class="n">rh</span> <span class="o">=</span> <span class="n">relhum_ice</span><span class="p">(</span><span class="n">tk</span><span class="p">,</span> <span class="n">mr</span><span class="p">,</span> <span class="n">ppa</span><span class="p">)</span>
@@ -918,7 +918,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Collect Temperature, Mixing Ratio, Pressure</span>
 <span class="n">temp_mr_press</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">temp</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">273</span><span class="p">,</span> <span class="mi">374</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">mr</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">mr</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.05</span> <span class="o">+</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">press</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">15000</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">500</span><span class="p">):</span>
             <span class="n">temp_mr_press</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">temp</span><span class="p">,</span> <span class="n">mr</span><span class="p">,</span> <span class="n">press</span><span class="p">))</span>
 
@@ -970,7 +970,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Collect Temperature, Mixing Ratio, Pressure</span>
 <span class="n">temp_mr_press</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">temp</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">173</span><span class="p">,</span> <span class="mi">273</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">mr</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">mr</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.05</span> <span class="o">+</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">press</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">15000</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">500</span><span class="p">):</span>
             <span class="n">temp_mr_press</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">temp</span><span class="p">,</span> <span class="n">mr</span><span class="p">,</span> <span class="n">press</span><span class="p">))</span>
 
@@ -1220,20 +1220,6 @@ This notebook is part of the process we have for adding entries to the NCL Index
     <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span>
         <span class="n">ncl_relhum</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">geocat_relhum</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-05</span>
     <span class="p">)</span>  <span class="c1"># within 5 decimal points</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">34</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ncl_relhum</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span>
-<span class="ne">----&gt; </span><span class="mi">5</span>         <span class="n">ncl_relhum</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">geocat_relhum</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-05</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="p">)</span>  <span class="c1"># within 5 decimal points</span>
-
-<span class="ne">KeyError</span>: (np.float64(273.0), np.float64(0.01), np.float64(10000.0))
 </pre></div>
 </div>
 </div>
