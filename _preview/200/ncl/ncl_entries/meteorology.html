@@ -425,6 +425,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relhum">relhum</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relhum-ice">relhum_ice</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relhum-water">relhum_water</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dpres-plevel">dpres_plevel</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-resources">Python Resources</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-reading">Additional Reading</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References:</a></li>
@@ -454,6 +455,7 @@ document.write(`
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/relhum.shtml">relhum</a></p></li>
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/relhum_ice.shtml">relhum_ice</a></p></li>
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/relhum_water.shtml">relhum_water</a></p></li>
+<li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/dpres_plevel.shtml">dpres_plevel</a></p></li>
 </ul>
 </section>
 <section id="dewtemp-trh">
@@ -879,6 +881,121 @@ The percent of relative humidity (<span class="math notranslate nohighlight">\({
 </div>
 </div>
 </section>
+<section id="dpres-plevel">
+<h2>dpres_plevel<a class="headerlink" href="#dpres-plevel" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Input: Single Value</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geocat.comp</span><span class="w"> </span><span class="kn">import</span> <span class="n">delta_pressure</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">pressure_levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="mi">1000</span><span class="p">,</span>
+        <span class="mi">950</span><span class="p">,</span>
+        <span class="mi">900</span><span class="p">,</span>
+        <span class="mi">850</span><span class="p">,</span>
+        <span class="mi">800</span><span class="p">,</span>
+        <span class="mi">750</span><span class="p">,</span>
+        <span class="mi">700</span><span class="p">,</span>
+        <span class="mi">650</span><span class="p">,</span>
+        <span class="mi">600</span><span class="p">,</span>
+        <span class="mi">550</span><span class="p">,</span>
+        <span class="mi">500</span><span class="p">,</span>
+        <span class="mi">450</span><span class="p">,</span>
+        <span class="mi">400</span><span class="p">,</span>
+        <span class="mi">350</span><span class="p">,</span>
+        <span class="mi">300</span><span class="p">,</span>
+        <span class="mi">250</span><span class="p">,</span>
+        <span class="mi">200</span><span class="p">,</span>
+        <span class="mi">175</span><span class="p">,</span>
+        <span class="mi">150</span><span class="p">,</span>
+        <span class="mi">125</span><span class="p">,</span>
+        <span class="mi">100</span><span class="p">,</span>
+        <span class="mi">80</span><span class="p">,</span>
+        <span class="mi">70</span><span class="p">,</span>
+        <span class="mi">60</span><span class="p">,</span>
+        <span class="mi">50</span><span class="p">,</span>
+        <span class="mi">40</span><span class="p">,</span>
+        <span class="mi">30</span><span class="p">,</span>
+        <span class="mi">25</span><span class="p">,</span>
+        <span class="mi">20</span><span class="p">,</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+<span class="n">surface_pressure</span> <span class="o">=</span> <span class="mi">1050</span>
+
+<span class="n">delta_pressure</span><span class="p">(</span><span class="n">pressure_levels</span><span class="p">,</span> <span class="n">surface_pressure</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba/envs/geocat-applications/lib/python3.13/site-packages/numpy/_core/numeric.py:442: RuntimeWarning: invalid value encountered in cast
+  multiarray.copyto(res, fill_value, casting=&#39;unsafe&#39;)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([75, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 37,
+       25, 25, 25, 22, 15, 10, 10, 10, 10,  7,  5,  2])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Input: List/Array</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geocat.comp</span><span class="w"> </span><span class="kn">import</span> <span class="n">delta_pressure</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">pressure_levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="mi">1000</span><span class="p">,</span>
+        <span class="mi">950</span><span class="p">,</span>
+        <span class="mi">900</span><span class="p">,</span>
+        <span class="mi">850</span><span class="p">,</span>
+        <span class="mi">800</span><span class="p">,</span>
+        <span class="mi">750</span><span class="p">,</span>
+        <span class="mi">700</span><span class="p">,</span>
+        <span class="mi">650</span><span class="p">,</span>
+        <span class="mi">600</span><span class="p">,</span>
+        <span class="mi">550</span><span class="p">,</span>
+        <span class="mi">500</span><span class="p">,</span>
+        <span class="mi">450</span><span class="p">,</span>
+        <span class="mi">400</span><span class="p">,</span>
+        <span class="mi">350</span><span class="p">,</span>
+        <span class="mi">300</span><span class="p">,</span>
+        <span class="mi">250</span><span class="p">,</span>
+        <span class="mi">200</span><span class="p">,</span>
+        <span class="mi">175</span><span class="p">,</span>
+        <span class="mi">150</span><span class="p">,</span>
+        <span class="mi">125</span><span class="p">,</span>
+        <span class="mi">100</span><span class="p">,</span>
+        <span class="mi">80</span><span class="p">,</span>
+        <span class="mi">70</span><span class="p">,</span>
+        <span class="mi">60</span><span class="p">,</span>
+        <span class="mi">50</span><span class="p">,</span>
+        <span class="mi">40</span><span class="p">,</span>
+        <span class="mi">30</span><span class="p">,</span>
+        <span class="mi">25</span><span class="p">,</span>
+        <span class="mi">20</span><span class="p">,</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+<span class="n">surface_pressure</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1025</span><span class="p">,</span> <span class="mi">1050</span><span class="p">])</span>
+
+<span class="n">delta_pressure</span><span class="p">(</span><span class="n">pressure_levels</span><span class="p">,</span> <span class="n">surface_pressure</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[25, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50,
+        37, 25, 25, 25, 22, 15, 10, 10, 10, 10,  7,  5,  2],
+       [50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50,
+        37, 25, 25, 25, 22, 15, 10, 10, 10, 10,  7,  5,  2],
+       [75, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50,
+        37, 25, 25, 25, 22, 15, 10, 10, 10, 10,  7,  5,  2]])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 <hr class="docutils" />
 <section id="python-resources">
 <h2>Python Resources<a class="headerlink" href="#python-resources" title="Link to this heading">#</a></h2>
@@ -985,6 +1102,7 @@ The percent of relative humidity (<span class="math notranslate nohighlight">\({
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relhum">relhum</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relhum-ice">relhum_ice</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relhum-water">relhum_water</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dpres-plevel">dpres_plevel</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-resources">Python Resources</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-reading">Additional Reading</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References:</a></li>
