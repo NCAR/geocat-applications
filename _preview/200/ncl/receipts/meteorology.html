@@ -1069,10 +1069,8 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="kn">import</span><span class="w"> </span><span class="nn">geocat.datafiles</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gdf</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="c1"># dpres_plevel_data = gdf.get(&#39;applications_files/ncl_outputs/dpres_plevel_output.txt&#39;)</span>
-<span class="n">dpres_plevel_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span>
-    <span class="s2">&quot;../ncl_raw/dpres_plevel_output.txt&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span>
-<span class="p">)</span>
+<span class="c1">#dpres_plevel_data = gdf.get(&#39;applications_files/ncl_outputs/dpres_plevel_output.txt&#39;)</span>
+<span class="n">dpres_plevel_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;../ncl_raw/dpres_plevel_output.txt&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1081,10 +1079,8 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">28</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># dpres_plevel_data = gdf.get(&#39;applications_files/ncl_outputs/dpres_plevel_output.txt&#39;)</span>
-<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">dpres_plevel_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="s2">&quot;../ncl_raw/dpres_plevel_output.txt&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1">#dpres_plevel_data = gdf.get(&#39;applications_files/ncl_outputs/dpres_plevel_output.txt&#39;)</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">dpres_plevel_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;../ncl_raw/dpres_plevel_output.txt&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 
 <span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.13/site-packages/numpy/lib/_npyio_impl.py:1395,</span> in <span class="ni">loadtxt</span><span class="nt">(fname, dtype, comments, delimiter, converters, skiprows, usecols, unpack, ndmin, encoding, max_rows, quotechar, like)</span>
 <span class="g g-Whitespace">   </span><span class="mi">1392</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">delimiter</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">):</span>
@@ -1127,64 +1123,26 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Collect NCL `dpres_plevel` value and associated (pressure_lev, surface_pressure) values</span>
 <span class="n">ncl_dpres_plevel</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="k">for</span> <span class="n">plevel</span><span class="p">,</span> <span class="n">surface_pres</span><span class="p">,</span> <span class="n">dp</span> <span class="ow">in</span> <span class="n">dpres_plevel_data</span><span class="p">:</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">plevel</span><span class="p">,</span> <span class="n">surface_pres</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ncl_dpres_plevel</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-        <span class="n">ncl_dpres_plevel</span><span class="p">[(</span><span class="n">plevel</span><span class="p">,</span> <span class="n">surface_pres</span><span class="p">)]</span> <span class="o">=</span> <span class="p">[</span><span class="n">dp</span><span class="p">]</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">ncl_dpres_plevel</span><span class="p">[(</span><span class="n">plevel</span><span class="p">,</span> <span class="n">surface_pres</span><span class="p">)]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span>
+    <span class="n">ncl_dpres_plevel</span><span class="p">[(</span><span class="n">plevel</span><span class="p">,</span> <span class="n">surface_pres</span><span class="p">)]</span> <span class="o">=</span> <span class="n">dp</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">press_level_surface</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="mi">1000</span><span class="p">,</span>
-    <span class="mi">950</span><span class="p">,</span>
-    <span class="mi">900</span><span class="p">,</span>
-    <span class="mi">850</span><span class="p">,</span>
-    <span class="mi">800</span><span class="p">,</span>
-    <span class="mi">750</span><span class="p">,</span>
-    <span class="mi">700</span><span class="p">,</span>
-    <span class="mi">650</span><span class="p">,</span>
-    <span class="mi">600</span><span class="p">,</span>
-    <span class="mi">550</span><span class="p">,</span>
-    <span class="mi">500</span><span class="p">,</span>
-    <span class="mi">450</span><span class="p">,</span>
-    <span class="mi">400</span><span class="p">,</span>
-    <span class="mi">350</span><span class="p">,</span>
-    <span class="mi">300</span><span class="p">,</span>
-    <span class="mi">250</span><span class="p">,</span>
-    <span class="mi">200</span><span class="p">,</span>
-    <span class="mi">175</span><span class="p">,</span>
-    <span class="mi">150</span><span class="p">,</span>
-    <span class="mi">125</span><span class="p">,</span>
-    <span class="mi">100</span><span class="p">,</span>
-    <span class="mi">80</span><span class="p">,</span>
-    <span class="mi">70</span><span class="p">,</span>
-    <span class="mi">60</span><span class="p">,</span>
-    <span class="mi">50</span><span class="p">,</span>
-    <span class="mi">40</span><span class="p">,</span>
-    <span class="mi">30</span><span class="p">,</span>
-    <span class="mi">25</span><span class="p">,</span>
-    <span class="mi">20</span><span class="p">,</span>
-<span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plev</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1000</span><span class="p">,</span><span class="mi">950</span><span class="p">,</span><span class="mi">900</span><span class="p">,</span><span class="mi">850</span><span class="p">,</span><span class="mi">800</span><span class="p">,</span><span class="mi">750</span><span class="p">,</span><span class="mi">700</span><span class="p">,</span><span class="mi">650</span><span class="p">,</span><span class="mi">600</span><span class="p">,</span><span class="mi">550</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span>
+        <span class="mi">450</span><span class="p">,</span><span class="mi">400</span><span class="p">,</span><span class="mi">350</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">250</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">175</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mi">125</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">70</span><span class="p">,</span>
+        <span class="mi">60</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">20</span><span class="p">]</span>
 
 <span class="c1">### Calculate GeoCAT-Comp `dpres_plevel` value</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">geocat.comp</span><span class="w"> </span><span class="kn">import</span> <span class="n">delta_pressure</span>
 
 <span class="n">geocat_delta_pressure</span> <span class="o">=</span> <span class="p">{}</span>
 
-<span class="k">for</span> <span class="n">level</span> <span class="ow">in</span> <span class="n">press_level_surface</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">dpres</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1050</span><span class="p">):</span>
-        <span class="n">geocat_delta_pressure</span><span class="p">[(</span><span class="n">level</span><span class="p">,</span> <span class="n">dpres</span><span class="p">)]</span> <span class="o">=</span> <span class="n">delta_pressure</span><span class="p">(</span>
-            <span class="n">press_level_surface</span><span class="p">,</span> <span class="n">level</span>
-        <span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/cs/miniconda3/envs/geocat-applications/lib/python3.12/site-packages/numpy/_core/numeric.py:457: RuntimeWarning: invalid value encountered in cast
-  multiarray.copyto(res, fill_value, casting=&#39;unsafe&#39;)
+<span class="k">for</span> <span class="n">psfc</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span><span class="mi">1080</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">dp</span> <span class="o">=</span> <span class="n">delta_pressure</span><span class="p">(</span><span class="n">plev</span><span class="p">,</span><span class="n">psfc</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">level</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">plev</span><span class="p">):</span>
+        <span class="n">geocat_delta_pressure</span><span class="p">[(</span><span class="n">psfc</span><span class="p">,</span><span class="n">plev</span><span class="p">[</span><span class="n">i</span><span class="p">])]</span>  <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1416,11 +1374,210 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 
 <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ncl_dpres_plevel</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-    <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">geocat_delta_pressure</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-        <span class="n">ncl_dp_values</span> <span class="o">=</span> <span class="n">ncl_dpres_plevel</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-        <span class="n">geocat_dp_values</span> <span class="o">=</span> <span class="n">geocat_delta_pressure</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ncl_value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ncl_dpres_plevel</span><span class="p">[</span><span class="n">key</span><span class="p">]):</span>
-            <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">ncl_dp_values</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">geocat_dp_values</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-00</span><span class="p">)</span>
+    <span class="n">ncl_dp_value</span> <span class="o">=</span> <span class="n">ncl_dpres_plevel</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+    <span class="n">geocat_dp_value</span> <span class="o">=</span> <span class="n">geocat_delta_pressure</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">ncl_dp_value</span> <span class="o">-</span> <span class="n">geocat_dp_value</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mf">0.5</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">ncl_dp_value</span> <span class="o">&lt;</span> <span class="nb">float</span><span class="p">(</span><span class="mf">9e+36</span><span class="p">)</span> <span class="ow">and</span> <span class="n">geocat_dp_value</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># ignore nan</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Pressure Level: </span><span class="si">{</span><span class="n">key</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">, Surface Pressure: </span><span class="si">{</span><span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span> <span class="c1"># delta_pressure(plev,psfc)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Difference: </span><span class="si">{</span><span class="n">ncl_dp_value</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">geocat_dp_value</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">ncl_dp_value</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">geocat_dp_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pressure Level: 800.0, Surface Pressure: 826.0:
+	Difference: 50.0 - 51 = -1.0
+Pressure Level: 800.0, Surface Pressure: 827.0:
+	Difference: 50.0 - 52 = -2.0
+Pressure Level: 800.0, Surface Pressure: 828.0:
+	Difference: 50.0 - 53 = -3.0
+Pressure Level: 800.0, Surface Pressure: 829.0:
+	Difference: 50.0 - 54 = -4.0
+Pressure Level: 800.0, Surface Pressure: 830.0:
+	Difference: 50.0 - 55 = -5.0
+Pressure Level: 800.0, Surface Pressure: 831.0:
+	Difference: 50.0 - 56 = -6.0
+Pressure Level: 800.0, Surface Pressure: 832.0:
+	Difference: 50.0 - 57 = -7.0
+Pressure Level: 800.0, Surface Pressure: 833.0:
+	Difference: 50.0 - 58 = -8.0
+Pressure Level: 800.0, Surface Pressure: 834.0:
+	Difference: 50.0 - 59 = -9.0
+Pressure Level: 800.0, Surface Pressure: 835.0:
+	Difference: 50.0 - 60 = -10.0
+Pressure Level: 800.0, Surface Pressure: 836.0:
+	Difference: 50.0 - 61 = -11.0
+Pressure Level: 800.0, Surface Pressure: 837.0:
+	Difference: 50.0 - 62 = -12.0
+Pressure Level: 800.0, Surface Pressure: 838.0:
+	Difference: 50.0 - 63 = -13.0
+Pressure Level: 800.0, Surface Pressure: 839.0:
+	Difference: 50.0 - 64 = -14.0
+Pressure Level: 800.0, Surface Pressure: 840.0:
+	Difference: 50.0 - 65 = -15.0
+Pressure Level: 800.0, Surface Pressure: 841.0:
+	Difference: 50.0 - 66 = -16.0
+Pressure Level: 800.0, Surface Pressure: 842.0:
+	Difference: 50.0 - 67 = -17.0
+Pressure Level: 800.0, Surface Pressure: 843.0:
+	Difference: 50.0 - 68 = -18.0
+Pressure Level: 800.0, Surface Pressure: 844.0:
+	Difference: 50.0 - 69 = -19.0
+Pressure Level: 800.0, Surface Pressure: 845.0:
+	Difference: 50.0 - 70 = -20.0
+Pressure Level: 800.0, Surface Pressure: 846.0:
+	Difference: 50.0 - 71 = -21.0
+Pressure Level: 800.0, Surface Pressure: 847.0:
+	Difference: 50.0 - 72 = -22.0
+Pressure Level: 800.0, Surface Pressure: 848.0:
+	Difference: 50.0 - 73 = -23.0
+Pressure Level: 800.0, Surface Pressure: 849.0:
+	Difference: 50.0 - 74 = -24.0
+Pressure Level: 850.0, Surface Pressure: 876.0:
+	Difference: 50.0 - 51 = -1.0
+Pressure Level: 850.0, Surface Pressure: 877.0:
+	Difference: 50.0 - 52 = -2.0
+Pressure Level: 850.0, Surface Pressure: 878.0:
+	Difference: 50.0 - 53 = -3.0
+Pressure Level: 850.0, Surface Pressure: 879.0:
+	Difference: 50.0 - 54 = -4.0
+Pressure Level: 850.0, Surface Pressure: 880.0:
+	Difference: 50.0 - 55 = -5.0
+Pressure Level: 850.0, Surface Pressure: 881.0:
+	Difference: 50.0 - 56 = -6.0
+Pressure Level: 850.0, Surface Pressure: 882.0:
+	Difference: 50.0 - 57 = -7.0
+Pressure Level: 850.0, Surface Pressure: 883.0:
+	Difference: 50.0 - 58 = -8.0
+Pressure Level: 850.0, Surface Pressure: 884.0:
+	Difference: 50.0 - 59 = -9.0
+Pressure Level: 850.0, Surface Pressure: 885.0:
+	Difference: 50.0 - 60 = -10.0
+Pressure Level: 850.0, Surface Pressure: 886.0:
+	Difference: 50.0 - 61 = -11.0
+Pressure Level: 850.0, Surface Pressure: 887.0:
+	Difference: 50.0 - 62 = -12.0
+Pressure Level: 850.0, Surface Pressure: 888.0:
+	Difference: 50.0 - 63 = -13.0
+Pressure Level: 850.0, Surface Pressure: 889.0:
+	Difference: 50.0 - 64 = -14.0
+Pressure Level: 850.0, Surface Pressure: 890.0:
+	Difference: 50.0 - 65 = -15.0
+Pressure Level: 850.0, Surface Pressure: 891.0:
+	Difference: 50.0 - 66 = -16.0
+Pressure Level: 850.0, Surface Pressure: 892.0:
+	Difference: 50.0 - 67 = -17.0
+Pressure Level: 850.0, Surface Pressure: 893.0:
+	Difference: 50.0 - 68 = -18.0
+Pressure Level: 850.0, Surface Pressure: 894.0:
+	Difference: 50.0 - 69 = -19.0
+Pressure Level: 850.0, Surface Pressure: 895.0:
+	Difference: 50.0 - 70 = -20.0
+Pressure Level: 850.0, Surface Pressure: 896.0:
+	Difference: 50.0 - 71 = -21.0
+Pressure Level: 850.0, Surface Pressure: 897.0:
+	Difference: 50.0 - 72 = -22.0
+Pressure Level: 850.0, Surface Pressure: 898.0:
+	Difference: 50.0 - 73 = -23.0
+Pressure Level: 850.0, Surface Pressure: 899.0:
+	Difference: 50.0 - 74 = -24.0
+Pressure Level: 900.0, Surface Pressure: 926.0:
+	Difference: 50.0 - 51 = -1.0
+Pressure Level: 900.0, Surface Pressure: 927.0:
+	Difference: 50.0 - 52 = -2.0
+Pressure Level: 900.0, Surface Pressure: 928.0:
+	Difference: 50.0 - 53 = -3.0
+Pressure Level: 900.0, Surface Pressure: 929.0:
+	Difference: 50.0 - 54 = -4.0
+Pressure Level: 900.0, Surface Pressure: 930.0:
+	Difference: 50.0 - 55 = -5.0
+Pressure Level: 900.0, Surface Pressure: 931.0:
+	Difference: 50.0 - 56 = -6.0
+Pressure Level: 900.0, Surface Pressure: 932.0:
+	Difference: 50.0 - 57 = -7.0
+Pressure Level: 900.0, Surface Pressure: 933.0:
+	Difference: 50.0 - 58 = -8.0
+Pressure Level: 900.0, Surface Pressure: 934.0:
+	Difference: 50.0 - 59 = -9.0
+Pressure Level: 900.0, Surface Pressure: 935.0:
+	Difference: 50.0 - 60 = -10.0
+Pressure Level: 900.0, Surface Pressure: 936.0:
+	Difference: 50.0 - 61 = -11.0
+Pressure Level: 900.0, Surface Pressure: 937.0:
+	Difference: 50.0 - 62 = -12.0
+Pressure Level: 900.0, Surface Pressure: 938.0:
+	Difference: 50.0 - 63 = -13.0
+Pressure Level: 900.0, Surface Pressure: 939.0:
+	Difference: 50.0 - 64 = -14.0
+Pressure Level: 900.0, Surface Pressure: 940.0:
+	Difference: 50.0 - 65 = -15.0
+Pressure Level: 900.0, Surface Pressure: 941.0:
+	Difference: 50.0 - 66 = -16.0
+Pressure Level: 900.0, Surface Pressure: 942.0:
+	Difference: 50.0 - 67 = -17.0
+Pressure Level: 900.0, Surface Pressure: 943.0:
+	Difference: 50.0 - 68 = -18.0
+Pressure Level: 900.0, Surface Pressure: 944.0:
+	Difference: 50.0 - 69 = -19.0
+Pressure Level: 900.0, Surface Pressure: 945.0:
+	Difference: 50.0 - 70 = -20.0
+Pressure Level: 900.0, Surface Pressure: 946.0:
+	Difference: 50.0 - 71 = -21.0
+Pressure Level: 900.0, Surface Pressure: 947.0:
+	Difference: 50.0 - 72 = -22.0
+Pressure Level: 900.0, Surface Pressure: 948.0:
+	Difference: 50.0 - 73 = -23.0
+Pressure Level: 900.0, Surface Pressure: 949.0:
+	Difference: 50.0 - 74 = -24.0
+Pressure Level: 950.0, Surface Pressure: 976.0:
+	Difference: 50.0 - 51 = -1.0
+Pressure Level: 950.0, Surface Pressure: 977.0:
+	Difference: 50.0 - 52 = -2.0
+Pressure Level: 950.0, Surface Pressure: 978.0:
+	Difference: 50.0 - 53 = -3.0
+Pressure Level: 950.0, Surface Pressure: 979.0:
+	Difference: 50.0 - 54 = -4.0
+Pressure Level: 950.0, Surface Pressure: 980.0:
+	Difference: 50.0 - 55 = -5.0
+Pressure Level: 950.0, Surface Pressure: 981.0:
+	Difference: 50.0 - 56 = -6.0
+Pressure Level: 950.0, Surface Pressure: 982.0:
+	Difference: 50.0 - 57 = -7.0
+Pressure Level: 950.0, Surface Pressure: 983.0:
+	Difference: 50.0 - 58 = -8.0
+Pressure Level: 950.0, Surface Pressure: 984.0:
+	Difference: 50.0 - 59 = -9.0
+Pressure Level: 950.0, Surface Pressure: 985.0:
+	Difference: 50.0 - 60 = -10.0
+Pressure Level: 950.0, Surface Pressure: 986.0:
+	Difference: 50.0 - 61 = -11.0
+Pressure Level: 950.0, Surface Pressure: 987.0:
+	Difference: 50.0 - 62 = -12.0
+Pressure Level: 950.0, Surface Pressure: 988.0:
+	Difference: 50.0 - 63 = -13.0
+Pressure Level: 950.0, Surface Pressure: 989.0:
+	Difference: 50.0 - 64 = -14.0
+Pressure Level: 950.0, Surface Pressure: 990.0:
+	Difference: 50.0 - 65 = -15.0
+Pressure Level: 950.0, Surface Pressure: 991.0:
+	Difference: 50.0 - 66 = -16.0
+Pressure Level: 950.0, Surface Pressure: 992.0:
+	Difference: 50.0 - 67 = -17.0
+Pressure Level: 950.0, Surface Pressure: 993.0:
+	Difference: 50.0 - 68 = -18.0
+Pressure Level: 950.0, Surface Pressure: 994.0:
+	Difference: 50.0 - 69 = -19.0
+Pressure Level: 950.0, Surface Pressure: 995.0:
+	Difference: 50.0 - 70 = -20.0
+Pressure Level: 950.0, Surface Pressure: 996.0:
+	Difference: 50.0 - 71 = -21.0
+Pressure Level: 950.0, Surface Pressure: 997.0:
+	Difference: 50.0 - 72 = -22.0
+Pressure Level: 950.0, Surface Pressure: 998.0:
+	Difference: 50.0 - 73 = -23.0
+Pressure Level: 950.0, Surface Pressure: 999.0:
+	Difference: 50.0 - 74 = -24.0
 </pre></div>
 </div>
 </div>
