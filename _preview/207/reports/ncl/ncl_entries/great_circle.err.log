@@ -32,15 +32,11 @@ nbclient.exceptions.CellExecutionError: An error occurred while executing the fo
 def latlon_to_cart(lat, lon):
     from astropy.coordinates.representation import UnitSphericalRepresentation
     from astropy import units
-
-    spherical_coords = UnitSphericalRepresentation(
-        lat=lat * units.deg, lon=lon * units.deg
-    )
+    spherical_coords = UnitSphericalRepresentation(lat=lat * units.deg, lon=lon * units.deg)
     cart_coords = spherical_coords.to_cartesian()
     return np.array([cart_coords.x, cart_coords.y, cart_coords.z])
 
-
-pt_within = latlon_to_cart(40.0150, -105.2705)  # Boulder
+pt_within = latlon_to_cart(40.0150, -105.2705) # Boulder
 vertex_a = latlon_to_cart(50.0150, -105.2705)
 vertex_b = latlon_to_cart(30.0150, -105.2705)
 
@@ -53,11 +49,11 @@ point_within_gca(pt_within, vertex_a, vertex_b)
 
 [31m---------------------------------------------------------------------------[39m
 [31mModuleNotFoundError[39m                       Traceback (most recent call last)
-[36mCell[39m[36m [39m[32mIn[4][39m[32m, line 18[39m
-[32m     15[39m vertex_b = latlon_to_cart([32m30.0150[39m, -[32m105.2705[39m)
-[32m     17[39m [38;5;66;03m# Determine if point lies along great circle arc[39;00m
-[32m---> [39m[32m18[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01muxarray[39;00m[34;01m.[39;00m[34;01mgrid[39;00m[34;01m.[39;00m[34;01marcs[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m point_within_gca
-[32m     20[39m point_within_gca(pt_within, vertex_a, vertex_b)
+[36mCell[39m[36m [39m[32mIn[4][39m[32m, line 14[39m
+[32m     11[39m vertex_b = latlon_to_cart([32m30.0150[39m, -[32m105.2705[39m)
+[32m     13[39m [38;5;66;03m# Determine if point lies along great circle arc[39;00m
+[32m---> [39m[32m14[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01muxarray[39;00m[34;01m.[39;00m[34;01mgrid[39;00m[34;01m.[39;00m[34;01marcs[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m point_within_gca
+[32m     16[39m point_within_gca(pt_within, vertex_a, vertex_b)
 
 [31mModuleNotFoundError[39m: No module named 'uxarray'
 
