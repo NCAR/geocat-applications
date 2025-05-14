@@ -558,11 +558,15 @@ Longitude = -105.27049999999997
 <span class="k">def</span><span class="w"> </span><span class="nf">latlon_to_cart</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">):</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">astropy.coordinates.representation</span><span class="w"> </span><span class="kn">import</span> <span class="n">UnitSphericalRepresentation</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">astropy</span><span class="w"> </span><span class="kn">import</span> <span class="n">units</span>
-    <span class="n">spherical_coords</span> <span class="o">=</span> <span class="n">UnitSphericalRepresentation</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="n">lat</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span> <span class="n">lon</span><span class="o">=</span><span class="n">lon</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">deg</span><span class="p">)</span>
+
+    <span class="n">spherical_coords</span> <span class="o">=</span> <span class="n">UnitSphericalRepresentation</span><span class="p">(</span>
+        <span class="n">lat</span><span class="o">=</span><span class="n">lat</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span> <span class="n">lon</span><span class="o">=</span><span class="n">lon</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">deg</span>
+    <span class="p">)</span>
     <span class="n">cart_coords</span> <span class="o">=</span> <span class="n">spherical_coords</span><span class="o">.</span><span class="n">to_cartesian</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">cart_coords</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">cart_coords</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">cart_coords</span><span class="o">.</span><span class="n">z</span><span class="p">])</span>
 
-<span class="n">pt_within</span> <span class="o">=</span> <span class="n">latlon_to_cart</span><span class="p">(</span><span class="mf">40.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">)</span> <span class="c1"># Boulder</span>
+
+<span class="n">pt_within</span> <span class="o">=</span> <span class="n">latlon_to_cart</span><span class="p">(</span><span class="mf">40.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">)</span>  <span class="c1"># Boulder</span>
 <span class="n">vertex_a</span> <span class="o">=</span> <span class="n">latlon_to_cart</span><span class="p">(</span><span class="mf">50.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">)</span>
 <span class="n">vertex_b</span> <span class="o">=</span> <span class="n">latlon_to_cart</span><span class="p">(</span><span class="mf">30.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">)</span>
 
@@ -576,11 +580,11 @@ Longitude = -105.27049999999997
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">14</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">vertex_b</span> <span class="o">=</span> <span class="n">latlon_to_cart</span><span class="p">(</span><span class="mf">30.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="c1"># Determine if point lies along great circle arc</span>
-<span class="ne">---&gt; </span><span class="mi">14</span> <span class="kn">from</span><span class="w"> </span><span class="nn">uxarray.grid.arcs</span><span class="w"> </span><span class="kn">import</span> <span class="n">point_within_gca</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">point_within_gca</span><span class="p">(</span><span class="n">pt_within</span><span class="p">,</span> <span class="n">vertex_a</span><span class="p">,</span> <span class="n">vertex_b</span><span class="p">)</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">18</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="n">vertex_b</span> <span class="o">=</span> <span class="n">latlon_to_cart</span><span class="p">(</span><span class="mf">30.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="c1"># Determine if point lies along great circle arc</span>
+<span class="ne">---&gt; </span><span class="mi">18</span> <span class="kn">from</span><span class="w"> </span><span class="nn">uxarray.grid.arcs</span><span class="w"> </span><span class="kn">import</span> <span class="n">point_within_gca</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="n">point_within_gca</span><span class="p">(</span><span class="n">pt_within</span><span class="p">,</span> <span class="n">vertex_a</span><span class="p">,</span> <span class="n">vertex_b</span><span class="p">)</span>
 
 <span class="ne">ModuleNotFoundError</span>: No module named &#39;uxarray&#39;
 </pre></div>
