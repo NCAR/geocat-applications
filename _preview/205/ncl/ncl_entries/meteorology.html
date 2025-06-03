@@ -891,16 +891,16 @@ The percent of relative humidity (<span class="math notranslate nohighlight">\({
 <section id="psychro-fao56">
 <h1>psychro_fao56<a class="headerlink" href="#psychro-fao56" title="Link to this heading">#</a></h1>
 <p>Computes the psychrometric constant (kPa/C) as described in the Food and Agriculture Organization (FAO) Irrigation and Drainage Paper 56 [(Chapter 3, Equation 8)](https://www.fao.org/4/x0490e/x0490e07.htm#psychrometric%20constant%20(g) or <a class="reference external" href="https://www.fao.org/4/x0490e/x0490e0k.htm#annex%203.%20background%20on%20physical%20parameters%20used%20in%20evapotranspiration%20computatio">Equation 3-10 in Annex 3</a>)<a class="footnote-reference brackets" href="#footcite-allan-fao-1998" id="id15" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
-<p><span class="math notranslate nohighlight">\({\gamma} = \frac{c_{p} * P}{{\epsilon} * {\lambda}}\)</span></p>
-<p><span class="math notranslate nohighlight">\({\gamma} = \frac{1.013 x 10^{-3} * P}{0.622 * 2.45}\)</span></p>
-<p><span class="math notranslate nohighlight">\({\gamma} = 0.6647 x 10^{-3} * P\)</span></p>
+<p><span class="math notranslate nohighlight">\({\gamma} = \frac{c_{p}P}{{\epsilon}{\lambda}}\)</span></p>
+<p><span class="math notranslate nohighlight">\({\gamma} = \frac{1.013 \text{e-3} * P}{0.622 * 2.45}\)</span></p>
+<p><span class="math notranslate nohighlight">\({\gamma} = 0.6647 \text{e-3} * P\)</span></p>
 <p>Where, <span class="math notranslate nohighlight">\({\gamma}\)</span> is the psychorometric constant (in kPa/C), <span class="math notranslate nohighlight">\(P\)</span> is the atmospheric pressure (kPa), <span class="math notranslate nohighlight">\({\lambda}\)</span> is the latent heat vaporization (2.45 MJ/kgC) and <span class="math notranslate nohighlight">\({\epsilon}\)</span> is the ratio of molecular weight of water and dry air (0.622)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Input: Single Value</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">geocat.comp</span><span class="w"> </span><span class="kn">import</span> <span class="n">psychrometric_constant</span>
 
-<span class="n">pressure</span> <span class="o">=</span> <span class="mi">80</span>  <span class="c1"># kPa/C</span>
+<span class="n">pressure</span> <span class="o">=</span> <span class="mi">80</span> <span class="c1"># kPa/C</span>
 <span class="n">psychrometric_constant</span><span class="p">(</span><span class="n">pressure</span><span class="p">)</span>
 </pre></div>
 </div>
