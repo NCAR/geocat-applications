@@ -118,4 +118,6 @@ is_on_arc = gc_onarc(40.0150, -105.2705, (/39.73915, 42.35843/), (/-104.9847, -7
 print(is_on_arc)
 
 ; All three points in the same position
+; True
 is_on_arc = gc_onarc(40.0150, -105.2705, (/40.0150, 40.0150/), (/-105.2705, -105.2705/))
+print(is_on_arc)
