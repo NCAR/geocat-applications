@@ -551,6 +551,22 @@ This notebook is part of the process we have for adding entries to the NCL Index
 		<span class="n">end</span>
 	<span class="n">end</span> <span class="n">do</span>
 <span class="n">end</span> <span class="n">do</span>
+
+<span class="p">;</span> <span class="n">gc_onarc</span>
+<span class="p">;</span> <span class="n">ncl</span> <span class="o">-</span><span class="n">n</span> <span class="n">gc_onarc</span><span class="o">.</span><span class="n">ncl</span> <span class="o">&gt;&gt;</span> <span class="n">gc_onarc_output</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="p">;</span> <span class="n">Arc</span> <span class="n">above</span><span class="o">/</span><span class="n">below</span> <span class="n">latitude</span> <span class="k">with</span> <span class="n">point</span> <span class="ow">in</span> <span class="n">Boulder</span> <span class="k">with</span> <span class="n">same</span> <span class="n">longitude</span>
+<span class="p">;</span> <span class="kc">True</span>
+<span class="n">is_on_arc</span> <span class="o">=</span> <span class="n">gc_onarc</span><span class="p">(</span><span class="mf">40.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">,</span> <span class="p">(</span><span class="o">/</span><span class="mf">50.0150</span><span class="p">,</span> <span class="mf">30.0150</span><span class="o">/</span><span class="p">),</span> <span class="p">(</span><span class="o">/-</span><span class="mf">105.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="o">/</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">is_on_arc</span><span class="p">)</span>
+
+<span class="p">;</span> <span class="n">Arc</span> <span class="kn">from</span><span class="w"> </span><span class="nn">Denver</span> <span class="n">to</span> <span class="n">Boston</span><span class="p">,</span> <span class="n">point</span> <span class="k">with</span> <span class="n">Boulder</span>
+<span class="p">;</span> <span class="kc">False</span>
+<span class="n">is_on_arc</span> <span class="o">=</span> <span class="n">gc_onarc</span><span class="p">(</span><span class="mf">40.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">,</span> <span class="p">(</span><span class="o">/</span><span class="mf">39.73915</span><span class="p">,</span> <span class="mf">42.35843</span><span class="o">/</span><span class="p">),</span> <span class="p">(</span><span class="o">/-</span><span class="mf">104.9847</span><span class="p">,</span> <span class="o">-</span><span class="mf">71.05977</span><span class="o">/</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">is_on_arc</span><span class="p">)</span>
+
+<span class="p">;</span> <span class="n">All</span> <span class="n">three</span> <span class="n">points</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">same</span> <span class="n">position</span>
+<span class="n">is_on_arc</span> <span class="o">=</span> <span class="n">gc_onarc</span><span class="p">(</span><span class="mf">40.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">,</span> <span class="p">(</span><span class="o">/</span><span class="mf">40.0150</span><span class="p">,</span> <span class="mf">40.0150</span><span class="o">/</span><span class="p">),</span> <span class="p">(</span><span class="o">/-</span><span class="mf">105.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="o">/</span><span class="p">))</span>
 </pre></div>
 </div>
 </section>
