@@ -103,3 +103,26 @@ do lat=-90,90
 		end
 	end do
 end do
+
+; gc_onarc
+; ncl -n gc_onarc.ncl >> gc_onarc_output.txt
+
+; Arc above/below latitude with point in Boulder with same longitude
+; True
+is_on_arc = gc_onarc(40.0150, -105.2705, (/50.0150, 30.0150/), (/-105.2705, -105.2705/))
+print(is_on_arc)
+
+; Arc from Denver to Boston, point with Boulder
+; False
+is_on_arc = gc_onarc(40.0150, -105.2705, (/39.73915, 42.35843/), (/-104.9847, -71.05977/))
+print(is_on_arc)
+
+; All three points in the same position
+; True
+is_on_arc = gc_onarc(40.0150, -105.2705, (/40.0150, 40.0150/), (/-105.2705, -105.2705/))
+print(is_on_arc)
+
+; Anti-meridian
+; False
+is_on_arc = gc_onarc(24.86658349036834, 151.60735730237568, (/55.182644873824785, 49.05673786129486/), (/30.6703372467811, 179.59874545906715/))
+print(is_on_arc)
