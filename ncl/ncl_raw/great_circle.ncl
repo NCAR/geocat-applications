@@ -126,3 +126,32 @@ print(is_on_arc)
 ; False
 is_on_arc = gc_onarc(24.86658349036834, 151.60735730237568, (/55.182644873824785, 49.05673786129486/), (/30.6703372467811, 179.59874545906715/))
 print(is_on_arc)
+
+; gc_qarea
+; Adapted from https://www.ncl.ucar.edu/Document/Functions/Built-in/gc_qarea.shtml
+
+; Roughly the Four Corners of Colorado (4 Sides)
+lat1 = (/41.00488, 41.00203, 37.00540, 37.00051/)
+lon1 = (/-109.05001, -102.05348, -103.04633, -109.04720/)
+print(gc_clkwise(lat1, lon1))
+; (0)	True
+print(area_poly_sphere(lat1, lon1, 6370.997))
+; (0)	250007.6
+
+; Boulder, Boston, Cape Canaveral, Houston
+lat1 = (/40.0150, 42.3601, 28.3968, 29.5518/)
+lon1 = (/-105.2705, -71.0589, -80.6057, -95.0982/)
+print(gc_clkwise(lat1, lon1))
+; (0)	True
+print(area_poly_sphere(lat1, lon1, 6370.997))
+; (0)	3154871
+
+;; Edge Cases
+
+; Crossing the Equator (0 degrees Latitude)
+
+; Crosses Pole
+
+; Crossing the Prime Meridian (0 Degrees Longitude)
+
+; Half of the World
