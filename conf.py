@@ -231,22 +231,22 @@ autosummary_imported_members = True
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-html_theme_options = dict(
-    # analytics_id=''  this is configured in rtfd.io
-    # canonical_url="",
-    repository_url="https://github.com/NCAR/geocat-applications",
-    repository_branch="main",
-    path_to_docs="docs",
-    use_edit_page_button=True,
-    use_repository_button=True,
-    use_issues_button=True,
-    home_page_in_toc=False,
-    extra_footer="<em>This material is based upon work supported by the NSF National Center for Atmospheric Research, a major facility sponsored by the U.S. National Science Foundation and managed by the University Corporation for Atmospheric Research. Any opinions, findings and conclusions or recommendations expressed in this material do not necessarily reflect the views of the U.S. National Science Foundation.</em>",
-)
-
-# Add analytics
-html_theme_options["analytics"] = {
-    "google_analytics_id": "G-EQMBXF1D2V",
+html_theme_options = {
+    "repository_url": "https://github.com/NCAR/geocat-applications",
+    "repository_branch": "main",
+    "path_to_docs": "docs",
+    "use_edit_page_button": True,
+    "use_repository_button": True,
+    "use_issues_button": True,
+    "home_page_in_toc": False,
+    "analytics": {
+        "google_analytics_id": "G-EQMBXF1D2V",
+    },
+    "logo": {
+        "image_light": '_static/images/logos/NSF_NCAR_light.svg',
+        "image_dark": '_static/images/logos/NSF_NCAR_dark.svg',
+    },
+    "extra_footer": "<em>This material is based upon work supported by the NSF National Center for Atmospheric Research, a major facility sponsored by the U.S. National Science Foundation and managed by the University Corporation for Atmospheric Research. Any opinions, findings and conclusions or recommendations expressed in this material do not necessarily reflect the views of the U.S. National Science Foundation.</em>",
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
@@ -255,15 +255,6 @@ html_theme_options["analytics"] = {
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 # html_short_title = None
-
-# The name of an image file (relative to this directory) to place at the top
-# of the sidebar.
-html_theme_options = {
-    "logo": {
-        "image_light": '_static/images/logos/NSF_NCAR_light.svg',
-        "image_dark": '_static/images/logos/NSF_NCAR_dark.svg',
-    }
-}
 
 # The name of an image file (relative to this directory) to use as a favicon of
 # the docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
@@ -388,3 +379,14 @@ nb_execution_excludepatterns = ['templates/*']
 
 # generate warning for all invalid links
 # nitpicky = True
+
+# turn off anchor checks for speed and to get around github's line number anchor issues
+linkcheck_anchors = False
+
+# ignore some links that work, but are disliked by linkcheck
+# Temporary removed while Code of Conduct is updated: https://doi.org/10.5065/6w2c-a132 -> https://www.ucar.edu/who-we-are/ethics-integrity/codes-conduct/contributors
+linkcheck_ignore = [
+    r'https://doi.org/10.1080/104732299303296',
+    r'https://www.mathworks.com/help/matlab/ref/double.sign.html',
+    r'https://doi.org/10.5065/6w2c-a132',
+]

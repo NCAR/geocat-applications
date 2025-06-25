@@ -34,5 +34,5 @@ Python resources by category with relevant context and links to additional resou
 
             .. card:: Geoscience
 
-                - `Climatology <climatology.ipynb>`_
+                - `Climatology <climatology.ipynb>`__
                 - `Humid heat metrics <humid_heat_metrics.ipynb>`__

@@ -11,7 +11,7 @@
 If you are new to Python or want to learn more, [Project Pythia](https://projectpythia.org/) offers high-quality,
 geoscience-oriented Python tutorials
 
-[Pythia Foundations](https://foundations.projectpythia.org/landing-page.html) covers prerequisites that
+[Pythia Foundations](https://foundations.projectpythia.org) covers prerequisites that
 will be helpful to learn for GeoCAT Applications like:
 
 - Getting Started with Python
@@ -21,7 +21,7 @@ will be helpful to learn for GeoCAT Applications like:
 
 ## New to Jupyter Notebooks?
 
-[Jupyter Notebooks](https://docs.jupyter.org/en/latest/what_is_jupyter.html#what-is-a-computational-notebook-anyway)
+[Jupyter Notebooks](https://docs.jupyter.org/en/latest/)
 provide an interactive interface to write, execute, and visualize code. Traditionally, code is written in a script and
 executed in order from beginning to end each time a script is run. Instead, Jupyter Notebooks allow you to divide code into cells that can be executed individually and in any order. Each cell in a Jupyter Notebook
 can be filled with executable code, markdown, or raw code. Jupyter Notebooks have grown in popularity because they offer a simple
