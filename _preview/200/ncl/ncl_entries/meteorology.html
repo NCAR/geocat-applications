@@ -884,11 +884,6 @@ The percent of relative humidity (<span class="math notranslate nohighlight">\({
 <section id="dpres-plevel">
 <h2>dpres_plevel<a class="headerlink" href="#dpres-plevel" title="Link to this heading">#</a></h2>
 <p>NCL’s <code class="docutils literal notranslate"><span class="pre">dpres_plevel</span></code> calculates the change in pressure (delta pressure) for each layer in a specific constant pressure level coordinate system while accounting for specific surface pressures.</p>
-<p>The top (<span class="math notranslate nohighlight">\(\text{delta pressure}_\text{start}\)</span>) and bottom (<span class="math notranslate nohighlight">\(\text{delta pressure}_\text{end}\)</span>) pressure layers are calculated as:</p>
-<p><span class="math notranslate nohighlight">\(\text{delta pressure}_\text{start} = \frac{\text{pressure}_\text{start} + \text{pressure}_\text{start+1}}{2 - \text{pressure}_\text{min}}\)</span></p>
-<p><span class="math notranslate nohighlight">\(\text{delta pressure}_\text{end} = \frac{\text{surface pressure} - (\text{pressure}_\text{end} + \text{pressure}_\text{end-1})}{2}\)</span></p>
-<p>While the middle layers are calculated as the difference between each layers:</p>
-<p><span class="math notranslate nohighlight">\(\text{delta pressure}_\text{mid} = \frac{a-b}{2}\)</span></p>
 <div class="admonition alert alert-info">
     <p class="admonition-title" style="font-weight:bold">Important Note</p>
     The minimum and maximum layers do not necessarliy correspond to the min/max layer since some might be fully below ground (below `surface_pressure`). In NCL, it is possible to be fully above the top, but in geocat-comp the top is determined to be the minimum `pressure_lev` value)
