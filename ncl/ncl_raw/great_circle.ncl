@@ -131,27 +131,45 @@ print(is_on_arc)
 ; Adapted from https://www.ncl.ucar.edu/Document/Functions/Built-in/gc_qarea.shtml
 
 ; Roughly the Four Corners of Colorado (4 Sides)
-lat1 = (/41.00488, 41.00203, 37.00540, 37.00051/)
-lon1 = (/-109.05001, -102.05348, -103.04633, -109.04720/)
-print(gc_clkwise(lat1, lon1))
+lat = (/41.00488, 41.00203, 37.00540, 37.00051/)
+lon = (/-109.05001, -102.05348, -103.04633, -109.04720/)
+print(gc_clkwise(lat, lon))
 ; (0)	True
-print(area_poly_sphere(lat1, lon1, 6370.997))
+print(area_poly_sphere(lat, lon, 6370.997))
 ; (0)	250007.6
 
 ; Boulder, Boston, Cape Canaveral, Houston
-lat1 = (/40.0150, 42.3601, 28.3968, 29.5518/)
-lon1 = (/-105.2705, -71.0589, -80.6057, -95.0982/)
-print(gc_clkwise(lat1, lon1))
+lat = (/40.0150, 42.3601, 28.3968, 29.5518/)
+lon = (/-105.2705, -71.0589, -80.6057, -95.0982/)
+print(gc_clkwise(lat, lon))
 ; (0)	True
-print(area_poly_sphere(lat1, lon1, 6370.997))
+print(area_poly_sphere(lat, lon, 6370.997))
 ; (0)	3154871
 
 ;; Edge Cases
 
 ; Crossing the Equator (0 degrees Latitude)
-
-; Crosses Pole
+; Boulder, Boston, Montevideo, Quito
+lat = (/40.0150, 42.3601, -34.5420, -0.1312/)
+lon = (/-105.2705, -71.0589, -56.1103, -78.3045/)
+print(gc_clkwise(lat, lon))
+; (0)	True
+print(area_poly_sphere(lat, lon, 6370.997))
+; (0)	1.507316e+07
 
 ; Crossing the Prime Meridian (0 Degrees Longitude)
+; Dublin, Norwich, London, Cardiff
+lat = (/53.2100, 52.3743, 51.3026, 51.2854/)
+lon = (/-6.1537, 1.1734, -0.739, -3.1045/)
+print(gc_clkwise(lat, lon))
+; (0)	True
+print(area_poly_sphere(lat, lon, 6370.997))
+; (0)	54846.56
 
 ; Half of the World
+lat = (/90.0, 0.0, -90.0, 0.0/)
+lon = (/0.0, -90.0, 0.0, 90.0/)
+print(gc_clkwise(lat, lon))
+; (0)	True
+print(area_poly_sphere(lat, lon, 6370.997))
+; (0)	2.55032e+08
