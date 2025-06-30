@@ -147,3 +147,15 @@ do psfc=800,1080
 		end do
 	end
 end do
+
+; psychro_fao56
+; Adapted from https://www.ncl.ucar.edu/Document/Functions/Crop/psychro_fao56.shtml
+
+; ncl -n psychro_fao56.ncl >> psychro_fao56_output.txt
+
+print("Pressure (kPa), Psychrometric Constant (kPa/C)")
+
+do press=0,3000
+	begin
+		pc = psychro_fao56(press, (/2,2/))
+		print(press + "," + pc)
