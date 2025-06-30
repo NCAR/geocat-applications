@@ -128,16 +128,22 @@ do tk=273,373
 	end do
 end do
 
-; psychro_fao56
-; Adapted from https://www.ncl.ucar.edu/Document/Functions/Crop/psychro_fao56.shtml
+; dpres_plevel
+; Adapted from https://www.ncl.ucar.edu/Document/Functions/Built-in/dpres_plevel.shtml
 
-; ncl -n psychro_fao56.ncl >> psychro_fao56_output.txt
+; ncl -n dpres_plevel.ncl >> dpres_plevel_output.txt
 
-print("Pressure (kPa), Psychrometric Constant (kPa/C)")
+print("Surface Pressure (hpa), Pressure Level (hPa), Delta Pressure (hPa)")
+plev = (/ 1000.,950.,900.,850.,800.,750.,700.,650.,600., \
+          550.,500.,450.,400.,350.,300.,250.,200., \
+          175.,150.,125.,100., 80., 70., 60., 50., \
+          40., 30., 25., 20. /)
 
-do press=0,3000
+do psfc=800,1080
 	begin
-		pc = psychro_fao56(press, (/2,2/))
-		print(press + "," + pc)
+		dp = dpres_plevel(plev,psfc,min(plev),0)
+		do i=0,dimsizes(plev)-1
+			print (psfc + "," + plev(i) + "," + dp(i))
+		end do
 	end
 end do
