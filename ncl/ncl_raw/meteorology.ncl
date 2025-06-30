@@ -155,7 +155,9 @@ end do
 
 print("Pressure (kPa), Psychrometric Constant (kPa/C)")
 
-do press=0,3000
+do pres=0,3000
 	begin
-		pc = psychro_fao56(press, (/2,2/))
-		print(press + "," + pc)
+		pc = psychro_fao56(pres, (/2,2/))
+		print(pres + "," + pc)
+	end
+end do
