@@ -461,6 +461,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/relhum_ice.shtml">relhum_ice</a></p></li>
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/relhum_water.shtml">relhum_water</a></p></li>
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/dpres_plevel.shtml">dpres_plevel</a></p></li>
+<li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Crop/psychro_fao56.shtml">psychro_fao56</a></p></li>
 </ul>
 </section>
 <section id="ncl-code">
@@ -614,6 +615,18 @@ This notebook is part of the process we have for adding entries to the NCL Index
 		<span class="n">end</span> <span class="n">do</span>
 	<span class="n">end</span>
 <span class="n">end</span> <span class="n">do</span>
+
+<span class="p">;</span> <span class="n">psychro_fao56</span>
+<span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span><span class="w"> </span><span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Crop</span><span class="o">/</span><span class="n">psychro_fao56</span><span class="o">.</span><span class="n">shtml</span>
+
+<span class="p">;</span> <span class="n">ncl</span> <span class="o">-</span><span class="n">n</span> <span class="n">psychro_fao56</span><span class="o">.</span><span class="n">ncl</span> <span class="o">&gt;&gt;</span> <span class="n">psychro_fao56_output</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Pressure (kPa), Psychrometric Constant (kPa/C)&quot;</span><span class="p">)</span>
+
+<span class="n">do</span> <span class="n">press</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="mi">3000</span>
+	<span class="n">begin</span>
+		<span class="n">pc</span> <span class="o">=</span> <span class="n">psychro_fao56</span><span class="p">(</span><span class="n">press</span><span class="p">,</span> <span class="p">(</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="o">/</span><span class="p">))</span>
+		<span class="nb">print</span><span class="p">(</span><span class="n">press</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">pc</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
