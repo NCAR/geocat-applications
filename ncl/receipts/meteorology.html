@@ -415,6 +415,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relhum-ice">relhum_ice</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relhum-water">relhum_water</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dpres-plevel">dpres_plevel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#psychro-fao56">psychro_fao56</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">Comparison</a><ul class="nav section-nav flex-column">
@@ -428,6 +429,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">relhum_ice</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">relhum_water</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">dpres_plevel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">psychro_fao56</a></li>
 </ul>
 </li>
 </ul>
@@ -461,6 +463,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/relhum_ice.shtml">relhum_ice</a></p></li>
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/relhum_water.shtml">relhum_water</a></p></li>
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/dpres_plevel.shtml">dpres_plevel</a></p></li>
+<li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Crop/psychro_fao56.shtml">psychro_fao56</a></p></li>
 </ul>
 </section>
 <section id="ncl-code">
@@ -612,6 +615,20 @@ This notebook is part of the process we have for adding entries to the NCL Index
 		<span class="n">do</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">dimsizes</span><span class="p">(</span><span class="n">plev</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
 			<span class="nb">print</span> <span class="p">(</span><span class="n">psfc</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">plev</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">dp</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
 		<span class="n">end</span> <span class="n">do</span>
+	<span class="n">end</span>
+<span class="n">end</span> <span class="n">do</span>
+
+<span class="p">;</span> <span class="n">psychro_fao56</span>
+<span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span><span class="w"> </span><span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Crop</span><span class="o">/</span><span class="n">psychro_fao56</span><span class="o">.</span><span class="n">shtml</span>
+
+<span class="p">;</span> <span class="n">ncl</span> <span class="o">-</span><span class="n">n</span> <span class="n">psychro_fao56</span><span class="o">.</span><span class="n">ncl</span> <span class="o">&gt;&gt;</span> <span class="n">psychro_fao56_output</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Pressure (kPa), Psychrometric Constant (kPa/C)&quot;</span><span class="p">)</span>
+
+<span class="n">do</span> <span class="n">press</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="mi">3000</span>
+	<span class="n">begin</span>
+		<span class="n">pc</span> <span class="o">=</span> <span class="n">psychro_fao56</span><span class="p">(</span><span class="n">press</span><span class="p">,</span> <span class="p">(</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="o">/</span><span class="p">))</span>
+		<span class="nb">print</span><span class="p">(</span><span class="n">press</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">pc</span><span class="p">)</span>
 	<span class="n">end</span>
 <span class="n">end</span> <span class="n">do</span>
 </pre></div>
@@ -1145,6 +1162,46 @@ This notebook is part of the process we have for adding entries to the NCL Index
 </div>
 </div>
 </section>
+<section id="psychro-fao56">
+<h3>psychro_fao56<a class="headerlink" href="#psychro-fao56" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#### Collect NCL values for psychro_fao56 from geocat-datafiles</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geocat.datafiles</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gdf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">psychro_fao56_data</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;applications_files/ncl_outputs/psychro_fao56_output.txt&#39;</span><span class="p">)</span>
+<span class="n">psychro_fao56_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">psychro_fao56_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/ncl_outputs/psychro_fao56_output.txt&#39; from &#39;https://github.com/NCAR/GeoCAT-datafiles/raw/main/applications_files/ncl_outputs/psychro_fao56_output.txt&#39; to &#39;/home/runner/.cache/geocat&#39;.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Collect NCL `psychro_fao56` value and associated pressure values</span>
+<span class="n">ncl_psychro_fao56</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">psychro_fao56_data</span><span class="p">[::,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">psychro_fao56_data</span><span class="p">[::,</span> <span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Calculate Psychrometric Constant</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">geocat.comp</span><span class="w"> </span><span class="kn">import</span> <span class="n">psychrometric_constant</span>
+
+<span class="n">geocat_psychro_fao56</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">pressure</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3000</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">geocat_psychro_fao56</span><span class="p">[</span><span class="n">pressure</span><span class="p">]</span> <span class="o">=</span> <span class="n">psychrometric_constant</span><span class="p">(</span><span class="n">pressure</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="comparison">
 <h2>Comparison<a class="headerlink" href="#comparison" title="Link to this heading">#</a></h2>
@@ -1388,6 +1445,21 @@ This notebook is part of the process we have for adding entries to the NCL Index
 </div>
 </div>
 </section>
+<section id="id11">
+<h3>psychro_fao56<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ncl_psychro_fao56</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span>
+        <span class="n">geocat_psychro_fao56</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">ncl_psychro_fao56</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-05</span>
+    <span class="p">)</span>  <span class="c1"># within 5 decimal points</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 </section>
 
@@ -1431,6 +1503,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relhum-ice">relhum_ice</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relhum-water">relhum_water</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dpres-plevel">dpres_plevel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#psychro-fao56">psychro_fao56</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">Comparison</a><ul class="nav section-nav flex-column">
@@ -1444,6 +1517,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">relhum_ice</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">relhum_water</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">dpres_plevel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">psychro_fao56</a></li>
 </ul>
 </li>
 </ul>
