@@ -417,7 +417,18 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Grab and Go</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gc-onarc">gc_onarc</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gc-onarc">gc_onarc</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Grab and Go</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gc-qarea">gc_qarea</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Grab and Go</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#area-on-the-unit-sphere">Area on the unit sphere</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#area-on-a-spherical-datum-with-earth-radius">Area on a spherical datum with Earth radius</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-resources">Python Resources</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-reading">Additional Reading</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References:</a></li>
@@ -442,6 +453,7 @@ document.write(`
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/css2c.shtml">css2c</a></p></li>
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/csc2s.shtml">csc2s</a></p></li>
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/gc_onarc.shtml">gc_onarc</a></p></li>
+<li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/gc_qarea.shtml">gc_qarea</a></p></li>
 </ul>
 </section>
 <section id="area-poly-sphere">
@@ -551,6 +563,8 @@ Longitude = -105.27049999999997
 <section id="gc-onarc">
 <h2>gc_onarc<a class="headerlink" href="#gc-onarc" title="Link to this heading">#</a></h2>
 <p>NCL’s <code class="docutils literal notranslate"><span class="pre">gc_onarc</span></code> determines if a point on the globe lies on a specified great circle arc as long as the angle between the two points along the great circle arc is not exactly 180 degrees (diametrically opposite, or antipodal).</p>
+<section id="id4">
+<h3>Grab and Go<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -592,8 +606,8 @@ Longitude = -105.27049999999997
 
 /* Override VSCode background color */
 .cell-output-ipywidget-background:has(
-    > .cell-output-ipywidget-background > .lm-Widget > *[data-root-id]
-  ),
+  > .cell-output-ipywidget-background > .lm-Widget > *[data-root-id]
+),
 .cell-output-ipywidget-background:has(> .lm-Widget > *[data-root-id]) {
   background-color: transparent !important;
 }
@@ -763,7 +777,7 @@ Longitude = -105.27049999999997
     document.body.appendChild(element);
   }
 
-  const js_urls = ["https://cdn.holoviz.org/panel/1.7.2/dist/bundled/reactiveesm/es-module-shims@^1.10.0/dist/es-module-shims.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-3.7.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-3.7.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.7.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.7.3.min.js", "https://cdn.holoviz.org/panel/1.7.2/dist/panel.min.js"];
+  const js_urls = ["https://cdn.holoviz.org/panel/1.7.4/dist/bundled/reactiveesm/es-module-shims@^1.10.0/dist/es-module-shims.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-3.7.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-3.7.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.7.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.7.3.min.js", "https://cdn.holoviz.org/panel/1.7.4/dist/panel.min.js"];
   const js_modules = [];
   const js_exports = {};
   const css_urls = [];
@@ -1095,12 +1109,12 @@ if (window.Jupyter !== undefined) {
   } catch(err) {
   }
 }
-</script><div class="output text_html"><div id='04712ef0-ce2e-446b-a288-b3994637502f'>
-  <div id="ad0db6a0-f664-4d7f-bb62-9f472ead4c15" data-root-id="04712ef0-ce2e-446b-a288-b3994637502f" style="display: contents;"></div>
+</script><div class="output text_html"><div id='14fb96c1-699e-4c3b-81d6-643a95c4360d'>
+  <div id="c0bd1e0e-40e9-42f0-806e-0990684bdcd2" data-root-id="14fb96c1-699e-4c3b-81d6-643a95c4360d" style="display: contents;"></div>
 </div>
 <script type="application/javascript">(function(root) {
-  var docs_json = {"ea6ac7e5-0ae6-415e-9e26-8ff29537f4dc":{"version":"3.7.3","title":"Bokeh Application","roots":[{"type":"object","name":"panel.models.browser.BrowserInfo","id":"04712ef0-ce2e-446b-a288-b3994637502f"},{"type":"object","name":"panel.models.comm_manager.CommManager","id":"5d8859e4-d6ee-4a32-90c4-94d3ded042c4","attributes":{"plot_id":"04712ef0-ce2e-446b-a288-b3994637502f","comm_id":"fb60ededb2864b408c2c80bd369cdff3","client_comm_id":"fb9aa525d78740de8d7fabafed2dbadd"}}],"defs":[{"type":"model","name":"ReactiveHTML1"},{"type":"model","name":"FlexBox1","properties":[{"name":"align_content","kind":"Any","default":"flex-start"},{"name":"align_items","kind":"Any","default":"flex-start"},{"name":"flex_direction","kind":"Any","default":"row"},{"name":"flex_wrap","kind":"Any","default":"wrap"},{"name":"gap","kind":"Any","default":""},{"name":"justify_content","kind":"Any","default":"flex-start"}]},{"type":"model","name":"FloatPanel1","properties":[{"name":"config","kind":"Any","default":{"type":"map"}},{"name":"contained","kind":"Any","default":true},{"name":"position","kind":"Any","default":"right-top"},{"name":"offsetx","kind":"Any","default":null},{"name":"offsety","kind":"Any","default":null},{"name":"theme","kind":"Any","default":"primary"},{"name":"status","kind":"Any","default":"normalized"}]},{"type":"model","name":"GridStack1","properties":[{"name":"ncols","kind":"Any","default":null},{"name":"nrows","kind":"Any","default":null},{"name":"allow_resize","kind":"Any","default":true},{"name":"allow_drag","kind":"Any","default":true},{"name":"state","kind":"Any","default":[]}]},{"type":"model","name":"drag1","properties":[{"name":"slider_width","kind":"Any","default":5},{"name":"slider_color","kind":"Any","default":"black"},{"name":"value","kind":"Any","default":50}]},{"type":"model","name":"click1","properties":[{"name":"terminal_output","kind":"Any","default":""},{"name":"debug_name","kind":"Any","default":""},{"name":"clears","kind":"Any","default":0}]},{"type":"model","name":"ReactiveESM1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"JSComponent1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"ReactComponent1","properties":[{"name":"use_shadow_dom","kind":"Any","default":true},{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"AnyWidgetComponent1","properties":[{"name":"use_shadow_dom","kind":"Any","default":true},{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"FastWrapper1","properties":[{"name":"object","kind":"Any","default":null},{"name":"style","kind":"Any","default":null}]},{"type":"model","name":"NotificationArea1","properties":[{"name":"js_events","kind":"Any","default":{"type":"map"}},{"name":"max_notifications","kind":"Any","default":5},{"name":"notifications","kind":"Any","default":[]},{"name":"position","kind":"Any","default":"bottom-right"},{"name":"_clear","kind":"Any","default":0},{"name":"types","kind":"Any","default":[{"type":"map","entries":[["type","warning"],["background","#ffc107"],["icon",{"type":"map","entries":[["className","fas fa-exclamation-triangle"],["tagName","i"],["color","white"]]}]]},{"type":"map","entries":[["type","info"],["background","#007bff"],["icon",{"type":"map","entries":[["className","fas fa-info-circle"],["tagName","i"],["color","white"]]}]]}]}]},{"type":"model","name":"Notification","properties":[{"name":"background","kind":"Any","default":null},{"name":"duration","kind":"Any","default":3000},{"name":"icon","kind":"Any","default":null},{"name":"message","kind":"Any","default":""},{"name":"notification_type","kind":"Any","default":null},{"name":"_rendered","kind":"Any","default":false},{"name":"_destroyed","kind":"Any","default":false}]},{"type":"model","name":"TemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"BootstrapTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"TemplateEditor1","properties":[{"name":"layout","kind":"Any","default":[]}]},{"type":"model","name":"MaterialTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"request_value1","properties":[{"name":"fill","kind":"Any","default":"none"},{"name":"_synced","kind":"Any","default":null},{"name":"_request_sync","kind":"Any","default":0}]},{"type":"model","name":"holoviews.plotting.bokeh.raster.HoverModel","properties":[{"name":"xy","kind":"Any","default":null},{"name":"data","kind":"Any","default":null}]}]}};
-  var render_items = [{"docid":"ea6ac7e5-0ae6-415e-9e26-8ff29537f4dc","roots":{"04712ef0-ce2e-446b-a288-b3994637502f":"ad0db6a0-f664-4d7f-bb62-9f472ead4c15"},"root_ids":["04712ef0-ce2e-446b-a288-b3994637502f"]}];
+  var docs_json = {"5498f8e5-5c64-4fe5-8c50-ecd775fb9527":{"version":"3.7.3","title":"Bokeh Application","roots":[{"type":"object","name":"panel.models.browser.BrowserInfo","id":"14fb96c1-699e-4c3b-81d6-643a95c4360d"},{"type":"object","name":"panel.models.comm_manager.CommManager","id":"29f6421b-7d98-4bd7-b246-9a51a67db71f","attributes":{"plot_id":"14fb96c1-699e-4c3b-81d6-643a95c4360d","comm_id":"0e960f15e200428694b2398ac027b838","client_comm_id":"95b64eeeb1f84b81b70257802ec78e7f"}}],"defs":[{"type":"model","name":"ReactiveHTML1"},{"type":"model","name":"FlexBox1","properties":[{"name":"align_content","kind":"Any","default":"flex-start"},{"name":"align_items","kind":"Any","default":"flex-start"},{"name":"flex_direction","kind":"Any","default":"row"},{"name":"flex_wrap","kind":"Any","default":"wrap"},{"name":"gap","kind":"Any","default":""},{"name":"justify_content","kind":"Any","default":"flex-start"}]},{"type":"model","name":"FloatPanel1","properties":[{"name":"config","kind":"Any","default":{"type":"map"}},{"name":"contained","kind":"Any","default":true},{"name":"position","kind":"Any","default":"right-top"},{"name":"offsetx","kind":"Any","default":null},{"name":"offsety","kind":"Any","default":null},{"name":"theme","kind":"Any","default":"primary"},{"name":"status","kind":"Any","default":"normalized"}]},{"type":"model","name":"GridStack1","properties":[{"name":"ncols","kind":"Any","default":null},{"name":"nrows","kind":"Any","default":null},{"name":"allow_resize","kind":"Any","default":true},{"name":"allow_drag","kind":"Any","default":true},{"name":"state","kind":"Any","default":[]}]},{"type":"model","name":"drag1","properties":[{"name":"slider_width","kind":"Any","default":5},{"name":"slider_color","kind":"Any","default":"black"},{"name":"value","kind":"Any","default":50}]},{"type":"model","name":"click1","properties":[{"name":"terminal_output","kind":"Any","default":""},{"name":"debug_name","kind":"Any","default":""},{"name":"clears","kind":"Any","default":0}]},{"type":"model","name":"ReactiveESM1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"JSComponent1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"ReactComponent1","properties":[{"name":"use_shadow_dom","kind":"Any","default":true},{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"AnyWidgetComponent1","properties":[{"name":"use_shadow_dom","kind":"Any","default":true},{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"FastWrapper1","properties":[{"name":"object","kind":"Any","default":null},{"name":"style","kind":"Any","default":null}]},{"type":"model","name":"NotificationArea1","properties":[{"name":"js_events","kind":"Any","default":{"type":"map"}},{"name":"max_notifications","kind":"Any","default":5},{"name":"notifications","kind":"Any","default":[]},{"name":"position","kind":"Any","default":"bottom-right"},{"name":"_clear","kind":"Any","default":0},{"name":"types","kind":"Any","default":[{"type":"map","entries":[["type","warning"],["background","#ffc107"],["icon",{"type":"map","entries":[["className","fas fa-exclamation-triangle"],["tagName","i"],["color","white"]]}]]},{"type":"map","entries":[["type","info"],["background","#007bff"],["icon",{"type":"map","entries":[["className","fas fa-info-circle"],["tagName","i"],["color","white"]]}]]}]}]},{"type":"model","name":"Notification","properties":[{"name":"background","kind":"Any","default":null},{"name":"duration","kind":"Any","default":3000},{"name":"icon","kind":"Any","default":null},{"name":"message","kind":"Any","default":""},{"name":"notification_type","kind":"Any","default":null},{"name":"_rendered","kind":"Any","default":false},{"name":"_destroyed","kind":"Any","default":false}]},{"type":"model","name":"TemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"BootstrapTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"TemplateEditor1","properties":[{"name":"layout","kind":"Any","default":[]}]},{"type":"model","name":"MaterialTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"request_value1","properties":[{"name":"fill","kind":"Any","default":"none"},{"name":"_synced","kind":"Any","default":null},{"name":"_request_sync","kind":"Any","default":0}]},{"type":"model","name":"holoviews.plotting.bokeh.raster.HoverModel","properties":[{"name":"xy","kind":"Any","default":null},{"name":"data","kind":"Any","default":null}]}]}};
+  var render_items = [{"docid":"5498f8e5-5c64-4fe5-8c50-ecd775fb9527","roots":{"14fb96c1-699e-4c3b-81d6-643a95c4360d":"c0bd1e0e-40e9-42f0-806e-0990684bdcd2"},"root_ids":["14fb96c1-699e-4c3b-81d6-643a95c4360d"]}];
   var docs = Object.values(docs_json)
   if (!docs) {
     return
@@ -1174,8 +1188,8 @@ if (window.Jupyter !== undefined) {
 
 /* Override VSCode background color */
 .cell-output-ipywidget-background:has(
-    > .cell-output-ipywidget-background > .lm-Widget > *[data-root-id]
-  ),
+  > .cell-output-ipywidget-background > .lm-Widget > *[data-root-id]
+),
 .cell-output-ipywidget-background:has(> .lm-Widget > *[data-root-id]) {
   background-color: transparent !important;
 }
@@ -1345,7 +1359,7 @@ if (window.Jupyter !== undefined) {
     document.body.appendChild(element);
   }
 
-  const js_urls = ["https://cdn.holoviz.org/panel/1.7.2/dist/bundled/reactiveesm/es-module-shims@^1.10.0/dist/es-module-shims.min.js"];
+  const js_urls = ["https://cdn.holoviz.org/panel/1.7.4/dist/bundled/reactiveesm/es-module-shims@^1.10.0/dist/es-module-shims.min.js"];
   const js_modules = [];
   const js_exports = {};
   const css_urls = [];
@@ -1683,6 +1697,72 @@ if (window.Jupyter !== undefined) {
 </div>
 </div>
 </section>
+</section>
+<section id="gc-qarea">
+<h2>gc_qarea<a class="headerlink" href="#gc-qarea" title="Link to this heading">#</a></h2>
+<p>NCL’s <code class="docutils literal notranslate"><span class="pre">gc_qarea</span></code> calculates the area of a (four-sided) quadrilateral patch on the unit sphere</p>
+<div class="admonition alert alert-info">
+    <p class="admonition-title" style="font-weight:bold">Important Note</p>
+    Coordinates should be within the valid latitude/longitude range (-90° to 90° and -180° to 180°) and be in clockwise or counter-clockwise order
+</div><section id="id5">
+<h3>Grab and Go<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<section id="area-on-the-unit-sphere">
+<h4>Area on the unit sphere<a class="headerlink" href="#area-on-the-unit-sphere" title="Link to this heading">#</a></h4>
+<p>NCL’s <code class="docutils literal notranslate"><span class="pre">gc_qarea</span></code> function finds the area of a quadrilateral patch on the unit sphere, a sphere with radius of 1</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Unit Sphere radius = 1</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyproj</span><span class="w"> </span><span class="kn">import</span> <span class="n">Geod</span>
+
+<span class="c1"># Points in clockise order</span>
+<span class="n">latitudes</span> <span class="o">=</span> <span class="p">[</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+<span class="n">longitudes</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">90.0</span><span class="p">]</span>
+
+<span class="c1"># Adjust the radius of the spherical datum to describe the unit sphere</span>
+<span class="n">radius</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">geod</span> <span class="o">=</span> <span class="n">Geod</span><span class="p">(</span><span class="n">ellps</span><span class="o">=</span><span class="s2">&quot;sphere&quot;</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">radius</span><span class="p">)</span>
+<span class="n">poly_area</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">geod</span><span class="o">.</span><span class="n">polygon_area_perimeter</span><span class="p">(</span><span class="n">longitudes</span><span class="p">,</span> <span class="n">latitudes</span><span class="p">)</span>
+<span class="n">poly_area</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">poly_area</span><span class="p">)</span>
+<span class="n">poly_area</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>255031995773909.12
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="area-on-a-spherical-datum-with-earth-radius">
+<h4>Area on a spherical datum with Earth radius<a class="headerlink" href="#area-on-a-spherical-datum-with-earth-radius" title="Link to this heading">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">pyproj</span></code> includes <a class="reference external" href="https://proj.org/en/stable/usage/ellipsoids.html#built-in-ellipsoid-definitions">additional ellipsoid options</a>, but the ellipsoid <code class="docutils literal notranslate"><span class="pre">sphere</span></code> treats the Earth as a sphere with an equal radius of 6370997 meters</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Normal Sphere: radius = 6370997 m</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyproj</span><span class="w"> </span><span class="kn">import</span> <span class="n">Geod</span>
+
+<span class="c1"># Points in clockise order: Roughly Four Corners of Colorado</span>
+<span class="n">latitudes</span> <span class="o">=</span> <span class="p">[</span><span class="mf">41.00488</span><span class="p">,</span> <span class="mf">41.00203</span><span class="p">,</span> <span class="mf">37.00540</span><span class="p">,</span> <span class="mf">37.00051</span><span class="p">]</span>  <span class="c1"># degrees</span>
+<span class="n">longitudes</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">109.05001</span><span class="p">,</span> <span class="o">-</span><span class="mf">102.05348</span><span class="p">,</span> <span class="o">-</span><span class="mf">103.04633</span><span class="p">,</span> <span class="o">-</span><span class="mf">109.04720</span><span class="p">]</span>  <span class="c1"># degrees</span>
+
+<span class="n">geod</span> <span class="o">=</span> <span class="n">Geod</span><span class="p">(</span><span class="n">ellps</span><span class="o">=</span><span class="s2">&quot;sphere&quot;</span><span class="p">)</span>  <span class="c1"># radius = 6370997 m</span>
+<span class="n">poly_area_m</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">geod</span><span class="o">.</span><span class="n">polygon_area_perimeter</span><span class="p">(</span><span class="n">longitudes</span><span class="p">,</span> <span class="n">latitudes</span><span class="p">)</span>
+<span class="n">poly_area_km2</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">poly_area_m</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e-6</span>
+<span class="n">poly_area_km2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>250007.81588628562
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
 <hr class="docutils" />
 <section id="python-resources">
 <h2>Python Resources<a class="headerlink" href="#python-resources" title="Link to this heading">#</a></h2>
@@ -1699,7 +1779,7 @@ if (window.Jupyter !== undefined) {
 </section>
 <section id="references">
 <h2>References:<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
-<div class="docutils container" id="id4">
+<div class="docutils container" id="id6">
 </div>
 </section>
 </section>
@@ -1751,7 +1831,18 @@ if (window.Jupyter !== undefined) {
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Grab and Go</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gc-onarc">gc_onarc</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gc-onarc">gc_onarc</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Grab and Go</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gc-qarea">gc_qarea</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Grab and Go</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#area-on-the-unit-sphere">Area on the unit sphere</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#area-on-a-spherical-datum-with-earth-radius">Area on a spherical datum with Earth radius</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-resources">Python Resources</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-reading">Additional Reading</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References:</a></li>

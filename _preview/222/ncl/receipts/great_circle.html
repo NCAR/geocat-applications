@@ -409,6 +409,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#css2c">css2c</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#csc2s">csc2s</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gc-onarc">gc_onarc</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gc-qarea">gc_qarea</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">Comparison</a><ul class="nav section-nav flex-column">
@@ -416,6 +417,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">css2c</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">csc2s</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">gc_onarc</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ncl-gc-qarea">ncl_gc_qarea</a></li>
 </ul>
 </li>
 </ul>
@@ -443,6 +445,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/css2c.shtml">css2c</a></p></li>
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/csc2s.shtml">csc2s</a></p></li>
 <li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/gc_onarc.shtml">gc_onarc</a></p></li>
+<li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/gc_qarea.shtml">gc_qarea</a></p></li>
 </ul>
 </section>
 <section id="ncl-code">
@@ -575,6 +578,53 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="p">;</span> <span class="kc">False</span>
 <span class="n">is_on_arc</span> <span class="o">=</span> <span class="n">gc_onarc</span><span class="p">(</span><span class="mf">24.86658349036834</span><span class="p">,</span> <span class="mf">151.60735730237568</span><span class="p">,</span> <span class="p">(</span><span class="o">/</span><span class="mf">55.182644873824785</span><span class="p">,</span> <span class="mf">49.05673786129486</span><span class="o">/</span><span class="p">),</span> <span class="p">(</span><span class="o">/</span><span class="mf">30.6703372467811</span><span class="p">,</span> <span class="mf">179.59874545906715</span><span class="o">/</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">is_on_arc</span><span class="p">)</span>
+
+<span class="p">;</span> <span class="n">gc_qarea</span>
+<span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span><span class="w"> </span><span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Built</span><span class="o">-</span><span class="ow">in</span><span class="o">/</span><span class="n">gc_qarea</span><span class="o">.</span><span class="n">shtml</span>
+
+<span class="p">;</span> <span class="n">Roughly</span> <span class="n">the</span> <span class="n">Four</span> <span class="n">Corners</span> <span class="n">of</span> <span class="n">Colorado</span> <span class="p">(</span><span class="mi">4</span> <span class="n">Sides</span><span class="p">)</span>
+<span class="n">lat</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">41.00488</span><span class="p">,</span> <span class="mf">41.00203</span><span class="p">,</span> <span class="mf">37.00540</span><span class="p">,</span> <span class="mf">37.00051</span><span class="o">/</span><span class="p">)</span>
+<span class="n">lon</span> <span class="o">=</span> <span class="p">(</span><span class="o">/-</span><span class="mf">109.05001</span><span class="p">,</span> <span class="o">-</span><span class="mf">102.05348</span><span class="p">,</span> <span class="o">-</span><span class="mf">103.04633</span><span class="p">,</span> <span class="o">-</span><span class="mf">109.04720</span><span class="o">/</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gc_clkwise</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">))</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="kc">True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gc_qarea</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">)</span><span class="o">*</span><span class="mf">6370.997</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="mf">250007.7</span>
+
+<span class="p">;</span> <span class="n">Boulder</span><span class="p">,</span> <span class="n">Boston</span><span class="p">,</span> <span class="n">Cape</span> <span class="n">Canaveral</span><span class="p">,</span> <span class="n">Houston</span>
+<span class="n">lat</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">40.0150</span><span class="p">,</span> <span class="mf">42.3601</span><span class="p">,</span> <span class="mf">28.3968</span><span class="p">,</span> <span class="mf">29.5518</span><span class="o">/</span><span class="p">)</span>
+<span class="n">lon</span> <span class="o">=</span> <span class="p">(</span><span class="o">/-</span><span class="mf">105.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">71.0589</span><span class="p">,</span> <span class="o">-</span><span class="mf">80.6057</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.0982</span><span class="o">/</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gc_clkwise</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">))</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="kc">True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gc_qarea</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">)</span><span class="o">*</span><span class="mf">6370.997</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="mi">3154871</span>
+
+<span class="p">;;</span> <span class="n">Edge</span> <span class="n">Cases</span>
+
+<span class="p">;</span> <span class="n">Crossing</span> <span class="n">the</span> <span class="n">Equator</span> <span class="p">(</span><span class="mi">0</span> <span class="n">degrees</span> <span class="n">Latitude</span><span class="p">)</span>
+<span class="p">;</span> <span class="n">Boulder</span><span class="p">,</span> <span class="n">Boston</span><span class="p">,</span> <span class="n">Montevideo</span><span class="p">,</span> <span class="n">Quito</span>
+<span class="n">lat</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">40.0150</span><span class="p">,</span> <span class="mf">42.3601</span><span class="p">,</span> <span class="o">-</span><span class="mf">34.5420</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1312</span><span class="o">/</span><span class="p">)</span>
+<span class="n">lon</span> <span class="o">=</span> <span class="p">(</span><span class="o">/-</span><span class="mf">105.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">71.0589</span><span class="p">,</span> <span class="o">-</span><span class="mf">56.1103</span><span class="p">,</span> <span class="o">-</span><span class="mf">78.3045</span><span class="o">/</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gc_clkwise</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">))</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="kc">True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gc_qarea</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">)</span><span class="o">*</span><span class="mf">6370.997</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="mf">1.507316e+07</span>
+
+<span class="p">;</span> <span class="n">Crossing</span> <span class="n">the</span> <span class="n">Prime</span> <span class="n">Meridian</span> <span class="p">(</span><span class="mi">0</span> <span class="n">Degrees</span> <span class="n">Longitude</span><span class="p">)</span>
+<span class="p">;</span> <span class="n">Dublin</span><span class="p">,</span> <span class="n">Norwich</span><span class="p">,</span> <span class="n">London</span><span class="p">,</span> <span class="n">Cardiff</span>
+<span class="n">lat</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">53.2100</span><span class="p">,</span> <span class="mf">52.3743</span><span class="p">,</span> <span class="mf">51.3026</span><span class="p">,</span> <span class="mf">51.2854</span><span class="o">/</span><span class="p">)</span>
+<span class="n">lon</span> <span class="o">=</span> <span class="p">(</span><span class="o">/-</span><span class="mf">6.1537</span><span class="p">,</span> <span class="mf">1.1734</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.739</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.1045</span><span class="o">/</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gc_clkwise</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">))</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="kc">True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gc_qarea</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">)</span><span class="o">*</span><span class="mf">6370.997</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="mf">54846.59</span>
+
+<span class="p">;</span> <span class="n">Half</span> <span class="n">of</span> <span class="n">the</span> <span class="n">World</span>
+<span class="n">lat</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="o">/</span><span class="p">)</span>
+<span class="n">lon</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">90.0</span><span class="o">/</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gc_clkwise</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">))</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="kc">True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gc_qarea</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">)</span><span class="o">*</span><span class="mf">6370.997</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="mf">2.55032e+08</span>
 </pre></div>
 </div>
 </section>
@@ -808,8 +858,8 @@ This notebook is part of the process we have for adding entries to the NCL Index
 
 /* Override VSCode background color */
 .cell-output-ipywidget-background:has(
-    > .cell-output-ipywidget-background > .lm-Widget > *[data-root-id]
-  ),
+  > .cell-output-ipywidget-background > .lm-Widget > *[data-root-id]
+),
 .cell-output-ipywidget-background:has(> .lm-Widget > *[data-root-id]) {
   background-color: transparent !important;
 }
@@ -979,7 +1029,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
     document.body.appendChild(element);
   }
 
-  const js_urls = ["https://cdn.holoviz.org/panel/1.7.2/dist/bundled/reactiveesm/es-module-shims@^1.10.0/dist/es-module-shims.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-3.7.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-3.7.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.7.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.7.3.min.js", "https://cdn.holoviz.org/panel/1.7.2/dist/panel.min.js"];
+  const js_urls = ["https://cdn.holoviz.org/panel/1.7.4/dist/bundled/reactiveesm/es-module-shims@^1.10.0/dist/es-module-shims.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-3.7.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-3.7.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.7.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.7.3.min.js", "https://cdn.holoviz.org/panel/1.7.4/dist/panel.min.js"];
   const js_modules = [];
   const js_exports = {};
   const css_urls = [];
@@ -1311,12 +1361,12 @@ if (window.Jupyter !== undefined) {
   } catch(err) {
   }
 }
-</script><div class="output text_html"><div id='b69ca13d-9744-48d0-a32e-0effff4b2727'>
-  <div id="b4ad4d0c-872d-4506-9a69-bdaf5379b91a" data-root-id="b69ca13d-9744-48d0-a32e-0effff4b2727" style="display: contents;"></div>
+</script><div class="output text_html"><div id='e4b5ec41-89cb-42b0-9a58-a4d490362733'>
+  <div id="f4bac673-ce1c-41e9-b2a7-86bf936d6d60" data-root-id="e4b5ec41-89cb-42b0-9a58-a4d490362733" style="display: contents;"></div>
 </div>
 <script type="application/javascript">(function(root) {
-  var docs_json = {"d6dbc108-4124-447d-8461-f59f43e1d747":{"version":"3.7.3","title":"Bokeh Application","roots":[{"type":"object","name":"panel.models.browser.BrowserInfo","id":"b69ca13d-9744-48d0-a32e-0effff4b2727"},{"type":"object","name":"panel.models.comm_manager.CommManager","id":"8cf372b7-4bdd-4788-ae8b-2e2d3f96b6a0","attributes":{"plot_id":"b69ca13d-9744-48d0-a32e-0effff4b2727","comm_id":"5d82ae480f254f4fb795e4763abbd850","client_comm_id":"6d42cc18a0654ba8b1755b70f508d80a"}}],"defs":[{"type":"model","name":"ReactiveHTML1"},{"type":"model","name":"FlexBox1","properties":[{"name":"align_content","kind":"Any","default":"flex-start"},{"name":"align_items","kind":"Any","default":"flex-start"},{"name":"flex_direction","kind":"Any","default":"row"},{"name":"flex_wrap","kind":"Any","default":"wrap"},{"name":"gap","kind":"Any","default":""},{"name":"justify_content","kind":"Any","default":"flex-start"}]},{"type":"model","name":"FloatPanel1","properties":[{"name":"config","kind":"Any","default":{"type":"map"}},{"name":"contained","kind":"Any","default":true},{"name":"position","kind":"Any","default":"right-top"},{"name":"offsetx","kind":"Any","default":null},{"name":"offsety","kind":"Any","default":null},{"name":"theme","kind":"Any","default":"primary"},{"name":"status","kind":"Any","default":"normalized"}]},{"type":"model","name":"GridStack1","properties":[{"name":"ncols","kind":"Any","default":null},{"name":"nrows","kind":"Any","default":null},{"name":"allow_resize","kind":"Any","default":true},{"name":"allow_drag","kind":"Any","default":true},{"name":"state","kind":"Any","default":[]}]},{"type":"model","name":"drag1","properties":[{"name":"slider_width","kind":"Any","default":5},{"name":"slider_color","kind":"Any","default":"black"},{"name":"value","kind":"Any","default":50}]},{"type":"model","name":"click1","properties":[{"name":"terminal_output","kind":"Any","default":""},{"name":"debug_name","kind":"Any","default":""},{"name":"clears","kind":"Any","default":0}]},{"type":"model","name":"ReactiveESM1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"JSComponent1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"ReactComponent1","properties":[{"name":"use_shadow_dom","kind":"Any","default":true},{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"AnyWidgetComponent1","properties":[{"name":"use_shadow_dom","kind":"Any","default":true},{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"FastWrapper1","properties":[{"name":"object","kind":"Any","default":null},{"name":"style","kind":"Any","default":null}]},{"type":"model","name":"NotificationArea1","properties":[{"name":"js_events","kind":"Any","default":{"type":"map"}},{"name":"max_notifications","kind":"Any","default":5},{"name":"notifications","kind":"Any","default":[]},{"name":"position","kind":"Any","default":"bottom-right"},{"name":"_clear","kind":"Any","default":0},{"name":"types","kind":"Any","default":[{"type":"map","entries":[["type","warning"],["background","#ffc107"],["icon",{"type":"map","entries":[["className","fas fa-exclamation-triangle"],["tagName","i"],["color","white"]]}]]},{"type":"map","entries":[["type","info"],["background","#007bff"],["icon",{"type":"map","entries":[["className","fas fa-info-circle"],["tagName","i"],["color","white"]]}]]}]}]},{"type":"model","name":"Notification","properties":[{"name":"background","kind":"Any","default":null},{"name":"duration","kind":"Any","default":3000},{"name":"icon","kind":"Any","default":null},{"name":"message","kind":"Any","default":""},{"name":"notification_type","kind":"Any","default":null},{"name":"_rendered","kind":"Any","default":false},{"name":"_destroyed","kind":"Any","default":false}]},{"type":"model","name":"TemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"BootstrapTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"TemplateEditor1","properties":[{"name":"layout","kind":"Any","default":[]}]},{"type":"model","name":"MaterialTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"request_value1","properties":[{"name":"fill","kind":"Any","default":"none"},{"name":"_synced","kind":"Any","default":null},{"name":"_request_sync","kind":"Any","default":0}]},{"type":"model","name":"holoviews.plotting.bokeh.raster.HoverModel","properties":[{"name":"xy","kind":"Any","default":null},{"name":"data","kind":"Any","default":null}]}]}};
-  var render_items = [{"docid":"d6dbc108-4124-447d-8461-f59f43e1d747","roots":{"b69ca13d-9744-48d0-a32e-0effff4b2727":"b4ad4d0c-872d-4506-9a69-bdaf5379b91a"},"root_ids":["b69ca13d-9744-48d0-a32e-0effff4b2727"]}];
+  var docs_json = {"0d2a2e6f-2963-422c-9652-89c825eaba02":{"version":"3.7.3","title":"Bokeh Application","roots":[{"type":"object","name":"panel.models.browser.BrowserInfo","id":"e4b5ec41-89cb-42b0-9a58-a4d490362733"},{"type":"object","name":"panel.models.comm_manager.CommManager","id":"46e6a129-fa84-4286-af5b-8b09026d28db","attributes":{"plot_id":"e4b5ec41-89cb-42b0-9a58-a4d490362733","comm_id":"0584b4eda41a4f30a1aab5aab810724c","client_comm_id":"18bef647477c4d2080e5c7e83033a4b7"}}],"defs":[{"type":"model","name":"ReactiveHTML1"},{"type":"model","name":"FlexBox1","properties":[{"name":"align_content","kind":"Any","default":"flex-start"},{"name":"align_items","kind":"Any","default":"flex-start"},{"name":"flex_direction","kind":"Any","default":"row"},{"name":"flex_wrap","kind":"Any","default":"wrap"},{"name":"gap","kind":"Any","default":""},{"name":"justify_content","kind":"Any","default":"flex-start"}]},{"type":"model","name":"FloatPanel1","properties":[{"name":"config","kind":"Any","default":{"type":"map"}},{"name":"contained","kind":"Any","default":true},{"name":"position","kind":"Any","default":"right-top"},{"name":"offsetx","kind":"Any","default":null},{"name":"offsety","kind":"Any","default":null},{"name":"theme","kind":"Any","default":"primary"},{"name":"status","kind":"Any","default":"normalized"}]},{"type":"model","name":"GridStack1","properties":[{"name":"ncols","kind":"Any","default":null},{"name":"nrows","kind":"Any","default":null},{"name":"allow_resize","kind":"Any","default":true},{"name":"allow_drag","kind":"Any","default":true},{"name":"state","kind":"Any","default":[]}]},{"type":"model","name":"drag1","properties":[{"name":"slider_width","kind":"Any","default":5},{"name":"slider_color","kind":"Any","default":"black"},{"name":"value","kind":"Any","default":50}]},{"type":"model","name":"click1","properties":[{"name":"terminal_output","kind":"Any","default":""},{"name":"debug_name","kind":"Any","default":""},{"name":"clears","kind":"Any","default":0}]},{"type":"model","name":"ReactiveESM1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"JSComponent1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"ReactComponent1","properties":[{"name":"use_shadow_dom","kind":"Any","default":true},{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"AnyWidgetComponent1","properties":[{"name":"use_shadow_dom","kind":"Any","default":true},{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"FastWrapper1","properties":[{"name":"object","kind":"Any","default":null},{"name":"style","kind":"Any","default":null}]},{"type":"model","name":"NotificationArea1","properties":[{"name":"js_events","kind":"Any","default":{"type":"map"}},{"name":"max_notifications","kind":"Any","default":5},{"name":"notifications","kind":"Any","default":[]},{"name":"position","kind":"Any","default":"bottom-right"},{"name":"_clear","kind":"Any","default":0},{"name":"types","kind":"Any","default":[{"type":"map","entries":[["type","warning"],["background","#ffc107"],["icon",{"type":"map","entries":[["className","fas fa-exclamation-triangle"],["tagName","i"],["color","white"]]}]]},{"type":"map","entries":[["type","info"],["background","#007bff"],["icon",{"type":"map","entries":[["className","fas fa-info-circle"],["tagName","i"],["color","white"]]}]]}]}]},{"type":"model","name":"Notification","properties":[{"name":"background","kind":"Any","default":null},{"name":"duration","kind":"Any","default":3000},{"name":"icon","kind":"Any","default":null},{"name":"message","kind":"Any","default":""},{"name":"notification_type","kind":"Any","default":null},{"name":"_rendered","kind":"Any","default":false},{"name":"_destroyed","kind":"Any","default":false}]},{"type":"model","name":"TemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"BootstrapTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"TemplateEditor1","properties":[{"name":"layout","kind":"Any","default":[]}]},{"type":"model","name":"MaterialTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"request_value1","properties":[{"name":"fill","kind":"Any","default":"none"},{"name":"_synced","kind":"Any","default":null},{"name":"_request_sync","kind":"Any","default":0}]},{"type":"model","name":"holoviews.plotting.bokeh.raster.HoverModel","properties":[{"name":"xy","kind":"Any","default":null},{"name":"data","kind":"Any","default":null}]}]}};
+  var render_items = [{"docid":"0d2a2e6f-2963-422c-9652-89c825eaba02","roots":{"e4b5ec41-89cb-42b0-9a58-a4d490362733":"f4bac673-ce1c-41e9-b2a7-86bf936d6d60"},"root_ids":["e4b5ec41-89cb-42b0-9a58-a4d490362733"]}];
   var docs = Object.values(docs_json)
   if (!docs) {
     return
@@ -1390,8 +1440,8 @@ if (window.Jupyter !== undefined) {
 
 /* Override VSCode background color */
 .cell-output-ipywidget-background:has(
-    > .cell-output-ipywidget-background > .lm-Widget > *[data-root-id]
-  ),
+  > .cell-output-ipywidget-background > .lm-Widget > *[data-root-id]
+),
 .cell-output-ipywidget-background:has(> .lm-Widget > *[data-root-id]) {
   background-color: transparent !important;
 }
@@ -1561,7 +1611,7 @@ if (window.Jupyter !== undefined) {
     document.body.appendChild(element);
   }
 
-  const js_urls = ["https://cdn.holoviz.org/panel/1.7.2/dist/bundled/reactiveesm/es-module-shims@^1.10.0/dist/es-module-shims.min.js"];
+  const js_urls = ["https://cdn.holoviz.org/panel/1.7.4/dist/bundled/reactiveesm/es-module-shims@^1.10.0/dist/es-module-shims.min.js"];
   const js_modules = [];
   const js_exports = {};
   const css_urls = [];
@@ -1896,6 +1946,57 @@ if (window.Jupyter !== undefined) {
 </script></div>
 </div>
 </section>
+<section id="gc-qarea">
+<h3>gc_qarea<a class="headerlink" href="#gc-qarea" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ncl_gc_qarea</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="c1"># Roughly the Four Corners of Colorado</span>
+<span class="n">ncl_lat</span> <span class="o">=</span> <span class="p">(</span><span class="mf">41.00488</span><span class="p">,</span> <span class="mf">41.00203</span><span class="p">,</span> <span class="mf">37.00540</span><span class="p">,</span> <span class="mf">37.00051</span><span class="p">)</span>
+<span class="n">ncl_lon</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mf">109.05001</span><span class="p">,</span> <span class="o">-</span><span class="mf">102.05348</span><span class="p">,</span> <span class="o">-</span><span class="mf">103.04633</span><span class="p">,</span> <span class="o">-</span><span class="mf">109.04720</span><span class="p">)</span>
+<span class="n">ncl_gc_qarea</span><span class="p">[(</span><span class="n">ncl_lat</span><span class="p">,</span> <span class="n">ncl_lon</span><span class="p">)]</span> <span class="o">=</span> <span class="mf">250007.7</span>
+
+<span class="c1"># Boulder, Boston, Cape Canaveral, Houston</span>
+<span class="n">ncl_lat</span> <span class="o">=</span> <span class="p">(</span><span class="mf">40.0150</span><span class="p">,</span> <span class="mf">42.3601</span><span class="p">,</span> <span class="mf">28.3968</span><span class="p">,</span> <span class="mf">29.5518</span><span class="p">)</span>
+<span class="n">ncl_lon</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mf">105.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">71.0589</span><span class="p">,</span> <span class="o">-</span><span class="mf">80.6057</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.0982</span><span class="p">)</span>
+<span class="n">ncl_gc_qarea</span><span class="p">[(</span><span class="n">ncl_lat</span><span class="p">,</span> <span class="n">ncl_lon</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">3154871</span>
+
+<span class="c1"># Crossing the Equator (0 degrees Latitude) = Boulder, Boston, Montevideo, Quito</span>
+<span class="n">ncl_lat</span> <span class="o">=</span> <span class="p">(</span><span class="mf">40.0150</span><span class="p">,</span> <span class="mf">42.3601</span><span class="p">,</span> <span class="o">-</span><span class="mf">34.5420</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1312</span><span class="p">)</span>
+<span class="n">ncl_long</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mf">105.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">71.0589</span><span class="p">,</span> <span class="o">-</span><span class="mf">56.1103</span><span class="p">,</span> <span class="o">-</span><span class="mf">78.3045</span><span class="p">)</span>
+<span class="n">ncl_gc_qarea</span><span class="p">[(</span><span class="n">ncl_lat</span><span class="p">,</span> <span class="n">ncl_long</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">15073160</span>  <span class="c1"># 1.507316e+07</span>
+
+<span class="c1"># Crossing the Prime Meridian (0 Degrees Longitude)=  Dublin, Norwich, London, Cardiff</span>
+<span class="n">ncl_lat</span> <span class="o">=</span> <span class="p">(</span><span class="mf">53.2100</span><span class="p">,</span> <span class="mf">52.3743</span><span class="p">,</span> <span class="mf">51.3026</span><span class="p">,</span> <span class="mf">51.2854</span><span class="p">)</span>
+<span class="n">ncl_lon</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mf">6.1537</span><span class="p">,</span> <span class="mf">1.1734</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.739</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.1045</span><span class="p">)</span>
+<span class="n">ncl_gc_qarea</span><span class="p">[(</span><span class="n">ncl_lat</span><span class="p">,</span> <span class="n">ncl_lon</span><span class="p">)]</span> <span class="o">=</span> <span class="mf">54846.59</span>
+
+<span class="c1"># Half of the World</span>
+<span class="n">ncl_lat</span> <span class="o">=</span> <span class="p">(</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+<span class="n">ncl_lon</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">90.0</span><span class="p">)</span>
+<span class="n">ncl_gc_qarea</span><span class="p">[(</span><span class="n">ncl_lat</span><span class="p">,</span> <span class="n">ncl_lon</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">255032000</span>  <span class="c1"># 2.55032e+08</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pyproj</span><span class="w"> </span><span class="kn">import</span> <span class="n">Geod</span>
+
+<span class="n">python_gc_qarea</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="n">geod</span> <span class="o">=</span> <span class="n">Geod</span><span class="p">(</span><span class="n">ellps</span><span class="o">=</span><span class="s2">&quot;sphere&quot;</span><span class="p">)</span>  <span class="c1"># radius = 6370997 m</span>
+<span class="k">for</span> <span class="n">lat_lon</span> <span class="ow">in</span> <span class="n">ncl_gc_qarea</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="n">lat_lon</span>
+    <span class="n">poly_area_m</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">geod</span><span class="o">.</span><span class="n">polygon_area_perimeter</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">)</span>
+    <span class="n">poly_area_km2</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">poly_area_m</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e-6</span>
+    <span class="n">python_gc_qarea</span><span class="p">[</span><span class="n">lat_lon</span><span class="p">]</span> <span class="o">=</span> <span class="n">poly_area_km2</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="comparison">
 <h2>Comparison<a class="headerlink" href="#comparison" title="Link to this heading">#</a></h2>
@@ -2057,6 +2158,21 @@ VALID:
 </div>
 </div>
 </section>
+<section id="ncl-gc-qarea">
+<h3>ncl_gc_qarea<a class="headerlink" href="#ncl-gc-qarea" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+<span class="k">for</span> <span class="n">latlon</span> <span class="ow">in</span> <span class="n">ncl_gc_qarea</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span>
+        <span class="n">ncl_gc_qarea</span><span class="p">[</span><span class="n">latlon</span><span class="p">],</span> <span class="n">python_gc_qarea</span><span class="p">[</span><span class="n">latlon</span><span class="p">],</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-2</span>
+    <span class="p">)</span>  <span class="c1"># within 2 decimal points</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 </section>
 
@@ -2094,6 +2210,7 @@ VALID:
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#css2c">css2c</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#csc2s">csc2s</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gc-onarc">gc_onarc</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gc-qarea">gc_qarea</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">Comparison</a><ul class="nav section-nav flex-column">
@@ -2101,6 +2218,7 @@ VALID:
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">css2c</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">csc2s</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">gc_onarc</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ncl-gc-qarea">ncl_gc_qarea</a></li>
 </ul>
 </li>
 </ul>
