@@ -173,3 +173,49 @@ print(gc_clkwise(lat, lon))
 ; (0)	True
 print(gc_qarea(lat, lon)*6370.997^2)
 ; (0)	2.55032e+08
+
+; gc_tarea
+; Adapted from https://www.ncl.ucar.edu/Document/Functions/Built-in/gc_tarea.shtml
+
+; 1/8th the surface of Earth (North)
+lat = (/0.0, 0.0, 90.0/)
+lon = (/0.0, 90.0, 0.0/)
+tri_area = gc_tarea(lat, lon)
+print(tri_area*6370.997^2)
+; (0)	6.3758e+07
+
+; 1/8th the surface of Earth (South)
+lat = (/0.0, 0.0, -90.0/)
+lon = (/0.0, 90.0, 0.0/)
+tri_area = gc_tarea(lat, lon)
+print(tri_area*6370.997^2)
+; (0)	6.3758e+07
+
+; Triangle Across United (Redwoods, Boston, Houston)
+lat = (/41.4017, 42.3601, 29.5518/)
+lon = (/-124.0417, -71.0589, -95.0982/)
+tri_area = gc_tarea(lat, lon)
+print(tri_area*6370.997^2)
+; (0)	3782549
+
+;; Edge Cases
+; Boulder, Boston, Montevideo (Crosses 0 degrees Latitude)
+lat = (/40.0150, 42.3601, -34.5420/)
+lon = (/-105.2705, -71.0589, -56.1103/)
+tri_area = gc_tarea(lat, lon)
+print(tri_area*6370.997^2)
+; (0)	1.493506e+07
+
+; Boulder, Cairo, Houston (Crosses 0 degrees Longitude)
+lat = (/40.0150, 30.240, 29.5518/)
+lon = (/-105.2705, 31.149, -95.0982/)
+tri_area = gc_tarea(lat, lon)
+print(tri_area*6370.997^2)
+; (0)	1.114434e+07
+
+; Equator and Pole (two 90 degree spherical angles)
+lat = (/0, 0, 90/)
+lon = (/-105, 0, 0/)
+tri_area = gc_tarea(lat, lon)
+print(tri_area*6370.997^2)
+; (0)	7.438434e+07
