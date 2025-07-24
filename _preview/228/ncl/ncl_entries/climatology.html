@@ -477,14 +477,12 @@ document.write(`
 <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 
 <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;applications_files/inputs/CMIP6_sea_ice_daily_subset.nc&quot;</span><span class="p">))</span>
-<span class="n">aice</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">aice_d</span>
-<span class="n">DayTLL</span> <span class="o">=</span> <span class="n">aice</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">aice</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">dayofyear</span><span class="p">)</span>
-<span class="n">clmDayTLL</span> <span class="o">=</span> <span class="n">DayTLL</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+
+<span class="n">DayTLL</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">aice_d</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;time.dayofyear&quot;</span><span class="p">)</span>
+<span class="n">clmDayTLL</span> <span class="o">=</span> <span class="n">DayTLL</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
 <span class="n">calcDayAnomTLL</span> <span class="o">=</span> <span class="n">DayTLL</span> <span class="o">-</span> <span class="n">clmDayTLL</span>
 
-<span class="n">calcDayAnomTLL</span> <span class="o">=</span> <span class="n">calcDayAnomTLL</span><span class="o">.</span><span class="n">assign_attrs</span><span class="p">(</span><span class="n">long_name</span><span class="o">=</span><span class="s2">&quot;sea ice anomaly&quot;</span><span class="p">)</span>
-
-<span class="n">calcDayAnomTLL</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+<span class="n">calcDayAnomTLL</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span><span class="o">.</span><span class="n">assign_attrs</span><span class="p">(</span><span class="n">long_name</span><span class="o">=</span><span class="s2">&quot;sea ice anomaly&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
@@ -493,6 +491,18 @@ document.write(`
 </pre></div>
 </div>
 <img alt="../../_images/2f3642f96c696d5f4ec01a469cc626019027cc2ede9659d3d3a706aebd67769a.png" src="../../_images/2f3642f96c696d5f4ec01a469cc626019027cc2ede9659d3d3a706aebd67769a.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">geocat.comp</span><span class="w"> </span><span class="kn">import</span> <span class="n">climate_anomaly</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geocat.datafiles</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gcd</span>
+
+<span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;applications_files/inputs/CMIP6_sea_ice_daily_subset.nc&quot;</span><span class="p">))</span>
+
+<span class="n">calcDayAnomTLL</span> <span class="o">=</span> <span class="n">climate_anomaly</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">aice_d</span><span class="p">,</span> <span class="s2">&quot;day&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -510,13 +520,12 @@ document.write(`
 <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
     <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;applications_files/inputs/CMIP6_sea_ice_monthly_subset.nc&quot;</span><span class="p">)</span>
 <span class="p">)</span>
-<span class="n">aice</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">aice</span>
-<span class="n">MonTLL</span> <span class="o">=</span> <span class="n">aice</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">aice</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span><span class="p">)</span>
-<span class="n">clmMonTLL</span> <span class="o">=</span> <span class="n">MonTLL</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+
+<span class="n">MonTLL</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">aice</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;time.month&quot;</span><span class="p">)</span>
+<span class="n">clmMonTLL</span> <span class="o">=</span> <span class="n">MonTLL</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
 <span class="n">calcMonAnomTLL</span> <span class="o">=</span> <span class="n">MonTLL</span> <span class="o">-</span> <span class="n">clmMonTLL</span>
 
 <span class="n">calcMonAnomTLL</span> <span class="o">=</span> <span class="n">calcMonAnomTLL</span><span class="o">.</span><span class="n">assign_attrs</span><span class="p">(</span><span class="n">long_name</span><span class="o">=</span><span class="s2">&quot;sea ice anomaly&quot;</span><span class="p">)</span>
-
 <span class="n">calcMonAnomTLL</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
 </pre></div>
 </div>
@@ -526,6 +535,20 @@ document.write(`
 </pre></div>
 </div>
 <img alt="../../_images/cec8a2a817abd594ba480b3b45ebe5885ec9f98e4e9a54cefda6f9cbf792f673.png" src="../../_images/cec8a2a817abd594ba480b3b45ebe5885ec9f98e4e9a54cefda6f9cbf792f673.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">geocat.comp</span><span class="w"> </span><span class="kn">import</span> <span class="n">climate_anomaly</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geocat.datafiles</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gcd</span>
+
+<span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
+    <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;applications_files/inputs/CMIP6_sea_ice_monthly_subset.nc&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">calcMonAnomTLL</span> <span class="o">=</span> <span class="n">climate_anomaly</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">aice</span><span class="p">,</span> <span class="s2">&quot;month&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -541,9 +564,8 @@ document.write(`
 <span class="kn">import</span><span class="w"> </span><span class="nn">geocat.datafiles</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gcd</span>
 
 <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;applications_files/inputs/CMIP6_sea_ice_daily_subset.nc&quot;</span><span class="p">))</span>
-<span class="n">aice</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">aice_d</span>
-<span class="n">DayTLL</span> <span class="o">=</span> <span class="n">aice</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">aice</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">dayofyear</span><span class="p">)</span>
-<span class="n">clmDayTLL</span> <span class="o">=</span> <span class="n">DayTLL</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+
+<span class="n">clmDayTLL</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">aice_d</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;time.dayofyear&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
 
 <span class="n">clmDayTLL</span><span class="p">[:,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;daily climatology&quot;</span><span class="p">)</span>
@@ -554,6 +576,18 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <img alt="../../_images/f47adc1de74793f452ec6479d9f8ae56f5043609bbee8f122bd854ab17dfdae7.png" src="../../_images/f47adc1de74793f452ec6479d9f8ae56f5043609bbee8f122bd854ab17dfdae7.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">geocat.comp</span><span class="w"> </span><span class="kn">import</span> <span class="n">climatology_average</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geocat.datafiles</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gcd</span>
+
+<span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;applications_files/inputs/CMIP6_sea_ice_daily_subset.nc&quot;</span><span class="p">))</span>
+
+<span class="n">clmDayTLL</span> <span class="o">=</span> <span class="n">climatology_average</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">aice_d</span><span class="p">,</span> <span class="s2">&quot;day&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -571,9 +605,8 @@ document.write(`
 <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
     <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;applications_files/inputs/CMIP6_sea_ice_monthly_subset.nc&quot;</span><span class="p">)</span>
 <span class="p">)</span>
-<span class="n">aice</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">aice</span>
-<span class="n">MonTLL</span> <span class="o">=</span> <span class="n">aice</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">aice</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span><span class="p">)</span>
-<span class="n">clmMonTLL</span> <span class="o">=</span> <span class="n">MonTLL</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+
+<span class="n">clmMonTLL</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">aice</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;time.month&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
 
 <span class="n">clmMonTLL</span><span class="p">[:,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;monthly climatology&quot;</span><span class="p">)</span>
@@ -584,6 +617,20 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <img alt="../../_images/0f56abc7965362f2cbc3d0fe04b947fcf02c1af0462eb3919481545bfd2e33f0.png" src="../../_images/0f56abc7965362f2cbc3d0fe04b947fcf02c1af0462eb3919481545bfd2e33f0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">geocat.comp</span><span class="w"> </span><span class="kn">import</span> <span class="n">climatology_average</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geocat.datafiles</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gcd</span>
+
+<span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
+    <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;applications_files/inputs/CMIP6_sea_ice_monthly_subset.nc&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">clmMonTLL</span> <span class="o">=</span> <span class="n">climatology_average</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">aice</span><span class="p">,</span> <span class="s2">&quot;month&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -606,10 +653,8 @@ document.write(`
 <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
     <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;applications_files/inputs/CMIP6_sea_ice_monthly_subset.nc&quot;</span><span class="p">)</span>
 <span class="p">)</span>
-<span class="n">aice</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">aice</span>
-<span class="n">mon_to_season</span> <span class="o">=</span> <span class="n">month_to_season</span><span class="p">(</span><span class="n">aice</span><span class="p">,</span> <span class="s2">&quot;ASO&quot;</span><span class="p">)</span>
 
-<span class="n">mon_to_season</span> <span class="o">=</span> <span class="n">mon_to_season</span><span class="o">.</span><span class="n">assign_attrs</span><span class="p">(</span><span class="n">long_name</span><span class="o">=</span><span class="s2">&quot;sea ice area&quot;</span><span class="p">)</span>
+<span class="n">mon_to_season</span> <span class="o">=</span> <span class="n">month_to_season</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">aice</span><span class="p">,</span> <span class="s2">&quot;ASO&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">assign_attrs</span><span class="p">(</span><span class="n">long_name</span><span class="o">=</span><span class="s2">&quot;sea ice area&quot;</span><span class="p">)</span>
 
 <span class="n">mon_to_season</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 
@@ -636,9 +681,9 @@ document.write(`
 <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
     <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;applications_files/inputs/CMIP6_sea_ice_monthly_subset.nc&quot;</span><span class="p">)</span>
 <span class="p">)</span>
-<span class="n">aice</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">aice</span>
-<span class="n">MonTLL</span> <span class="o">=</span> <span class="n">aice</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">aice</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span><span class="p">)</span>
-<span class="n">clmMonTLL</span> <span class="o">=</span> <span class="n">MonTLL</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+
+<span class="n">MonTLL</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">aice</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;time.month&quot;</span><span class="p">)</span>
+<span class="n">clmMonTLL</span> <span class="o">=</span> <span class="n">MonTLL</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
 <span class="n">rmMonAnnCycTLL</span> <span class="o">=</span> <span class="n">MonTLL</span> <span class="o">-</span> <span class="n">clmMonTLL</span>
 
 <span class="n">rmMonAnnCycTLL</span><span class="p">[:,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
@@ -666,9 +711,8 @@ document.write(`
 <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
     <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;applications_files/inputs/CMIP6_sea_ice_monthly_subset.nc&quot;</span><span class="p">)</span>
 <span class="p">)</span>
-<span class="n">aice</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">aice</span>
-<span class="n">MonTLL</span> <span class="o">=</span> <span class="n">aice</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">aice</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span><span class="p">)</span>
-<span class="n">stdMonTLL</span> <span class="o">=</span> <span class="n">MonTLL</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">stdMonTLL</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">aice</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;time.month&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="n">stdMonTLL</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
 </pre></div>
