@@ -30,8 +30,8 @@ When possible, lead with a short intro paragraph that covers the content and sco
 ## Grab and Go
 
 Where possible, provide a code section that can be copied and pasted to replciate NCL functionality.
-    
-```python   
+
+```python
 # Python code
 ```
 <!-- #endregion -->
@@ -61,6 +61,3 @@ If there is no corresponding computational notebook, it is okay to just note wha
 Link to the corresponding computational notebook that demonstrates the functionality in python. If one does not exist, consider creating one.
 
 If no corresponding computational notebook exists in geocat-applications, linking to external resources is also appropriate.
-
-
-

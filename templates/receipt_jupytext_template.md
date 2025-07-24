@@ -33,7 +33,7 @@ List and link to the NCL documentation for each function that is covered in this
 
 
 ## NCL code
-Edit the below cell to link to the ncl code included for comparison in this notebook. 
+Edit the below cell to link to the ncl code included for comparison in this notebook.
 
 It may not be visible in your IDE or local editor, but it will be visible in generated documentation (locally, on PR previews, and the live webpage).
 

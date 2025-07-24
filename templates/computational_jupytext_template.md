@@ -13,7 +13,7 @@ jupyter:
 ---
 
 # Computational Notebook Template
-This template is designed to be the main page of content for a specific topic added to geocat-applications. 
+This template is designed to be the main page of content for a specific topic added to geocat-applications.
 
 It should start with a header describing the type of functionality the notebook demonstrates and should be the only use of the top level header (`#`) in the notebook.
 
@@ -25,8 +25,8 @@ When possible, lead with a short intro paragraph that covers the content and sco
 ## Grab and Go
 
 Where possible, provide a code section that can be copied and pasted to use the base-level functionality described in the notebook.
-    
-```python   
+
+```python
 # Python code
 ```
 <!-- #endregion -->
@@ -53,7 +53,7 @@ And a few more for good measure {footcite}`perez2011python,barba2019teaching,gra
 To learn more about this topic in Python, we suggest:
 * Resource 1
 * Resource 2
-* Resource 3 
+* Resource 3
 
 
 ## References
