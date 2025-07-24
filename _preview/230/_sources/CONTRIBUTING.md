@@ -51,10 +51,10 @@ This will be useful to reference if you are unfamiliar with any terminology refe
 [working with git](https://foundations.projectpythia.org/foundations/github/basic-git),
 or [maintaining a forked repository](https://foundations.projectpythia.org/foundations/github/github-cloning-forking)
 
-- If you do not have one yet, [new contributors will need a free GitHub account](https://foundations.projectpythia.org/foundations/github/what-is-github#register-for-a-free-github-account)
+- If you do not have one yet, [new contributors will need a free GitHub account](https://foundations.projectpythia.org/foundations/github/what-is-github/#register-for-a-free-github-account)
   - New users should also [configure their GitHub accounts](https://foundations.projectpythia.org/foundations/github/github-setup-advanced)
-- [Fork and clone the `NCAR/geocat-applications` repository](https://foundations.projectpythia.org/foundations/github/github-cloning-forking#forking-a-repository)
-- We recommend [creating a new branch on your fork reposisitory for the new feature or bug fix](https://foundations.projectpythia.org/foundations/github/git-branches#creating-a-new-branch)
+- [Fork and clone the `NCAR/geocat-applications` repository](https://foundations.projectpythia.org/foundations/github/github-cloning-forking/#forking-a-repository)
+- We recommend [creating a new branch on your fork reposisitory for the new feature or bug fix](https://foundations.projectpythia.org/foundations/github/git-branches/#creating-a-new-branch)
 
 ### Setup the Environment
 
@@ -288,5 +288,5 @@ Once your pull request is approved by a core maintainer and passes the relevant 
 main repository!
 
 ### Delete Branch
-Once the pull request is closed and merged you can [delete your working branch](https://foundations.projectpythia.org/foundations/github/git-branches#deleting-branches).
+Once the pull request is closed and merged you can [delete your working branch](https://foundations.projectpythia.org/foundations/github/git-branches/#deleting-branches).
 This will help keep your fork of `geocat-applications` clean, but is not required.
