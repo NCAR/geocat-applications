@@ -30,7 +30,7 @@ can be run in any order, it is possible to organize a notebook to avoid having t
 take longer to run than others, like like retrieving data. The outputs of each cell appear below the cell without the
 need for typing `print` or `plt.show()`.
 
-In addition to Pythia Foundations "[Getting Started with Jupyter](https://foundations.projectpythia.org/foundations/getting-started-jupyter.html)"
+In addition to Pythia Foundations "[Getting Started with Jupyter](https://foundations.projectpythia.org/foundations/getting-started-jupyter)"
 , you can see the [Project Jupyter Documentation](https://docs.jupyter.org/en/latest/#what-is-a-notebook) for more information.
 or [try it out yourself](https://jupyter.org/try) online.
 
