@@ -223,6 +223,8 @@ print(tri_area*6370.997^2)
 ; gc_latlon
 ; Adapted from https://www.ncl.ucar.edu/Document/Functions/Built-in/gc_latlon.shtml
 
+;; Calculate great circle distances between two points
+
 ; Distance between Equator and North Pole
 lat1 = 0
 lon1 = 0
@@ -240,6 +242,15 @@ lon2 = -73.79901
 gc_distance_km = gc_latlon(lat1,lon1,lat2,lon2,2,4)
 print(gc_distance_km)
 ; (0)	3993.532
+
+; Distance between Boulder and Boston
+lat1 = 40.0150
+lon1 = -105.2705
+lat2 = 42.3601
+lon2 = -71.0589
+gc_distance_km = gc_latlon(lat1,lon1,lat2,lon2,2,4)
+print(gc_distance_km)
+;(0)	2855.432
 
 ;; Edge Cases
 ; Distance to Nairobi and Cairo (Crosses 0 degrees Latitude)
@@ -268,3 +279,5 @@ lon2 = 0
 gc_distance_km = gc_latlon(lat1,lon1,lat2,lon2,2,4)
 print(gc_distance_km)
 ;(0)	20015.78
+
+;; Interpolate points along great circle arc between two points
