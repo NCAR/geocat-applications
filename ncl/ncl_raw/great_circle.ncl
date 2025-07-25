@@ -219,3 +219,52 @@ lon = (/-105, 0, 0/)
 tri_area = gc_tarea(lat, lon)
 print(tri_area*6370.997^2)
 ; (0)	7.438434e+07
+
+; gc_latlon
+; Adapted from https://www.ncl.ucar.edu/Document/Functions/Built-in/gc_latlon.shtml
+
+; Distance between Equator and North Pole
+lat1 = 0
+lon1 = 0
+lat2 = 90
+lon2 = 0
+gc_distance_km = gc_latlon(lat1,lon1,lat2,lon2,2,4)
+print(gc_distance_km)
+; (0)	10007.89
+
+; Distance between Sacramento and Albany
+lat1 = 38.54623
+lon1 = -121.42660
+lat2 = 42.66575
+lon2 = -73.79901
+gc_distance_km = gc_latlon(lat1,lon1,lat2,lon2,2,4)
+print(gc_distance_km)
+; (0)	3993.532
+
+;; Edge Cases
+; Distance to Nairobi and Cairo (Crosses 0 degrees Latitude)
+lat1 = -1.1711
+lon1 = 36.4902
+lat2 = 30.240
+lon2 = 31.149
+gc_distance_km = gc_latlon(lat1,lon1,lat2,lon2,2,4)
+print(gc_distance_km)
+;(0)	3538.456
+
+; Distance to Dublin and London (Crosses 0 degrees Longitude)
+lat1 = 53.21
+lon1 = -5.1537
+lat2 = 51.3026
+lon2 = 0.739
+gc_distance_km = gc_latlon(lat1,lon1,lat2,lon2,2,4)
+print(gc_distance_km)
+;(0)	453.5349
+
+; Distance from North to South Pole
+lat1 = 90
+lon1 = 0
+lat2 = -90
+lon2 = 0
+gc_distance_km = gc_latlon(lat1,lon1,lat2,lon2,2,4)
+print(gc_distance_km)
+;(0)	20015.78
