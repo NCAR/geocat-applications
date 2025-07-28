@@ -135,6 +135,3 @@ Want to go deeper in your understanding of the topic or the available keyword ar
  - [Link to Documentation]()
  - [Another link]()
 
-```python
-
-```
