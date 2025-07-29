@@ -34,7 +34,7 @@ These may include some code blocks like this:
 # Python code
 ```
 
-They may also include citations {footcite}`project_jupyter-proc-scipy-2018`, whic can also be formated as textual citations, {footcite:t}`project_jupyter-proc-scipy-2018`. Here's one more for good measure {footcite}`perez2011python,barba2019teaching,granger2021jupyter`. You can find more information [here in the MyST documentation](https://mystmd.org/guide/citations) as well.
+They may also include citations {footcite}`project_jupyter-proc-scipy-2018`, which can also be formatted as textual citations, {footcite:t}`project_jupyter-proc-scipy-2018`. Here's one more for good measure {footcite}`perez2011python,barba2019teaching,granger2021jupyter`. You can find more information [here in the MyST documentation](https://mystmd.org/guide/citations) as well.
 
 *Note that these examples can be their own ##-level headers and that your final notebook is not expected to have a section with the ## Content Sections present in this cell*
 
