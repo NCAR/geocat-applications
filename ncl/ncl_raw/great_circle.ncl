@@ -290,11 +290,10 @@ lon2 = 0
 gc_distance = gc_latlon(lat1,lon1,lat2,lon2,10,2)
 print(gc_distance)
 ;  units :	degrees
-;  gclon :	(  0, 6.186176e-16, 1.276937e-15, 2.025549e-15, 2.943859e-15, 4.181094e-15, 6.076649e-15, 9.639125e-15, 1.989687e-14,  0 )
 ;  gclat :	(  0, 10, 20, 30, 40, 50, 60, 70, 80, 90 )
+;  gclon :	(  0, 6.186176e-16, 1.276937e-15, 2.025549e-15, 2.943859e-15, 4.181094e-15, 6.076649e-15, 9.639125e-15, 1.989687e-14,  0 )
 ;  spacing :	10
 ; (0)	90
-
 
 ; Distance between Sacramento and Albany
 lat1 = 38.54623
