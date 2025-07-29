@@ -44,13 +44,11 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-#### Collect NCL values for satvpr_temp_fao56 from geocat-datafiles
-import geocat.datafiles as gdf
+#### Collect NCL values for dewtemp_trh from geocat-datafiles
+import geocat.datafiles as gcd
 import numpy as np
 
-satvpr_temp_fao56_data = gdf.get(
-    'applications_files/ncl_outputs/satvpr_temp_fao56_output.txt'
-)
-satvpr_temp_fao56_data = np.loadtxt(satvpr_temp_fao56_data, delimiter=',', skiprows=6)
+dewtemp_data = gcd.get('applications_files/ncl_outputs/dewtemp_trh_output.txt')
+dewtemp_data = np.loadtxt(dewtemp_data, delimiter=',', skiprows=6)
 -------------------
 
