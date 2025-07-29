@@ -42,7 +42,7 @@ Where possible, provide a code section that can be copied and pasted to replciat
 # Python code
 ```
 
-Include appropriate warnings leveraging admonitions regarding function specific differences between Python and NCL. 
+Include appropriate warnings leveraging admonitions regarding function specific differences between Python and NCL.
 
 ## Python Resources
 Links to relevant Python resources internal and external
