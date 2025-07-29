@@ -198,7 +198,7 @@ allow you to export citation information in the required
 work. You can copy and paste this text into the `references.bib` file.
 
 From there you can add citations to your specific page using the
-directives shown in the [computational template](https://github.com/NCAR/geocat-applications/blob/main/templates/computational_template.md).
+directives shown in the [computational template](templates/computational_template.md).
 
 For references to software documentation and other web content, we generally
 prefer links instead of or in addition to formal citations. If you're not
