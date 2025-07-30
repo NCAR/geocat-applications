@@ -650,90 +650,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Updating file &#39;registry.txt&#39; from &#39;https://github.com/NCAR/geocat-datafiles/raw/main/registry.txt&#39; to &#39;/home/runner/.cache/geocat&#39;.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Failed to download &#39;registry.txt&#39;. Will attempt the download again 10 more times.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Failed to download &#39;registry.txt&#39;. Will attempt the download again 9 more times.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Failed to download &#39;registry.txt&#39;. Will attempt the download again 8 more times.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Failed to download &#39;registry.txt&#39;. Will attempt the download again 7 more times.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Failed to download &#39;registry.txt&#39;. Will attempt the download again 6 more times.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Failed to download &#39;registry.txt&#39;. Will attempt the download again 5 more times.
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">HTTPError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.13/site-packages/pooch/core.py:807,</span> in <span class="ni">stream_download</span><span class="nt">(url, fname, known_hash, downloader, pooch, retry_if_failed)</span>
-<span class="g g-Whitespace">    </span><span class="mi">806</span> <span class="k">with</span> <span class="n">temporary_file</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">fname</span><span class="o">.</span><span class="n">parent</span><span class="p">))</span> <span class="k">as</span> <span class="n">tmp</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">807</span>     <span class="n">downloader</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">tmp</span><span class="p">,</span> <span class="n">pooch</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">808</span>     <span class="n">hash_matches</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">known_hash</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">fname</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
-
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.13/site-packages/pooch/downloaders.py:221,</span> in <span class="ni">HTTPDownloader.__call__</span><span class="nt">(self, url, output_file, pooch, check_only)</span>
-<span class="g g-Whitespace">    </span><span class="mi">220</span> <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">221</span> <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">222</span> <span class="n">content</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">iter_content</span><span class="p">(</span><span class="n">chunk_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chunk_size</span><span class="p">)</span>
-
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.13/site-packages/requests/models.py:1026,</span> in <span class="ni">Response.raise_for_status</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1025</span> <span class="k">if</span> <span class="n">http_error_msg</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1026</span>     <span class="k">raise</span> <span class="n">HTTPError</span><span class="p">(</span><span class="n">http_error_msg</span><span class="p">,</span> <span class="n">response</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
-
-<span class="ne">HTTPError</span>: 503 Server Error: Service Unavailable for url: https://github.com/NCAR/geocat-datafiles/raw/main/registry.txt
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#### Collect NCL values for dewtemp_trh from geocat-datafiles</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">geocat.datafiles</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gcd</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">dewtemp_data</span> <span class="o">=</span> <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;applications_files/ncl_outputs/dewtemp_trh_output.txt&#39;</span><span class="p">)</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">micromamba</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">geocat</span><span class="o">-</span><span class="n">applications</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.13</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">geocat</span><span class="o">/</span><span class="n">datafiles</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">38</span>
-<span class="g g-Whitespace">     </span><span class="mi">35</span> <span class="k">if</span> <span class="n">dev_data_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">dev_data_path</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">36</span>     <span class="n">POOCH</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">dev_data_path</span>
-<span class="ne">---&gt; </span><span class="mi">38</span> <span class="n">_update_registry</span><span class="p">(</span><span class="n">POOCH</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">40</span> <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">41</span>     <span class="k">return</span> <span class="n">POOCH</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
-
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.13/site-packages/geocat/datafiles/__init__.py:31,</span> in <span class="ni">_update_registry</span><span class="nt">(p)</span>
-<span class="g g-Whitespace">     </span><span class="mi">29</span> <span class="k">if</span> <span class="n">old_sha256</span> <span class="o">!=</span> <span class="n">new_sha256</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">30</span>     <span class="n">p</span><span class="o">.</span><span class="n">registry</span><span class="p">[</span><span class="s2">&quot;registry.txt&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_sha256</span>
-<span class="ne">---&gt; </span><span class="mi">31</span>     <span class="n">p</span><span class="o">.</span><span class="n">load_registry</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s2">&quot;registry.txt&quot;</span><span class="p">))</span>
-
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.13/site-packages/pooch/core.py:589,</span> in <span class="ni">Pooch.fetch</span><span class="nt">(self, fname, processor, downloader, progressbar)</span>
-<span class="g g-Whitespace">    </span><span class="mi">586</span>     <span class="k">if</span> <span class="n">downloader</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">587</span>         <span class="n">downloader</span> <span class="o">=</span> <span class="n">choose_downloader</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">progressbar</span><span class="o">=</span><span class="n">progressbar</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">589</span>     <span class="n">stream_download</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">590</span>         <span class="n">url</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">591</span>         <span class="n">full_path</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">592</span>         <span class="n">known_hash</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">593</span>         <span class="n">downloader</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">594</span>         <span class="n">pooch</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">595</span>         <span class="n">retry_if_failed</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">retry_if_failed</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">596</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">598</span> <span class="k">if</span> <span class="n">processor</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">599</span>     <span class="k">return</span> <span class="n">processor</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">full_path</span><span class="p">),</span> <span class="n">action</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
-
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.13/site-packages/pooch/core.py:822,</span> in <span class="ni">stream_download</span><span class="nt">(url, fname, known_hash, downloader, pooch, retry_if_failed)</span>
-<span class="g g-Whitespace">    </span><span class="mi">814</span> <span class="n">retries_left</span> <span class="o">=</span> <span class="n">download_attempts</span> <span class="o">-</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">815</span> <span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">816</span>     <span class="s2">&quot;Failed to download &#39;</span><span class="si">%s</span><span class="s2">&#39;. &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">817</span>     <span class="s2">&quot;Will attempt the download again </span><span class="si">%d</span><span class="s2"> more time</span><span class="si">%s</span><span class="s2">.&quot;</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>    <span class="mi">820</span>     <span class="s2">&quot;s&quot;</span> <span class="k">if</span> <span class="n">retries_left</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">821</span> <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">822</span> <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">max_wait</span><span class="p">))</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/ncl_outputs/dewtemp_trh_output.txt&#39; from &#39;https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/ncl_outputs/dewtemp_trh_output.txt&#39; to &#39;/home/runner/.cache/geocat&#39;.
 </pre></div>
 </div>
 </div>
@@ -783,6 +700,11 @@ This notebook is part of the process we have for adding entries to the NCL Index
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/ncl_outputs/daylight_fao56_output.txt&#39; from &#39;https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/ncl_outputs/daylight_fao56_output.txt&#39; to &#39;/home/runner/.cache/geocat&#39;.
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -814,6 +736,12 @@ This notebook is part of the process we have for adding entries to the NCL Index
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba/envs/geocat-applications/lib/python3.13/site-packages/geocat/comp/meteorology.py:1520: UserWarning: WARNING: max_daylight has limited validity for abs(lat) &gt; 55 
+  warnings.warn(&quot;WARNING: max_daylight has limited validity for abs(lat) &gt; 55 &quot;)
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="satvpr-temp-fao56">
@@ -828,6 +756,11 @@ This notebook is part of the process we have for adding entries to the NCL Index
     <span class="s1">&#39;applications_files/ncl_outputs/satvpr_temp_fao56_output.txt&#39;</span>
 <span class="p">)</span>
 <span class="n">satvpr_temp_fao56_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">satvpr_temp_fao56_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/ncl_outputs/satvpr_temp_fao56_output.txt&#39; from &#39;https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/ncl_outputs/satvpr_temp_fao56_output.txt&#39; to &#39;/home/runner/.cache/geocat&#39;.
 </pre></div>
 </div>
 </div>
@@ -871,6 +804,11 @@ This notebook is part of the process we have for adding entries to the NCL Index
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/ncl_outputs/satvpr_tdew_fao56_output.txt&#39; from &#39;https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/ncl_outputs/satvpr_tdew_fao56_output.txt&#39; to &#39;/home/runner/.cache/geocat&#39;.
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -908,6 +846,11 @@ This notebook is part of the process we have for adding entries to the NCL Index
     <span class="s1">&#39;applications_files/ncl_outputs/satvpr_slope_fao56_output.txt&#39;</span>
 <span class="p">)</span>
 <span class="n">satvpr_slope_fao56_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">satvpr_slope_fao56_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/ncl_outputs/satvpr_slope_fao56_output.txt&#39; from &#39;https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/ncl_outputs/satvpr_slope_fao56_output.txt&#39; to &#39;/home/runner/.cache/geocat&#39;.
 </pre></div>
 </div>
 </div>
@@ -951,6 +894,11 @@ This notebook is part of the process we have for adding entries to the NCL Index
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/ncl_outputs/coriolis_param_output.txt&#39; from &#39;https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/ncl_outputs/coriolis_param_output.txt&#39; to &#39;/home/runner/.cache/geocat&#39;.
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -985,6 +933,11 @@ This notebook is part of the process we have for adding entries to the NCL Index
 
 <span class="n">relhum_data</span> <span class="o">=</span> <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;applications_files/ncl_outputs/relhum_output.txt&#39;</span><span class="p">)</span>
 <span class="n">relhum_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">relhum_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/ncl_outputs/relhum_output.txt&#39; from &#39;https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/ncl_outputs/relhum_output.txt&#39; to &#39;/home/runner/.cache/geocat&#39;.
 </pre></div>
 </div>
 </div>
@@ -1035,6 +988,11 @@ This notebook is part of the process we have for adding entries to the NCL Index
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/ncl_outputs/relhum_ice_output.txt&#39; from &#39;https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/ncl_outputs/relhum_ice_output.txt&#39; to &#39;/home/runner/.cache/geocat&#39;.
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1082,6 +1040,11 @@ This notebook is part of the process we have for adding entries to the NCL Index
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/ncl_outputs/relhum_water_output.txt&#39; from &#39;https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/ncl_outputs/relhum_water_output.txt&#39; to &#39;/home/runner/.cache/geocat&#39;.
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1126,6 +1089,11 @@ This notebook is part of the process we have for adding entries to the NCL Index
 
 <span class="n">dpres_plevel_data</span> <span class="o">=</span> <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;applications_files/ncl_outputs/dpres_plevel_output.txt&#39;</span><span class="p">)</span>
 <span class="n">dpres_plevel_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">dpres_plevel_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/ncl_outputs/dpres_plevel_output.txt&#39; from &#39;https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/ncl_outputs/dpres_plevel_output.txt&#39; to &#39;/home/runner/.cache/geocat&#39;.
 </pre></div>
 </div>
 </div>
@@ -1201,6 +1169,11 @@ This notebook is part of the process we have for adding entries to the NCL Index
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/ncl_outputs/psychro_fao56_output.txt&#39; from &#39;https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/ncl_outputs/psychro_fao56_output.txt&#39; to &#39;/home/runner/.cache/geocat&#39;.
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1244,6 +1217,76 @@ This notebook is part of the process we have for adding entries to the NCL Index
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pair</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="si">{</span><span class="n">ncl_dewtemp</span><span class="p">[</span><span class="n">pair</span><span class="p">]</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">geocat_dewtemp</span><span class="p">[</span><span class="n">pair</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Difference: </span><span class="si">{</span><span class="n">ncl_dewtemp</span><span class="p">[</span><span class="n">pair</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">geocat_dewtemp</span><span class="p">[</span><span class="n">pair</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(np.float64(274.0), np.float64(94.0)):
+	-0.0055542, -0.005570036309563875
+	Difference: 1.5836309563875377e-05
+(np.float64(275.0), np.float64(87.0)):
+	-0.0839233, -0.08393959272956408
+	Difference: 1.6292729564076902e-05
+(np.float64(275.0), np.float64(88.0)):
+	0.073761, 0.07374617196580857
+	Difference: 1.482803419142198e-05
+(np.float64(277.0), np.float64(76.0)):
+	0.00259399, 0.0025903565796738803
+	Difference: 3.633420326119678e-06
+(np.float64(278.0), np.float64(71.0)):
+	0.0261536, 0.026158530424595483
+	Difference: -4.930424595483984e-06
+(np.float64(279.0), np.float64(66.0)):
+	-0.0278931, -0.027897415813697535
+	Difference: 4.3158136975342265e-06
+(np.float64(281.0), np.float64(58.0)):
+	0.0712891, 0.07128017477202775
+	Difference: 8.925227972245153e-06
+(np.float64(282.0), np.float64(54.0)):
+	0.0129395, 0.01291856405322278
+	Difference: 2.0935946777218828e-05
+(np.float64(283.0), np.float64(50.0)):
+	-0.130432, -0.13044636060385528
+	Difference: 1.4360603855290144e-05
+(np.float64(283.0), np.float64(51.0)):
+	0.144928, 0.14490829422311435
+	Difference: 1.9705776885647897e-05
+(np.float64(284.0), np.float64(47.0)):
+	-0.0726318, -0.07262340593854333
+	Difference: -8.39406145666799e-06
+(np.float64(285.0), np.float64(44.0)):
+	-0.0798035, -0.07982300528288988
+	Difference: 1.950528288988118e-05
+(np.float64(286.0), np.float64(41.0)):
+	-0.160156, -0.1601734585760255
+	Difference: 1.7458576025503048e-05
+(np.float64(287.0), np.float64(39.0)):
+	0.0386658, 0.0386467450997543
+	Difference: 1.905490024570189e-05
+(np.float64(290.0), np.float64(32.0)):
+	-0.0795288, -0.07954541765832346
+	Difference: 1.6617658323461737e-05
+(np.float64(291.0), np.float64(30.0)):
+	-0.115204, -0.11521555297190389
+	Difference: 1.1552971903888709e-05
+(np.float64(294.0), np.float64(25.0)):
+	-0.110413, -0.11042499197856159
+	Difference: 1.1991978561595729e-05
+(np.float64(295.0), np.float64(24.0)):
+	0.156677, 0.15665929836796977
+	Difference: 1.7701632030242553e-05
+(np.float64(297.0), np.float64(21.0)):
+	-0.0614929, -0.06151243710161225
+	Difference: 1.953710161224642e-05
+(np.float64(299.0), np.float64(19.0)):
+	0.162537, 0.16251872398265732
+	Difference: 1.8276017342666595e-05
+(np.float64(302.0), np.float64(16.0)):
+	0.138275, 0.1382598702660971
+	Difference: 1.5129733902913278e-05
+(np.float64(303.0), np.float64(15.0)):
+	0.0130615, 0.013067891707237322
+	Difference: -6.391707237322214e-06
 </pre></div>
 </div>
 </div>
