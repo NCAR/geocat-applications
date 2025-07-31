@@ -12,9 +12,9 @@ jupyter:
     name: python3
 ---
 
-# [NCL Function name or category]
+# Title
 <!---
-Title of the notebook should be the name of the function or category of functions
+The title of the notebook should be the name of the function or category of functions
 that are being documented and does not need to include the word "receipt".
 
 This should be the only top level header in the notebook.

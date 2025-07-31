@@ -21,30 +21,20 @@ It should start with a header describing the type of functionality the notebook 
 ## Overview
 When possible, lead with a short intro paragraph that covers the content and scope of the materials in the notebook
 
-<!-- #region -->
-## Grab and Go
 
-Where possible, provide a code section that can be copied and pasted to use the base-level functionality described in the notebook.
-
-```python
-# Python code
-```
-<!-- #endregion -->
-
----
-
-
- ## Content Sections
+## Content Sections
 In the content sections, provide sections on topics such as:
 - working through a geoscience-specific problem
 - explaining the concepts behind the functionality
 - introducing other examples in the python ecosystem that cover similar topics
 
-Here's an example citation {footcite}`project_jupyter-proc-scipy-2018`.
+These may include some code blocks like this:
 
-And another one with a textual citation, {footcite:t}`project_jupyter-proc-scipy-2018`.
+```python
+# Python code
+```
 
-And a few more for good measure {footcite}`perez2011python,barba2019teaching,granger2021jupyter`.
+They may also include citations {footcite}`project_jupyter-proc-scipy-2018`, which can also be formatted as textual citations, {footcite:t}`project_jupyter-proc-scipy-2018`. Here's one more for good measure {footcite}`perez2011python,barba2019teaching,granger2021jupyter`. You can find more information [here in the MyST documentation](https://mystmd.org/guide/citations) as well.
 
 *Note that these examples can be their own ##-level headers and that your final notebook is not expected to have a section with the ## Content Sections present in this cell*
 
