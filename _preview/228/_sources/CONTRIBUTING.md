@@ -120,11 +120,11 @@ NCL-specific content.*
 
 1. If the content is primarily visualization, create a new file in the
    appropriate directory in `applications/` based off of
-   the `templates/viz_template.ipynb`
+   the `templates/viz_template.md`
 
 1. If the content is primarily computational (even if it includes
    visualization), create a new file in the appropriate directory
-   in `applications/` based off of the `templates/computational_template.ipynb`
+   in `applications/` based off of the `templates/computational_template.md`
 
 1. If relevant, link to corresponding NCL content at the bottom of the file
 
@@ -154,7 +154,7 @@ be linked instead of included directly, whether that content is in the form of a
 **Python Entry** on geocat-applications or external resources.
 
 1. Create a new file in `ncl/ncl_entries/` based off of the
-   `templates/ncl_template.ipynb` template.
+   `templates/ncl_template.md` template.
 
 1. Add the file to the `ncl/ncl_entries/ncl_entries.rst` file
 
@@ -177,7 +177,7 @@ necessary or where providing an initial entry to the NCL Index is more important
 than waiting for a full **NCL Entry** to be completed.
 
 1. Create a new file in `ncl/ncl_receipts/` based off of the
-   `templates/receipt_template.ipynb` template.
+   `templates/receipt_template.md` template.
 
 1. Create a raw `.ncl` script within `ncl/ncl_raw/` to store `NCL Code` section
 
@@ -198,7 +198,7 @@ allow you to export citation information in the required
 work. You can copy and paste this text into the `references.bib` file.
 
 From there you can add citations to your specific page using the
-directives shown in the [computational template](https://github.com/NCAR/geocat-applications/blob/main/templates/computational_template.ipynb).
+directives shown in the [computational template](templates/computational_template.md).
 
 For references to software documentation and other web content, we generally
 prefer links instead of or in addition to formal citations. If you're not
