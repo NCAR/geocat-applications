@@ -219,3 +219,144 @@ lon = (/-105, 0, 0/)
 tri_area = gc_tarea(lat, lon)
 print(tri_area*6370.997^2)
 ; (0)	7.438434e+07
+
+; gc_latlon
+; Adapted from https://www.ncl.ucar.edu/Document/Functions/Built-in/gc_latlon.shtml
+
+;; Calculate great circle distances between two points
+
+; Distance between Equator and North Pole
+lat1 = 0
+lon1 = 0
+lat2 = 90
+lon2 = 0
+gc_distance_km = gc_latlon(lat1,lon1,lat2,lon2,2,4)
+print(gc_distance_km)
+; (0)	10007.89
+
+; Distance between Sacramento and Albany
+lat1 = 38.54623
+lon1 = -121.42660
+lat2 = 42.66575
+lon2 = -73.79901
+gc_distance_km = gc_latlon(lat1,lon1,lat2,lon2,2,4)
+print(gc_distance_km)
+; (0)	3993.532
+
+; Distance between Boulder and Boston
+lat1 = 40.0150
+lon1 = -105.2705
+lat2 = 42.3601
+lon2 = -71.0589
+gc_distance_km = gc_latlon(lat1,lon1,lat2,lon2,2,4)
+print(gc_distance_km)
+;(0)	2855.432
+
+;; Edge Cases
+; Distance to Nairobi and Cairo (Crosses 0 degrees Latitude)
+lat1 = -1.1711
+lon1 = 36.4902
+lat2 = 30.240
+lon2 = 31.149
+gc_distance_km = gc_latlon(lat1,lon1,lat2,lon2,2,4)
+print(gc_distance_km)
+;(0)	3538.456
+
+; Distance to Dublin and London (Crosses 0 degrees Longitude)
+lat1 = 53.21
+lon1 = -5.1537
+lat2 = 51.3026
+lon2 = 0.739
+gc_distance_km = gc_latlon(lat1,lon1,lat2,lon2,2,4)
+print(gc_distance_km)
+;(0)	453.5349
+
+; Distance from North to South Pole
+lat1 = 90
+lon1 = 0
+lat2 = -90
+lon2 = 0
+gc_distance_km = gc_latlon(lat1,lon1,lat2,lon2,2,4)
+print(gc_distance_km)
+;(0)	20015.78
+
+;; Interpolate points along great circle arc between two points
+
+; Distance between Equator and North Pole
+lat1 = 0
+lon1 = 0
+lat2 = 90
+lon2 = 0
+gc_distance = gc_latlon(lat1,lon1,lat2,lon2,10,2)
+print(gc_distance)
+;  units :	degrees
+;  gclat :	(  0, 10, 20, 30, 40, 50, 60, 70, 80, 90 )
+;  gclon :	(  0, 6.186176e-16, 1.276937e-15, 2.025549e-15, 2.943859e-15, 4.181094e-15, 6.076649e-15, 9.639125e-15, 1.989687e-14,  0 )
+;  spacing :	10
+; (0)	90
+
+; Distance between Sacramento and Albany
+lat1 = 38.54623
+lon1 = -121.42660
+lat2 = 42.66575
+lon2 = -73.79901
+gc_distance = gc_latlon(lat1,lon1,lat2,lon2,10,2)
+print(gc_distance)
+;  spacing :	3.990384
+;  gclat :	( 38.54623, 39.95334, 41.15266, 42.12738, 42.86257, 43.34622, 43.56999, 43.52992, 43.22673, 42.66575 )
+;  gclon :	( 238.5734, 243.3962, 248.4062, 253.585, 258.9052, 264.3314, 269.8211, 275.3275, 280.8027, 286.201 )
+;  units :	degrees
+; (0)	35.91346
+
+; Distance between Boulder and Boston
+lat1 = 40.0150
+lon1 = -105.2705
+lat2 = 42.3601
+lon2 = -71.0589
+gc_distance = gc_latlon(lat1,lon1,lat2,lon2,10,2)
+print(gc_distance)
+;  spacing :	2.853181
+;  gclat :	( 40.015, 40.76997, 41.40982, 41.92961, 42.32515, 42.59314, 42.73126, 42.73831, 42.61423, 42.3601 )
+;  gclon :	( 254.7295, 258.3425, 262.0321, 265.7881, 269.5983, 273.4489, 277.3247, 281.2095, 285.087, 288.9411 )
+;  units :	degrees
+; (0)	25.67863
+
+;; Edge Cases
+; Distance to Nairobi and Cairo (Crosses 0 degrees Latitude)
+lat1 = -1.1711
+lon1 = 36.4902
+lat2 = 30.240
+lon2 = 31.149
+gc_distance = gc_latlon(lat1,lon1,lat2,lon2,10,2)
+print(gc_distance)
+;   spacing :	3.535667
+;  gclat :	( -1.1711, 2.3232, 5.817294, 9.310863, 12.80358, 16.29507, 19.78496, 23.27277, 26.758, 30.24 )
+;  gclon :	( 36.4902, 35.95082, 35.40877, 34.85993, 34.3, 33.72431, 33.12772, 32.50438, 31.84749, 31.149 )
+;  units :	degrees
+; (0)	31.821
+
+; Distance to Dublin and London (Crosses 0 degrees Longitude)
+lat1 = 53.21
+lon1 = -5.1537
+lat2 = 51.3026
+lon2 = 0.739
+gc_distance = gc_latlon(lat1,lon1,lat2,lon2,10,2)
+print(gc_distance)
+;  spacing :	0.4531774
+;  gclat :	( 53.21, 53.01284, 52.81184, 52.60707, 52.39858, 52.18644, 51.97071, 51.75145, 51.52873, 51.3026 )
+;  gclon :	( 354.8463, 355.5261, 356.1996, 356.8669, 357.5279, 358.1826, 358.8311, 359.4733, 0.1092852, 0.739 )
+;  units :	degrees
+; (0)	4.078597
+
+; Distance from North to South Pole
+lat1 = 90
+lon1 = 0
+lat2 = -90
+lon2 = 0
+gc_distance = gc_latlon(lat1,lon1,lat2,lon2,10,2)
+print(gc_distance)
+;  spacing :	20
+;  gclat :	( 90, 70, 50, 30, 10, -10, -30, -50, -70, -90 )
+;  gclon :	(  0, 3.508355e-15, 3.508355e-15, 3.508355e-15, 3.508355e-15, 3.508355e-15, 3.508355e-15, 3.508355e-15, 3.508355e-15,  0 )
+;  units :	degrees
+; (0)	180
