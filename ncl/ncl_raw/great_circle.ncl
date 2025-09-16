@@ -404,7 +404,7 @@ print(inout)
 ; (1)	True
 ; (2)	False
 
-; Inside/Outisde of Rectangle
+; Inside/Outside of Rectangle
 pt_lat = (/10.0150, 40.0150, 60.0150/)
 pt_lon = (/-105.2705, -105.2705, -105.2705/)
 lats = (/ 30.0150, 30.0150, 50.0150, 50.0150/)
