@@ -360,3 +360,87 @@ print(gc_distance)
 ;  gclon :	(  0, 3.508355e-15, 3.508355e-15, 3.508355e-15, 3.508355e-15, 3.508355e-15, 3.508355e-15, 3.508355e-15, 3.508355e-15,  0 )
 ;  units :	degrees
 ; (0)	180
+
+; gc_inout
+; Adapted from https://www.ncl.ucar.edu/Document/Functions/Built-in/gc_inout.shtml
+
+; Single Point
+; Center of Diamond
+pt_lat = 40.0150
+pt_lon = -105.2705
+lats = (/ 30.0150, 40.0150, 50.0150, 40.0150/)
+lons = (/ -105.2705, -95.2705, -105.2705, -115.2705/)
+inout = gc_inout(pt_lat, pt_lon, lats, lons)
+print(inout)
+; (0)	True
+
+; Center of Rectangle
+pt_lat = 40.0150
+pt_lon = -105.2705
+lats = (/ 30.0150, 30.0150, 50.0150, 50.0150/)
+lons = (/ -115.2705, -95.2705, -95.2705, -115.2705/)
+inout = gc_inout(pt_lat, pt_lon, lats, lons)
+print(inout)
+; (0)	True
+
+; Center of Triangle
+pt_lat = 40.0150
+pt_lon = -105.2705
+lats = (/ 30.0150, 30.0150, 50.0150/)
+lons = (/ -115.2705, -95.2705, -105.2705/)
+inout = gc_inout(pt_lat, pt_lon, lats, lons)
+print(inout)
+; (0)	True
+
+; Multiple Points
+; Inside/Outside of Diamond
+pt_lat = (/10.0150, 40.0150, 60.0150/)
+pt_lon = (/-105.2705, -105.2705, -105.2705/)
+lats = (/ 30.0150, 40.0150, 50.0150, 40.0150/)
+lons = (/ -105.2705, -95.2705, -105.2705, -115.2705/)
+inout = gc_inout(pt_lat, pt_lon, lats, lons)
+print(inout)
+; (0)	False
+; (1)	True
+; (2)	False
+
+; Inside/Outisde of Rectangle
+pt_lat = (/10.0150, 40.0150, 60.0150/)
+pt_lon = (/-105.2705, -105.2705, -105.2705/)
+lats = (/ 30.0150, 30.0150, 50.0150, 50.0150/)
+lons = (/ -115.2705, -95.2705, -95.2705, -115.2705/)
+inout = gc_inout(pt_lat, pt_lon, lats, lons)
+print(inout)
+; (0)	False
+; (1)	True
+; (2)	False
+
+; Inside/Outside of Triangle
+pt_lat = (/10.0150, 40.0150, 60.0150/)
+pt_lon = (/-105.2705, -105.2705, -105.2705/)
+lats = (/ 30.0150, 30.0150, 50.0150/)
+lons = (/ -115.2705, -95.2705, -105.2705/)
+inout = gc_inout(pt_lat, pt_lon, lats, lons)
+print(inout)
+; (0)	False
+; (1)	True
+; (2)	False
+
+;; Edge Cases
+; Along Edge of Rectangle
+pt_lat = 40.0150
+pt_lon = -105.2705
+lats = (/ 40.0150, 40.0150, 50.0150, 50.0150/)
+lons = (/ -115.2705, -95.2705, -95.2705, -115.2705/)
+inout = gc_inout(pt_lat, pt_lon, lats, lons)
+print(inout)
+; (0)	False
+
+; Point on Boundary Arc
+pt_lat = 20.0
+pt_lon =  0.0
+lats = (/0.0, 45.0, 45.0, 0.0/)
+lons = (/0.0, 45.0,  0.0, 0.0/)
+inout = gc_inout(pt_lat, pt_lon, lats, lons)
+print(inout)
+; (0)	True
