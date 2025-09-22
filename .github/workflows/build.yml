@@ -64,7 +64,7 @@ jobs:
       - name: environment setup
         id: env-setup
         continue-on-error: true
-        uses: mamba-org/setup-micromamba@7f29b8b80078b1b601dfa018b0f7425c587c63bb # v2
+        uses: mamba-org/setup-micromamba@add3a49764cedee8ee24e82dfde87f5bc2914462 # v2
         with:
           environment-file: environment.yml
           cache-environment: true
@@ -72,7 +72,7 @@ jobs:
 
       - name: retry environment set up if failed
         if: steps.env-setup.outcome == 'failure'
-        uses: mamba-org/setup-micromamba@7f29b8b80078b1b601dfa018b0f7425c587c63bb # v2
+        uses: mamba-org/setup-micromamba@add3a49764cedee8ee24e82dfde87f5bc2914462 # v2
         with:
           download-micromamba: false
           environment-file: environment.yml
