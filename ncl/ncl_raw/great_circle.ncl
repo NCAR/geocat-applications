@@ -444,3 +444,12 @@ lons = (/0.0, 45.0,  0.0, 0.0/)
 inout = gc_inout(pt_lat, pt_lon, lats, lons)
 print(inout)
 ; (0)	True
+
+; Across the Antimeridian (international date line)
+pt_lat = 40.0150
+pt_lon = -105.2705
+lats = (/49.0, 49.0, 11.0, 11.0/)
+lons = (/175.0, -65.0, -65.0, 175.0/)
+inout = gc_inout(pt_lat, pt_lon, lats, lons)
+print(inout)
+; (0)	True
