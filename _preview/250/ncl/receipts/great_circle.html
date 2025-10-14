@@ -416,6 +416,7 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolated-points">Interpolated Points</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gc-inout">gc_inout</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">Comparison</a><ul class="nav section-nav flex-column">
@@ -430,6 +431,7 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Interpolated Points</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">gc_inout</a></li>
 </ul>
 </li>
 </ul>
@@ -453,13 +455,14 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <section id="functions-covered">
 <h2>Functions covered<a class="headerlink" href="#functions-covered" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/area_poly_sphere.shtml">area_poly_sphere</a></p></li>
-<li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/css2c.shtml">css2c</a></p></li>
-<li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/csc2s.shtml">csc2s</a></p></li>
-<li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/gc_onarc.shtml">gc_onarc</a></p></li>
-<li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/gc_qarea.shtml">gc_qarea</a></p></li>
-<li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/gc_tarea.shtml">gc_tarea</a></p></li>
-<li><p><a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/gc_latlon.shtml">gc_latlon</a></p></li>
+<li><p><a class="reference internal" href="#area-poly-sphere"><span class="std std-ref">area_poly_sphere</span></a></p></li>
+<li><p><a class="reference internal" href="#css2c"><span class="std std-ref">css2c</span></a></p></li>
+<li><p><a class="reference internal" href="#csc2s"><span class="std std-ref">csc2s</span></a></p></li>
+<li><p><a class="reference internal" href="#gc-onarc"><span class="std std-ref">gc_onarc</span></a></p></li>
+<li><p><a class="reference internal" href="#gc-qarea"><span class="std std-ref">gc_qarea</span></a></p></li>
+<li><p><a class="reference internal" href="#gc-tarea"><span class="std std-ref">gc_tarea</span></a></p></li>
+<li><p><a class="reference internal" href="#gc-latlon"><span class="std std-ref">gc_latlon</span></a></p></li>
+<li><p><a class="reference internal" href="#gc-inout"><span class="std std-ref">gc_inout</span></a></p></li>
 </ul>
 </section>
 <section id="ncl-code">
@@ -826,6 +829,99 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="p">;</span>  <span class="n">gclon</span> <span class="p">:</span>	<span class="p">(</span>  <span class="mi">0</span><span class="p">,</span> <span class="mf">3.508355e-15</span><span class="p">,</span> <span class="mf">3.508355e-15</span><span class="p">,</span> <span class="mf">3.508355e-15</span><span class="p">,</span> <span class="mf">3.508355e-15</span><span class="p">,</span> <span class="mf">3.508355e-15</span><span class="p">,</span> <span class="mf">3.508355e-15</span><span class="p">,</span> <span class="mf">3.508355e-15</span><span class="p">,</span> <span class="mf">3.508355e-15</span><span class="p">,</span>  <span class="mi">0</span> <span class="p">)</span>
 <span class="p">;</span>  <span class="n">units</span> <span class="p">:</span>	<span class="n">degrees</span>
 <span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="mi">180</span>
+
+<span class="p">;</span> <span class="n">gc_inout</span>
+<span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span><span class="w"> </span><span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Built</span><span class="o">-</span><span class="ow">in</span><span class="o">/</span><span class="n">gc_inout</span><span class="o">.</span><span class="n">shtml</span>
+
+<span class="p">;</span> <span class="n">Single</span> <span class="n">Point</span>
+<span class="p">;</span> <span class="n">Center</span> <span class="n">of</span> <span class="n">Diamond</span>
+<span class="n">pt_lat</span> <span class="o">=</span> <span class="mf">40.0150</span>
+<span class="n">pt_lon</span> <span class="o">=</span> <span class="o">-</span><span class="mf">105.2705</span>
+<span class="n">lats</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span> <span class="mf">30.0150</span><span class="p">,</span> <span class="mf">40.0150</span><span class="p">,</span> <span class="mf">50.0150</span><span class="p">,</span> <span class="mf">40.0150</span><span class="o">/</span><span class="p">)</span>
+<span class="n">lons</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">115.2705</span><span class="o">/</span><span class="p">)</span>
+<span class="n">inout</span> <span class="o">=</span> <span class="n">gc_inout</span><span class="p">(</span><span class="n">pt_lat</span><span class="p">,</span> <span class="n">pt_lon</span><span class="p">,</span> <span class="n">lats</span><span class="p">,</span> <span class="n">lons</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="kc">True</span>
+
+<span class="p">;</span> <span class="n">Center</span> <span class="n">of</span> <span class="n">Rectangle</span>
+<span class="n">pt_lat</span> <span class="o">=</span> <span class="mf">40.0150</span>
+<span class="n">pt_lon</span> <span class="o">=</span> <span class="o">-</span><span class="mf">105.2705</span>
+<span class="n">lats</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span> <span class="mf">30.0150</span><span class="p">,</span> <span class="mf">30.0150</span><span class="p">,</span> <span class="mf">50.0150</span><span class="p">,</span> <span class="mf">50.0150</span><span class="o">/</span><span class="p">)</span>
+<span class="n">lons</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span> <span class="o">-</span><span class="mf">115.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">115.2705</span><span class="o">/</span><span class="p">)</span>
+<span class="n">inout</span> <span class="o">=</span> <span class="n">gc_inout</span><span class="p">(</span><span class="n">pt_lat</span><span class="p">,</span> <span class="n">pt_lon</span><span class="p">,</span> <span class="n">lats</span><span class="p">,</span> <span class="n">lons</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="kc">True</span>
+
+<span class="p">;</span> <span class="n">Center</span> <span class="n">of</span> <span class="n">Triangle</span>
+<span class="n">pt_lat</span> <span class="o">=</span> <span class="mf">40.0150</span>
+<span class="n">pt_lon</span> <span class="o">=</span> <span class="o">-</span><span class="mf">105.2705</span>
+<span class="n">lats</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span> <span class="mf">30.0150</span><span class="p">,</span> <span class="mf">30.0150</span><span class="p">,</span> <span class="mf">50.0150</span><span class="o">/</span><span class="p">)</span>
+<span class="n">lons</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span> <span class="o">-</span><span class="mf">115.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="o">/</span><span class="p">)</span>
+<span class="n">inout</span> <span class="o">=</span> <span class="n">gc_inout</span><span class="p">(</span><span class="n">pt_lat</span><span class="p">,</span> <span class="n">pt_lon</span><span class="p">,</span> <span class="n">lats</span><span class="p">,</span> <span class="n">lons</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="kc">True</span>
+
+<span class="p">;</span> <span class="n">Multiple</span> <span class="n">Points</span>
+<span class="p">;</span> <span class="n">Inside</span><span class="o">/</span><span class="n">Outside</span> <span class="n">of</span> <span class="n">Diamond</span>
+<span class="n">pt_lat</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">10.0150</span><span class="p">,</span> <span class="mf">40.0150</span><span class="p">,</span> <span class="mf">60.0150</span><span class="o">/</span><span class="p">)</span>
+<span class="n">pt_lon</span> <span class="o">=</span> <span class="p">(</span><span class="o">/-</span><span class="mf">105.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="o">/</span><span class="p">)</span>
+<span class="n">lats</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span> <span class="mf">30.0150</span><span class="p">,</span> <span class="mf">40.0150</span><span class="p">,</span> <span class="mf">50.0150</span><span class="p">,</span> <span class="mf">40.0150</span><span class="o">/</span><span class="p">)</span>
+<span class="n">lons</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">115.2705</span><span class="o">/</span><span class="p">)</span>
+<span class="n">inout</span> <span class="o">=</span> <span class="n">gc_inout</span><span class="p">(</span><span class="n">pt_lat</span><span class="p">,</span> <span class="n">pt_lon</span><span class="p">,</span> <span class="n">lats</span><span class="p">,</span> <span class="n">lons</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="kc">False</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>	<span class="kc">True</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">2</span><span class="p">)</span>	<span class="kc">False</span>
+
+<span class="p">;</span> <span class="n">Inside</span><span class="o">/</span><span class="n">Outside</span> <span class="n">of</span> <span class="n">Rectangle</span>
+<span class="n">pt_lat</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">10.0150</span><span class="p">,</span> <span class="mf">40.0150</span><span class="p">,</span> <span class="mf">60.0150</span><span class="o">/</span><span class="p">)</span>
+<span class="n">pt_lon</span> <span class="o">=</span> <span class="p">(</span><span class="o">/-</span><span class="mf">105.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="o">/</span><span class="p">)</span>
+<span class="n">lats</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span> <span class="mf">30.0150</span><span class="p">,</span> <span class="mf">30.0150</span><span class="p">,</span> <span class="mf">50.0150</span><span class="p">,</span> <span class="mf">50.0150</span><span class="o">/</span><span class="p">)</span>
+<span class="n">lons</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span> <span class="o">-</span><span class="mf">115.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">115.2705</span><span class="o">/</span><span class="p">)</span>
+<span class="n">inout</span> <span class="o">=</span> <span class="n">gc_inout</span><span class="p">(</span><span class="n">pt_lat</span><span class="p">,</span> <span class="n">pt_lon</span><span class="p">,</span> <span class="n">lats</span><span class="p">,</span> <span class="n">lons</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="kc">False</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>	<span class="kc">True</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">2</span><span class="p">)</span>	<span class="kc">False</span>
+
+<span class="p">;</span> <span class="n">Inside</span><span class="o">/</span><span class="n">Outside</span> <span class="n">of</span> <span class="n">Triangle</span>
+<span class="n">pt_lat</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">10.0150</span><span class="p">,</span> <span class="mf">40.0150</span><span class="p">,</span> <span class="mf">60.0150</span><span class="o">/</span><span class="p">)</span>
+<span class="n">pt_lon</span> <span class="o">=</span> <span class="p">(</span><span class="o">/-</span><span class="mf">105.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="o">/</span><span class="p">)</span>
+<span class="n">lats</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span> <span class="mf">30.0150</span><span class="p">,</span> <span class="mf">30.0150</span><span class="p">,</span> <span class="mf">50.0150</span><span class="o">/</span><span class="p">)</span>
+<span class="n">lons</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span> <span class="o">-</span><span class="mf">115.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="o">/</span><span class="p">)</span>
+<span class="n">inout</span> <span class="o">=</span> <span class="n">gc_inout</span><span class="p">(</span><span class="n">pt_lat</span><span class="p">,</span> <span class="n">pt_lon</span><span class="p">,</span> <span class="n">lats</span><span class="p">,</span> <span class="n">lons</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="kc">False</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>	<span class="kc">True</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">2</span><span class="p">)</span>	<span class="kc">False</span>
+
+<span class="p">;;</span> <span class="n">Edge</span> <span class="n">Cases</span>
+<span class="p">;</span> <span class="n">Along</span> <span class="n">Edge</span> <span class="n">of</span> <span class="n">Rectangle</span>
+<span class="n">pt_lat</span> <span class="o">=</span> <span class="mf">40.0150</span>
+<span class="n">pt_lon</span> <span class="o">=</span> <span class="o">-</span><span class="mf">105.2705</span>
+<span class="n">lats</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span> <span class="mf">40.0150</span><span class="p">,</span> <span class="mf">40.0150</span><span class="p">,</span> <span class="mf">50.0150</span><span class="p">,</span> <span class="mf">50.0150</span><span class="o">/</span><span class="p">)</span>
+<span class="n">lons</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span> <span class="o">-</span><span class="mf">115.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">115.2705</span><span class="o">/</span><span class="p">)</span>
+<span class="n">inout</span> <span class="o">=</span> <span class="n">gc_inout</span><span class="p">(</span><span class="n">pt_lat</span><span class="p">,</span> <span class="n">pt_lon</span><span class="p">,</span> <span class="n">lats</span><span class="p">,</span> <span class="n">lons</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="kc">False</span>
+
+<span class="p">;</span> <span class="n">Point</span> <span class="n">on</span> <span class="n">Boundary</span> <span class="n">Arc</span>
+<span class="n">pt_lat</span> <span class="o">=</span> <span class="mf">20.0</span>
+<span class="n">pt_lon</span> <span class="o">=</span>  <span class="mf">0.0</span>
+<span class="n">lats</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">45.0</span><span class="p">,</span> <span class="mf">45.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="o">/</span><span class="p">)</span>
+<span class="n">lons</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">45.0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="o">/</span><span class="p">)</span>
+<span class="n">inout</span> <span class="o">=</span> <span class="n">gc_inout</span><span class="p">(</span><span class="n">pt_lat</span><span class="p">,</span> <span class="n">pt_lon</span><span class="p">,</span> <span class="n">lats</span><span class="p">,</span> <span class="n">lons</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="kc">True</span>
+
+<span class="p">;</span> <span class="n">Across</span> <span class="n">the</span> <span class="n">Antimeridian</span> <span class="p">(</span><span class="n">international</span> <span class="n">date</span> <span class="n">line</span><span class="p">)</span>
+<span class="n">pt_lat</span> <span class="o">=</span> <span class="mf">40.0150</span>
+<span class="n">pt_lon</span> <span class="o">=</span> <span class="o">-</span><span class="mf">105.2705</span>
+<span class="n">lats</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">49.0</span><span class="p">,</span> <span class="mf">49.0</span><span class="p">,</span> <span class="mf">11.0</span><span class="p">,</span> <span class="mf">11.0</span><span class="o">/</span><span class="p">)</span>
+<span class="n">lons</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mf">175.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">65.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">65.0</span><span class="p">,</span> <span class="mf">175.0</span><span class="o">/</span><span class="p">)</span>
+<span class="n">inout</span> <span class="o">=</span> <span class="n">gc_inout</span><span class="p">(</span><span class="n">pt_lat</span><span class="p">,</span> <span class="n">pt_lon</span><span class="p">,</span> <span class="n">lats</span><span class="p">,</span> <span class="n">lons</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span>	<span class="kc">True</span>
 </pre></div>
 </div>
 </section>
@@ -1562,12 +1658,12 @@ if (window.Jupyter !== undefined) {
   } catch(err) {
   }
 }
-</script><div class="output text_html"><div id='47a08704-3996-4a29-94de-ce207df944b0'>
-  <div id="f62ff6f9-d5d0-4186-ab5d-a1e211ef58ac" data-root-id="47a08704-3996-4a29-94de-ce207df944b0" style="display: contents;"></div>
+</script><div class="output text_html"><div id='66c40748-5f62-49f0-8e5c-156207f70a7e'>
+  <div id="d7a13b39-a559-48be-ba5e-a91aa39fec7c" data-root-id="66c40748-5f62-49f0-8e5c-156207f70a7e" style="display: contents;"></div>
 </div>
 <script type="application/javascript">(function(root) {
-  var docs_json = {"b424cdfc-6823-4090-923e-b511ada764cb":{"version":"3.8.0","title":"Bokeh Application","config":{"type":"object","name":"DocumentConfig","id":"92a9cef0-60cb-4f25-802c-6f7404edfd35","attributes":{"notifications":{"type":"object","name":"Notifications","id":"f098ef34-beb4-49d0-9530-e8924de0c81b"}}},"roots":[{"type":"object","name":"panel.models.browser.BrowserInfo","id":"47a08704-3996-4a29-94de-ce207df944b0"},{"type":"object","name":"panel.models.comm_manager.CommManager","id":"2863a9e0-3199-4320-8ac8-986d12a33748","attributes":{"plot_id":"47a08704-3996-4a29-94de-ce207df944b0","comm_id":"c5836dd6487840a1a3a4dbea0d4608c7","client_comm_id":"d1971aac366b4da790a08b93d10202b0"}}],"defs":[{"type":"model","name":"ReactiveHTML1"},{"type":"model","name":"FlexBox1","properties":[{"name":"align_content","kind":"Any","default":"flex-start"},{"name":"align_items","kind":"Any","default":"flex-start"},{"name":"flex_direction","kind":"Any","default":"row"},{"name":"flex_wrap","kind":"Any","default":"wrap"},{"name":"gap","kind":"Any","default":""},{"name":"justify_content","kind":"Any","default":"flex-start"}]},{"type":"model","name":"FloatPanel1","properties":[{"name":"config","kind":"Any","default":{"type":"map"}},{"name":"contained","kind":"Any","default":true},{"name":"position","kind":"Any","default":"right-top"},{"name":"offsetx","kind":"Any","default":null},{"name":"offsety","kind":"Any","default":null},{"name":"theme","kind":"Any","default":"primary"},{"name":"status","kind":"Any","default":"normalized"}]},{"type":"model","name":"GridStack1","properties":[{"name":"ncols","kind":"Any","default":null},{"name":"nrows","kind":"Any","default":null},{"name":"allow_resize","kind":"Any","default":true},{"name":"allow_drag","kind":"Any","default":true},{"name":"state","kind":"Any","default":[]}]},{"type":"model","name":"drag1","properties":[{"name":"slider_width","kind":"Any","default":5},{"name":"slider_color","kind":"Any","default":"black"},{"name":"start","kind":"Any","default":0},{"name":"end","kind":"Any","default":100},{"name":"value","kind":"Any","default":50}]},{"type":"model","name":"click1","properties":[{"name":"terminal_output","kind":"Any","default":""},{"name":"debug_name","kind":"Any","default":""},{"name":"clears","kind":"Any","default":0}]},{"type":"model","name":"ReactiveESM1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"JSComponent1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"ReactComponent1","properties":[{"name":"use_shadow_dom","kind":"Any","default":true},{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"AnyWidgetComponent1","properties":[{"name":"use_shadow_dom","kind":"Any","default":true},{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"FastWrapper1","properties":[{"name":"object","kind":"Any","default":null},{"name":"style","kind":"Any","default":null}]},{"type":"model","name":"NotificationArea1","properties":[{"name":"js_events","kind":"Any","default":{"type":"map"}},{"name":"max_notifications","kind":"Any","default":5},{"name":"notifications","kind":"Any","default":[]},{"name":"position","kind":"Any","default":"bottom-right"},{"name":"_clear","kind":"Any","default":0},{"name":"types","kind":"Any","default":[{"type":"map","entries":[["type","warning"],["background","#ffc107"],["icon",{"type":"map","entries":[["className","fas fa-exclamation-triangle"],["tagName","i"],["color","white"]]}]]},{"type":"map","entries":[["type","info"],["background","#007bff"],["icon",{"type":"map","entries":[["className","fas fa-info-circle"],["tagName","i"],["color","white"]]}]]}]}]},{"type":"model","name":"Notification","properties":[{"name":"background","kind":"Any","default":null},{"name":"duration","kind":"Any","default":3000},{"name":"icon","kind":"Any","default":null},{"name":"message","kind":"Any","default":""},{"name":"notification_type","kind":"Any","default":null},{"name":"_rendered","kind":"Any","default":false},{"name":"_destroyed","kind":"Any","default":false}]},{"type":"model","name":"TemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"BootstrapTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"TemplateEditor1","properties":[{"name":"layout","kind":"Any","default":[]}]},{"type":"model","name":"MaterialTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"request_value1","properties":[{"name":"fill","kind":"Any","default":"none"},{"name":"_synced","kind":"Any","default":null},{"name":"_request_sync","kind":"Any","default":0}]},{"type":"model","name":"holoviews.plotting.bokeh.raster.HoverModel","properties":[{"name":"xy","kind":"Any","default":null},{"name":"data","kind":"Any","default":null}]}]}};
-  var render_items = [{"docid":"b424cdfc-6823-4090-923e-b511ada764cb","roots":{"47a08704-3996-4a29-94de-ce207df944b0":"f62ff6f9-d5d0-4186-ab5d-a1e211ef58ac"},"root_ids":["47a08704-3996-4a29-94de-ce207df944b0"]}];
+  var docs_json = {"a0c7402b-dfa4-417d-a212-a9bdd82e950f":{"version":"3.8.0","title":"Bokeh Application","config":{"type":"object","name":"DocumentConfig","id":"16bebe10-cd06-4a50-a3d5-7e2d214e8775","attributes":{"notifications":{"type":"object","name":"Notifications","id":"2c80d5aa-b04f-46bc-9b76-13786073e3a7"}}},"roots":[{"type":"object","name":"panel.models.browser.BrowserInfo","id":"66c40748-5f62-49f0-8e5c-156207f70a7e"},{"type":"object","name":"panel.models.comm_manager.CommManager","id":"98a1efa6-a242-47cb-9ab9-db96c9b544bd","attributes":{"plot_id":"66c40748-5f62-49f0-8e5c-156207f70a7e","comm_id":"a9d9818f25644bf181b22212d47889be","client_comm_id":"fbf31740e4f640f39fb987255349f3ff"}}],"defs":[{"type":"model","name":"ReactiveHTML1"},{"type":"model","name":"FlexBox1","properties":[{"name":"align_content","kind":"Any","default":"flex-start"},{"name":"align_items","kind":"Any","default":"flex-start"},{"name":"flex_direction","kind":"Any","default":"row"},{"name":"flex_wrap","kind":"Any","default":"wrap"},{"name":"gap","kind":"Any","default":""},{"name":"justify_content","kind":"Any","default":"flex-start"}]},{"type":"model","name":"FloatPanel1","properties":[{"name":"config","kind":"Any","default":{"type":"map"}},{"name":"contained","kind":"Any","default":true},{"name":"position","kind":"Any","default":"right-top"},{"name":"offsetx","kind":"Any","default":null},{"name":"offsety","kind":"Any","default":null},{"name":"theme","kind":"Any","default":"primary"},{"name":"status","kind":"Any","default":"normalized"}]},{"type":"model","name":"GridStack1","properties":[{"name":"ncols","kind":"Any","default":null},{"name":"nrows","kind":"Any","default":null},{"name":"allow_resize","kind":"Any","default":true},{"name":"allow_drag","kind":"Any","default":true},{"name":"state","kind":"Any","default":[]}]},{"type":"model","name":"drag1","properties":[{"name":"slider_width","kind":"Any","default":5},{"name":"slider_color","kind":"Any","default":"black"},{"name":"start","kind":"Any","default":0},{"name":"end","kind":"Any","default":100},{"name":"value","kind":"Any","default":50}]},{"type":"model","name":"click1","properties":[{"name":"terminal_output","kind":"Any","default":""},{"name":"debug_name","kind":"Any","default":""},{"name":"clears","kind":"Any","default":0}]},{"type":"model","name":"ReactiveESM1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"JSComponent1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"ReactComponent1","properties":[{"name":"use_shadow_dom","kind":"Any","default":true},{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"AnyWidgetComponent1","properties":[{"name":"use_shadow_dom","kind":"Any","default":true},{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"FastWrapper1","properties":[{"name":"object","kind":"Any","default":null},{"name":"style","kind":"Any","default":null}]},{"type":"model","name":"NotificationArea1","properties":[{"name":"js_events","kind":"Any","default":{"type":"map"}},{"name":"max_notifications","kind":"Any","default":5},{"name":"notifications","kind":"Any","default":[]},{"name":"position","kind":"Any","default":"bottom-right"},{"name":"_clear","kind":"Any","default":0},{"name":"types","kind":"Any","default":[{"type":"map","entries":[["type","warning"],["background","#ffc107"],["icon",{"type":"map","entries":[["className","fas fa-exclamation-triangle"],["tagName","i"],["color","white"]]}]]},{"type":"map","entries":[["type","info"],["background","#007bff"],["icon",{"type":"map","entries":[["className","fas fa-info-circle"],["tagName","i"],["color","white"]]}]]}]}]},{"type":"model","name":"Notification","properties":[{"name":"background","kind":"Any","default":null},{"name":"duration","kind":"Any","default":3000},{"name":"icon","kind":"Any","default":null},{"name":"message","kind":"Any","default":""},{"name":"notification_type","kind":"Any","default":null},{"name":"_rendered","kind":"Any","default":false},{"name":"_destroyed","kind":"Any","default":false}]},{"type":"model","name":"TemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"BootstrapTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"TemplateEditor1","properties":[{"name":"layout","kind":"Any","default":[]}]},{"type":"model","name":"MaterialTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"request_value1","properties":[{"name":"fill","kind":"Any","default":"none"},{"name":"_synced","kind":"Any","default":null},{"name":"_request_sync","kind":"Any","default":0}]},{"type":"model","name":"holoviews.plotting.bokeh.raster.HoverModel","properties":[{"name":"xy","kind":"Any","default":null},{"name":"data","kind":"Any","default":null}]}]}};
+  var render_items = [{"docid":"a0c7402b-dfa4-417d-a212-a9bdd82e950f","roots":{"66c40748-5f62-49f0-8e5c-156207f70a7e":"d7a13b39-a559-48be-ba5e-a91aa39fec7c"},"root_ids":["66c40748-5f62-49f0-8e5c-156207f70a7e"]}];
   var docs = Object.values(docs_json)
   if (!docs) {
     return
@@ -2519,15 +2615,124 @@ if (window.Jupyter !== undefined) {
 </div>
 </section>
 </section>
+<section id="gc-inout">
+<h3>gc_inout<a class="headerlink" href="#gc-inout" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">shapely.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Point</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">shapely.geometry.polygon</span><span class="w"> </span><span class="kn">import</span> <span class="n">Polygon</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">is_inside</span><span class="p">(</span><span class="n">pt_latlon</span><span class="p">,</span> <span class="n">lats</span><span class="p">,</span> <span class="n">lons</span><span class="p">):</span>
+    <span class="n">new_pt</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="n">pt_latlon</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">pt_latlon</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">lat_lon_coords</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">lats</span><span class="p">,</span> <span class="n">lons</span><span class="p">))</span>
+    <span class="n">polygon</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">(</span><span class="n">lat_lon_coords</span><span class="p">)</span>
+    <span class="n">contained_by_polygon</span> <span class="o">=</span> <span class="n">polygon</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">new_pt</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">contained_by_polygon</span>
+
+
+<span class="n">python_gc_inout</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">ncl_gc_inout</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="c1"># Single Point - Center of Diamond</span>
+<span class="n">pt_lat_lon</span> <span class="o">=</span> <span class="p">[</span><span class="mf">40.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">]</span>
+<span class="n">lat_pts</span> <span class="o">=</span> <span class="p">[</span><span class="mf">42.3601</span><span class="p">,</span> <span class="mf">41.4017</span><span class="p">,</span> <span class="mf">29.5518</span><span class="p">]</span>
+<span class="n">lon_pts</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">71.0589</span><span class="p">,</span> <span class="o">-</span><span class="mf">124.0417</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.0982</span><span class="p">]</span>
+<span class="n">python_gc_inout</span><span class="p">[</span><span class="s2">&quot;Center of Diamond - Single Point&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_inside</span><span class="p">(</span>
+    <span class="n">pt_lat_lon</span><span class="p">,</span> <span class="n">lat_pts</span><span class="p">,</span> <span class="n">lon_pts</span>
+<span class="p">)</span>
+<span class="n">ncl_gc_inout</span><span class="p">[</span><span class="s2">&quot;Center of Diamond - Single Point&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># Single Point - Center of Rectangle</span>
+<span class="n">pt_lat_lon</span> <span class="o">=</span> <span class="p">[</span><span class="mf">40.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">]</span>
+<span class="n">lat_pts</span> <span class="o">=</span> <span class="p">[</span><span class="mf">30.0150</span><span class="p">,</span> <span class="mf">30.0150</span><span class="p">,</span> <span class="mf">50.0150</span><span class="p">,</span> <span class="mf">50.0150</span><span class="p">]</span>
+<span class="n">lon_pts</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">115.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">115.2705</span><span class="p">]</span>
+<span class="n">python_gc_inout</span><span class="p">[</span><span class="s2">&quot;Center of Rectangle - Single Point&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_inside</span><span class="p">(</span>
+    <span class="n">pt_lat_lon</span><span class="p">,</span> <span class="n">lat_pts</span><span class="p">,</span> <span class="n">lon_pts</span>
+<span class="p">)</span>
+<span class="n">ncl_gc_inout</span><span class="p">[</span><span class="s2">&quot;Center of Rectangle - Single Point&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># Single Point - Center of Triangle</span>
+<span class="n">pt_lat_lon</span> <span class="o">=</span> <span class="p">[</span><span class="mf">40.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">]</span>
+<span class="n">lat_pts</span> <span class="o">=</span> <span class="p">[</span><span class="mf">30.0150</span><span class="p">,</span> <span class="mf">30.0150</span><span class="p">,</span> <span class="mf">50.0150</span><span class="p">]</span>
+<span class="n">lon_pts</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">115.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">]</span>
+<span class="n">python_gc_inout</span><span class="p">[</span><span class="s2">&quot;Center of Triangle - Single Point&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_inside</span><span class="p">(</span>
+    <span class="n">pt_lat_lon</span><span class="p">,</span> <span class="n">lat_pts</span><span class="p">,</span> <span class="n">lon_pts</span>
+<span class="p">)</span>
+<span class="n">ncl_gc_inout</span><span class="p">[</span><span class="s2">&quot;Center of Triangle - Single Point&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># Multiple Points - Inside/Outside of Diamond</span>
+<span class="n">pt_lat_lon</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">10.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">],</span> <span class="p">[</span><span class="mf">40.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">],</span> <span class="p">[</span><span class="mf">60.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">]]</span>
+<span class="n">lat_pts</span> <span class="o">=</span> <span class="p">[</span><span class="mf">30.0150</span><span class="p">,</span> <span class="mf">40.0150</span><span class="p">,</span> <span class="mf">50.0150</span><span class="p">,</span> <span class="mf">40.0150</span><span class="p">]</span>
+<span class="n">lon_pts</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">105.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">115.2705</span><span class="p">]</span>
+<span class="n">pt_contains</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">latlon</span> <span class="ow">in</span> <span class="n">pt_lat_lon</span><span class="p">:</span>
+    <span class="n">pt_contains</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">is_inside</span><span class="p">(</span><span class="n">latlon</span><span class="p">,</span> <span class="n">lat_pts</span><span class="p">,</span> <span class="n">lon_pts</span><span class="p">))</span>
+<span class="n">python_gc_inout</span><span class="p">[</span><span class="s2">&quot;Inside/Outside of Diamond - Multiple Points&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pt_contains</span>
+<span class="n">ncl_gc_inout</span><span class="p">[</span><span class="s2">&quot;Inside/Outside of Diamond - Multiple Points&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">]</span>
+
+<span class="c1"># Multiple Points - Inside/Outside of Rectangle</span>
+<span class="n">pt_lat_lon</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">10.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">],</span> <span class="p">[</span><span class="mf">40.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">],</span> <span class="p">[</span><span class="mf">60.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">]]</span>
+<span class="n">lat_pts</span> <span class="o">=</span> <span class="p">[</span><span class="mf">30.0150</span><span class="p">,</span> <span class="mf">30.0150</span><span class="p">,</span> <span class="mf">50.0150</span><span class="p">,</span> <span class="mf">50.0150</span><span class="p">]</span>
+<span class="n">lon_pts</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">115.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">115.2705</span><span class="p">]</span>
+<span class="n">pt_contains</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">latlon</span> <span class="ow">in</span> <span class="n">pt_lat_lon</span><span class="p">:</span>
+    <span class="n">pt_contains</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">is_inside</span><span class="p">(</span><span class="n">latlon</span><span class="p">,</span> <span class="n">lat_pts</span><span class="p">,</span> <span class="n">lon_pts</span><span class="p">))</span>
+<span class="n">python_gc_inout</span><span class="p">[</span><span class="s2">&quot;Inside/Outside of Rectangle - Multiple Points&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pt_contains</span>
+<span class="n">ncl_gc_inout</span><span class="p">[</span><span class="s2">&quot;Inside/Outside of Rectangle - Multiple Points&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">]</span>
+
+<span class="c1"># Multiple Points - Inside/Outside of Triangle</span>
+<span class="n">pt_lat_lon</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">10.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">],</span> <span class="p">[</span><span class="mf">40.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">],</span> <span class="p">[</span><span class="mf">60.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">]]</span>
+<span class="n">lat_pts</span> <span class="o">=</span> <span class="p">[</span><span class="mf">30.0150</span><span class="p">,</span> <span class="mf">30.0150</span><span class="p">,</span> <span class="mf">50.0150</span><span class="p">]</span>
+<span class="n">lon_pts</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">115.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">]</span>
+<span class="n">pt_contains</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">latlon</span> <span class="ow">in</span> <span class="n">pt_lat_lon</span><span class="p">:</span>
+    <span class="n">pt_contains</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">is_inside</span><span class="p">(</span><span class="n">latlon</span><span class="p">,</span> <span class="n">lat_pts</span><span class="p">,</span> <span class="n">lon_pts</span><span class="p">))</span>
+<span class="n">python_gc_inout</span><span class="p">[</span><span class="s2">&quot;Inside/Outside of Triangle - Multiple Points&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pt_contains</span>
+<span class="n">ncl_gc_inout</span><span class="p">[</span><span class="s2">&quot;Inside/Outside of Triangle - Multiple Points&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">]</span>
+
+<span class="c1"># Single Point - Along Edge of Rectangle</span>
+<span class="n">pt_lat_lon</span> <span class="o">=</span> <span class="p">[</span><span class="mf">40.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">]</span>
+<span class="n">lat_pts</span> <span class="o">=</span> <span class="p">[</span><span class="mf">40.0150</span><span class="p">,</span> <span class="mf">40.0150</span><span class="p">,</span> <span class="mf">50.0150</span><span class="p">,</span> <span class="mf">50.0150</span><span class="p">]</span>
+<span class="n">lon_pts</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">115.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">115.2705</span><span class="p">]</span>
+<span class="n">python_gc_inout</span><span class="p">[</span><span class="s2">&quot;Along Edge of Rectangle - Single Point&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_inside</span><span class="p">(</span>
+    <span class="n">pt_lat_lon</span><span class="p">,</span> <span class="n">lat_pts</span><span class="p">,</span> <span class="n">lon_pts</span>
+<span class="p">)</span>
+<span class="n">ncl_gc_inout</span><span class="p">[</span><span class="s2">&quot;Along Edge of Rectangle - Single Point&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="c1"># Single Point - Point on Boundary Arc</span>
+<span class="n">pt_lat_lon</span> <span class="o">=</span> <span class="p">[</span><span class="mf">20.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+<span class="n">lat_pts</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">45.0</span><span class="p">,</span> <span class="mf">45.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+<span class="n">lon_pts</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">45.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+<span class="n">python_gc_inout</span><span class="p">[</span><span class="s2">&quot;Point on Boundary Arc - Single Point&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_inside</span><span class="p">(</span>
+    <span class="n">pt_lat_lon</span><span class="p">,</span> <span class="n">lat_pts</span><span class="p">,</span> <span class="n">lon_pts</span>
+<span class="p">)</span>
+<span class="n">ncl_gc_inout</span><span class="p">[</span><span class="s2">&quot;Point on Boundary Arc - Single Point&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># Single Point - Across the Antimeridian</span>
+<span class="n">pt_lat_lon</span> <span class="o">=</span> <span class="p">[</span><span class="mf">40.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">]</span>
+<span class="n">lat_pts</span> <span class="o">=</span> <span class="p">[</span><span class="mf">49.0</span><span class="p">,</span> <span class="mf">49.0</span><span class="p">,</span> <span class="mf">11.0</span><span class="p">,</span> <span class="mf">11.0</span><span class="p">]</span>
+<span class="n">lon_pts</span> <span class="o">=</span> <span class="p">[</span><span class="mf">175.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">65.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">65.0</span><span class="p">,</span> <span class="mf">175.0</span><span class="p">]</span>
+<span class="n">python_gc_inout</span><span class="p">[</span><span class="s2">&quot;Across the Antimeridian - Single Point&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_inside</span><span class="p">(</span>
+    <span class="n">pt_lat_lon</span><span class="p">,</span> <span class="n">lat_pts</span><span class="p">,</span> <span class="n">lon_pts</span>
+<span class="p">)</span>
+<span class="n">ncl_gc_inout</span><span class="p">[</span><span class="s2">&quot;Across the Antimeridian - Single Point&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="comparison">
 <h2>Comparison<a class="headerlink" href="#comparison" title="Link to this heading">#</a></h2>
 <section id="id1">
 <h3>area_poly_sphere<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
-<div class="admonition alert alert-info">
-    <p class="admonition-title" style="font-weight:bold">Important Note</p>
-    NCL does not return a valid value for a single point ("Single Point -> Invalid NCL") where Python does, so this error is ignored below
-</div><div class="cell docutils container">
+<div class="admonition-important-note admonition">
+<p class="admonition-title">Important Note</p>
+<p>NCL does not return a valid value for a single point (<code class="docutils literal notranslate"><span class="pre">&quot;Single</span> <span class="pre">Point</span> <span class="pre">-&gt;</span> <span class="pre">Invalid</span> <span class="pre">NCL&quot;</span></code>) where Python does, so this error is ignored below</p>
+</div>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ncl_results</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
     <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">python_results</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">python_results</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
@@ -2608,24 +2813,25 @@ VALID:
 </section>
 <section id="id3">
 <h3>csc2s<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
-<div class="admonition alert alert-info">
-    <p class="admonition-title" style="font-weight:bold">Important Note</p>
-    To generate the Cartesian coordinates to test against, the NCL script for this receipt converts a range of latitude/longitude to Cartesian coordinates (with the `css2c` function). The Carestian coordinates are then converted back into latitude/longitude with the `csc2s` function. This allows the receipt to test `csc2s` across a full range of coordinates. However, NCL coordinates representing the poles (+90/-90) and the antimeridian (+180/-180) produced through this process return as an equivalent, but different value. 
-    For example, an input at the pole (-90, -179) produces an output of (-90, 1) and an input of (-90,13) produces an output (-90,-167).
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ncl</span> <span class="mi">0</span><span class="o">&gt;</span> <span class="n">cart</span> <span class="o">=</span> <span class="n">css2c</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="mi">87</span><span class="p">)</span>
-<span class="n">ncl</span> <span class="mi">1</span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">csc2s</span><span class="p">(</span><span class="n">cart</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">cart</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">cart</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)))</span>
-<span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>	<span class="o">-</span><span class="mi">90</span>
-<span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>	<span class="o">-</span><span class="mf">92.99999</span>
+<div class="admonition-important-note admonition">
+<p class="admonition-title">Important Note</p>
+<p>To generate the Cartesian coordinates to test against, the NCL script for this receipt converts a range of latitude/longitude to Cartesian coordinates (with the <code class="docutils literal notranslate"><span class="pre">css2c</span></code> function). The Carestian coordinates are then converted back into latitude/longitude with the <code class="docutils literal notranslate"><span class="pre">csc2s</span></code> function. This allows the receipt to test <code class="docutils literal notranslate"><span class="pre">csc2s</span></code> across a full range of coordinates. However, NCL coordinates representing the poles (+90/-90) and the antimeridian (+180/-180) produced through this process return as an equivalent, but different value.</p>
+<p>For example, an input at the pole (-90, -179) produces an output of (-90, 1) and an input of (-90,13) produces an output (-90,-167).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ncl 0&gt; cart = css2c(-90, 87)
+ncl 1&gt; print(csc2s(cart(0,0), cart(1,0), cart(2,0)))
+(0,0)	-90
+(1,0)	-92.99999
 </pre></div>
 </div>
 <p>The same applies for the antimerdian where, for example, an input of (-89,-180) produces an output of (-89,180)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ncl</span> <span class="mi">4</span><span class="o">&gt;</span> <span class="n">cart</span> <span class="o">=</span> <span class="n">css2c</span><span class="p">(</span><span class="mi">89</span><span class="p">,</span><span class="mi">180</span><span class="p">)</span>                          
-<span class="n">ncl</span> <span class="mi">5</span><span class="o">&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">csc2s</span><span class="p">(</span><span class="n">cart</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">cart</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">cart</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)))</span>
-<span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>	<span class="mf">89.00005</span>
-<span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>	<span class="o">-</span><span class="mi">180</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ncl 4&gt; cart = css2c(89,180)                          
+ncl 5&gt; print(csc2s(cart(0,0), cart(1,0), cart(2,0)))
+(0,0)	89.00005
+(1,0)	-180
 </pre></div>
 </div>
-</div><div class="cell docutils container">
+</div>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify Latitude/Longitude Inputs match the Latitude/Longtiude Outputs</span>
 <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ncl_csc2s_input_output</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
@@ -2669,9 +2875,11 @@ VALID:
 </section>
 <section id="id4">
 <h3>gc_onarc<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
-<div class="admonition alert alert-info">
-    <p class="admonition-title" style="font-weight:bold">Important Note</p>
-    The tolerance for the function to check if a point lies on a great circle arc varies between NCL and UXarray which can generate some potential mismatches when comparing between each function<div class="cell docutils container">
+<div class="admonition-important-note admonition">
+<p class="admonition-title">Important Note</p>
+<p>The tolerance for the function to check if a point lies on a great circle arc varies between NCL and <code class="docutils literal notranslate"><span class="pre">UXarray</span></code> which can generate some potential mismatches when comparing between each function</p>
+</div>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">latlon</span> <span class="ow">in</span> <span class="n">ncl_gc_onarc</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
     <span class="k">assert</span> <span class="n">ncl_gc_onarc</span><span class="p">[</span><span class="n">latlon</span><span class="p">]</span> <span class="ow">is</span> <span class="n">python_onarc</span><span class="p">[</span><span class="n">latlon</span><span class="p">]</span>
@@ -2751,6 +2959,41 @@ VALID:
 </div>
 </section>
 </section>
+<section id="id10">
+<h3>gc_inout<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ncl_gc_inout</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">python_gc_inout</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ncl_gc_inout</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="n">ncl_gc_inout</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">==</span> <span class="n">python_gc_inout</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;INVALID:</span><span class="se">\n\t</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="se">\n\t\t</span><span class="s2">ncl:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">ncl_gc_inout</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n\t\t</span><span class="s2">python:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">python_gc_inout</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span>
+                <span class="n">key</span> <span class="o">!=</span> <span class="s2">&quot;Point on Boundary Arc - Single Point&quot;</span>
+                <span class="ow">and</span> <span class="n">key</span> <span class="o">!=</span> <span class="s2">&quot;Across the Antimeridian - Single Point&quot;</span>
+            <span class="p">):</span>
+                <span class="k">assert</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INVALID:
+	Point on Boundary Arc - Single Point: 
+		ncl:		True
+		python:		False
+
+INVALID:
+	Across the Antimeridian - Single Point: 
+		ncl:		True
+		python:		False
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 </section>
 
@@ -2795,6 +3038,7 @@ VALID:
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolated-points">Interpolated Points</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gc-inout">gc_inout</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">Comparison</a><ul class="nav section-nav flex-column">
@@ -2809,6 +3053,7 @@ VALID:
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Interpolated Points</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">gc_inout</a></li>
 </ul>
 </li>
 </ul>
