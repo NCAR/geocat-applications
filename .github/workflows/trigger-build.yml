@@ -26,7 +26,7 @@ jobs:
           zip -r pr_code.zip .
 
       - name: Upload zipped code artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: code-zip-${{ github.event.number }}
           path: ./pr_code.zip
@@ -41,7 +41,7 @@ jobs:
           echo $SHA >> pr_number.txt
 
       - name: Upload PR number and sha artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: pr_number
           path: ./pr_number.txt
