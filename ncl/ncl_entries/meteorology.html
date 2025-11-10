@@ -493,10 +493,11 @@ document.write(`
 <p><span class="math notranslate nohighlight">\(L_{lv} = 597.3 - 0.57(T - 273)\)</span></p>
 <p>So, when <span class="math notranslate nohighlight">\(h\)</span> is the relative humidity, the dew point temperature (pg. 273, Equation 6, solved for as <span class="math notranslate nohighlight">\(T_D\)</span>) is:</p>
 <p><span class="math notranslate nohighlight">\(T_D = \frac{T * L_{lv}}{L_{lv} - R_{v}Tlog(h)}\)</span></p>
-<div class="admonition alert alert-info">
-    <p class="admonition-title" style="font-weight:bold">Important Note</p>
-    To convert from Kelvin to Celsius <code>-273.15</code> and to convert from Celsius to Kelvin <code>+273.15</code>
-</div><section id="grab-and-go">
+<div class="admonition-important-note admonition">
+<p class="admonition-title">Important Note</p>
+<p>To convert from Kelvin to Celsius <code class="docutils literal notranslate"><span class="pre">-273.15</span></code> and to convert from Celsius to Kelvin <code class="docutils literal notranslate"><span class="pre">+273.15</span></code></p>
+</div>
+<section id="grab-and-go">
 <h4>Grab and Go<a class="headerlink" href="#grab-and-go" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -577,7 +578,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[11.92115 ],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[11.921149],
        [14.843202],
        [11.920901],
        [ 9.156431]], dtype=float32)
@@ -927,9 +928,9 @@ The percent of relative humidity (<span class="math notranslate nohighlight">\({
 <section id="dpres-plevel">
 <h3>dpres_plevel<a class="headerlink" href="#dpres-plevel" title="Link to this heading">#</a></h3>
 <p>NCL’s <a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/dpres_plevel.shtml"><code class="docutils literal notranslate"><span class="pre">dpres_plevel</span></code></a> calculates the change in pressure (delta pressure) for each layer in a specified constant pressure level coordinate system while accounting for specified surface and top pressures.</p>
-<div class="admonition alert alert-info">
-    <p class="admonition-title" style="font-weight:bold">Important Note</p>
-    Some layers may be assigned missing values if they are fully below the ground (below surface_pressure) or fully above the specified pressure top in NCL. In geocat-comp the surface pressure is accounted for as in NCL, but the pressure top is assumed to be the minimum specified pressure level and is not currently user configurable.
+<div class="admonition-important-note admonition">
+<p class="admonition-title">Important Note</p>
+<p>Some layers may be assigned missing values if they are fully below the ground (below surface_pressure) or fully above the specified pressure top in NCL. In geocat-comp the surface pressure is accounted for as in NCL, but the pressure top is assumed to be the minimum specified pressure level and is not currently user configurable.</p>
 </div>
 <p>For example:</p>
 <center>
