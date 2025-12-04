@@ -1166,9 +1166,11 @@ This notebook is part of the process we have for adding entries to the NCL Index
   }
 
   const force = true;
-  const py_version = '3.8.1'.replace('rc', '-rc.').replace('.dev', '-dev.');
+  const version = '3.8.1'.replace('rc', '-rc.').replace('.dev', '-dev.');
   const reloading = false;
   const Bokeh = root.Bokeh;
+  const BK_RE = /^https:\/\/cdn\.bokeh\.org\/bokeh\/(release|dev)\/bokeh-/;
+  const PN_RE = /^https:\/\/cdn\.holoviz\.org\/panel\/[^/]+\/dist\/panel/i;
 
   // Set a timeout for this load but only if we are not already initializing
   if (typeof (root._bokeh_timeout) === "undefined" || (force || !root._bokeh_is_initializing)) {
@@ -1188,7 +1190,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
     console.debug("Bokeh: all callbacks have finished");
   }
 
-  function load_libs(css_urls, js_urls, js_modules, js_exports, callback) {
+  function load_libs(css_urls, js_urls, js_modules, js_exports, Bokeh, callback) {
     if (css_urls == null) css_urls = [];
     if (js_urls == null) js_urls = [];
     if (js_modules == null) js_modules = [];
@@ -1262,7 +1264,10 @@ This notebook is part of the process we have for adding entries to the NCL Index
     for (let i = 0; i < js_urls.length; i++) {
       const url = js_urls[i];
       const escaped = encodeURI(url)
-      if (skip.indexOf(escaped) !== -1 || existing_scripts.indexOf(escaped) !== -1) {
+      const shouldSkip = skip.includes(escaped) || existing_scripts.includes(escaped)
+      const isBokehOrPanel = BK_RE.test(escaped) || PN_RE.test(escaped)
+      const missingOrBroken = Bokeh == null || Bokeh.Panel == null || (Bokeh.version != version && !Bokeh.versions?.has(version)) || Bokeh.versions?.get(version).Panel == null;
+      if (shouldSkip && !(isBokehOrPanel && missingOrBroken)) {
         if (!window.requirejs) {
           on_load();
         }
@@ -1326,7 +1331,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
     document.body.appendChild(element);
   }
 
-  const js_urls = ["https://cdn.holoviz.org/panel/1.8.3/dist/bundled/reactiveesm/es-module-shims@^1.10.0/dist/es-module-shims.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-3.8.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-3.8.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.8.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.8.1.min.js", "https://cdn.holoviz.org/panel/1.8.3/dist/panel.min.js"];
+  const js_urls = ["https://cdn.holoviz.org/panel/1.8.4/dist/bundled/reactiveesm/es-module-shims@^1.10.0/dist/es-module-shims.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-3.8.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-3.8.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.8.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.8.1.min.js", "https://cdn.holoviz.org/panel/1.8.4/dist/panel.min.js"];
   const js_modules = [];
   const js_exports = {};
   const css_urls = [];
@@ -1347,24 +1352,13 @@ function(Bokeh) {} // ensure no trailing comma for IE
           }
         }
       }
-      // Cache old bokeh versions
-      if (Bokeh != undefined && !reloading) {
-        var NewBokeh = root.Bokeh;
-        if (Bokeh.versions === undefined) {
-          Bokeh.versions = new Map();
-        }
-        if (NewBokeh.version !== Bokeh.version) {
-          Bokeh.versions.set(NewBokeh.version, NewBokeh)
-        }
-        root.Bokeh = Bokeh;
-      }
     } else if (Date.now() < root._bokeh_timeout) {
       setTimeout(run_inline_js, 100);
     } else if (!root._bokeh_failed_load) {
       console.log("Bokeh: BokehJS failed to load within specified timeout.");
       root._bokeh_failed_load = true;
     }
-    root._bokeh_is_initializing = false
+    root._bokeh_is_initializing = false;
   }
 
   function load_or_wait() {
@@ -1381,24 +1375,35 @@ function(Bokeh) {} // ensure no trailing comma for IE
       root._bokeh_timeout = Date.now() + 5000;
       root._bokeh_is_initializing = false;
       root._bokeh_onload_callbacks = undefined;
-      root._bokeh_is_loading = 0
+      root._bokeh_is_loading = 0;
       console.log("Bokeh: BokehJS was loaded multiple times but one version failed to initialize.");
       load_or_wait();
     } else if (root._bokeh_is_initializing || (typeof root._bokeh_is_initializing === "undefined" && root._bokeh_onload_callbacks !== undefined)) {
       setTimeout(load_or_wait, 100);
     } else {
-      root._bokeh_is_initializing = true
-      root._bokeh_onload_callbacks = []
-      const bokeh_loaded = root.Bokeh != null && (root.Bokeh.version === py_version || (root.Bokeh.versions !== undefined && root.Bokeh.versions.has(py_version)));
+      root._bokeh_is_initializing = true;
+      root._bokeh_onload_callbacks = [];
+      const bokeh_loaded = Bokeh != null && ((Bokeh.version === version && Bokeh.Panel) || (Bokeh.versions?.has(version) && Bokeh.versions.get(version).Panel));
       if (!reloading && !bokeh_loaded) {
         if (root.Bokeh) {
           root.Bokeh = undefined;
         }
         console.debug("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
       }
-      load_libs(css_urls, js_urls, js_modules, js_exports, function() {
+      load_libs(css_urls, js_urls, js_modules, js_exports, Bokeh, function() {
         console.debug("Bokeh: BokehJS plotting callback run at", now());
         run_inline_js();
+        if (Bokeh != undefined && !reloading) {
+          const NewBokeh = root.Bokeh;
+          if (Bokeh.versions === undefined) {
+            Bokeh.versions = new Map();
+          }
+          if (NewBokeh.version !== Bokeh.version) {
+            Bokeh[NewBokeh.version] = NewBokeh;
+            Bokeh.versions.set(NewBokeh.version, NewBokeh);
+          }
+          root.Bokeh = Bokeh;
+        }
       });
     }
   }
@@ -1658,17 +1663,17 @@ if (window.Jupyter !== undefined) {
   } catch(err) {
   }
 }
-</script><div class="output text_html"><div id='21c9a190-45ac-4682-9fa1-474e933c2c7a'>
-  <div id="c44ef063-fc66-40e4-b445-a3f1c6020c2f" data-root-id="21c9a190-45ac-4682-9fa1-474e933c2c7a" style="display: contents;"></div>
+</script><div class="output text_html"><div id='986d8f5f-53f3-4c23-8edc-46d9a1517bbd'>
+  <div id="e025aab6-313d-4d06-921f-b91817c796af" data-root-id="986d8f5f-53f3-4c23-8edc-46d9a1517bbd" style="display: contents;"></div>
 </div>
 <script type="application/javascript">(function(root) {
-  var docs_json = {"213030a4-7c27-4ee7-929e-440713c89096":{"version":"3.8.1","title":"Bokeh Application","config":{"type":"object","name":"DocumentConfig","id":"17178a4b-4c8f-49e1-aa06-72ba91759b48","attributes":{"notifications":{"type":"object","name":"Notifications","id":"3f0c616c-6626-44aa-aa8a-3f93392bab58"}}},"roots":[{"type":"object","name":"panel.models.browser.BrowserInfo","id":"21c9a190-45ac-4682-9fa1-474e933c2c7a"},{"type":"object","name":"panel.models.comm_manager.CommManager","id":"5bde6df0-bdf4-403d-98de-02ed518b1839","attributes":{"plot_id":"21c9a190-45ac-4682-9fa1-474e933c2c7a","comm_id":"06a38d8db6a74015943e5a1bbad6ecce","client_comm_id":"4817b56b3c574b8788a78d4199c5b8b6"}}],"defs":[{"type":"model","name":"ReactiveHTML1"},{"type":"model","name":"FlexBox1","properties":[{"name":"align_content","kind":"Any","default":"flex-start"},{"name":"align_items","kind":"Any","default":"flex-start"},{"name":"flex_direction","kind":"Any","default":"row"},{"name":"flex_wrap","kind":"Any","default":"wrap"},{"name":"gap","kind":"Any","default":""},{"name":"justify_content","kind":"Any","default":"flex-start"}]},{"type":"model","name":"FloatPanel1","properties":[{"name":"config","kind":"Any","default":{"type":"map"}},{"name":"contained","kind":"Any","default":true},{"name":"position","kind":"Any","default":"right-top"},{"name":"offsetx","kind":"Any","default":null},{"name":"offsety","kind":"Any","default":null},{"name":"theme","kind":"Any","default":"primary"},{"name":"status","kind":"Any","default":"normalized"}]},{"type":"model","name":"GridStack1","properties":[{"name":"ncols","kind":"Any","default":null},{"name":"nrows","kind":"Any","default":null},{"name":"allow_resize","kind":"Any","default":true},{"name":"allow_drag","kind":"Any","default":true},{"name":"state","kind":"Any","default":[]}]},{"type":"model","name":"drag1","properties":[{"name":"slider_width","kind":"Any","default":5},{"name":"slider_color","kind":"Any","default":"black"},{"name":"start","kind":"Any","default":0},{"name":"end","kind":"Any","default":100},{"name":"value","kind":"Any","default":50}]},{"type":"model","name":"click1","properties":[{"name":"terminal_output","kind":"Any","default":""},{"name":"debug_name","kind":"Any","default":""},{"name":"clears","kind":"Any","default":0}]},{"type":"model","name":"ReactiveESM1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"JSComponent1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"ReactComponent1","properties":[{"name":"use_shadow_dom","kind":"Any","default":true},{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"AnyWidgetComponent1","properties":[{"name":"use_shadow_dom","kind":"Any","default":true},{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"FastWrapper1","properties":[{"name":"object","kind":"Any","default":null},{"name":"style","kind":"Any","default":null}]},{"type":"model","name":"NotificationArea1","properties":[{"name":"js_events","kind":"Any","default":{"type":"map"}},{"name":"max_notifications","kind":"Any","default":5},{"name":"notifications","kind":"Any","default":[]},{"name":"position","kind":"Any","default":"bottom-right"},{"name":"_clear","kind":"Any","default":0},{"name":"types","kind":"Any","default":[{"type":"map","entries":[["type","warning"],["background","#ffc107"],["icon",{"type":"map","entries":[["className","fas fa-exclamation-triangle"],["tagName","i"],["color","white"]]}]]},{"type":"map","entries":[["type","info"],["background","#007bff"],["icon",{"type":"map","entries":[["className","fas fa-info-circle"],["tagName","i"],["color","white"]]}]]}]}]},{"type":"model","name":"Notification","properties":[{"name":"background","kind":"Any","default":null},{"name":"duration","kind":"Any","default":3000},{"name":"icon","kind":"Any","default":null},{"name":"message","kind":"Any","default":""},{"name":"notification_type","kind":"Any","default":null},{"name":"_rendered","kind":"Any","default":false},{"name":"_destroyed","kind":"Any","default":false}]},{"type":"model","name":"TemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"BootstrapTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"TemplateEditor1","properties":[{"name":"layout","kind":"Any","default":[]}]},{"type":"model","name":"MaterialTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"request_value1","properties":[{"name":"fill","kind":"Any","default":"none"},{"name":"_synced","kind":"Any","default":null},{"name":"_request_sync","kind":"Any","default":0}]},{"type":"model","name":"holoviews.plotting.bokeh.raster.HoverModel","properties":[{"name":"xy","kind":"Any","default":null},{"name":"data","kind":"Any","default":null}]}]}};
-  var render_items = [{"docid":"213030a4-7c27-4ee7-929e-440713c89096","roots":{"21c9a190-45ac-4682-9fa1-474e933c2c7a":"c44ef063-fc66-40e4-b445-a3f1c6020c2f"},"root_ids":["21c9a190-45ac-4682-9fa1-474e933c2c7a"]}];
+  var docs_json = {"5e411c75-c7c7-4c14-9f9e-42038eb3b5c8":{"version":"3.8.1","title":"Bokeh Application","config":{"type":"object","name":"DocumentConfig","id":"4a37ae65-dfff-44e5-8256-9c2f392622a9","attributes":{"notifications":{"type":"object","name":"Notifications","id":"1bd2b8a0-d2a2-4fb8-9c73-e2e297005871"}}},"roots":[{"type":"object","name":"panel.models.browser.BrowserInfo","id":"986d8f5f-53f3-4c23-8edc-46d9a1517bbd"},{"type":"object","name":"panel.models.comm_manager.CommManager","id":"6389b4be-4142-4d83-826e-26ec7653d4af","attributes":{"plot_id":"986d8f5f-53f3-4c23-8edc-46d9a1517bbd","comm_id":"96104b74fec7468da480397f8767c58a","client_comm_id":"6766af2b79a44c2ba822660975dd7a35"}}],"defs":[{"type":"model","name":"ReactiveHTML1"},{"type":"model","name":"FlexBox1","properties":[{"name":"align_content","kind":"Any","default":"flex-start"},{"name":"align_items","kind":"Any","default":"flex-start"},{"name":"flex_direction","kind":"Any","default":"row"},{"name":"flex_wrap","kind":"Any","default":"wrap"},{"name":"gap","kind":"Any","default":""},{"name":"justify_content","kind":"Any","default":"flex-start"}]},{"type":"model","name":"FloatPanel1","properties":[{"name":"config","kind":"Any","default":{"type":"map"}},{"name":"contained","kind":"Any","default":true},{"name":"position","kind":"Any","default":"right-top"},{"name":"offsetx","kind":"Any","default":null},{"name":"offsety","kind":"Any","default":null},{"name":"theme","kind":"Any","default":"primary"},{"name":"status","kind":"Any","default":"normalized"}]},{"type":"model","name":"GridStack1","properties":[{"name":"ncols","kind":"Any","default":null},{"name":"nrows","kind":"Any","default":null},{"name":"allow_resize","kind":"Any","default":true},{"name":"allow_drag","kind":"Any","default":true},{"name":"state","kind":"Any","default":[]}]},{"type":"model","name":"drag1","properties":[{"name":"slider_width","kind":"Any","default":5},{"name":"slider_color","kind":"Any","default":"black"},{"name":"start","kind":"Any","default":0},{"name":"end","kind":"Any","default":100},{"name":"value","kind":"Any","default":50}]},{"type":"model","name":"click1","properties":[{"name":"terminal_output","kind":"Any","default":""},{"name":"debug_name","kind":"Any","default":""},{"name":"clears","kind":"Any","default":0}]},{"type":"model","name":"ReactiveESM1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"JSComponent1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"ReactComponent1","properties":[{"name":"use_shadow_dom","kind":"Any","default":true},{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"AnyWidgetComponent1","properties":[{"name":"use_shadow_dom","kind":"Any","default":true},{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"FastWrapper1","properties":[{"name":"object","kind":"Any","default":null},{"name":"style","kind":"Any","default":null}]},{"type":"model","name":"NotificationArea1","properties":[{"name":"js_events","kind":"Any","default":{"type":"map"}},{"name":"max_notifications","kind":"Any","default":5},{"name":"notifications","kind":"Any","default":[]},{"name":"position","kind":"Any","default":"bottom-right"},{"name":"_clear","kind":"Any","default":0},{"name":"types","kind":"Any","default":[{"type":"map","entries":[["type","warning"],["background","#ffc107"],["icon",{"type":"map","entries":[["className","fas fa-exclamation-triangle"],["tagName","i"],["color","white"]]}]]},{"type":"map","entries":[["type","info"],["background","#007bff"],["icon",{"type":"map","entries":[["className","fas fa-info-circle"],["tagName","i"],["color","white"]]}]]}]}]},{"type":"model","name":"Notification","properties":[{"name":"background","kind":"Any","default":null},{"name":"duration","kind":"Any","default":3000},{"name":"icon","kind":"Any","default":null},{"name":"message","kind":"Any","default":""},{"name":"notification_type","kind":"Any","default":null},{"name":"_rendered","kind":"Any","default":false},{"name":"_destroyed","kind":"Any","default":false}]},{"type":"model","name":"TemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"BootstrapTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"TemplateEditor1","properties":[{"name":"layout","kind":"Any","default":[]}]},{"type":"model","name":"MaterialTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"request_value1","properties":[{"name":"fill","kind":"Any","default":"none"},{"name":"_synced","kind":"Any","default":null},{"name":"_request_sync","kind":"Any","default":0}]},{"type":"model","name":"holoviews.plotting.bokeh.raster.HoverModel","properties":[{"name":"xy","kind":"Any","default":null},{"name":"data","kind":"Any","default":null}]}]}};
+  var render_items = [{"docid":"5e411c75-c7c7-4c14-9f9e-42038eb3b5c8","roots":{"986d8f5f-53f3-4c23-8edc-46d9a1517bbd":"e025aab6-313d-4d06-921f-b91817c796af"},"root_ids":["986d8f5f-53f3-4c23-8edc-46d9a1517bbd"]}];
   var docs = Object.values(docs_json)
   if (!docs) {
     return
   }
-  const py_version = docs[0].version.replace('rc', '-rc.').replace('.dev', '-dev.')
+  const version = docs[0].version.replace('rc', '-rc.').replace('.dev', '-dev.')
   async function embed_document(root) {
     var Bokeh = get_bokeh(root)
     await Bokeh.embed.embed_items_notebook(docs_json, render_items);
@@ -1690,12 +1695,12 @@ if (window.Jupyter !== undefined) {
   function get_bokeh(root) {
     if (root.Bokeh === undefined) {
       return null
-    } else if (root.Bokeh.version !== py_version) {
-      if (root.Bokeh.versions === undefined || !root.Bokeh.versions.has(py_version)) {
+    } else if (root.Bokeh.version !== version) {
+      if (root.Bokeh.versions === undefined || !root.Bokeh.versions.has(version)) {
 	return null
       }
-      return root.Bokeh.versions.get(py_version);
-    } else if (root.Bokeh.version === py_version) {
+      return root.Bokeh.versions.get(version);
+    } else if (root.Bokeh.version === version) {
       return root.Bokeh
     }
     return null
@@ -1748,9 +1753,11 @@ if (window.Jupyter !== undefined) {
   }
 
   const force = false;
-  const py_version = '3.8.1'.replace('rc', '-rc.').replace('.dev', '-dev.');
+  const version = '3.8.1'.replace('rc', '-rc.').replace('.dev', '-dev.');
   const reloading = true;
   const Bokeh = root.Bokeh;
+  const BK_RE = /^https:\/\/cdn\.bokeh\.org\/bokeh\/(release|dev)\/bokeh-/;
+  const PN_RE = /^https:\/\/cdn\.holoviz\.org\/panel\/[^/]+\/dist\/panel/i;
 
   // Set a timeout for this load but only if we are not already initializing
   if (typeof (root._bokeh_timeout) === "undefined" || (force || !root._bokeh_is_initializing)) {
@@ -1770,7 +1777,7 @@ if (window.Jupyter !== undefined) {
     console.debug("Bokeh: all callbacks have finished");
   }
 
-  function load_libs(css_urls, js_urls, js_modules, js_exports, callback) {
+  function load_libs(css_urls, js_urls, js_modules, js_exports, Bokeh, callback) {
     if (css_urls == null) css_urls = [];
     if (js_urls == null) js_urls = [];
     if (js_modules == null) js_modules = [];
@@ -1844,7 +1851,10 @@ if (window.Jupyter !== undefined) {
     for (let i = 0; i < js_urls.length; i++) {
       const url = js_urls[i];
       const escaped = encodeURI(url)
-      if (skip.indexOf(escaped) !== -1 || existing_scripts.indexOf(escaped) !== -1) {
+      const shouldSkip = skip.includes(escaped) || existing_scripts.includes(escaped)
+      const isBokehOrPanel = BK_RE.test(escaped) || PN_RE.test(escaped)
+      const missingOrBroken = Bokeh == null || Bokeh.Panel == null || (Bokeh.version != version && !Bokeh.versions?.has(version)) || Bokeh.versions?.get(version).Panel == null;
+      if (shouldSkip && !(isBokehOrPanel && missingOrBroken)) {
         if (!window.requirejs) {
           on_load();
         }
@@ -1908,7 +1918,7 @@ if (window.Jupyter !== undefined) {
     document.body.appendChild(element);
   }
 
-  const js_urls = ["https://cdn.holoviz.org/panel/1.8.3/dist/bundled/reactiveesm/es-module-shims@^1.10.0/dist/es-module-shims.min.js"];
+  const js_urls = ["https://cdn.holoviz.org/panel/1.8.4/dist/bundled/reactiveesm/es-module-shims@^1.10.0/dist/es-module-shims.min.js"];
   const js_modules = [];
   const js_exports = {};
   const css_urls = [];
@@ -1929,24 +1939,13 @@ function(Bokeh) {} // ensure no trailing comma for IE
           }
         }
       }
-      // Cache old bokeh versions
-      if (Bokeh != undefined && !reloading) {
-        var NewBokeh = root.Bokeh;
-        if (Bokeh.versions === undefined) {
-          Bokeh.versions = new Map();
-        }
-        if (NewBokeh.version !== Bokeh.version) {
-          Bokeh.versions.set(NewBokeh.version, NewBokeh)
-        }
-        root.Bokeh = Bokeh;
-      }
     } else if (Date.now() < root._bokeh_timeout) {
       setTimeout(run_inline_js, 100);
     } else if (!root._bokeh_failed_load) {
       console.log("Bokeh: BokehJS failed to load within specified timeout.");
       root._bokeh_failed_load = true;
     }
-    root._bokeh_is_initializing = false
+    root._bokeh_is_initializing = false;
   }
 
   function load_or_wait() {
@@ -1963,24 +1962,35 @@ function(Bokeh) {} // ensure no trailing comma for IE
       root._bokeh_timeout = Date.now() + 5000;
       root._bokeh_is_initializing = false;
       root._bokeh_onload_callbacks = undefined;
-      root._bokeh_is_loading = 0
+      root._bokeh_is_loading = 0;
       console.log("Bokeh: BokehJS was loaded multiple times but one version failed to initialize.");
       load_or_wait();
     } else if (root._bokeh_is_initializing || (typeof root._bokeh_is_initializing === "undefined" && root._bokeh_onload_callbacks !== undefined)) {
       setTimeout(load_or_wait, 100);
     } else {
-      root._bokeh_is_initializing = true
-      root._bokeh_onload_callbacks = []
-      const bokeh_loaded = root.Bokeh != null && (root.Bokeh.version === py_version || (root.Bokeh.versions !== undefined && root.Bokeh.versions.has(py_version)));
+      root._bokeh_is_initializing = true;
+      root._bokeh_onload_callbacks = [];
+      const bokeh_loaded = Bokeh != null && ((Bokeh.version === version && Bokeh.Panel) || (Bokeh.versions?.has(version) && Bokeh.versions.get(version).Panel));
       if (!reloading && !bokeh_loaded) {
         if (root.Bokeh) {
           root.Bokeh = undefined;
         }
         console.debug("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
       }
-      load_libs(css_urls, js_urls, js_modules, js_exports, function() {
+      load_libs(css_urls, js_urls, js_modules, js_exports, Bokeh, function() {
         console.debug("Bokeh: BokehJS plotting callback run at", now());
         run_inline_js();
+        if (Bokeh != undefined && !reloading) {
+          const NewBokeh = root.Bokeh;
+          if (Bokeh.versions === undefined) {
+            Bokeh.versions = new Map();
+          }
+          if (NewBokeh.version !== Bokeh.version) {
+            Bokeh[NewBokeh.version] = NewBokeh;
+            Bokeh.versions.set(NewBokeh.version, NewBokeh);
+          }
+          root.Bokeh = Bokeh;
+        }
       });
     }
   }
