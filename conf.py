@@ -243,8 +243,8 @@ html_theme_options = {
         "google_analytics_id": "G-EQMBXF1D2V",
     },
     "logo": {
-        "image_light": '_static/images/logos/NSF_NCAR_light.svg',
-        "image_dark": '_static/images/logos/NSF_NCAR_dark.svg',
+        "image_light": '_static/images/logos/NSF_NCAR_light.png',
+        "image_dark": '_static/images/logos/NSF_NCAR_dark.png',
     },
     "extra_footer": "<em>This material is based upon work supported by the NSF National Center for Atmospheric Research, a major facility sponsored by the U.S. National Science Foundation and managed by the University Corporation for Atmospheric Research. Any opinions, findings and conclusions or recommendations expressed in this material do not necessarily reflect the views of the U.S. National Science Foundation.</em>",
 }
