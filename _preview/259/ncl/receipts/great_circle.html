@@ -1266,7 +1266,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
       const escaped = encodeURI(url)
       const shouldSkip = skip.includes(escaped) || existing_scripts.includes(escaped)
       const isBokehOrPanel = BK_RE.test(escaped) || PN_RE.test(escaped)
-      const missingOrBroken = Bokeh == null || Bokeh.Panel == null || (Bokeh.version != version && !Bokeh.versions?.has(version)) || Bokeh.versions?.get(version).Panel == null;
+      const missingOrBroken = Bokeh == null || Bokeh.Panel == null || (Bokeh.version != version && !Bokeh.versions?.has(version)) || Bokeh.versions?.get(version)?.Panel == null;
       if (shouldSkip && !(isBokehOrPanel && missingOrBroken)) {
         if (!window.requirejs) {
           on_load();
@@ -1331,7 +1331,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
     document.body.appendChild(element);
   }
 
-  const js_urls = ["https://cdn.holoviz.org/panel/1.8.4/dist/bundled/reactiveesm/es-module-shims@^1.10.0/dist/es-module-shims.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-3.8.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-3.8.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.8.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.8.1.min.js", "https://cdn.holoviz.org/panel/1.8.4/dist/panel.min.js"];
+  const js_urls = ["https://cdn.holoviz.org/panel/1.8.5/dist/bundled/reactiveesm/es-module-shims@^1.10.0/dist/es-module-shims.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-3.8.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-3.8.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.8.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.8.1.min.js", "https://cdn.holoviz.org/panel/1.8.5/dist/panel.min.js"];
   const js_modules = [];
   const js_exports = {};
   const css_urls = [];
@@ -1383,7 +1383,7 @@ function(Bokeh) {} // ensure no trailing comma for IE
     } else {
       root._bokeh_is_initializing = true;
       root._bokeh_onload_callbacks = [];
-      const bokeh_loaded = Bokeh != null && ((Bokeh.version === version && Bokeh.Panel) || (Bokeh.versions?.has(version) && Bokeh.versions.get(version).Panel));
+      const bokeh_loaded = Bokeh != null && ((Bokeh.version === version && Bokeh.Panel) || (Bokeh.versions?.has(version) && Bokeh.versions.get(version)?.Panel));
       if (!reloading && !bokeh_loaded) {
         if (root.Bokeh) {
           root.Bokeh = undefined;
@@ -1663,12 +1663,12 @@ if (window.Jupyter !== undefined) {
   } catch(err) {
   }
 }
-</script><div class="output text_html"><div id='963e00d0-b45e-49f6-91cc-f7ee2158a4cd'>
-  <div id="bbb78f1e-c027-49c9-8be6-1092faa02b36" data-root-id="963e00d0-b45e-49f6-91cc-f7ee2158a4cd" style="display: contents;"></div>
+</script><div class="output text_html"><div id='14f8451d-a6f5-40d9-a454-f6055d75b605'>
+  <div id="d7551aea-2908-4f4b-b3d1-edb2484d5368" data-root-id="14f8451d-a6f5-40d9-a454-f6055d75b605" style="display: contents;"></div>
 </div>
 <script type="application/javascript">(function(root) {
-  var docs_json = {"f4aef3f3-854c-44b8-89ab-78984d5750d2":{"version":"3.8.1","title":"Bokeh Application","config":{"type":"object","name":"DocumentConfig","id":"07ea63ed-fe99-4c88-b3dd-45e47cd67535","attributes":{"notifications":{"type":"object","name":"Notifications","id":"dfbb3626-dfa3-4f3d-ac08-58e55ad0ad49"}}},"roots":[{"type":"object","name":"panel.models.browser.BrowserInfo","id":"963e00d0-b45e-49f6-91cc-f7ee2158a4cd"},{"type":"object","name":"panel.models.comm_manager.CommManager","id":"6b4c75e4-b4e7-45c5-b7d2-cda0dbd914f5","attributes":{"plot_id":"963e00d0-b45e-49f6-91cc-f7ee2158a4cd","comm_id":"0897a16a57f9471d8a39569d29363607","client_comm_id":"a6bb26a497444a1b9b2ca3fc3eda84ce"}}],"defs":[{"type":"model","name":"ReactiveHTML1"},{"type":"model","name":"FlexBox1","properties":[{"name":"align_content","kind":"Any","default":"flex-start"},{"name":"align_items","kind":"Any","default":"flex-start"},{"name":"flex_direction","kind":"Any","default":"row"},{"name":"flex_wrap","kind":"Any","default":"wrap"},{"name":"gap","kind":"Any","default":""},{"name":"justify_content","kind":"Any","default":"flex-start"}]},{"type":"model","name":"FloatPanel1","properties":[{"name":"config","kind":"Any","default":{"type":"map"}},{"name":"contained","kind":"Any","default":true},{"name":"position","kind":"Any","default":"right-top"},{"name":"offsetx","kind":"Any","default":null},{"name":"offsety","kind":"Any","default":null},{"name":"theme","kind":"Any","default":"primary"},{"name":"status","kind":"Any","default":"normalized"}]},{"type":"model","name":"GridStack1","properties":[{"name":"ncols","kind":"Any","default":null},{"name":"nrows","kind":"Any","default":null},{"name":"allow_resize","kind":"Any","default":true},{"name":"allow_drag","kind":"Any","default":true},{"name":"state","kind":"Any","default":[]}]},{"type":"model","name":"drag1","properties":[{"name":"slider_width","kind":"Any","default":5},{"name":"slider_color","kind":"Any","default":"black"},{"name":"start","kind":"Any","default":0},{"name":"end","kind":"Any","default":100},{"name":"value","kind":"Any","default":50}]},{"type":"model","name":"click1","properties":[{"name":"terminal_output","kind":"Any","default":""},{"name":"debug_name","kind":"Any","default":""},{"name":"clears","kind":"Any","default":0}]},{"type":"model","name":"ReactiveESM1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"JSComponent1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"ReactComponent1","properties":[{"name":"use_shadow_dom","kind":"Any","default":true},{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"AnyWidgetComponent1","properties":[{"name":"use_shadow_dom","kind":"Any","default":true},{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"FastWrapper1","properties":[{"name":"object","kind":"Any","default":null},{"name":"style","kind":"Any","default":null}]},{"type":"model","name":"NotificationArea1","properties":[{"name":"js_events","kind":"Any","default":{"type":"map"}},{"name":"max_notifications","kind":"Any","default":5},{"name":"notifications","kind":"Any","default":[]},{"name":"position","kind":"Any","default":"bottom-right"},{"name":"_clear","kind":"Any","default":0},{"name":"types","kind":"Any","default":[{"type":"map","entries":[["type","warning"],["background","#ffc107"],["icon",{"type":"map","entries":[["className","fas fa-exclamation-triangle"],["tagName","i"],["color","white"]]}]]},{"type":"map","entries":[["type","info"],["background","#007bff"],["icon",{"type":"map","entries":[["className","fas fa-info-circle"],["tagName","i"],["color","white"]]}]]}]}]},{"type":"model","name":"Notification","properties":[{"name":"background","kind":"Any","default":null},{"name":"duration","kind":"Any","default":3000},{"name":"icon","kind":"Any","default":null},{"name":"message","kind":"Any","default":""},{"name":"notification_type","kind":"Any","default":null},{"name":"_rendered","kind":"Any","default":false},{"name":"_destroyed","kind":"Any","default":false}]},{"type":"model","name":"TemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"BootstrapTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"TemplateEditor1","properties":[{"name":"layout","kind":"Any","default":[]}]},{"type":"model","name":"MaterialTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"request_value1","properties":[{"name":"fill","kind":"Any","default":"none"},{"name":"_synced","kind":"Any","default":null},{"name":"_request_sync","kind":"Any","default":0}]},{"type":"model","name":"holoviews.plotting.bokeh.raster.HoverModel","properties":[{"name":"xy","kind":"Any","default":null},{"name":"data","kind":"Any","default":null}]}]}};
-  var render_items = [{"docid":"f4aef3f3-854c-44b8-89ab-78984d5750d2","roots":{"963e00d0-b45e-49f6-91cc-f7ee2158a4cd":"bbb78f1e-c027-49c9-8be6-1092faa02b36"},"root_ids":["963e00d0-b45e-49f6-91cc-f7ee2158a4cd"]}];
+  var docs_json = {"09945b2c-c4a8-4930-9fb7-fa3b8d4b801f":{"version":"3.8.1","title":"Bokeh Application","config":{"type":"object","name":"DocumentConfig","id":"0f9cb635-5adb-4c30-9c8a-eebf665d1ae7","attributes":{"notifications":{"type":"object","name":"Notifications","id":"86fc300f-c742-4d0d-b64f-16776d92e67c"}}},"roots":[{"type":"object","name":"panel.models.browser.BrowserInfo","id":"14f8451d-a6f5-40d9-a454-f6055d75b605"},{"type":"object","name":"panel.models.comm_manager.CommManager","id":"03995327-ec1a-4ccc-96a2-eb8be8483bf8","attributes":{"plot_id":"14f8451d-a6f5-40d9-a454-f6055d75b605","comm_id":"dc6d55d41ec24c43aa39c0f375f12e04","client_comm_id":"80781ce625ae4d7a8f7508e92f968b48"}}],"defs":[{"type":"model","name":"ReactiveHTML1"},{"type":"model","name":"FlexBox1","properties":[{"name":"align_content","kind":"Any","default":"flex-start"},{"name":"align_items","kind":"Any","default":"flex-start"},{"name":"flex_direction","kind":"Any","default":"row"},{"name":"flex_wrap","kind":"Any","default":"wrap"},{"name":"gap","kind":"Any","default":""},{"name":"justify_content","kind":"Any","default":"flex-start"}]},{"type":"model","name":"FloatPanel1","properties":[{"name":"config","kind":"Any","default":{"type":"map"}},{"name":"contained","kind":"Any","default":true},{"name":"position","kind":"Any","default":"right-top"},{"name":"offsetx","kind":"Any","default":null},{"name":"offsety","kind":"Any","default":null},{"name":"theme","kind":"Any","default":"primary"},{"name":"status","kind":"Any","default":"normalized"}]},{"type":"model","name":"GridStack1","properties":[{"name":"ncols","kind":"Any","default":null},{"name":"nrows","kind":"Any","default":null},{"name":"allow_resize","kind":"Any","default":true},{"name":"allow_drag","kind":"Any","default":true},{"name":"state","kind":"Any","default":[]}]},{"type":"model","name":"drag1","properties":[{"name":"slider_width","kind":"Any","default":5},{"name":"slider_color","kind":"Any","default":"black"},{"name":"start","kind":"Any","default":0},{"name":"end","kind":"Any","default":100},{"name":"value","kind":"Any","default":50}]},{"type":"model","name":"click1","properties":[{"name":"terminal_output","kind":"Any","default":""},{"name":"debug_name","kind":"Any","default":""},{"name":"clears","kind":"Any","default":0}]},{"type":"model","name":"ReactiveESM1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"JSComponent1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"ReactComponent1","properties":[{"name":"use_shadow_dom","kind":"Any","default":true},{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"AnyWidgetComponent1","properties":[{"name":"use_shadow_dom","kind":"Any","default":true},{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"FastWrapper1","properties":[{"name":"object","kind":"Any","default":null},{"name":"style","kind":"Any","default":null}]},{"type":"model","name":"NotificationArea1","properties":[{"name":"js_events","kind":"Any","default":{"type":"map"}},{"name":"max_notifications","kind":"Any","default":5},{"name":"notifications","kind":"Any","default":[]},{"name":"position","kind":"Any","default":"bottom-right"},{"name":"_clear","kind":"Any","default":0},{"name":"types","kind":"Any","default":[{"type":"map","entries":[["type","warning"],["background","#ffc107"],["icon",{"type":"map","entries":[["className","fas fa-exclamation-triangle"],["tagName","i"],["color","white"]]}]]},{"type":"map","entries":[["type","info"],["background","#007bff"],["icon",{"type":"map","entries":[["className","fas fa-info-circle"],["tagName","i"],["color","white"]]}]]}]}]},{"type":"model","name":"Notification","properties":[{"name":"background","kind":"Any","default":null},{"name":"duration","kind":"Any","default":3000},{"name":"icon","kind":"Any","default":null},{"name":"message","kind":"Any","default":""},{"name":"notification_type","kind":"Any","default":null},{"name":"_rendered","kind":"Any","default":false},{"name":"_destroyed","kind":"Any","default":false}]},{"type":"model","name":"TemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"BootstrapTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"TemplateEditor1","properties":[{"name":"layout","kind":"Any","default":[]}]},{"type":"model","name":"MaterialTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"request_value1","properties":[{"name":"fill","kind":"Any","default":"none"},{"name":"_synced","kind":"Any","default":null},{"name":"_request_sync","kind":"Any","default":0}]},{"type":"model","name":"holoviews.plotting.bokeh.raster.HoverModel","properties":[{"name":"xy","kind":"Any","default":null},{"name":"data","kind":"Any","default":null}]}]}};
+  var render_items = [{"docid":"09945b2c-c4a8-4930-9fb7-fa3b8d4b801f","roots":{"14f8451d-a6f5-40d9-a454-f6055d75b605":"d7551aea-2908-4f4b-b3d1-edb2484d5368"},"root_ids":["14f8451d-a6f5-40d9-a454-f6055d75b605"]}];
   var docs = Object.values(docs_json)
   if (!docs) {
     return
@@ -1853,7 +1853,7 @@ if (window.Jupyter !== undefined) {
       const escaped = encodeURI(url)
       const shouldSkip = skip.includes(escaped) || existing_scripts.includes(escaped)
       const isBokehOrPanel = BK_RE.test(escaped) || PN_RE.test(escaped)
-      const missingOrBroken = Bokeh == null || Bokeh.Panel == null || (Bokeh.version != version && !Bokeh.versions?.has(version)) || Bokeh.versions?.get(version).Panel == null;
+      const missingOrBroken = Bokeh == null || Bokeh.Panel == null || (Bokeh.version != version && !Bokeh.versions?.has(version)) || Bokeh.versions?.get(version)?.Panel == null;
       if (shouldSkip && !(isBokehOrPanel && missingOrBroken)) {
         if (!window.requirejs) {
           on_load();
@@ -1918,7 +1918,7 @@ if (window.Jupyter !== undefined) {
     document.body.appendChild(element);
   }
 
-  const js_urls = ["https://cdn.holoviz.org/panel/1.8.4/dist/bundled/reactiveesm/es-module-shims@^1.10.0/dist/es-module-shims.min.js"];
+  const js_urls = ["https://cdn.holoviz.org/panel/1.8.5/dist/bundled/reactiveesm/es-module-shims@^1.10.0/dist/es-module-shims.min.js"];
   const js_modules = [];
   const js_exports = {};
   const css_urls = [];
@@ -1970,7 +1970,7 @@ function(Bokeh) {} // ensure no trailing comma for IE
     } else {
       root._bokeh_is_initializing = true;
       root._bokeh_onload_callbacks = [];
-      const bokeh_loaded = Bokeh != null && ((Bokeh.version === version && Bokeh.Panel) || (Bokeh.versions?.has(version) && Bokeh.versions.get(version).Panel));
+      const bokeh_loaded = Bokeh != null && ((Bokeh.version === version && Bokeh.Panel) || (Bokeh.versions?.has(version) && Bokeh.versions.get(version)?.Panel));
       if (!reloading && !bokeh_loaded) {
         if (root.Bokeh) {
           root.Bokeh = undefined;
@@ -3090,7 +3090,7 @@ By GeoCAT
 
   <p class="copyright">
     
-      © Copyright 2025, University Corporation for Atmospheric Research.
+      © Copyright 2026, University Corporation for Atmospheric Research.
       <br/>
     
   </p>
