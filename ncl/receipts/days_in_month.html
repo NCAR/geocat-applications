@@ -33,7 +33,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../_static/style.css?v=61b3970e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css?v=0fa5d2bc" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -150,8 +150,8 @@
       
     
     
-    <img src="../../_static/NSF_NCAR_light.svg" class="logo__image only-light" alt=" - Home"/>
-    <script>document.write(`<img src="../../_static/NSF_NCAR_dark.svg" class="logo__image only-dark" alt=" - Home"/>`);</script>
+    <img src="../../_static/NSF_NCAR_light.png" class="logo__image only-light" alt=" - Home"/>
+    <script>document.write(`<img src="../../_static/NSF_NCAR_dark.png" class="logo__image only-dark" alt=" - Home"/>`);</script>
   
   
 </a></div>
@@ -555,23 +555,19 @@ Show the python code that replicates the NCL functionality. Don't worry about pr
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>366_day: 
-	python:	[29, 29, 31, 29]
-	ncl:	[29, 29, 31, 29]
-
-noleap: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>365_day: 
 	python:	[28, 28, 31, 28]
 	ncl:	[28, 28, 31, 28]
+
+gregorian: 
+	python:	[29, 28, 31, 29]
+	ncl:	[29, 28, 31, 28]
 
 all_leap: 
 	python:	[29, 29, 31, 29]
 	ncl:	[29, 29, 31, 29]
 
-standard: 
-	python:	[29, 28, 31, 29]
-	ncl:	[29, 28, 31, 28]
-
-365_day: 
+noleap: 
 	python:	[28, 28, 31, 28]
 	ncl:	[28, 28, 31, 28]
 
@@ -583,7 +579,11 @@ julian:
 	python:	[30, 30, 30, 30]
 	ncl:	[30, 30, 30, 30]
 
-gregorian: 
+366_day: 
+	python:	[29, 29, 31, 29]
+	ncl:	[29, 29, 31, 29]
+
+standard: 
 	python:	[29, 28, 31, 29]
 	ncl:	[29, 28, 31, 28]
 
@@ -612,9 +612,9 @@ proleptic_gregorian:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>none: calendar not available in python
-standard: [29, 28, 31, 29] != [29, 28, 31, 28]
-proleptic_gregorian: calendar not available in ncl
 gregorian: [29, 28, 31, 29] != [29, 28, 31, 28]
+proleptic_gregorian: calendar not available in ncl
+standard: [29, 28, 31, 29] != [29, 28, 31, 28]
 </pre></div>
 </div>
 </div>
