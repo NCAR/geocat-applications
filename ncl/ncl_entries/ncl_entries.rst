@@ -39,3 +39,4 @@ and links to additional resources and references.
                 - `Climatology <climatology.ipynb>`_
                 - `Meteorology <meteorology.ipynb>`_
                 - `Great circle <great_circle.ipynb>`_
+                - `Madden-Julian Oscillation <mjo.ipynb>`_
