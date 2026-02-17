@@ -64,6 +64,7 @@ Python Applications
 
                 - `Climatology <./applications/climatology.ipynb>`_
                 - `Humid heat metrics <./applications/humid_heat_metrics.ipynb>`__
+                - `Great circle <./applications/great_circle.ipynb>`__
                 - `Madden-Julian Oscillation <./applications/mjo.ipynb>`__
 
 .. TIP::
