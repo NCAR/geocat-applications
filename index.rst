@@ -64,7 +64,7 @@ Python Applications
 
                 - `Climatology <./applications/climatology.ipynb>`_
                 - `Humid heat metrics <./applications/humid_heat_metrics.ipynb>`__
-                - `Madden-Julian Oscillation <mjo.ipynb>`__
+                - `Madden-Julian Oscillation <./applications/mjo.ipynb>`__
 
 .. TIP::
     If you're looking for NCL to Python examples, please visit :ref:`ncl_applications`.
