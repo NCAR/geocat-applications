@@ -473,6 +473,574 @@ document.write(`
 <section id="example-data">
 <h4>Example Data<a class="headerlink" href="#example-data" title="Link to this heading">#</a></h4>
 <p>For the purpose of this notebook, we will be pulling data from NOAA’s Phsical Science Laboratory. PSL offers near real-time and historical RMM MJO data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">retrieve_NOAA_data</span><span class="p">(</span><span class="n">data_type</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="c1"># https://www.psl.noaa.gov/mjo/</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://www.psl.noaa.gov/mjo/mjoindex/</span><span class="si">{</span><span class="n">data_type</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">.cpcolr.1x.txt&quot;</span>
+    <span class="n">column_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;YYYY&quot;</span><span class="p">,</span> <span class="s2">&quot;MM&quot;</span><span class="p">,</span> <span class="s2">&quot;DD&quot;</span><span class="p">,</span> <span class="s2">&quot;HH&quot;</span><span class="p">,</span> <span class="s2">&quot;RMM1&quot;</span><span class="p">,</span> <span class="s2">&quot;RMM2&quot;</span><span class="p">,</span> <span class="s2">&quot;Phase&quot;</span><span class="p">]</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;\s+&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">column_names</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Retrieving data from: </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">df</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;invalid url: </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">column_names</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:6: SyntaxWarning: &quot;\s&quot; is an invalid escape sequence. Such sequences will not work in the future. Did you mean &quot;\\s&quot;? A raw string is also an option.
+&lt;&gt;:6: SyntaxWarning: &quot;\s&quot; is an invalid escape sequence. Such sequences will not work in the future. Did you mean &quot;\\s&quot;? A raw string is also an option.
+/tmp/ipykernel_2634/3568125757.py:6: SyntaxWarning: &quot;\s&quot; is an invalid escape sequence. Such sequences will not work in the future. Did you mean &quot;\\s&quot;? A raw string is also an option.
+  df = pd.read_csv(url, sep=&quot;\s+&quot;, header=None, names=column_names)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will be retrieving the data related to the Real-time OLR MJO Index (ROMI). <a class="reference external" href="https://www.psl.noaa.gov/mjo/">See PSL MJO</a> for more daily MJO index values for dates from 1979</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">noaa_df</span> <span class="o">=</span> <span class="n">retrieve_NOAA_data</span><span class="p">(</span><span class="s2">&quot;ROMI&quot;</span><span class="p">)</span>
+<span class="n">noaa_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Retrieving data from: https://www.psl.noaa.gov/mjo/mjoindex/romi.cpcolr.1x.txt
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>YYYY</th>
+      <th>MM</th>
+      <th>DD</th>
+      <th>HH</th>
+      <th>RMM1</th>
+      <th>RMM2</th>
+      <th>Phase</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1991</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0.12526</td>
+      <td>-0.06945</td>
+      <td>0.14323</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1991</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0.18542</td>
+      <td>-0.04887</td>
+      <td>0.19175</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1991</td>
+      <td>1</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0.23960</td>
+      <td>-0.03933</td>
+      <td>0.24281</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1991</td>
+      <td>1</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0.27446</td>
+      <td>0.01990</td>
+      <td>0.27518</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1991</td>
+      <td>1</td>
+      <td>5</td>
+      <td>0</td>
+      <td>0.27714</td>
+      <td>0.07555</td>
+      <td>0.28725</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>12825</th>
+      <td>2026</td>
+      <td>2</td>
+      <td>11</td>
+      <td>0</td>
+      <td>1.49248</td>
+      <td>1.20043</td>
+      <td>1.91534</td>
+    </tr>
+    <tr>
+      <th>12826</th>
+      <td>2026</td>
+      <td>2</td>
+      <td>12</td>
+      <td>0</td>
+      <td>1.60563</td>
+      <td>1.32928</td>
+      <td>2.08448</td>
+    </tr>
+    <tr>
+      <th>12827</th>
+      <td>2026</td>
+      <td>2</td>
+      <td>13</td>
+      <td>0</td>
+      <td>1.70150</td>
+      <td>1.36049</td>
+      <td>2.17854</td>
+    </tr>
+    <tr>
+      <th>12828</th>
+      <td>2026</td>
+      <td>2</td>
+      <td>14</td>
+      <td>0</td>
+      <td>1.78709</td>
+      <td>1.35282</td>
+      <td>2.24139</td>
+    </tr>
+    <tr>
+      <th>12829</th>
+      <td>2026</td>
+      <td>2</td>
+      <td>15</td>
+      <td>0</td>
+      <td>1.90509</td>
+      <td>1.40785</td>
+      <td>2.36884</td>
+    </tr>
+  </tbody>
+</table>
+<p>12830 rows × 7 columns</p>
+</div></div></div>
+</div>
+<p>NOAA PSL MJO time series data as:</p>
+<ul class="simple">
+<li><p>YYYY: Year</p></li>
+<li><p>MM: Month (1-12)</p></li>
+<li><p>DD: Day (1-31)</p></li>
+<li><p>HH: Hour (always 0, can be ignored)</p></li>
+<li><p>RMM1: Real-Time Multivariate MJO Principal Component 1</p></li>
+<li><p>RMM2: Real-Time Multivariate MJO Principal Component 1</p></li>
+<li><p>Phase: Amplitude of MJO where sqrt(RMM1^2 + RMM2^2)</p></li>
+</ul>
+<p>For the purpose of a plot, we will be using the datetime (YYYY-MM-DD) and RMM1 and RMM2</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mjo_phase_plot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                  <span class="n">radius</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                  <span class="n">phase_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                  <span class="n">month_colors</span><span class="o">=</span><span class="p">[],</span>
+                  <span class="n">display_rmm_axis_label</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+   
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+    
+    <span class="c1"># set x and y axis labels</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="n">ax2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span> 
+    <span class="n">ax3</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twiny</span><span class="p">()</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">display_rmm_axis_label</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Phase 1 (Western Hemisphere, Africa) Phase 8&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Phase 2 (Indian Ocean) Phase 3&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;RMM2&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;RMM1&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Phase 5 (Maritime) Phase 4&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">270</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Phase 7 (Western Pacific) Phase 6&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    
+    <span class="c1"># add amplitude circle</span>
+    <span class="n">amplitude_circle</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">Circle</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">radius</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">amplitude_circle</span><span class="p">)</span>
+    
+    <span class="c1"># add phase diagram lines</span>
+    <span class="c1">## Phase 1-8</span>
+    <span class="n">phase_line</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">Line2D</span><span class="p">([</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="n">radius</span><span class="p">],</span>
+                               <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                               <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span>
+                               <span class="n">dashes</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="n">phase_line</span><span class="p">)</span>
+    <span class="c1">## Phase 1-2</span>
+    <span class="n">phase_line</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">Line2D</span><span class="p">([</span><span class="o">-</span><span class="n">radius</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="o">-</span><span class="mi">4</span><span class="p">],</span>
+                               <span class="p">[</span><span class="o">-</span><span class="n">radius</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="o">-</span><span class="mi">4</span><span class="p">],</span>
+                               <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span>
+                               <span class="n">dashes</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="n">phase_line</span><span class="p">)</span>
+    <span class="c1">## Phase 2-3</span>
+    <span class="n">phase_line</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">Line2D</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                               <span class="p">[</span><span class="o">-</span><span class="n">radius</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">],</span>
+                               <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span>
+                               <span class="n">dashes</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="n">phase_line</span><span class="p">)</span>
+    <span class="c1">## Phase 3-4</span>
+    <span class="n">phase_line</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">Line2D</span><span class="p">([</span><span class="n">radius</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="mi">4</span><span class="p">],</span>
+                               <span class="p">[</span><span class="o">-</span><span class="n">radius</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="o">-</span><span class="mi">4</span><span class="p">],</span>
+                               <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span>
+                               <span class="n">dashes</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="n">phase_line</span><span class="p">)</span>
+    <span class="c1">## Phase 4-5</span>
+    <span class="n">phase_line</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">Line2D</span><span class="p">([</span><span class="n">radius</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+                               <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                               <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span>
+                               <span class="n">dashes</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="n">phase_line</span><span class="p">)</span>
+    <span class="c1">## Phase 5-6</span>
+    <span class="n">phase_line</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">Line2D</span><span class="p">([</span><span class="n">radius</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="mi">4</span><span class="p">],</span>
+                               <span class="p">[</span><span class="n">radius</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="mi">4</span><span class="p">],</span>
+                               <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span>
+                               <span class="n">dashes</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="n">phase_line</span><span class="p">)</span>
+    <span class="c1">## Phase 6-7</span>
+    <span class="n">phase_line</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">Line2D</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                               <span class="p">[</span><span class="n">radius</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+                               <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span>
+                               <span class="n">dashes</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="n">phase_line</span><span class="p">)</span>
+    <span class="c1">## Phase 7-8</span>
+    <span class="n">phase_line</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">Line2D</span><span class="p">([</span><span class="o">-</span><span class="n">radius</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="o">-</span><span class="mi">4</span><span class="p">],</span>
+                               <span class="p">[</span><span class="n">radius</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="mi">4</span><span class="p">],</span>
+                               <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span>
+                               <span class="n">dashes</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="n">phase_line</span><span class="p">)</span>
+    
+    <span class="c1"># add tick marks</span>
+    <span class="n">full_tickmarks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">full_tickmarks</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">full_tickmarks</span><span class="p">)</span>
+    <span class="c1"># hide tickmarks for top/right axis)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">full_tickmarks</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">full_tickmarks</span><span class="p">)</span>
+    
+    <span class="c1"># plot whole numbers integar tick marks</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">ticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mf">1.0</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">ticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mf">1.0</span><span class="p">))</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">ticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mf">1.0</span><span class="p">))</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">ticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mf">1.0</span><span class="p">))</span>
+    <span class="c1"># increase length of major ticks</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s2">&quot;major&quot;</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s2">&quot;major&quot;</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s2">&quot;major&quot;</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+    <span class="c1"># plot minor ticks every 0.25</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">ticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mf">0.25</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">ticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mf">0.25</span><span class="p">))</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">ticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mf">0.25</span><span class="p">))</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">ticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mf">0.25</span><span class="p">))</span>
+    <span class="c1"># increase length of minor ticks</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s2">&quot;minor&quot;</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s2">&quot;minor&quot;</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s2">&quot;minor&quot;</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+    <span class="c1"># plot with title</span>
+    <span class="n">first_index</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">start_date</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">first_index</span><span class="p">[</span><span class="s2">&quot;YYYY&quot;</span><span class="p">])</span><span class="si">}</span><span class="s1">-</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">first_index</span><span class="p">[</span><span class="s2">&quot;MM&quot;</span><span class="p">])</span><span class="si">}</span><span class="s1">-</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">first_index</span><span class="p">[</span><span class="s2">&quot;DD&quot;</span><span class="p">])</span><span class="si">}</span><span class="s1">&#39;</span>
+    <span class="n">last_index</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">end_date</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">last_index</span><span class="p">[</span><span class="s2">&quot;YYYY&quot;</span><span class="p">])</span><span class="si">}</span><span class="s1">-</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">last_index</span><span class="p">[</span><span class="s2">&quot;MM&quot;</span><span class="p">])</span><span class="si">}</span><span class="s1">-</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">last_index</span><span class="p">[</span><span class="s2">&quot;DD&quot;</span><span class="p">])</span><span class="si">}</span><span class="s1">&#39;</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;MJO Phase: ROMI: </span><span class="si">{</span><span class="n">start_date</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">end_date</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+  
+    <span class="c1"># Setup Months Text at Bottom of Plot</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">month_colors</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># default colors for all twelve months</span>
+        <span class="n">month_colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;tomato&quot;</span><span class="p">,</span> <span class="s2">&quot;dodgerblue&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;magenta&quot;</span><span class="p">,</span> <span class="s2">&quot;yellow&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;pink&quot;</span><span class="p">,</span> <span class="s2">&quot;cyan&quot;</span><span class="p">,</span> <span class="s2">&quot;gold&quot;</span><span class="p">,</span> <span class="s2">&quot;lime&quot;</span><span class="p">,</span> <span class="s2">&quot;darkviolet&quot;</span><span class="p">,</span> <span class="s2">&quot;olive&quot;</span><span class="p">]</span>
+    
+    <span class="n">month_dict</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;Jan&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;Feb&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;Mar&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="s2">&quot;Apr&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="s2">&quot;May&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">:</span> <span class="s2">&quot;Jun&quot;</span><span class="p">,</span> 
+                  <span class="mi">7</span><span class="p">:</span> <span class="s2">&quot;Jul&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">:</span> <span class="s2">&quot;Aug&quot;</span><span class="p">,</span> <span class="mi">9</span><span class="p">:</span> <span class="s2">&quot;Sep&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">:</span> <span class="s2">&quot;Oct&quot;</span><span class="p">,</span> <span class="mi">11</span><span class="p">:</span> <span class="s2">&quot;Nov&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">:</span> <span class="s2">&quot;Dec&quot;</span><span class="p">}</span>
+
+    <span class="n">all_months</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;MM&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+    <span class="n">all_month_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">month_name</span> <span class="k">for</span> <span class="n">month_mm</span><span class="p">,</span> <span class="n">month_name</span> <span class="ow">in</span> <span class="n">month_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">month_mm</span> <span class="ow">in</span> <span class="n">all_months</span><span class="p">]</span> <span class="c1"># convert number to name (exmaple: 01 to Jan)</span>
+
+    <span class="c1"># dynamic spacing for months</span>
+    <span class="n">start_index</span> <span class="o">=</span> <span class="o">-</span><span class="mf">3.3</span> <span class="o">+</span> <span class="p">((</span><span class="mi">12</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">all_month_names</span><span class="p">))</span><span class="o">*</span> <span class="mf">0.28</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">month</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">all_month_names</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># First Element</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">start_index</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.7</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">month_colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Remaining Elements</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">month</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> 
+                               <span class="n">xycoords</span><span class="o">=</span><span class="n">text</span><span class="p">,</span> 
+                               <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> 
+                               <span class="n">verticalalignment</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">,</span>
+                               <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span>
+                               <span class="n">color</span><span class="o">=</span><span class="n">month_colors</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+        <span class="c1"># filter data based on each month</span>
+        <span class="n">last_index</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;MM&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">all_months</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="c1"># include the first day of the next month in data to preserve continuity </span>
+        <span class="n">next_index</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">last_index</span> <span class="o">+</span> <span class="mi">1</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+            <span class="n">next_index</span> <span class="o">=</span> <span class="p">[</span><span class="n">last_index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">filtered_df</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;MM&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">all_months</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">|</span> <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">next_index</span><span class="p">))]</span>
+        <span class="n">x_data</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="p">[</span><span class="s2">&quot;RMM2&quot;</span><span class="p">]</span>
+        <span class="n">y_data</span> <span class="o">=</span> <span class="o">-</span><span class="n">filtered_df</span><span class="p">[</span><span class="s2">&quot;RMM1&quot;</span><span class="p">]</span>        
+        
+        <span class="c1"># Plot data</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">month_colors</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">month_colors</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+        <span class="c1"># plot dark mark at the start and end</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">y_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">all_month_names</span><span class="p">):</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="n">y_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+
+    <span class="c1"># Annotate text every 5 days</span>
+    <span class="n">days_text</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+    <span class="n">days_filtered</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;DD&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">days_text</span><span class="p">)]</span>
+    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">days_filtered</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;RMM2&quot;</span><span class="p">],</span>
+                <span class="n">y</span><span class="o">=-</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;RMM1&quot;</span><span class="p">],</span>
+                <span class="n">s</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;DD&quot;</span><span class="p">]),</span>
+                <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+                <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                <span class="n">fontweight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Collect a subset of the data, the first three months of 2025</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_2026</span> <span class="o">=</span> <span class="n">noaa_df</span><span class="p">[(</span><span class="n">noaa_df</span><span class="p">[</span><span class="s2">&quot;YYYY&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2025</span><span class="p">)</span> <span class="o">&amp;</span> 
+                <span class="p">((</span><span class="n">noaa_df</span><span class="p">[</span><span class="s2">&quot;MM&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">|</span> 
+                 <span class="p">(</span><span class="n">noaa_df</span><span class="p">[</span><span class="s2">&quot;MM&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="o">|</span> 
+                 <span class="p">(</span><span class="n">noaa_df</span><span class="p">[</span><span class="s2">&quot;MM&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">))]</span>
+
+<span class="n">df_2026</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>YYYY</th>
+      <th>MM</th>
+      <th>DD</th>
+      <th>HH</th>
+      <th>RMM1</th>
+      <th>RMM2</th>
+      <th>Phase</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>12419</th>
+      <td>2025</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>-0.15161</td>
+      <td>-0.83951</td>
+      <td>0.85309</td>
+    </tr>
+    <tr>
+      <th>12420</th>
+      <td>2025</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>-0.01538</td>
+      <td>-1.03555</td>
+      <td>1.03566</td>
+    </tr>
+    <tr>
+      <th>12421</th>
+      <td>2025</td>
+      <td>1</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0.04397</td>
+      <td>-1.19613</td>
+      <td>1.19693</td>
+    </tr>
+    <tr>
+      <th>12422</th>
+      <td>2025</td>
+      <td>1</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0.09447</td>
+      <td>-1.28177</td>
+      <td>1.28524</td>
+    </tr>
+    <tr>
+      <th>12423</th>
+      <td>2025</td>
+      <td>1</td>
+      <td>5</td>
+      <td>0</td>
+      <td>0.16386</td>
+      <td>-1.34737</td>
+      <td>1.35730</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>12504</th>
+      <td>2025</td>
+      <td>3</td>
+      <td>27</td>
+      <td>0</td>
+      <td>-0.15670</td>
+      <td>0.63108</td>
+      <td>0.65024</td>
+    </tr>
+    <tr>
+      <th>12505</th>
+      <td>2025</td>
+      <td>3</td>
+      <td>28</td>
+      <td>0</td>
+      <td>-0.07686</td>
+      <td>0.51473</td>
+      <td>0.52043</td>
+    </tr>
+    <tr>
+      <th>12506</th>
+      <td>2025</td>
+      <td>3</td>
+      <td>29</td>
+      <td>0</td>
+      <td>-0.07862</td>
+      <td>0.38960</td>
+      <td>0.39745</td>
+    </tr>
+    <tr>
+      <th>12507</th>
+      <td>2025</td>
+      <td>3</td>
+      <td>30</td>
+      <td>0</td>
+      <td>-0.20306</td>
+      <td>0.27428</td>
+      <td>0.34126</td>
+    </tr>
+    <tr>
+      <th>12508</th>
+      <td>2025</td>
+      <td>3</td>
+      <td>31</td>
+      <td>0</td>
+      <td>-0.26635</td>
+      <td>0.22916</td>
+      <td>0.35136</td>
+    </tr>
+  </tbody>
+</table>
+<p>90 rows × 7 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mjo_phase_plot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_2026</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/b778cc20a17b738f2a77e846d74d686fa7ea023cdcf7f831e5fd0027efdcc261.png" src="../_images/b778cc20a17b738f2a77e846d74d686fa7ea023cdcf7f831e5fd0027efdcc261.png" />
+</div>
+</div>
+<p>Collect the last three months of data (sudo-real-time)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_years</span> <span class="o">=</span> <span class="n">noaa_df</span><span class="p">[</span><span class="s2">&quot;YYYY&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">most_recent_year</span> <span class="o">=</span> <span class="n">all_years</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">all_months_in_recent_year</span> <span class="o">=</span> <span class="n">noaa_df</span><span class="p">[(</span><span class="n">noaa_df</span><span class="p">[</span><span class="s2">&quot;YYYY&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">most_recent_year</span><span class="p">)][</span><span class="s2">&quot;MM&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Most recent year </span><span class="si">{</span><span class="n">most_recent_year</span><span class="si">}</span><span class="s2"> has </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">all_months_in_recent_year</span><span class="p">)</span><span class="si">}</span><span class="s2"> months&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Most recent year 2026 has 2 months
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_recent</span> <span class="o">=</span> <span class="n">noaa_df</span><span class="p">[(</span><span class="n">noaa_df</span><span class="p">[</span><span class="s2">&quot;YYYY&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">most_recent_year</span><span class="p">)]</span>
+<span class="n">mjo_phase_plot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_recent</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/84a5c1c38774a59696428b9bdbb8ee5d9141c052f61d3623590ac406c3acc0a7.png" src="../_images/84a5c1c38774a59696428b9bdbb8ee5d9141c052f61d3623590ac406c3acc0a7.png" />
+</div>
+</div>
 </section>
 </section>
 </section>
