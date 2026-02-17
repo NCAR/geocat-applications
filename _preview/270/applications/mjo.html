@@ -407,7 +407,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wheeler-hendon-phase-diagram">Wheeler-Hendon Phase Diagram</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Overview</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-data">Example Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow">Workflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-data">Example Data</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curated-resources">Curated Resources</a></li>
@@ -439,11 +442,38 @@ document.write(`
 <li><p>Outgoing Longwave Radiation: The longwave radiation emitted from the top of the Earth’s atmosphere into space</p></li>
 <li><p>Zonal wind: The zonal wind anomaly at 200-hPa and 850-hPa represents the changes in the atmospheric circulation</p></li>
 </ul>
-<img src="../_static/images/mjo_phases.jpg">
 <p>The pair of principal components from the EOFs form two indices: RMM1 and RMM2. The phase relationship between the two zonal winds determine the motion of the MJO</p>
-<img src="../_static/images/mjo_rmm.jpg"></section>
+<ul class="simple">
+<li><p><strong>RMM1</strong>: Represents the MJO’s amplitude, where a larger RMM1 indicates stronger MJO activity. Negative values indicate a inactive or suppressed MJO phase and postive values indicate an active or enchanced MJO circulation</p></li>
+<li><p><strong>RMM2</strong>: Represents the MJO’s phase, where the phase determines the geographic position of the MJO’s convection center. It is split into eight phases, each linked to a specific equatorial region</p></li>
+</ul>
+<table>
+    <tr>
+        <th>
+            <img src="../_static/images/mjo_phases.jpg">
+        </th>
+        <th>
+            <img src="../_static/images/mjo_rmm.jpg">
+        </th>
+    </tr>
+</table></section>
+<section id="workflow">
+<h3>Workflow<a class="headerlink" href="#workflow" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.ticker</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ticker</span> <span class="c1"># force integar ticks on axis</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.lines</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">lines</span> <span class="c1"># add phase division lines</span>
+</pre></div>
+</div>
+</div>
+</div>
 <section id="example-data">
-<h3>Example Data<a class="headerlink" href="#example-data" title="Link to this heading">#</a></h3>
+<h4>Example Data<a class="headerlink" href="#example-data" title="Link to this heading">#</a></h4>
+<p>For the purpose of this notebook, we will be pulling data from NOAA’s Phsical Science Laboratory. PSL offers near real-time and historical RMM MJO data.</p>
+</section>
 </section>
 </section>
 <section id="curated-resources">
@@ -486,7 +516,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wheeler-hendon-phase-diagram">Wheeler-Hendon Phase Diagram</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Overview</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-data">Example Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow">Workflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-data">Example Data</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curated-resources">Curated Resources</a></li>
