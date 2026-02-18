@@ -432,20 +432,20 @@ document.write(`
 <h1>Madden-Julian Oscillation<a class="headerlink" href="#madden-julian-oscillation" title="Link to this heading">#</a></h1>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
-<p>Madden-Julian Oscillation (MJO) reprseents the largest subseasonal (30 to 90 day) atmospheric variability in the low latitude tropical atmosphere. MJO is an eastward traveling atmospheric pattern, moving between 4 to 8 m/s, which influences the location and strength of rainfall in the tropics</p>
+<p>Madden-Julian Oscillation (MJO) represents the largest subseasonal (30 to 90 day) atmospheric variability in the low latitude tropical atmosphere. MJO is an eastward traveling atmospheric pattern, moving between 4 to 8 m/s, which influences the location and strength of rainfall in the tropics.</p>
 <p><img src="https://www.climate.gov/sites/default/files/2021-10/MJO_lrg.png"><em>(Image credit: <a class="reference external" href="https://www.climate.gov/news-features/blogs/enso/what-mjo-and-why-do-we-care">Climate.gov</a>)</em></p>
-<p>MJO was discovered in 1971 by Roland A. Madden and Paul R. Julian<a class="footnote-reference brackets" href="#footcite-madden-julian-1971" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> at the National Center for Atmospheric Research (NCAR)</p>
+<p>MJO was discovered in 1971 by Roland A. Madden and Paul R. Julian<a class="footnote-reference brackets" href="#footcite-madden-julian-1971" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> at the National Center for Atmospheric Research (NCAR).</p>
 </section>
 <section id="wheeler-hendon-phase-diagram">
 <h2>Wheeler-Hendon Phase Diagram<a class="headerlink" href="#wheeler-hendon-phase-diagram" title="Link to this heading">#</a></h2>
 <section id="id2">
 <h3>Overview<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-<p>Wheeler-Hendon is a phase plot and diagnostics tool<a class="footnote-reference brackets" href="#footcite-wheeler-hendon-2004" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> to quantify the strength and significance of the MJO over time. The plot represents the Real-Time Multivariate MJO (RMM) which is made up of a pair of empirical orthogonal functions (EOF) from the combined equatorially averaged 850-hPa and 200-hPa zonal wind and the outgoing longwave radiation (OLR)</p>
+<p>Wheeler-Hendon is a phase plot and diagnostics tool<a class="footnote-reference brackets" href="#footcite-wheeler-hendon-2004" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> to quantify the strength and significance of the MJO over time. The plot represents the Real-Time Multivariate MJO (RMM) which is made up of a pair of empirical orthogonal functions (EOF) from the combined equatorially averaged 850-hPa and 200-hPa zonal wind and the outgoing longwave radiation (OLR).</p>
 <ul class="simple">
 <li><p>Outgoing Longwave Radiation: The longwave radiation emitted from the top of the Earth’s atmosphere into space</p></li>
 <li><p>Zonal wind: The zonal wind anomaly at 200-hPa and 850-hPa represents the changes in the atmospheric circulation</p></li>
 </ul>
-<p>The pair of principal components from the EOFs form two indices: RMM1 and RMM2. The phase relationship between the two zonal winds determine the motion of the MJO</p>
+<p>The pair of principal components from the EOFs form two indices: RMM1 and RMM2. The phase relationship between the two zonal winds determine the motion of the MJO.</p>
 <ul class="simple">
 <li><p><strong>RMM1</strong>: Represents the MJO’s amplitude, where a larger RMM1 indicates stronger MJO activity. Negative values indicate a inactive or suppressed MJO phase and positive values indicate an active or enhanced MJO circulation</p></li>
 <li><p><strong>RMM2</strong>: Represents the MJO’s phase, where the phase determines the geographic position of the MJO’s convection center. It is split into eight phases, each linked to a specific equatorial region</p></li>
@@ -493,7 +493,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>We will be retrieving the data related to the Real-time OLR MJO Index (ROMI). <a class="reference external" href="https://www.psl.noaa.gov/mjo/">See PSL MJO</a> for more daily MJO index values for dates from 1979</p>
+<p>We will be retrieving the data related to the Real-time OLR MJO Index (ROMI). <a class="reference external" href="https://www.psl.noaa.gov/mjo/">See PSL MJO</a> for more daily MJO index values for dates from 1979.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">noaa_df</span> <span class="o">=</span> <span class="n">retrieve_NOAA_data</span><span class="p">(</span><span class="s2">&quot;ROMI&quot;</span><span class="p">)</span>
@@ -658,11 +658,10 @@ document.write(`
 <li><p>RMM2: Real-Time Multivariate MJO Principal Component 1</p></li>
 <li><p>Phase: Amplitude of MJO where sqrt(RMM1^2 + RMM2^2)</p></li>
 </ul>
-<p>For the purpose of a plot, we will be using the datetime (YYYY-MM-DD) and RMM1 and RMM2</p>
+<p>For the purpose of a plot, we will be using the datetime (YYYY-MM-DD) and RMM1 and RMM2.</p>
 </section>
 <section id="plotting-phase-diagram">
 <h4>Plotting Phase Diagram<a class="headerlink" href="#plotting-phase-diagram" title="Link to this heading">#</a></h4>
-<p>Function description:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>: pandas dataframe with data (required columns: <code class="docutils literal notranslate"><span class="pre">[&quot;YYYY&quot;,</span> <span class="pre">&quot;MM&quot;,</span> <span class="pre">&quot;DD&quot;,</span> <span class="pre">&quot;RMM1&quot;,</span> <span class="pre">&quot;RMM2&quot;]</span></code>)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">radius</span></code>: center circle of plot which represents when MJO phase value is significant (defaults to 1)</p></li>
@@ -834,7 +833,7 @@ document.write(`
         <span class="k">if</span> <span class="n">month_mm</span> <span class="ow">in</span> <span class="n">all_months</span>
     <span class="p">]</span>  <span class="c1"># convert number to name (example: 01 to Jan)</span>
 
-    <span class="c1"># dynamic spacing for months</span>
+    <span class="c1"># dynamic spacing for month labels</span>
     <span class="n">start_index</span> <span class="o">=</span> <span class="o">-</span><span class="mf">3.3</span> <span class="o">+</span> <span class="p">((</span><span class="mi">12</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">all_month_names</span><span class="p">))</span> <span class="o">*</span> <span class="mf">0.28</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">month</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">all_month_names</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -894,7 +893,7 @@ document.write(`
 </section>
 <section id="plot-diagram-for-2025">
 <h4>Plot Diagram for 2025<a class="headerlink" href="#plot-diagram-for-2025" title="Link to this heading">#</a></h4>
-<p>Collect a subset of the data, the first five months of 2025</p>
+<p>Collect a subset of the data, the first five months of 2025.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_2026</span> <span class="o">=</span> <span class="n">noaa_df</span><span class="p">[</span>
@@ -1069,7 +1068,7 @@ document.write(`
 </section>
 <section id="plot-diagram-most-recent-data">
 <h4>Plot Diagram Most Recent Data<a class="headerlink" href="#plot-diagram-most-recent-data" title="Link to this heading">#</a></h4>
-<p>Collect the last three months of data</p>
+<p>Display months of the most recent year.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_years</span> <span class="o">=</span> <span class="n">noaa_df</span><span class="p">[</span><span class="s2">&quot;YYYY&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
