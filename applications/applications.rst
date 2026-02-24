@@ -36,3 +36,4 @@ Python resources by category with relevant context and links to additional resou
 
                 - `Climatology <climatology.ipynb>`__
                 - `Humid heat metrics <humid_heat_metrics.ipynb>`__
+                - `Madden-Julian Oscillation <mjo.ipynb>`__
