@@ -441,7 +441,7 @@ document.write(`
 <h2>Wheeler-Hendon Phase Diagram<a class="headerlink" href="#wheeler-hendon-phase-diagram" title="Link to this heading">#</a></h2>
 <section id="id3">
 <h3>Overview<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
-<p>Wheeler-Hendon is a phase plot and diagnostics tool<a class="footnote-reference brackets" href="#footcite-wheeler-hendon-2004" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> to quantify the strength and significance of the MJO over time. The plot represents the Real-Time Multivariate MJO (RMM) which is made up of a pair of <a class="reference external" href="https://projectpythia.org/eofs-cookbook/">empirical orthogonal functions (EOF)</a>. EOFs are created from the combined equatorially averaged 850-hPa and 200-hPa zonal wind and the outgoing longwave radiation (OLR).</p>
+<p>The Wheeler-Hendon diagram is a phase plot and diagnostics tool<a class="footnote-reference brackets" href="#footcite-wheeler-hendon-2004" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> to quantify the strength and significance of the MJO over time. The plot represents the Real-Time Multivariate MJO (RMM) which is made up of a pair of <a class="reference external" href="https://projectpythia.org/eofs-cookbook/">empirical orthogonal functions (EOF)</a>. EOFs are created from the combined equatorially averaged 850-hPa and 200-hPa zonal wind and the outgoing longwave radiation (OLR).</p>
 <ul class="simple">
 <li><p>Outgoing longwave radiation: The longwave radiation emitted from the top of the Earth’s atmosphere into space</p></li>
 <li><p>Zonal wind: The zonal wind anomaly at 200-hPa and 850-hPa represents the changes in the atmospheric circulation</p></li>
@@ -897,9 +897,7 @@ document.write(`
 <p>Collect a subset of the data, the first five months of 2025.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_2026</span> <span class="o">=</span> <span class="n">noaa_df</span><span class="p">[</span>
-    <span class="p">(</span><span class="n">noaa_df</span><span class="p">[</span><span class="s2">&quot;YYYY&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2025</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">noaa_df</span><span class="o">.</span><span class="n">MM</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-<span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_2026</span> <span class="o">=</span> <span class="n">noaa_df</span><span class="p">[(</span><span class="n">noaa_df</span><span class="p">[</span><span class="s2">&quot;YYYY&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2025</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">noaa_df</span><span class="o">.</span><span class="n">MM</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">))]</span>
 
 <span class="n">df_2026</span>
 </pre></div>
