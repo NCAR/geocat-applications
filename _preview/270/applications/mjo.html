@@ -406,7 +406,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wheeler-hendon-phase-diagram">Wheeler-Hendon Phase Diagram</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Overview</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Overview</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow">Workflow</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-data">Example Data</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-phase-diagram">Plotting Phase Diagram</a></li>
@@ -417,6 +417,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curated-resources">Curated Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References:</a></li>
 </ul>
             </nav>
         </div>
@@ -432,17 +433,17 @@ document.write(`
 <h1>Madden-Julian Oscillation<a class="headerlink" href="#madden-julian-oscillation" title="Link to this heading">#</a></h1>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
-<p>Madden-Julian Oscillation (MJO) represents the largest subseasonal (30 to 90 day) atmospheric variability in the low latitude tropical atmosphere. MJO is an eastward traveling atmospheric pattern, moving between 4 to 8 m/s, which influences the location and strength of rainfall in the tropics.</p>
+<p>The Madden-Julian Oscillation (MJO) represents the largest subseasonal (30 to 90 day) atmospheric variability in the low latitude tropical atmosphere. MJO is an eastward traveling atmospheric pattern, moving between 4 to 8 m/s, which influences the location and strength of rainfall in the tropics<a class="footnote-reference brackets" href="#footcite-noaa-psl-mjo" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
 <p><img src="https://www.climate.gov/sites/default/files/2021-10/MJO_lrg.png"><em>(Image credit: <a class="reference external" href="https://www.climate.gov/news-features/blogs/enso/what-mjo-and-why-do-we-care">Climate.gov</a>)</em></p>
-<p>MJO was discovered in 1971 by Roland A. Madden and Paul R. Julian<a class="footnote-reference brackets" href="#footcite-madden-julian-1971" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> at the National Center for Atmospheric Research (NCAR).</p>
+<p>MJO was discovered in 1971 by Roland A. Madden and Paul R. Julian<a class="footnote-reference brackets" href="#footcite-madden-julian-1971" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> at the National Center for Atmospheric Research (NCAR).</p>
 </section>
 <section id="wheeler-hendon-phase-diagram">
 <h2>Wheeler-Hendon Phase Diagram<a class="headerlink" href="#wheeler-hendon-phase-diagram" title="Link to this heading">#</a></h2>
-<section id="id2">
-<h3>Overview<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-<p>Wheeler-Hendon is a phase plot and diagnostics tool<a class="footnote-reference brackets" href="#footcite-wheeler-hendon-2004" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> to quantify the strength and significance of the MJO over time. The plot represents the Real-Time Multivariate MJO (RMM) which is made up of a pair of empirical orthogonal functions (EOF). EOFs are created from the combined equatorially averaged 850-hPa and 200-hPa zonal wind and the outgoing longwave radiation (OLR).</p>
+<section id="id3">
+<h3>Overview<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>Wheeler-Hendon is a phase plot and diagnostics tool<a class="footnote-reference brackets" href="#footcite-wheeler-hendon-2004" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> to quantify the strength and significance of the MJO over time. The plot represents the Real-Time Multivariate MJO (RMM) which is made up of a pair of <a class="reference external" href="https://projectpythia.org/eofs-cookbook/">empirical orthogonal functions (EOF)</a>. EOFs are created from the combined equatorially averaged 850-hPa and 200-hPa zonal wind and the outgoing longwave radiation (OLR).</p>
 <ul class="simple">
-<li><p>Outgoing Longwave Radiation: The longwave radiation emitted from the top of the Earth’s atmosphere into space</p></li>
+<li><p>Outgoing longwave radiation: The longwave radiation emitted from the top of the Earth’s atmosphere into space</p></li>
 <li><p>Zonal wind: The zonal wind anomaly at 200-hPa and 850-hPa represents the changes in the atmospheric circulation</p></li>
 </ul>
 <p>The pair of principal components from the EOFs form two indices: RMM1 and RMM2. The phase relationship between the two zonal winds determine the motion of the MJO.</p>
@@ -467,7 +468,7 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.ticker</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ticker</span>  <span class="c1"># force integar ticks on axis</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.ticker</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ticker</span>  <span class="c1"># force integer ticks on axis</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.lines</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">lines</span>  <span class="c1"># add phase division lines</span>
 </pre></div>
 </div>
@@ -475,7 +476,7 @@ document.write(`
 </div>
 <section id="example-data">
 <h4>Example Data<a class="headerlink" href="#example-data" title="Link to this heading">#</a></h4>
-<p>For the purpose of this notebook, we will be pulling data from NOAA’s Physical Science Laboratory. PSL offers near real-time and historical RMM MJO data.</p>
+<p>For the purpose of this notebook, we will be pulling data from NOAA’s Physical Science Laboratory (PSL). PSL offers near real-time and historical RMM MJO data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">retrieve_NOAA_data</span><span class="p">(</span><span class="n">data_type</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -594,61 +595,61 @@ document.write(`
       <td>...</td>
     </tr>
     <tr>
-      <th>12832</th>
+      <th>12839</th>
       <td>2026</td>
       <td>2</td>
-      <td>18</td>
+      <td>25</td>
       <td>0</td>
-      <td>2.21633</td>
-      <td>0.83069</td>
-      <td>2.36689</td>
+      <td>-0.12531</td>
+      <td>0.76784</td>
+      <td>0.77800</td>
     </tr>
     <tr>
-      <th>12833</th>
+      <th>12840</th>
       <td>2026</td>
       <td>2</td>
-      <td>19</td>
+      <td>26</td>
       <td>0</td>
-      <td>2.21658</td>
-      <td>0.68759</td>
-      <td>2.32077</td>
+      <td>-0.42529</td>
+      <td>0.70178</td>
+      <td>0.82059</td>
     </tr>
     <tr>
-      <th>12834</th>
+      <th>12841</th>
       <td>2026</td>
       <td>2</td>
-      <td>20</td>
+      <td>27</td>
       <td>0</td>
-      <td>2.18720</td>
-      <td>0.55560</td>
-      <td>2.25666</td>
+      <td>-0.53910</td>
+      <td>0.85848</td>
+      <td>1.01371</td>
     </tr>
     <tr>
-      <th>12835</th>
+      <th>12842</th>
       <td>2026</td>
       <td>2</td>
-      <td>21</td>
+      <td>28</td>
       <td>0</td>
-      <td>2.12813</td>
-      <td>0.48961</td>
-      <td>2.18372</td>
+      <td>-0.70445</td>
+      <td>0.79198</td>
+      <td>1.05995</td>
     </tr>
     <tr>
-      <th>12836</th>
+      <th>12843</th>
       <td>2026</td>
-      <td>2</td>
-      <td>22</td>
+      <td>3</td>
+      <td>1</td>
       <td>0</td>
-      <td>1.99642</td>
-      <td>0.49098</td>
-      <td>2.05591</td>
+      <td>-0.81061</td>
+      <td>0.82785</td>
+      <td>1.15863</td>
     </tr>
   </tbody>
 </table>
-<p>12837 rows × 7 columns</p>
+<p>12844 rows × 7 columns</p>
 </div></div></div>
 </div>
-<p>NOAA PSL MJO time series data as:</p>
+<p>The table above shows NOAA PSL MJO time series data as:</p>
 <ul class="simple">
 <li><p>YYYY: Year</p></li>
 <li><p>MM: Month (1-12)</p></li>
@@ -897,14 +898,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_2026</span> <span class="o">=</span> <span class="n">noaa_df</span><span class="p">[</span>
-    <span class="p">(</span><span class="n">noaa_df</span><span class="p">[</span><span class="s2">&quot;YYYY&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2025</span><span class="p">)</span>
-    <span class="o">&amp;</span> <span class="p">(</span>
-        <span class="p">(</span><span class="n">noaa_df</span><span class="p">[</span><span class="s2">&quot;MM&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="o">|</span> <span class="p">(</span><span class="n">noaa_df</span><span class="p">[</span><span class="s2">&quot;MM&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>
-        <span class="o">|</span> <span class="p">(</span><span class="n">noaa_df</span><span class="p">[</span><span class="s2">&quot;MM&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span>
-        <span class="o">|</span> <span class="p">(</span><span class="n">noaa_df</span><span class="p">[</span><span class="s2">&quot;MM&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span>
-        <span class="o">|</span> <span class="p">(</span><span class="n">noaa_df</span><span class="p">[</span><span class="s2">&quot;MM&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span>
-    <span class="p">)</span>
+    <span class="p">(</span><span class="n">noaa_df</span><span class="p">[</span><span class="s2">&quot;YYYY&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2025</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">noaa_df</span><span class="o">.</span><span class="n">MM</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 <span class="p">]</span>
 
 <span class="n">df_2026</span>
@@ -1083,7 +1077,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Most recent year 2026 has 2 months
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Most recent year 2026 has 3 months
 </pre></div>
 </div>
 </div>
@@ -1096,7 +1090,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/adf38e262ac4f4b0b761bc1b238b0a2d46073429b49d2af6a4833c01d12b4e5f.png" src="../_images/adf38e262ac4f4b0b761bc1b238b0a2d46073429b49d2af6a4833c01d12b4e5f.png" />
+<img alt="../_images/87f1b0b56abb9213dd63467af157f588e93c8fc8f11e8bacdad7940166e75cb1.png" src="../_images/87f1b0b56abb9213dd63467af157f588e93c8fc8f11e8bacdad7940166e75cb1.png" />
 </div>
 </div>
 </section>
@@ -1110,15 +1104,24 @@ document.write(`
 <li><p><a class="reference external" href="https://www.cpc.ncep.noaa.gov/products/precip/CWlink/MJO/mjo.shtml">NWS (Climate Prediction Center): Current and Forecast Conditions</a></p></li>
 </ul>
 </section>
+<section id="references">
+<h2>References:<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<div class="docutils container" id="id5">
+</div>
+</section>
 </section>
 <hr class="footnotes docutils" />
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="footcite-madden-julian-1971" role="doc-footnote">
+<aside class="footnote brackets" id="footcite-noaa-psl-mjo" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Madden-julian oscillations (mjo). URL: <a class="reference external" href="https://psl.noaa.gov/mjo/">https://psl.noaa.gov/mjo/</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-madden-julian-1971" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
 <p>Roland A. Madden and Paul R. Julian. Detection of a 40–50 day oscillation in the zonal wind in the tropical pacific. 1971. <a class="reference external" href="https://doi.org/10.1175/1520-0469(1971)028&lt;0702:DOADOI&gt;2.0.CO;2">doi:10.1175/1520-0469(1971)028&lt;0702:DOADOI&gt;2.0.CO;2</a>.</p>
 </aside>
 <aside class="footnote brackets" id="footcite-wheeler-hendon-2004" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">2</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">3</a><span class="fn-bracket">]</span></span>
 <p>Matthew C. Wheeler and Harry H. Hendon. An all-season real-time multivariate mjo index: development of an index for monitoring and prediction. 2004. <a class="reference external" href="https://doi.org/10.1175/1520-0493(2004)132&lt;1917:AARMMI&gt;2.0.CO;2">doi:10.1175/1520-0493(2004)132&lt;1917:AARMMI&gt;2.0.CO;2</a>.</p>
 </aside>
 </aside>
@@ -1152,7 +1155,7 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wheeler-hendon-phase-diagram">Wheeler-Hendon Phase Diagram</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Overview</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Overview</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow">Workflow</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-data">Example Data</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-phase-diagram">Plotting Phase Diagram</a></li>
@@ -1163,6 +1166,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curated-resources">Curated Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References:</a></li>
 </ul>
   </nav></div>
 
