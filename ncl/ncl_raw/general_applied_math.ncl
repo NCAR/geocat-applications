@@ -61,6 +61,11 @@ f = -6.4
 floor_f  = floor(f)  ; floor_f  = 6
 print(floor_f )
 
+; fspan
+; Adapted from https://www.ncl.ucar.edu/Document/Functions/Built-in/fspan.shtml
+f = fspan(1, 2, 3)
+print(f)
+
 ; get_d2r
 ; Adapted from https://www.ncl.ucar.edu/Document/Functions/Contributed/get_d2r.shtml
 d2r = get_d2r("double")  ; d2r = 0.0174532925199433
@@ -72,6 +77,11 @@ r2d = get_r2d("double")  ; r2d = 57.29577951308232
 ; get_pi
 ; Adapted from https://www.ncl.ucar.edu/D
 pi = get_pi("double")  ; pi = 3.141592653589793
+
+; ispan
+; Adapted from https://www.ncl.ucar.edu/Document/Functions/Built-in/ispan.shtml
+f = ispan(1, 9, 3)
+print(f)
 
 ; log
 ; Adapted from https://www.ncl.ucar.edu/Document/Functions/Built-in/log.shtml
