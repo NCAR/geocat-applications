@@ -1,0 +1,1226 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Madden-Julian Oscillation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css?v=0fa5d2bc" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-EQMBXF1D2V"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-EQMBXF1D2V');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'applications/mjo';</script>
+    <link rel="icon" href="../_static/GeoCAT_square.svg"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/NSF_NCAR_light.png" class="logo__image only-light" alt=" - Home"/>
+    <script>document.write(`<img src="../_static/NSF_NCAR_dark.png" class="logo__image only-dark" alt=" - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../GETTING_STARTED.html">Getting Started</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="applications.html">Applications</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NCL to Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ncl/ncl_index/ncl_index.html">NCL Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ncl/ncl_entries/ncl_entries.html">Applications</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contributing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../CODE_OF_CONDUCT.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING.html">Contributor Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://github.com/NCAR/geocat-applications/issues">GitHub Issues</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://forms.gle/6DTo3ELLri4DAGfG8">Suggestion Box</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NCAR/geocat-applications" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NCAR/geocat-applications/edit/main/docs/applications/mjo.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NCAR/geocat-applications/issues/new?title=Issue%20on%20page%20%2Fapplications/mjo.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/applications/mjo.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Madden-Julian Oscillation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wheeler-hendon-phase-diagram">Wheeler-Hendon Phase Diagram</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Overview</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow">Workflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-data">Example Data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-phase-diagram">Plotting Phase Diagram</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-diagram-for-2025">Plot Diagram for 2025</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-diagram-most-recent-data">Plot Diagram Most Recent Data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curated-resources">Curated Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References:</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="madden-julian-oscillation">
+<h1>Madden-Julian Oscillation<a class="headerlink" href="#madden-julian-oscillation" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>The Madden-Julian Oscillation (MJO) represents the largest subseasonal (30 to 90 day) atmospheric variability in the low latitude tropical atmosphere. MJO is an eastward traveling atmospheric pattern, moving between 4 to 8 m/s, which influences the location and strength of rainfall in the tropics<a class="footnote-reference brackets" href="#footcite-noaa-psl-mjo" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
+<p><img src="https://preview.weather.gov/images/arx/lanina/MJO2.jpg"><em>(Image credit: <a class="reference external" href="https://psl.noaa.gov/mjo/">NOAA-PSL</a></em>)</p>
+<p>MJO was discovered in 1971 by Roland A. Madden and Paul R. Julian<a class="footnote-reference brackets" href="#footcite-madden-julian-1971" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> at the National Center for Atmospheric Research (NCAR).</p>
+</section>
+<section id="wheeler-hendon-phase-diagram">
+<h2>Wheeler-Hendon Phase Diagram<a class="headerlink" href="#wheeler-hendon-phase-diagram" title="Link to this heading">#</a></h2>
+<section id="id3">
+<h3>Overview<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>The Wheeler-Hendon diagram is a phase plot and diagnostics tool<a class="footnote-reference brackets" href="#footcite-wheeler-hendon-2004" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> to quantify the strength and significance of the MJO over time. The plot represents the Real-Time Multivariate MJO (RMM) which is made up of a pair of <a class="reference external" href="https://projectpythia.org/eofs-cookbook/">empirical orthogonal functions (EOF)</a>. EOFs are created from the combined equatorially averaged 850-hPa and 200-hPa zonal wind and the outgoing longwave radiation (OLR).</p>
+<ul class="simple">
+<li><p>Outgoing longwave radiation: The longwave radiation emitted from the top of the Earth’s atmosphere into space</p></li>
+<li><p>Zonal wind: The zonal wind anomaly at 200-hPa and 850-hPa represents the changes in the atmospheric circulation</p></li>
+</ul>
+<p>The pair of principal components from the EOFs form two indices: RMM1 and RMM2. The phase relationship between the two zonal winds determine the motion of the MJO.</p>
+<ul class="simple">
+<li><p><strong>RMM1</strong>: Represents the MJO’s amplitude. A larger RMM1 indicates stronger MJO activity. Negative values indicate a inactive or suppressed MJO phase and positive values indicate an active or enhanced MJO circulation</p></li>
+<li><p><strong>RMM2</strong>: Represents the MJO’s phase. The phase determines the geographic position of the MJO’s convection center. It is split into eight phases, each representing to a specific equatorial region</p></li>
+</ul>
+<table>
+    <tr>
+        <th>
+            <img src="../_static/images/mjo_phases.jpg" width="839">
+        </th>
+        <th>
+            <img src="../_static/images/mjo_rmm.jpg">
+        </th>
+    </tr>
+</table></section>
+<section id="workflow">
+<h3>Workflow<a class="headerlink" href="#workflow" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.ticker</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ticker</span>  <span class="c1"># force integer ticks on axis</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.lines</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">lines</span>  <span class="c1"># add phase division lines</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="example-data">
+<h4>Example Data<a class="headerlink" href="#example-data" title="Link to this heading">#</a></h4>
+<p>For the purpose of this notebook, we will be pulling data from NOAA’s Physical Science Laboratory (PSL). PSL offers near real-time and historical RMM MJO data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">retrieve_NOAA_data</span><span class="p">(</span><span class="n">data_type</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="c1"># https://www.psl.noaa.gov/mjo/</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://www.psl.noaa.gov/mjo/mjoindex/</span><span class="si">{</span><span class="n">data_type</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">.cpcolr.1x.txt&quot;</span>
+    <span class="n">column_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;YYYY&quot;</span><span class="p">,</span> <span class="s2">&quot;MM&quot;</span><span class="p">,</span> <span class="s2">&quot;DD&quot;</span><span class="p">,</span> <span class="s2">&quot;HH&quot;</span><span class="p">,</span> <span class="s2">&quot;RMM1&quot;</span><span class="p">,</span> <span class="s2">&quot;RMM2&quot;</span><span class="p">,</span> <span class="s2">&quot;Phase&quot;</span><span class="p">]</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">column_names</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Retrieving data from: </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">df</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;invalid url: </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">column_names</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will be retrieving the data related to the Real-time OLR MJO Index (ROMI). <a class="reference external" href="https://www.psl.noaa.gov/mjo/">See PSL MJO</a> for more daily MJO index values for dates from 1979.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">noaa_df</span> <span class="o">=</span> <span class="n">retrieve_NOAA_data</span><span class="p">(</span><span class="s2">&quot;ROMI&quot;</span><span class="p">)</span>
+<span class="n">noaa_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Retrieving data from: https://www.psl.noaa.gov/mjo/mjoindex/romi.cpcolr.1x.txt
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>YYYY</th>
+      <th>MM</th>
+      <th>DD</th>
+      <th>HH</th>
+      <th>RMM1</th>
+      <th>RMM2</th>
+      <th>Phase</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1991</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0.12526</td>
+      <td>-0.06945</td>
+      <td>0.14323</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1991</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0.18542</td>
+      <td>-0.04887</td>
+      <td>0.19175</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1991</td>
+      <td>1</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0.23960</td>
+      <td>-0.03933</td>
+      <td>0.24281</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1991</td>
+      <td>1</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0.27446</td>
+      <td>0.01990</td>
+      <td>0.27518</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1991</td>
+      <td>1</td>
+      <td>5</td>
+      <td>0</td>
+      <td>0.27714</td>
+      <td>0.07555</td>
+      <td>0.28725</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>12839</th>
+      <td>2026</td>
+      <td>2</td>
+      <td>25</td>
+      <td>0</td>
+      <td>-0.12531</td>
+      <td>0.76784</td>
+      <td>0.77800</td>
+    </tr>
+    <tr>
+      <th>12840</th>
+      <td>2026</td>
+      <td>2</td>
+      <td>26</td>
+      <td>0</td>
+      <td>-0.42529</td>
+      <td>0.70178</td>
+      <td>0.82059</td>
+    </tr>
+    <tr>
+      <th>12841</th>
+      <td>2026</td>
+      <td>2</td>
+      <td>27</td>
+      <td>0</td>
+      <td>-0.53910</td>
+      <td>0.85848</td>
+      <td>1.01371</td>
+    </tr>
+    <tr>
+      <th>12842</th>
+      <td>2026</td>
+      <td>2</td>
+      <td>28</td>
+      <td>0</td>
+      <td>-0.70445</td>
+      <td>0.79198</td>
+      <td>1.05995</td>
+    </tr>
+    <tr>
+      <th>12843</th>
+      <td>2026</td>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>-0.81061</td>
+      <td>0.82785</td>
+      <td>1.15863</td>
+    </tr>
+  </tbody>
+</table>
+<p>12844 rows × 7 columns</p>
+</div></div></div>
+</div>
+<p>The table above shows NOAA PSL MJO time series data as:</p>
+<ul class="simple">
+<li><p>YYYY: Year</p></li>
+<li><p>MM: Month (1-12)</p></li>
+<li><p>DD: Day (1-31)</p></li>
+<li><p>HH: Hour (always 0, can be ignored)</p></li>
+<li><p>RMM1: Real-Time Multivariate MJO Principal Component 1</p></li>
+<li><p>RMM2: Real-Time Multivariate MJO Principal Component 2</p></li>
+<li><p>Phase: Amplitude of MJO where sqrt(RMM1^2 + RMM2^2)</p></li>
+</ul>
+<p>For the purpose of a plot, we will be using the datetime (YYYY-MM-DD) and RMM1 and RMM2.</p>
+</section>
+<section id="plotting-phase-diagram">
+<h4>Plotting Phase Diagram<a class="headerlink" href="#plotting-phase-diagram" title="Link to this heading">#</a></h4>
+<p>The function <code class="docutils literal notranslate"><span class="pre">mjo_phase_plot()</span></code> below has four input arguments, including three optional arguments with default values.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>: pandas dataframe containing data (data requires the columns: <code class="docutils literal notranslate"><span class="pre">[&quot;YYYY&quot;,</span> <span class="pre">&quot;MM&quot;,</span> <span class="pre">&quot;DD&quot;,</span> <span class="pre">&quot;RMM1&quot;,</span> <span class="pre">&quot;RMM2&quot;]</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">radius</span></code>: circle in the center of the plot which represents when MJO phase value is significant (defaults to 1)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">month_colors</span></code>: colors for each month on plot (color for the 12 months defaults to <code class="docutils literal notranslate"><span class="pre">[&quot;tomato&quot;,</span> <span class="pre">&quot;dodgerblue&quot;,</span> <span class="pre">&quot;orange&quot;,</span> <span class="pre">&quot;green&quot;,</span> <span class="pre">&quot;magenta&quot;,</span> <span class="pre">&quot;yellow&quot;,</span> <span class="pre">&quot;pink&quot;,</span> <span class="pre">&quot;cyan&quot;,</span> <span class="pre">&quot;gold&quot;,</span> <span class="pre">&quot;lime&quot;,</span> <span class="pre">&quot;darkviolet&quot;,</span> <span class="pre">&quot;olive&quot;]</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rmm_axis_label</span></code>: replace phase axis labels with RMM1/RMM2 labels (defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>, with all phase and geographical locations)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mjo_phase_plot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">month_colors</span><span class="o">=</span><span class="p">[],</span> <span class="n">rmm_axis_label</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+
+    <span class="c1"># set x and y axis labels</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="n">ax2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+    <span class="n">ax3</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twiny</span><span class="p">()</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">rmm_axis_label</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span>
+            <span class="s2">&quot;Phase 1 (Western Hemisphere, Africa) Phase 8&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">20</span>
+        <span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Phase 2 (Indian Ocean) Phase 3&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span>
+            <span class="s2">&quot;Phase 5 (Maritime) Phase 4&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">270</span>
+        <span class="p">)</span>
+        <span class="n">ax3</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Phase 7 (Western Pacific) Phase 6&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;RMM2&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;RMM1&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+    <span class="c1"># add amplitude circle</span>
+    <span class="n">amplitude_circle</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">Circle</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">radius</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">amplitude_circle</span><span class="p">)</span>
+
+    <span class="c1"># add phase diagram lines</span>
+    <span class="c1">## Phase 1-8</span>
+    <span class="n">phase_line</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">Line2D</span><span class="p">([</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="n">radius</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">dashes</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="n">phase_line</span><span class="p">)</span>
+    <span class="c1">## Phase 1-2</span>
+    <span class="n">phase_line</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">Line2D</span><span class="p">(</span>
+        <span class="p">[</span><span class="o">-</span><span class="n">radius</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="o">-</span><span class="mi">4</span><span class="p">],</span>
+        <span class="p">[</span><span class="o">-</span><span class="n">radius</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="o">-</span><span class="mi">4</span><span class="p">],</span>
+        <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span>
+        <span class="n">dashes</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="n">phase_line</span><span class="p">)</span>
+    <span class="c1">## Phase 2-3</span>
+    <span class="n">phase_line</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">Line2D</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="n">radius</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">],</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">dashes</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="n">phase_line</span><span class="p">)</span>
+    <span class="c1">## Phase 3-4</span>
+    <span class="n">phase_line</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">Line2D</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">radius</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="mi">4</span><span class="p">],</span>
+        <span class="p">[</span><span class="o">-</span><span class="n">radius</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="o">-</span><span class="mi">4</span><span class="p">],</span>
+        <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span>
+        <span class="n">dashes</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="n">phase_line</span><span class="p">)</span>
+    <span class="c1">## Phase 4-5</span>
+    <span class="n">phase_line</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">Line2D</span><span class="p">([</span><span class="n">radius</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">dashes</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="n">phase_line</span><span class="p">)</span>
+    <span class="c1">## Phase 5-6</span>
+    <span class="n">phase_line</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">Line2D</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">radius</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="mi">4</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">radius</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="mi">4</span><span class="p">],</span>
+        <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span>
+        <span class="n">dashes</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="n">phase_line</span><span class="p">)</span>
+    <span class="c1">## Phase 6-7</span>
+    <span class="n">phase_line</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">Line2D</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="n">radius</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">dashes</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="n">phase_line</span><span class="p">)</span>
+    <span class="c1">## Phase 7-8</span>
+    <span class="n">phase_line</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">Line2D</span><span class="p">(</span>
+        <span class="p">[</span><span class="o">-</span><span class="n">radius</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="o">-</span><span class="mi">4</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">radius</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="mi">4</span><span class="p">],</span>
+        <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span>
+        <span class="n">dashes</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="n">phase_line</span><span class="p">)</span>
+
+    <span class="c1"># add tick marks</span>
+    <span class="n">full_tickmarks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">full_tickmarks</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">full_tickmarks</span><span class="p">)</span>
+    <span class="c1"># hide tickmarks for top/right axis)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">full_tickmarks</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">full_tickmarks</span><span class="p">)</span>
+
+    <span class="c1"># plot whole numbers integar tick marks</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">ticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mf">1.0</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">ticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mf">1.0</span><span class="p">))</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">ticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mf">1.0</span><span class="p">))</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">ticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mf">1.0</span><span class="p">))</span>
+    <span class="c1"># increase length of major ticks</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s2">&quot;major&quot;</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s2">&quot;major&quot;</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s2">&quot;major&quot;</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+    <span class="c1"># plot minor ticks every 0.25</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">ticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mf">0.25</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">ticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mf">0.25</span><span class="p">))</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">ticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mf">0.25</span><span class="p">))</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_minor_locator</span><span class="p">(</span><span class="n">ticker</span><span class="o">.</span><span class="n">MultipleLocator</span><span class="p">(</span><span class="mf">0.25</span><span class="p">))</span>
+    <span class="c1"># increase length of minor ticks</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s2">&quot;minor&quot;</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s2">&quot;minor&quot;</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s2">&quot;minor&quot;</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+    <span class="c1"># plot with title</span>
+    <span class="n">first_index</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">start_date</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">first_index</span><span class="p">[</span><span class="s2">&quot;YYYY&quot;</span><span class="p">])</span><span class="si">}</span><span class="s1">-</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">first_index</span><span class="p">[</span><span class="s2">&quot;MM&quot;</span><span class="p">])</span><span class="si">}</span><span class="s1">-</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">first_index</span><span class="p">[</span><span class="s2">&quot;DD&quot;</span><span class="p">])</span><span class="si">}</span><span class="s1">&#39;</span>
+    <span class="p">)</span>
+    <span class="n">last_index</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">end_date</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">last_index</span><span class="p">[</span><span class="s2">&quot;YYYY&quot;</span><span class="p">])</span><span class="si">}</span><span class="s1">-</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">last_index</span><span class="p">[</span><span class="s2">&quot;MM&quot;</span><span class="p">])</span><span class="si">}</span><span class="s1">-</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">last_index</span><span class="p">[</span><span class="s2">&quot;DD&quot;</span><span class="p">])</span><span class="si">}</span><span class="s1">&#39;</span>
+    <span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;MJO Phase: ROMI: </span><span class="si">{</span><span class="n">start_date</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">end_date</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">fontsize</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+        <span class="n">fontweight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">,</span>
+        <span class="n">pad</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Setup Months Text at Bottom of Plot</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">month_colors</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># default colors for all twelve months</span>
+        <span class="n">month_colors</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s2">&quot;tomato&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;dodgerblue&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;orange&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;green&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;magenta&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;yellow&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;pink&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cyan&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;gold&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;lime&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;darkviolet&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;olive&quot;</span><span class="p">,</span>
+        <span class="p">]</span>
+
+    <span class="n">month_dict</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;Jan&quot;</span><span class="p">,</span>
+        <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;Feb&quot;</span><span class="p">,</span>
+        <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;Mar&quot;</span><span class="p">,</span>
+        <span class="mi">4</span><span class="p">:</span> <span class="s2">&quot;Apr&quot;</span><span class="p">,</span>
+        <span class="mi">5</span><span class="p">:</span> <span class="s2">&quot;May&quot;</span><span class="p">,</span>
+        <span class="mi">6</span><span class="p">:</span> <span class="s2">&quot;Jun&quot;</span><span class="p">,</span>
+        <span class="mi">7</span><span class="p">:</span> <span class="s2">&quot;Jul&quot;</span><span class="p">,</span>
+        <span class="mi">8</span><span class="p">:</span> <span class="s2">&quot;Aug&quot;</span><span class="p">,</span>
+        <span class="mi">9</span><span class="p">:</span> <span class="s2">&quot;Sep&quot;</span><span class="p">,</span>
+        <span class="mi">10</span><span class="p">:</span> <span class="s2">&quot;Oct&quot;</span><span class="p">,</span>
+        <span class="mi">11</span><span class="p">:</span> <span class="s2">&quot;Nov&quot;</span><span class="p">,</span>
+        <span class="mi">12</span><span class="p">:</span> <span class="s2">&quot;Dec&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="n">all_months</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;MM&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+    <span class="n">all_month_names</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">month_name</span>
+        <span class="k">for</span> <span class="n">month_mm</span><span class="p">,</span> <span class="n">month_name</span> <span class="ow">in</span> <span class="n">month_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">month_mm</span> <span class="ow">in</span> <span class="n">all_months</span>
+    <span class="p">]</span>  <span class="c1"># convert number to name (example: 01 to Jan)</span>
+
+    <span class="c1"># dynamic spacing for month labels</span>
+    <span class="n">start_index</span> <span class="o">=</span> <span class="o">-</span><span class="mf">3.3</span> <span class="o">+</span> <span class="p">((</span><span class="mi">12</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">all_month_names</span><span class="p">))</span> <span class="o">*</span> <span class="mf">0.28</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">month</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">all_month_names</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># First Element</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">start_index</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.7</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">month_colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Remaining Elements</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">month</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="n">xycoords</span><span class="o">=</span><span class="n">text</span><span class="p">,</span>
+                <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+                <span class="n">verticalalignment</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">,</span>
+                <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span>
+                <span class="n">color</span><span class="o">=</span><span class="n">month_colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+            <span class="p">)</span>
+
+        <span class="c1"># filter data based on each month</span>
+        <span class="n">last_index</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;MM&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">all_months</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="c1"># include the first day of the next month in data to preserve continuity</span>
+        <span class="n">next_index</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">last_index</span> <span class="o">+</span> <span class="mi">1</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+            <span class="n">next_index</span> <span class="o">=</span> <span class="p">[</span><span class="n">last_index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">filtered_df</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+            <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;MM&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">all_months</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">|</span> <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">next_index</span><span class="p">))</span>
+        <span class="p">]</span>
+        <span class="n">x_data</span> <span class="o">=</span> <span class="n">filtered_df</span><span class="p">[</span><span class="s2">&quot;RMM2&quot;</span><span class="p">]</span>
+        <span class="n">y_data</span> <span class="o">=</span> <span class="o">-</span><span class="n">filtered_df</span><span class="p">[</span><span class="s2">&quot;RMM1&quot;</span><span class="p">]</span>
+
+        <span class="c1"># Plot data</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">month_colors</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">y_data</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">month_colors</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+        <span class="c1"># plot dark mark at the start and end</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">y_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">all_month_names</span><span class="p">):</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="n">y_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+
+    <span class="c1"># Annotate text every 5 days</span>
+    <span class="n">days_text</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+    <span class="n">days_filtered</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;DD&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">days_text</span><span class="p">)]</span>
+    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">days_filtered</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;RMM2&quot;</span><span class="p">],</span>
+            <span class="n">y</span><span class="o">=-</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;RMM1&quot;</span><span class="p">],</span>
+            <span class="n">s</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;DD&quot;</span><span class="p">]),</span>
+            <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+            <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+            <span class="n">fontweight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plot-diagram-for-2025">
+<h4>Plot Diagram for 2025<a class="headerlink" href="#plot-diagram-for-2025" title="Link to this heading">#</a></h4>
+<p>Collect a subset of the data, the first five months of 2025.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_2026</span> <span class="o">=</span> <span class="n">noaa_df</span><span class="p">[(</span><span class="n">noaa_df</span><span class="p">[</span><span class="s2">&quot;YYYY&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2025</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">noaa_df</span><span class="o">.</span><span class="n">MM</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">))]</span>
+
+<span class="n">df_2026</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>YYYY</th>
+      <th>MM</th>
+      <th>DD</th>
+      <th>HH</th>
+      <th>RMM1</th>
+      <th>RMM2</th>
+      <th>Phase</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>12419</th>
+      <td>2025</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>-0.15161</td>
+      <td>-0.83951</td>
+      <td>0.85309</td>
+    </tr>
+    <tr>
+      <th>12420</th>
+      <td>2025</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>-0.01538</td>
+      <td>-1.03555</td>
+      <td>1.03566</td>
+    </tr>
+    <tr>
+      <th>12421</th>
+      <td>2025</td>
+      <td>1</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0.04397</td>
+      <td>-1.19613</td>
+      <td>1.19693</td>
+    </tr>
+    <tr>
+      <th>12422</th>
+      <td>2025</td>
+      <td>1</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0.09447</td>
+      <td>-1.28177</td>
+      <td>1.28524</td>
+    </tr>
+    <tr>
+      <th>12423</th>
+      <td>2025</td>
+      <td>1</td>
+      <td>5</td>
+      <td>0</td>
+      <td>0.16386</td>
+      <td>-1.34737</td>
+      <td>1.35730</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>12565</th>
+      <td>2025</td>
+      <td>5</td>
+      <td>27</td>
+      <td>0</td>
+      <td>0.12277</td>
+      <td>-0.03427</td>
+      <td>0.12746</td>
+    </tr>
+    <tr>
+      <th>12566</th>
+      <td>2025</td>
+      <td>5</td>
+      <td>28</td>
+      <td>0</td>
+      <td>0.06407</td>
+      <td>-0.14853</td>
+      <td>0.16176</td>
+    </tr>
+    <tr>
+      <th>12567</th>
+      <td>2025</td>
+      <td>5</td>
+      <td>29</td>
+      <td>0</td>
+      <td>-0.01231</td>
+      <td>-0.20038</td>
+      <td>0.20076</td>
+    </tr>
+    <tr>
+      <th>12568</th>
+      <td>2025</td>
+      <td>5</td>
+      <td>30</td>
+      <td>0</td>
+      <td>-0.06424</td>
+      <td>-0.25173</td>
+      <td>0.25980</td>
+    </tr>
+    <tr>
+      <th>12569</th>
+      <td>2025</td>
+      <td>5</td>
+      <td>31</td>
+      <td>0</td>
+      <td>-0.13798</td>
+      <td>-0.25259</td>
+      <td>0.28782</td>
+    </tr>
+  </tbody>
+</table>
+<p>151 rows × 7 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mjo_phase_plot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_2026</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/869c5ba46d2d55ab4e91d9f450097e9f037f80d841de2c803180d1923be25be2.png" src="../_images/869c5ba46d2d55ab4e91d9f450097e9f037f80d841de2c803180d1923be25be2.png" />
+</div>
+</div>
+</section>
+<section id="plot-diagram-most-recent-data">
+<h4>Plot Diagram Most Recent Data<a class="headerlink" href="#plot-diagram-most-recent-data" title="Link to this heading">#</a></h4>
+<p>Display months of the most recent year.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_years</span> <span class="o">=</span> <span class="n">noaa_df</span><span class="p">[</span><span class="s2">&quot;YYYY&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">most_recent_year</span> <span class="o">=</span> <span class="n">all_years</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">all_months_in_recent_year</span> <span class="o">=</span> <span class="n">noaa_df</span><span class="p">[(</span><span class="n">noaa_df</span><span class="p">[</span><span class="s2">&quot;YYYY&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">most_recent_year</span><span class="p">)][</span>
+    <span class="s2">&quot;MM&quot;</span>
+<span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;Most recent year </span><span class="si">{</span><span class="n">most_recent_year</span><span class="si">}</span><span class="s2"> has </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">all_months_in_recent_year</span><span class="p">)</span><span class="si">}</span><span class="s2"> months&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Most recent year 2026 has 3 months
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_recent</span> <span class="o">=</span> <span class="n">noaa_df</span><span class="p">[(</span><span class="n">noaa_df</span><span class="p">[</span><span class="s2">&quot;YYYY&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">most_recent_year</span><span class="p">)]</span>
+<span class="n">mjo_phase_plot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_recent</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/87f1b0b56abb9213dd63467af157f588e93c8fc8f11e8bacdad7940166e75cb1.png" src="../_images/87f1b0b56abb9213dd63467af157f588e93c8fc8f11e8bacdad7940166e75cb1.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="curated-resources">
+<h2>Curated Resources<a class="headerlink" href="#curated-resources" title="Link to this heading">#</a></h2>
+<p>To learn more about Madden-Julian Oscillation:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.psl.noaa.gov/mjo/">NOAA (Physical Sciences Laboratory): Madden-Julian Oscillation</a></p></li>
+<li><p><a class="reference external" href="https://www.cpc.ncep.noaa.gov/products/precip/CWlink/MJO/mjo.shtml">NWS (Climate Prediction Center): Current and Forecast Conditions</a></p></li>
+</ul>
+</section>
+<section id="references">
+<h2>References:<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<div class="docutils container" id="id5">
+</div>
+</section>
+</section>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="footcite-noaa-psl-mjo" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Madden-julian oscillations (mjo). URL: <a class="reference external" href="https://psl.noaa.gov/mjo/">https://psl.noaa.gov/mjo/</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-madden-julian-1971" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>Roland A. Madden and Paul R. Julian. Detection of a 40–50 day oscillation in the zonal wind in the tropical pacific. 1971. <a class="reference external" href="https://doi.org/10.1175/1520-0469(1971)028&lt;0702:DOADOI&gt;2.0.CO;2">doi:10.1175/1520-0469(1971)028&lt;0702:DOADOI&gt;2.0.CO;2</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-wheeler-hendon-2004" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">3</a><span class="fn-bracket">]</span></span>
+<p>Matthew C. Wheeler and Harry H. Hendon. An all-season real-time multivariate mjo index: development of an index for monitoring and prediction. 2004. <a class="reference external" href="https://doi.org/10.1175/1520-0493(2004)132&lt;1917:AARMMI&gt;2.0.CO;2">doi:10.1175/1520-0493(2004)132&lt;1917:AARMMI&gt;2.0.CO;2</a>.</p>
+</aside>
+</aside>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wheeler-hendon-phase-diagram">Wheeler-Hendon Phase Diagram</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Overview</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow">Workflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-data">Example Data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-phase-diagram">Plotting Phase Diagram</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-diagram-for-2025">Plot Diagram for 2025</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-diagram-most-recent-data">Plot Diagram Most Recent Data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curated-resources">Curated Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References:</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By GeoCAT
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, University Corporation for Atmospheric Research.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <em>This material is based upon work supported by the NSF National Center for Atmospheric Research, a major facility sponsored by the U.S. National Science Foundation and managed by the University Corporation for Atmospheric Research. Any opinions, findings and conclusions or recommendations expressed in this material do not necessarily reflect the views of the U.S. National Science Foundation.</em>
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
