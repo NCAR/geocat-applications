@@ -30,7 +30,7 @@
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../_static/style.css?v=0fa5d2bc" />
@@ -526,31 +526,40 @@ It may not be visible in your IDE or local editor, but it will be visible in gen
 
 <span class="p">;</span> <span class="n">fspan</span>
 <span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span><span class="w"> </span><span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Built</span><span class="o">-</span><span class="ow">in</span><span class="o">/</span><span class="n">fspan</span><span class="o">.</span><span class="n">shtml</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">fspan</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">f_span</span> <span class="o">=</span> <span class="n">fspan</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>   <span class="p">;</span> <span class="n">f_span</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.</span><span class="o">/</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="n">f_span_neg</span> <span class="o">=</span> <span class="n">fspan</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>  <span class="p">;</span> <span class="n">f_span_neg</span> <span class="o">=</span> <span class="p">(</span><span class="o">/-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="o">/</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f_span_neg</span><span class="p">)</span>
+
+<span class="n">f_span_back</span> <span class="o">=</span> <span class="n">fspan</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>  <span class="p">;</span> <span class="n">f_span_neg</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="o">/</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f_span_back</span><span class="p">)</span>
 
 <span class="p">;</span> <span class="n">get_d2r</span>
 <span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span><span class="w"> </span><span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Contributed</span><span class="o">/</span><span class="n">get_d2r</span><span class="o">.</span><span class="n">shtml</span>
 <span class="n">d2r</span> <span class="o">=</span> <span class="n">get_d2r</span><span class="p">(</span><span class="s2">&quot;double&quot;</span><span class="p">)</span>  <span class="p">;</span> <span class="n">d2r</span> <span class="o">=</span> <span class="mf">0.0174532925199433</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d2r</span><span class="p">)</span>
 
 <span class="p">;</span> <span class="n">get_r2d</span>
 <span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span><span class="w"> </span><span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Contributed</span><span class="o">/</span><span class="n">get_r2d</span><span class="o">.</span><span class="n">shtml</span>
 <span class="n">r2d</span> <span class="o">=</span> <span class="n">get_r2d</span><span class="p">(</span><span class="s2">&quot;double&quot;</span><span class="p">)</span>  <span class="p">;</span> <span class="n">r2d</span> <span class="o">=</span> <span class="mf">57.29577951308232</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">r2d</span><span class="p">)</span>
 
 <span class="p">;</span> <span class="n">get_pi</span>
 <span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span><span class="w"> </span><span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">D</span>
 <span class="n">pi</span> <span class="o">=</span> <span class="n">get_pi</span><span class="p">(</span><span class="s2">&quot;double&quot;</span><span class="p">)</span>  <span class="p">;</span> <span class="n">pi</span> <span class="o">=</span> <span class="mf">3.141592653589793</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pi</span><span class="p">)</span>
 
 <span class="p">;</span> <span class="n">ispan</span>
 <span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span><span class="w"> </span><span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Built</span><span class="o">-</span><span class="ow">in</span><span class="o">/</span><span class="n">ispan</span><span class="o">.</span><span class="n">shtml</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">ispan</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">i_span</span> <span class="o">=</span> <span class="n">ispan</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>   <span class="p">;</span> <span class="n">i_span</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="o">/</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">i_span</span><span class="p">)</span>
 
 <span class="p">;</span> <span class="n">log</span>
 <span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span><span class="w"> </span><span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Built</span><span class="o">-</span><span class="ow">in</span><span class="o">/</span><span class="n">log</span><span class="o">.</span><span class="n">shtml</span>
 <span class="n">f</span> <span class="o">=</span> <span class="mf">3.6</span>
 <span class="n">log_f</span> <span class="o">=</span> <span class="n">log</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>  <span class="p">;</span> <span class="n">log_f</span> <span class="o">=</span> <span class="mf">1.280934</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">log_f</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">log_f</span><span class="p">)</span>
 
 <span class="p">;</span> <span class="n">log10</span>
 <span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span><span class="w"> </span><span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Built</span><span class="o">-</span><span class="ow">in</span><span class="o">/</span><span class="n">log10</span><span class="o">.</span><span class="n">shtml</span>
@@ -591,20 +600,20 @@ It may not be visible in your IDE or local editor, but it will be visible in gen
 <span class="p">;</span> <span class="nb">round</span>
 <span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span><span class="w"> </span><span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Built</span><span class="o">-</span><span class="ow">in</span><span class="o">/</span><span class="nb">round</span><span class="o">.</span><span class="n">shtml</span>
 <span class="n">f</span> <span class="o">=</span> <span class="mf">5.7</span>
-<span class="n">round_f</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">round_f</span><span class="p">)</span>  <span class="p">;</span> <span class="n">round_f</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">round_f</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="p">;</span> <span class="n">round_f</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">round_f</span><span class="p">)</span>
 
 <span class="p">;</span> <span class="n">sign_matlab</span>
 <span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span><span class="w"> </span><span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Contributed</span><span class="o">/</span><span class="n">sign_matlab</span><span class="o">.</span><span class="n">shtml</span>
 <span class="n">i</span> <span class="o">=</span> <span class="p">(</span><span class="o">/-</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.2</span><span class="o">/</span><span class="p">)</span>
-<span class="n">matlab_i</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">matlab_i</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">matlab_i</span><span class="p">)</span>  <span class="p">;</span> <span class="n">matlab_i</span> <span class="o">=</span> <span class="p">(</span><span class="o">/-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="p">)</span>
+<span class="n">matlab_i</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">matlab_i</span><span class="p">)</span>  <span class="p">;</span> <span class="n">matlab_i</span> <span class="o">=</span> <span class="p">(</span><span class="o">/-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">matlab_i</span><span class="p">)</span>
 
 <span class="p">;</span> <span class="n">sqrt</span>
 <span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span><span class="w"> </span><span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Built</span><span class="o">-</span><span class="ow">in</span><span class="o">/</span><span class="n">sqrt</span><span class="o">.</span><span class="n">shtml</span>
 <span class="n">f</span> <span class="o">=</span> <span class="mf">12.5</span>
-<span class="n">sqrt_f</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">sqrt_f</span><span class="p">)</span>  <span class="p">;</span> <span class="n">sqrt</span> <span class="o">=</span> <span class="mf">3.535534</span>
+<span class="n">sqrt_f</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>  <span class="p">;</span> <span class="n">sqrt</span> <span class="o">=</span> <span class="mf">3.535534</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sqrt_f</span><span class="p">)</span>
 
 <span class="p">;</span> <span class="n">sqsort</span>
 <span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span><span class="w"> </span><span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Built</span><span class="o">-</span><span class="ow">in</span><span class="o">/</span><span class="n">sqsort</span><span class="o">.</span><span class="n">shtml</span>
@@ -672,6 +681,8 @@ Show the python code that replicates the NCL functionality. Don't worry about pr
 
 <span class="c1"># fspan</span>
 <span class="n">results_np</span><span class="p">[</span><span class="s2">&quot;fspan&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">results_np</span><span class="p">[</span><span class="s2">&quot;fspan_negative&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="o">=-</span><span class="mi">10</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">results_np</span><span class="p">[</span><span class="s2">&quot;fspan_backwards&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">stop</span><span class="o">=-</span><span class="mi">10</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># get_d2r</span>
 <span class="n">results_math</span><span class="p">[</span><span class="s2">&quot;get_d2r&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span>
@@ -766,6 +777,8 @@ Show the python code that replicates the NCL functionality. Don't worry about pr
     <span class="s2">&quot;fabs&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">2.4</span><span class="p">,</span> <span class="mf">3.9</span><span class="p">],</span>
     <span class="s2">&quot;floor&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
     <span class="s2">&quot;fspan&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">]),</span>
+    <span class="s2">&quot;fspan_negative&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">]),</span>
+    <span class="s2">&quot;fspan_backwards&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">]),</span>
     <span class="s2">&quot;get_d2r&quot;</span><span class="p">:</span> <span class="mf">0.0174532925199433</span><span class="p">,</span>
     <span class="s2">&quot;get_r2d&quot;</span><span class="p">:</span> <span class="mf">57.29577951308232</span><span class="p">,</span>
     <span class="s2">&quot;get_pi&quot;</span><span class="p">:</span> <span class="mf">3.141592653589793</span><span class="p">,</span>
@@ -882,6 +895,14 @@ floor:
 fspan: 
 	ncl:		[1.  1.5 2. ]
 	python (numpy):	[1.  1.5 2. ]
+
+fspan_negative: 
+	ncl:		[-10  -5   0   5  10]
+	python (numpy):	[-10.  -5.   0.   5.  10.]
+
+fspan_backwards: 
+	ncl:		[ 10   5   0  -5 -10]
+	python (numpy):	[ 10.   5.   0.  -5. -10.]
 
 get_d2r: 
 	ncl:		0.0174532925199433
@@ -1014,6 +1035,10 @@ floor:
 	0.0
 fspan:
 	[0. 0. 0.]
+fspan_negative:
+	[0. 0. 0. 0. 0.]
+fspan_backwards:
+	[0. 0. 0. 0. 0.]
 get_d2r:
 	-3.469446951953614e-18
 	-3.469446951953614e-18
@@ -1057,60 +1082,60 @@ sqrt:
 sum:
 	0
 	0
-log:
-	-1.5453793578146247e-07
-	-1.5453793578146247e-07
-get_pi:
-	0.0
-	0.0
+abs:
+	0
+	0
+mod:
+	0
+	0
+sum:
+	0
+	0
 exp:
 	-4.6922018159811785e-08
 	-4.6922018159811785e-08
 get_d2r:
 	-3.469446951953614e-18
 	-3.469446951953614e-18
+sqrt:
+	-9.406726242389141e-08
+	-9.406726242389141e-08
+max:
+	0.0
+	0.0
+log10:
+	1.704225516263591e-08
+	1.704225516263591e-08
+log:
+	-1.5453793578146247e-07
+	-1.5453793578146247e-07
 round:
 	0
 	0.0
-sum:
-	0
-	0
-ceil:
+floor:
 	0
 	0.0
-min:
+get_r2d:
 	0.0
 	0.0
 qsort:
 	[0. 0. 0. 0. 0. 0. 0.]
 	[0. 0. 0. 0. 0. 0. 0.]
-abs:
-	0
-	0
 decimalPlaces:
 	0.0
 	0.0
-mod:
-	0
-	0
-log10:
-	1.704225516263591e-08
-	1.704225516263591e-08
-floor:
-	0
+min:
 	0.0
-max:
+	0.0
+get_pi:
 	0.0
 	0.0
 product:
 	0
 	0
-get_r2d:
+ceil:
+	0
 	0.0
-	0.0
-sqrt:
-	-9.406726242389141e-08
-	-9.406726242389141e-08
 </pre></div>
 </div>
 </div>
