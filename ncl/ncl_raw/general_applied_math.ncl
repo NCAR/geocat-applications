@@ -63,8 +63,8 @@ print(floor_f )
 
 ; fspan
 ; Adapted from https://www.ncl.ucar.edu/Document/Functions/Built-in/fspan.shtml
-f_span = fspan(1, 2, 3)   ; f_span = (/ 1., 1.5, 2./)
-print(f)
+f_span = fspan(1, 9, 3)   ; f_span = (/ 1., 5., 9./)
+print(f_span)
 
 f_span_neg = fspan(-10, 10, 5)  ; f_span_neg = (/-10, -5, 0, 5, 10/)
 print(f_span_neg)
@@ -91,6 +91,12 @@ print(pi)
 ; Adapted from https://www.ncl.ucar.edu/Document/Functions/Built-in/ispan.shtml
 i_span = ispan(1, 9, 3)   ; i_span = (/ 1, 4, 7/)
 print(i_span)
+
+i_span_neg = ispan(-10, 10, 5)  ; i_span_neg = (/-10, -5, 0, 5, 10/)
+print(i_span_neg)
+
+i_span_back = ispan(10, -10, 5)  ; i_span_back = (/10, 5, 0, -5, -10/)
+print(i_span_back)
 
 ; log
 ; Adapted from https://www.ncl.ucar.edu/Document/Functions/Built-in/log.shtml
