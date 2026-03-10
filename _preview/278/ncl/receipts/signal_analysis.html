@@ -435,7 +435,94 @@ This notebook is part of the process we have for adding entries to the NCL Index
 Edit the below cell to link to the ncl code included for comparison in this notebook. 
 
 It may not be visible in your IDE or local editor, but it will be visible in generated documentation (locally, on PR previews, and the live webpage).
---><div class="cell docutils container">
+--><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">;</span> <span class="n">cfftf</span>
+<span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span><span class="w"> </span><span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Built</span><span class="o">-</span><span class="ow">in</span><span class="o">/</span><span class="n">cfftf</span><span class="o">.</span><span class="n">shtml</span>
+
+<span class="p">;</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="n">real</span> <span class="n">component</span>
+<span class="p">;</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">imaginary</span> <span class="n">component</span>
+
+<span class="n">example_data</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span> <span class="mi">1002</span><span class="p">,</span> <span class="mi">1017</span><span class="p">,</span> <span class="mi">1018</span><span class="p">,</span> <span class="mi">1020</span><span class="p">,</span> <span class="mi">1018</span><span class="p">,</span> <span class="mi">1027</span><span class="p">,</span> <span class="mi">1028</span><span class="p">,</span> <span class="mi">1030</span><span class="p">,</span> <span class="mi">1012</span><span class="p">,</span> <span class="mi">1012</span><span class="p">,</span> <span class="mi">982</span><span class="p">,</span> <span class="mi">1012</span><span class="p">,</span> <span class="mi">1001</span><span class="p">,</span> <span class="mi">996</span><span class="p">,</span> <span class="mi">995</span><span class="p">,</span> <span class="mi">1011</span><span class="p">,</span> <span class="mi">1027</span><span class="p">,</span> <span class="mi">1025</span><span class="p">,</span> <span class="mi">1030</span><span class="p">,</span> <span class="mi">1016</span><span class="p">,</span> <span class="mi">996</span><span class="p">,</span> <span class="mi">1006</span><span class="p">,</span> <span class="mi">1002</span><span class="p">,</span> <span class="mi">982</span> <span class="o">/</span><span class="p">)</span>
+<span class="n">cf</span> <span class="o">=</span> <span class="n">cfftf</span><span class="p">(</span><span class="n">example_data</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="p">;</span> <span class="n">imaginary</span> <span class="n">component</span> <span class="nb">set</span> <span class="n">to</span> <span class="mf">0.0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cf</span><span class="p">)</span>
+
+<span class="p">;(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>	<span class="mi">24265</span>
+<span class="p">;(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>	<span class="mf">16.06125</span>
+<span class="p">;(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>	<span class="o">-</span><span class="mf">161.8083</span>
+<span class="p">;(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>	<span class="mi">26</span>
+<span class="p">;(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>	<span class="mf">39.5</span>
+<span class="p">;(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>	<span class="o">-</span><span class="mf">64.78089</span>
+<span class="p">;(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>	 <span class="mi">1</span>
+<span class="p">;(</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>	<span class="o">-</span><span class="mf">32.69729</span>
+<span class="p">;(</span><span class="mi">0</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>	<span class="mf">32.5</span>
+<span class="p">;(</span><span class="mi">0</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span>	<span class="mi">26</span>
+<span class="p">;(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>	<span class="o">-</span><span class="mf">4.191688</span>
+<span class="p">;(</span><span class="mi">0</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span>	<span class="mf">35.41693</span>
+<span class="p">;(</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span><span class="p">)</span>	<span class="o">-</span><span class="mi">43</span>
+<span class="p">;(</span><span class="mi">0</span><span class="p">,</span><span class="mi">13</span><span class="p">)</span>	<span class="mf">35.41693</span>
+<span class="p">;(</span><span class="mi">0</span><span class="p">,</span><span class="mi">14</span><span class="p">)</span>	<span class="o">-</span><span class="mf">4.191688</span>
+<span class="p">;(</span><span class="mi">0</span><span class="p">,</span><span class="mi">15</span><span class="p">)</span>	<span class="mi">26</span>
+<span class="p">;(</span><span class="mi">0</span><span class="p">,</span><span class="mi">16</span><span class="p">)</span>	<span class="mf">32.5</span>
+<span class="p">;(</span><span class="mi">0</span><span class="p">,</span><span class="mi">17</span><span class="p">)</span>	<span class="o">-</span><span class="mf">32.69729</span>
+<span class="p">;(</span><span class="mi">0</span><span class="p">,</span><span class="mi">18</span><span class="p">)</span>	 <span class="mi">1</span>
+<span class="p">;(</span><span class="mi">0</span><span class="p">,</span><span class="mi">19</span><span class="p">)</span>	<span class="o">-</span><span class="mf">64.78089</span>
+<span class="p">;(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>	<span class="mf">39.5</span>
+<span class="p">;(</span><span class="mi">0</span><span class="p">,</span><span class="mi">21</span><span class="p">)</span>	<span class="mi">26</span>
+<span class="p">;(</span><span class="mi">0</span><span class="p">,</span><span class="mi">22</span><span class="p">)</span>	<span class="o">-</span><span class="mf">161.8083</span>
+<span class="p">;(</span><span class="mi">0</span><span class="p">,</span><span class="mi">23</span><span class="p">)</span>	<span class="mf">16.06125</span>
+<span class="p">;(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>	 <span class="mi">0</span>
+<span class="p">;(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>	<span class="o">-</span><span class="mf">44.82336</span>
+<span class="p">;(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>	<span class="o">-</span><span class="mf">82.65768</span>
+<span class="p">;(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>	<span class="o">-</span><span class="mf">40.35534</span>
+<span class="p">;(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>	<span class="o">-</span><span class="mf">4.330127</span>
+<span class="p">;(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>	<span class="o">-</span><span class="mf">36.23454</span>
+<span class="p">;(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>	<span class="o">-</span><span class="mi">12</span>
+<span class="p">;(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>	<span class="o">-</span><span class="mf">49.3589</span>
+<span class="p">;(</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>	<span class="o">-</span><span class="mf">18.18653</span>
+<span class="p">;(</span><span class="mi">1</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span>	<span class="o">-</span><span class="mf">30.35534</span>
+<span class="p">;(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>	<span class="mf">31.65768</span>
+<span class="p">;(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span>	<span class="o">-</span><span class="mf">33.69901</span>
+<span class="p">;(</span><span class="mi">1</span><span class="p">,</span><span class="mi">12</span><span class="p">)</span>	 <span class="mi">0</span>
+<span class="p">;(</span><span class="mi">1</span><span class="p">,</span><span class="mi">13</span><span class="p">)</span>	<span class="mf">33.69901</span>
+<span class="p">;(</span><span class="mi">1</span><span class="p">,</span><span class="mi">14</span><span class="p">)</span>	<span class="o">-</span><span class="mf">31.65768</span>
+<span class="p">;(</span><span class="mi">1</span><span class="p">,</span><span class="mi">15</span><span class="p">)</span>	<span class="mf">30.35534</span>
+<span class="p">;(</span><span class="mi">1</span><span class="p">,</span><span class="mi">16</span><span class="p">)</span>	<span class="mf">18.18653</span>
+<span class="p">;(</span><span class="mi">1</span><span class="p">,</span><span class="mi">17</span><span class="p">)</span>	<span class="mf">49.3589</span>
+<span class="p">;(</span><span class="mi">1</span><span class="p">,</span><span class="mi">18</span><span class="p">)</span>	<span class="mi">12</span>
+<span class="p">;(</span><span class="mi">1</span><span class="p">,</span><span class="mi">19</span><span class="p">)</span>	<span class="mf">36.23454</span>
+<span class="p">;(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>	<span class="mf">4.330127</span>
+<span class="p">;(</span><span class="mi">1</span><span class="p">,</span><span class="mi">21</span><span class="p">)</span>	<span class="mf">40.35534</span>
+<span class="p">;(</span><span class="mi">1</span><span class="p">,</span><span class="mi">22</span><span class="p">)</span>	<span class="mf">82.65768</span>
+<span class="p">;(</span><span class="mi">1</span><span class="p">,</span><span class="mi">23</span><span class="p">)</span>	<span class="mf">44.82336</span>
+
+<span class="n">example_data</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span> <span class="o">/</span><span class="p">)</span>
+<span class="n">cf</span> <span class="o">=</span> <span class="n">cfftf</span><span class="p">(</span><span class="n">example_data</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="p">;</span> <span class="n">imaginary</span> <span class="n">component</span> <span class="nb">set</span> <span class="n">to</span> <span class="mf">0.0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cf</span><span class="p">)</span>
+
+<span class="p">;(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>	<span class="mi">19</span>
+<span class="p">;(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>	<span class="o">-</span><span class="mi">4</span>
+<span class="p">;(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>	<span class="o">-</span><span class="mi">7</span>
+<span class="p">;(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>	<span class="o">-</span><span class="mi">4</span>
+<span class="p">;(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>	 <span class="mi">0</span>
+<span class="p">;(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>	 <span class="mi">7</span>
+<span class="p">;(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>	 <span class="mi">0</span>
+<span class="p">;(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>	<span class="o">-</span><span class="mi">7</span>
+
+
+<span class="n">example_data</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span> <span class="o">/</span><span class="p">)</span>
+<span class="n">cf</span> <span class="o">=</span> <span class="n">cfftf</span><span class="p">(</span><span class="n">example_data</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="p">;</span> <span class="n">imaginary</span> <span class="n">component</span> <span class="nb">set</span> <span class="n">to</span> <span class="mf">0.0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cf</span><span class="p">)</span>
+
+<span class="p">;(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>	<span class="o">-</span><span class="mi">19</span>
+<span class="p">;(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>	 <span class="mi">4</span>
+<span class="p">;(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>	 <span class="mi">7</span>
+<span class="p">;(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>	 <span class="mi">4</span>
+<span class="p">;(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>	 <span class="mi">0</span>
+<span class="p">;(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>	<span class="o">-</span><span class="mi">7</span>
+<span class="p">;(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>	 <span class="mi">0</span>
+<span class="p">;(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>	 <span class="mi">7</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ncl_results</span> <span class="o">=</span> <span class="p">{}</span>
 
