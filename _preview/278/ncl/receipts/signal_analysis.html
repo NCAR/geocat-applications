@@ -440,7 +440,7 @@ It may not be visible in your IDE or local editor, but it will be visible in gen
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ncl_results</span> <span class="o">=</span> <span class="p">{}</span>
 
 <span class="c1"># cfftf</span>
-<span class="n">ncl_results</span><span class="p">[</span><span class="s2">&quot;cfftf&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+<span class="n">ncl_results</span><span class="p">[</span><span class="s2">&quot;cfftf_1&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
     <span class="mi">24265</span><span class="p">,</span>
     <span class="mf">16.06125</span><span class="p">,</span>
     <span class="o">-</span><span class="mf">161.8083</span><span class="p">,</span>
@@ -490,6 +490,9 @@ It may not be visible in your IDE or local editor, but it will be visible in gen
     <span class="mf">82.65768</span><span class="p">,</span>
     <span class="mf">44.82336</span><span class="p">,</span>
 <span class="p">]</span>
+
+<span class="n">ncl_results</span><span class="p">[</span><span class="s2">&quot;cfftf_2&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">19</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">]</span>
+<span class="n">ncl_results</span><span class="p">[</span><span class="s2">&quot;cfftf_3&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">19</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -501,6 +504,7 @@ It may not be visible in your IDE or local editor, but it will be visible in gen
 <span class="c1"># cfftf</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
+<span class="c1">## cfftf example 1</span>
 <span class="n">example_data</span> <span class="o">=</span> <span class="p">[</span>
     <span class="mi">1002</span><span class="p">,</span>
     <span class="mi">1017</span><span class="p">,</span>
@@ -529,7 +533,17 @@ It may not be visible in your IDE or local editor, but it will be visible in gen
 <span class="p">]</span>
 
 <span class="n">cfftf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">example_data</span><span class="p">)</span>
-<span class="n">python_results</span><span class="p">[</span><span class="s2">&quot;cfftf&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">cfftf</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">cfftf</span><span class="o">.</span><span class="n">imag</span><span class="p">))</span>
+<span class="n">python_results</span><span class="p">[</span><span class="s2">&quot;cfftf_1&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">cfftf</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">cfftf</span><span class="o">.</span><span class="n">imag</span><span class="p">))</span>
+
+<span class="c1">## cfftf example 2</span>
+<span class="n">example_data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">cfftf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">example_data</span><span class="p">)</span>
+<span class="n">python_results</span><span class="p">[</span><span class="s2">&quot;cfftf_2&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">cfftf</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">cfftf</span><span class="o">.</span><span class="n">imag</span><span class="p">))</span>
+
+<span class="c1">## cfftf example 3</span>
+<span class="n">example_data</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">cfftf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">example_data</span><span class="p">)</span>
+<span class="n">python_results</span><span class="p">[</span><span class="s2">&quot;cfftf_3&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">cfftf</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">cfftf</span><span class="o">.</span><span class="n">imag</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -556,7 +570,7 @@ It may not be visible in your IDE or local editor, but it will be visible in gen
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cfftf:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cfftf_1:
 	VALID:
 		ncl:		24265
 		python:		24265.0
@@ -748,6 +762,72 @@ It may not be visible in your IDE or local editor, but it will be visible in gen
 	VALID:
 		ncl:		44.82336
 		python:		44.823364065142925
+
+cfftf_2:
+	VALID:
+		ncl:		19
+		python:		19.0
+
+	VALID:
+		ncl:		-4
+		python:		-4.0
+
+	VALID:
+		ncl:		-7
+		python:		-7.0
+
+	VALID:
+		ncl:		-4
+		python:		-4.0
+
+	VALID:
+		ncl:		0
+		python:		0.0
+
+	VALID:
+		ncl:		7
+		python:		7.0
+
+	VALID:
+		ncl:		0
+		python:		0.0
+
+	VALID:
+		ncl:		-7
+		python:		-7.0
+
+cfftf_3:
+	VALID:
+		ncl:		-19
+		python:		-19.0
+
+	VALID:
+		ncl:		4
+		python:		4.0
+
+	VALID:
+		ncl:		7
+		python:		7.0
+
+	VALID:
+		ncl:		4
+		python:		4.0
+
+	VALID:
+		ncl:		0
+		python:		0.0
+
+	VALID:
+		ncl:		-7
+		python:		-7.0
+
+	VALID:
+		ncl:		0
+		python:		0.0
+
+	VALID:
+		ncl:		7
+		python:		7.0
 </pre></div>
 </div>
 </div>
