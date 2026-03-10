@@ -1,11 +1,13 @@
 ; cfftf
 ; Adapted from https://www.ncl.ucar.edu/Document/Functions/Built-in/cfftf.shtml
+
+; (0) = real component
+; (1) = imaginary component
+
 example_data = (/ 1002, 1017, 1018, 1020, 1018, 1027, 1028, 1030, 1012, 1012, 982, 1012, 1001, 996, 995, 1011, 1027, 1025, 1030, 1016, 996, 1006, 1002, 982 /)
 cf = cfftf(example_data, 0.0, 0) ; imaginary component set to 0.0
 print(cf)
 
-; (0) = real component
-; (1) = imaginary component
 ;(0,0)	24265
 ;(0,1)	16.06125
 ;(0,2)	-161.8083
@@ -54,3 +56,30 @@ print(cf)
 ;(1,21)	40.35534
 ;(1,22)	82.65768
 ;(1,23)	44.82336
+
+example_data = (/ 1, 3, 5, 10 /)
+cf = cfftf(example_data, 0.0, 0) ; imaginary component set to 0.0
+print(cf)
+
+;(0,0)	19
+;(0,1)	-4
+;(0,2)	-7
+;(0,3)	-4
+;(1,0)	 0
+;(1,1)	 7
+;(1,2)	 0
+;(1,3)	-7
+
+
+example_data = (/ -1, -3, -5, -10 /)
+cf = cfftf(example_data, 0.0, 0) ; imaginary component set to 0.0
+print(cf)
+
+;(0,0)	-19
+;(0,1)	 4
+;(0,2)	 7
+;(0,3)	 4
+;(1,0)	 0
+;(1,1)	-7
+;(1,2)	 0
+;(1,3)	 7
