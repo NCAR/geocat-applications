@@ -83,3 +83,14 @@ print(cf)
 ;(1,1)	-7
 ;(1,2)	 0
 ;(1,3)	 7
+
+example_data = (/ 1, 2, 3 /)
+cf = cfftf(example_data, 0.0, 0) ; imaginary component set to 0.0
+print(cf)
+
+;(0,0)	 6
+;(0,1)	-1.5
+;(0,2)	-1.5
+;(1,0)	 0
+;(1,1)	0.8660254
+;(1,2)	-0.8660254
