@@ -4,8 +4,9 @@
 ; (0) = real component
 ; (1) = imaginary component
 
+; example 1: NCL example
 example_data = (/ 1002, 1017, 1018, 1020, 1018, 1027, 1028, 1030, 1012, 1012, 982, 1012, 1001, 996, 995, 1011, 1027, 1025, 1030, 1016, 996, 1006, 1002, 982 /)
-cf = cfftf(example_data, 0.0, 0) ; imaginary component set to 0.0
+cf = cfftf(example_data, 0.0, 0)
 print(cf)
 
 ;(0,0)	24265
@@ -57,8 +58,9 @@ print(cf)
 ;(1,22)	82.65768
 ;(1,23)	44.82336
 
+; example 2: positive
 example_data = (/ 1, 3, 5, 10 /)
-cf = cfftf(example_data, 0.0, 0) ; imaginary component set to 0.0
+cf = cfftf(example_data, 0.0, 0)
 print(cf)
 
 ;(0,0)	19
@@ -70,9 +72,9 @@ print(cf)
 ;(1,2)	 0
 ;(1,3)	-7
 
-
+; example 3: negative
 example_data = (/ -1, -3, -5, -10 /)
-cf = cfftf(example_data, 0.0, 0) ; imaginary component set to 0.0
+cf = cfftf(example_data, 0.0, 0)
 print(cf)
 
 ;(0,0)	-19
@@ -84,8 +86,9 @@ print(cf)
 ;(1,2)	 0
 ;(1,3)	 7
 
+; example 4: input length is even number
 example_data = (/ 1, 2, 3 /)
-cf = cfftf(example_data, 0.0, 0) ; imaginary component set to 0.0
+cf = cfftf(example_data, 0.0, 0)
 print(cf)
 
 ;(0,0)	 6
