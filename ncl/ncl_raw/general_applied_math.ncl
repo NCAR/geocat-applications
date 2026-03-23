@@ -61,23 +61,48 @@ f = -6.4
 floor_f  = floor(f)  ; floor_f  = 6
 print(floor_f )
 
+; fspan
+; Adapted from https://www.ncl.ucar.edu/Document/Functions/Built-in/fspan.shtml
+f_span = fspan(1, 9, 3)   ; f_span = (/ 1., 5., 9./)
+print(f_span)
+
+f_span_neg = fspan(-10, 10, 5)  ; f_span_neg = (/-10, -5, 0, 5, 10/)
+print(f_span_neg)
+
+f_span_back = fspan(10, -10, 5)  ; f_span_neg = (/10, 5, 0, -5, -10/)
+print(f_span_back)
+
 ; get_d2r
 ; Adapted from https://www.ncl.ucar.edu/Document/Functions/Contributed/get_d2r.shtml
 d2r = get_d2r("double")  ; d2r = 0.0174532925199433
+print(d2r)
 
 ; get_r2d
 ; Adapted from https://www.ncl.ucar.edu/Document/Functions/Contributed/get_r2d.shtml
 r2d = get_r2d("double")  ; r2d = 57.29577951308232
+print(r2d)
 
 ; get_pi
 ; Adapted from https://www.ncl.ucar.edu/D
 pi = get_pi("double")  ; pi = 3.141592653589793
+print(pi)
+
+; ispan
+; Adapted from https://www.ncl.ucar.edu/Document/Functions/Built-in/ispan.shtml
+i_span = ispan(1, 9, 3)   ; i_span = (/ 1, 4, 7/)
+print(i_span)
+
+i_span_neg = ispan(-10, 10, 5)  ; i_span_neg = (/-10, -5, 0, 5, 10/)
+print(i_span_neg)
+
+i_span_back = ispan(10, -10, 5)  ; i_span_back = (/10, 5, 0, -5, -10/)
+print(i_span_back)
 
 ; log
 ; Adapted from https://www.ncl.ucar.edu/Document/Functions/Built-in/log.shtml
 f = 3.6
 log_f = log(f)  ; log_f = 1.280934
-print(log_f
+print(log_f)
 
 ; log10
 ; Adapted from https://www.ncl.ucar.edu/Document/Functions/Built-in/log10.shtml
@@ -118,20 +143,20 @@ print(x)  ; x = (/-9.1, -4.7, 0.9, 2.3, 4.3, 5.2, 7.7/)
 ; round
 ; Adapted from https://www.ncl.ucar.edu/Document/Functions/Built-in/round.shtml
 f = 5.7
-round_f = round(f, 0)
-print(round_f)  ; round_f = 6
+round_f = round(f, 0)  ; round_f = 6
+print(round_f)
 
 ; sign_matlab
 ; Adapted from https://www.ncl.ucar.edu/Document/Functions/Contributed/sign_matlab.shtml
 i = (/-3.5, 0.0, 1.2/)
-matlab_i = sqrt(matlab_i)
-print(matlab_i)  ; matlab_i = (/-1, 0, 1/)
+matlab_i = sqrt(matlab_i)  ; matlab_i = (/-1, 0, 1/)
+print(matlab_i)
 
 ; sqrt
 ; Adapted from https://www.ncl.ucar.edu/Document/Functions/Built-in/sqrt.shtml
 f = 12.5
-sqrt_f = sqrt(f)
-print(sqrt_f)  ; sqrt = 3.535534
+sqrt_f = sqrt(f)  ; sqrt = 3.535534
+print(sqrt_f)
 
 ; sqsort
 ; Adapted from https://www.ncl.ucar.edu/Document/Functions/Built-in/sqsort.shtml
