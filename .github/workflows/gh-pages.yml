@@ -59,6 +59,8 @@ jobs:
         if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
           publish_dir: ${{ inputs.publish_dir }}
           enable_jekyll: false
           keep_files: true  # This preserves existing previews from open PRs
