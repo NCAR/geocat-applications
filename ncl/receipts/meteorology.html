@@ -723,7 +723,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba/envs/geocat-applications/lib/python3.14/site-packages/geocat/comp/meteorology.py:812: UserWarning: WARNING: max_daylight has limited validity for abs(lat) &gt; 55 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba/envs/geocat-applications/lib/python3.14/site-packages/geocat/comp/meteorology.py:847: UserWarning: WARNING: max_daylight has limited validity for abs(lat) &gt; 55 
   warnings.warn(&quot;WARNING: max_daylight has limited validity for abs(lat) &gt; 55 &quot;)
 </pre></div>
 </div>
@@ -1011,6 +1011,35 @@ This notebook is part of the process we have for adding entries to the NCL Index
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba/envs/geocat-applications/lib/python3.14/site-packages/geocat/comp/meteorology.py:1270: SyntaxWarning: &quot;\D&quot; is an invalid escape sequence. Such sequences will not work in the future. Did you mean &quot;\\D&quot;? A raw string is also an option.
+  \Delta p = p_{k+1/2} - p_{k-1/2}
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">24</span><span class="p">],</span> <span class="n">line</span> <span class="mi">15</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">geocat_relhum_ice</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> 
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">variables</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">temp_mr_press</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="n">temp</span><span class="p">,</span> <span class="n">mr</span><span class="p">,</span> <span class="n">press</span> <span class="o">=</span> <span class="n">variables</span>
+<span class="ne">---&gt; </span><span class="mi">15</span>     <span class="n">geocat_relhum_ice</span><span class="p">[</span><span class="n">variables</span><span class="p">]</span> <span class="o">=</span> <span class="n">relhum_ice</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">mr</span><span class="p">,</span> <span class="n">press</span><span class="p">)</span>
+
+<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/geocat/comp/meteorology.py:650,</span> in <span class="ni">relhum_ice</span><span class="nt">(temperature, mixing_ratio, pressure)</span>
+<span class="g g-Whitespace">    </span><span class="mi">648</span> <span class="c1"># ensure all same input type</span>
+<span class="g g-Whitespace">    </span><span class="mi">649</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">in_types</span><span class="p">))</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">650</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">651</span>         <span class="sa">f</span><span class="s2">&quot;relhum_ice: input types are not the same, received </span><span class="si">{</span><span class="n">in_types</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">652</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">654</span> <span class="c1"># if inputs not xarray or numpy (float, int, list), elevate to np</span>
+<span class="g g-Whitespace">    </span><span class="mi">655</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">temperature</span><span class="p">,</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">656</span>     <span class="n">temperature</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="g g-Whitespace">    </span><span class="mi">657</span> <span class="p">):</span>
+
+<span class="ne">TypeError</span>: relhum_ice: input types are not the same, received [&lt;class &#39;int&#39;&gt;, &lt;class &#39;numpy.float64&#39;&gt;, &lt;class &#39;int&#39;&gt;]
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="relhum-water">
@@ -1023,11 +1052,6 @@ This notebook is part of the process we have for adding entries to the NCL Index
 
 <span class="n">relhum_water_data</span> <span class="o">=</span> <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;applications_files/ncl_outputs/relhum_water_output.txt&#39;</span><span class="p">)</span>
 <span class="n">relhum_water_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">relhum_water_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/ncl_outputs/relhum_water_output.txt&#39; from &#39;https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/ncl_outputs/relhum_water_output.txt&#39; to &#39;/home/runner/.cache/geocat&#39;.
 </pre></div>
 </div>
 </div>
@@ -1075,11 +1099,6 @@ This notebook is part of the process we have for adding entries to the NCL Index
 
 <span class="n">dpres_plevel_data</span> <span class="o">=</span> <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;applications_files/ncl_outputs/dpres_plevel_output.txt&#39;</span><span class="p">)</span>
 <span class="n">dpres_plevel_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">dpres_plevel_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/ncl_outputs/dpres_plevel_output.txt&#39; from &#39;https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/ncl_outputs/dpres_plevel_output.txt&#39; to &#39;/home/runner/.cache/geocat&#39;.
 </pre></div>
 </div>
 </div>
@@ -1155,11 +1174,6 @@ This notebook is part of the process we have for adding entries to the NCL Index
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/ncl_outputs/psychro_fao56_output.txt&#39; from &#39;https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/ncl_outputs/psychro_fao56_output.txt&#39; to &#39;/home/runner/.cache/geocat&#39;.
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1203,76 +1217,6 @@ This notebook is part of the process we have for adding entries to the NCL Index
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pair</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="si">{</span><span class="n">ncl_dewtemp</span><span class="p">[</span><span class="n">pair</span><span class="p">]</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">geocat_dewtemp</span><span class="p">[</span><span class="n">pair</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Difference: </span><span class="si">{</span><span class="n">ncl_dewtemp</span><span class="p">[</span><span class="n">pair</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">geocat_dewtemp</span><span class="p">[</span><span class="n">pair</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(np.float64(274.0), np.float64(94.0)):
-	-0.0055542, -0.005570036309563875
-	Difference: 1.5836309563875377e-05
-(np.float64(275.0), np.float64(87.0)):
-	-0.0839233, -0.08393959272956408
-	Difference: 1.6292729564076902e-05
-(np.float64(275.0), np.float64(88.0)):
-	0.073761, 0.07374617196580857
-	Difference: 1.482803419142198e-05
-(np.float64(277.0), np.float64(76.0)):
-	0.00259399, 0.0025903565796738803
-	Difference: 3.633420326119678e-06
-(np.float64(278.0), np.float64(71.0)):
-	0.0261536, 0.026158530424595483
-	Difference: -4.930424595483984e-06
-(np.float64(279.0), np.float64(66.0)):
-	-0.0278931, -0.027897415813697535
-	Difference: 4.3158136975342265e-06
-(np.float64(281.0), np.float64(58.0)):
-	0.0712891, 0.07128017477202775
-	Difference: 8.925227972245153e-06
-(np.float64(282.0), np.float64(54.0)):
-	0.0129395, 0.01291856405322278
-	Difference: 2.0935946777218828e-05
-(np.float64(283.0), np.float64(50.0)):
-	-0.130432, -0.13044636060385528
-	Difference: 1.4360603855290144e-05
-(np.float64(283.0), np.float64(51.0)):
-	0.144928, 0.14490829422311435
-	Difference: 1.9705776885647897e-05
-(np.float64(284.0), np.float64(47.0)):
-	-0.0726318, -0.07262340593854333
-	Difference: -8.39406145666799e-06
-(np.float64(285.0), np.float64(44.0)):
-	-0.0798035, -0.07982300528288988
-	Difference: 1.950528288988118e-05
-(np.float64(286.0), np.float64(41.0)):
-	-0.160156, -0.1601734585760255
-	Difference: 1.7458576025503048e-05
-(np.float64(287.0), np.float64(39.0)):
-	0.0386658, 0.0386467450997543
-	Difference: 1.905490024570189e-05
-(np.float64(290.0), np.float64(32.0)):
-	-0.0795288, -0.07954541765832346
-	Difference: 1.6617658323461737e-05
-(np.float64(291.0), np.float64(30.0)):
-	-0.115204, -0.11521555297190389
-	Difference: 1.1552971903888709e-05
-(np.float64(294.0), np.float64(25.0)):
-	-0.110413, -0.11042499197856159
-	Difference: 1.1991978561595729e-05
-(np.float64(295.0), np.float64(24.0)):
-	0.156677, 0.15665929836796977
-	Difference: 1.7701632030242553e-05
-(np.float64(297.0), np.float64(21.0)):
-	-0.0614929, -0.06151243710161225
-	Difference: 1.953710161224642e-05
-(np.float64(299.0), np.float64(19.0)):
-	0.162537, 0.16251872398265732
-	Difference: 1.8276017342666595e-05
-(np.float64(302.0), np.float64(16.0)):
-	0.138275, 0.1382598702660971
-	Difference: 1.5129733902913278e-05
-(np.float64(303.0), np.float64(15.0)):
-	0.0130615, 0.013067891707237322
-	Difference: -6.391707237322214e-06
 </pre></div>
 </div>
 </div>

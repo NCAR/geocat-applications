@@ -28,21 +28,14 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-### Collect Temperature, Mixing Ratio, Pressure
-temp_mr_press = []
-for temp in range(173, 273 + 1):
-    for mr in np.arange(0.01, 0.05 + 0.01, 0.01):
-        for press in range(10000, 15000 + 1, 500):
-            temp_mr_press.append((temp, mr, press))
-
-### Calculate GeoCAT-Comp `relhum_ice` value and temp/mixing ratio/pressure
+# Input: Single Value
 from geocat.comp import relhum_ice
 
-geocat_relhum_ice = {}
+temp = 268.15  # Kelvin
+mixing_ratio = 0.0037
+pressure = 100000  # Pa
 
-for i, variables in enumerate(temp_mr_press):
-    temp, mr, press = variables
-    geocat_relhum_ice[variables] = relhum_ice(temp, mr, press)
+relhum_ice(temp, mixing_ratio, pressure)
 ------------------
 
 ----- stderr -----
@@ -52,12 +45,12 @@ for i, variables in enumerate(temp_mr_press):
 
 [31m---------------------------------------------------------------------------[39m
 [31mTypeError[39m                                 Traceback (most recent call last)
-[36mCell[39m[36m [39m[32mIn[24][39m[32m, line 15[39m
-[32m     11[39m geocat_relhum_ice = {}
-[32m     12[39m 
-[32m     13[39m [38;5;28;01mfor[39;00m i, variables [38;5;28;01min[39;00m enumerate(temp_mr_press):
-[32m     14[39m     temp, mr, press = variables
-[32m---> [39m[32m15[39m     geocat_relhum_ice[variables] = relhum_ice(temp, mr, press)
+[36mCell[39m[36m [39m[32mIn[15][39m[32m, line 8[39m
+[32m      4[39m temp = [32m268.15[39m  [38;5;66;03m# Kelvin[39;00m
+[32m      5[39m mixing_ratio = [32m0.0037[39m
+[32m      6[39m pressure = [32m100000[39m  [38;5;66;03m# Pa[39;00m
+[32m      7[39m 
+[32m----> [39m[32m8[39m relhum_ice(temp, mixing_ratio, pressure)
 
 [36mFile [39m[32m~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/geocat/comp/meteorology.py:650[39m, in [36mrelhum_ice[39m[34m(temperature, mixing_ratio, pressure)[39m
 [32m    648[39m [38;5;66;03m# ensure all same input type[39;00m
@@ -70,5 +63,5 @@ for i, variables in enumerate(temp_mr_press):
 [32m    656[39m     temperature, np.ndarray
 [32m    657[39m ):
 
-[31mTypeError[39m: relhum_ice: input types are not the same, received [<class 'int'>, <class 'numpy.float64'>, <class 'int'>]
+[31mTypeError[39m: relhum_ice: input types are not the same, received [<class 'float'>, <class 'float'>, <class 'int'>]
 
