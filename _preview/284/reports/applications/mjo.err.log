@@ -54,18 +54,21 @@ resolveWavesHayashi(example_data, 1, 1)
 [31m---------------------------------------------------------------------------[39m
 [31mValueError[39m                                Traceback (most recent call last)
 [36mCell[39m[36m [39m[32mIn[10][39m[32m, line 11[39m
-[32m      6[39m wave = np.sin([32m2[39m * ([32m0.1[39m * time[:, [38;5;28;01mNone[39;00m] - [32m0.05[39m * lon[[38;5;28;01mNone[39;00m, :]))
 [32m      7[39m example_data = xr.DataArray(
-[32m      8[39m     wave, dims=([33m'[39m[33mtime[39m[33m'[39m, [33m'[39m[33mlon[39m[33m'[39m), coords={[33m'[39m[33mtime[39m[33m'[39m: time, [33m'[39m[33mlon[39m[33m'[39m: lon}
+[32m      8[39m     wave, dims=([33m'time'[39m, [33m'lon'[39m), coords={[33m'time'[39m: time, [33m'lon'[39m: lon}
 [32m      9[39m )
-[32m---> [39m[32m11[39m [43mresolveWavesHayashi[49m[43m([49m[43mexample_data[49m[43m,[49m[43m [49m[32;43m1[39;49m[43m,[49m[43m [49m[32;43m1[39;49m[43m)[49m
+[32m     10[39m 
+[32m---> [39m[32m11[39m resolveWavesHayashi(example_data, [32m1[39m, [32m1[39m)
 
 [36mCell[39m[36m [39m[32mIn[9][39m[32m, line 21[39m, in [36mresolveWavesHayashi[39m[34m(var_fft, nDayWin, spd)[39m
-[32m     19[39m [38;5;66;03m# Create the real power spectrum pow_arr = sqrt(real^2+imag^2)^2[39;00m
-[32m     20[39m var_fft = np.abs(var_fft) ** [32m2[39m
-[32m---> [39m[32m21[39m [43mpow_arr[49m[43m[[49m[43m:[49m[43mn_i[49m[43m,[49m[43m [49m[43m:[49m[43mmlon_i[49m[43m][49m = var_fft[n_i:N, mlon_i:[32m0[39m:-[32m1[39m]
-[32m     22[39m pow_arr[n_i:, :mlon_i] = var_fft[: n_i + [32m1[39m, mlon_i:[32m0[39m:-[32m1[39m]
-[32m     23[39m pow_arr[: n_i + [32m1[39m, mlon_i:] = var_fft[n_i::-[32m1[39m, : mlon_i + [32m1[39m]
+[32m     17[39m     print(pow_arr[:n_i, :mlon_i])
+[32m     18[39m 
+[32m     19[39m     [38;5;66;03m# Create the real power spectrum pow_arr = sqrt(real^2+imag^2)^2[39;00m
+[32m     20[39m     var_fft = np.abs(var_fft) ** [32m2[39m
+[32m---> [39m[32m21[39m     pow_arr[:n_i, :mlon_i] = var_fft[n_i:N, mlon_i:[32m0[39m:-[32m1[39m]
+[32m     22[39m     pow_arr[n_i:, :mlon_i] = var_fft[: n_i + [32m1[39m, mlon_i:[32m0[39m:-[32m1[39m]
+[32m     23[39m     pow_arr[: n_i + [32m1[39m, mlon_i:] = var_fft[n_i::-[32m1[39m, : mlon_i + [32m1[39m]
+[32m     24[39m     pow_arr[n_i + [32m1[39m :, mlon_i:] = var_fft[N - [32m1[39m : n_i - [32m1[39m : -[32m1[39m, : mlon_i + [32m1[39m]
 
 [31mValueError[39m: could not broadcast input array from shape (6,2) into shape (5,2)
 
