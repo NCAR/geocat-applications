@@ -35,6 +35,6 @@ NCL's [`addfile`](https://www.ncl.ucar.edu/Document/Functions/Built-in/area_poly
 ```
 
 ## Python Resources
-- 
+-
 ## Additional Reading
-- 
+-
