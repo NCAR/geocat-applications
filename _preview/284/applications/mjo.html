@@ -585,58 +585,58 @@
       <td>...</td>
     </tr>
     <tr>
-      <th>12869</th>
-      <td>2026</td>
-      <td>3</td>
-      <td>27</td>
-      <td>0</td>
-      <td>-0.06686</td>
-      <td>-1.72246</td>
-      <td>1.72376</td>
-    </tr>
-    <tr>
-      <th>12870</th>
-      <td>2026</td>
-      <td>3</td>
-      <td>28</td>
-      <td>0</td>
-      <td>-0.03543</td>
-      <td>-1.72868</td>
-      <td>1.72904</td>
-    </tr>
-    <tr>
-      <th>12871</th>
-      <td>2026</td>
-      <td>3</td>
-      <td>29</td>
-      <td>0</td>
-      <td>-0.01008</td>
-      <td>-1.71368</td>
-      <td>1.71371</td>
-    </tr>
-    <tr>
-      <th>12872</th>
-      <td>2026</td>
-      <td>3</td>
-      <td>30</td>
-      <td>0</td>
-      <td>0.04421</td>
-      <td>-1.72590</td>
-      <td>1.72647</td>
-    </tr>
-    <tr>
       <th>12873</th>
       <td>2026</td>
       <td>3</td>
       <td>31</td>
       <td>0</td>
-      <td>0.14253</td>
-      <td>-1.78978</td>
-      <td>1.79545</td>
+      <td>0.15156</td>
+      <td>-1.58083</td>
+      <td>1.58808</td>
+    </tr>
+    <tr>
+      <th>12874</th>
+      <td>2026</td>
+      <td>4</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0.18707</td>
+      <td>-1.58403</td>
+      <td>1.59504</td>
+    </tr>
+    <tr>
+      <th>12875</th>
+      <td>2026</td>
+      <td>4</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0.16442</td>
+      <td>-1.58733</td>
+      <td>1.59582</td>
+    </tr>
+    <tr>
+      <th>12876</th>
+      <td>2026</td>
+      <td>4</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0.12471</td>
+      <td>-1.52349</td>
+      <td>1.52859</td>
+    </tr>
+    <tr>
+      <th>12877</th>
+      <td>2026</td>
+      <td>4</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0.11587</td>
+      <td>-1.41794</td>
+      <td>1.42266</td>
     </tr>
   </tbody>
 </table>
-<p>12874 rows × 7 columns</p>
+<p>12878 rows × 7 columns</p>
 </div></div></div>
 </div>
 <p>The table above shows NOAA PSL MJO time series data as:</p>
@@ -1066,7 +1066,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Most recent year 2026 has 3 months
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Most recent year 2026 has 4 months
 </pre></div>
 </div>
 </div>
@@ -1079,7 +1079,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/cebb6c5dc05cf5cd775a136ebe89419b676c427f4f275123f08136b10e14220c.png" src="../_images/cebb6c5dc05cf5cd775a136ebe89419b676c427f4f275123f08136b10e14220c.png" />
+<img alt="../_images/cd3113f82228ea5b3395d2fdddf8b13d6cb8a34795254cf319841a9bdfe08b40.png" src="../_images/cd3113f82228ea5b3395d2fdddf8b13d6cb8a34795254cf319841a9bdfe08b40.png" />
 </div>
 </div>
 </section>
@@ -1092,15 +1092,13 @@
 <p>Atmospheric waves can be disturbed and modified by the presences of other waves in the same wavelength traveling at different speeds. The generalized method to resolve disturbances by progressive and retrogressive waves is described by Hayashi in 1971<a class="footnote-reference brackets" href="#footcite-hayashi-1971" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">resolveWavesHayashi</span><span class="p">(</span><span class="n">var_fft</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">,</span>
-                        <span class="n">nDayWin</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> 
-                        <span class="n">spd</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">resolveWavesHayashi</span><span class="p">(</span><span class="n">var_fft</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">,</span> <span class="n">nDayWin</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">spd</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">var_fft</span><span class="o">.</span><span class="n">dims</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">var_fft</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-    
+
     <span class="n">N</span><span class="p">,</span> <span class="n">mlon</span> <span class="o">=</span> <span class="n">var_fft</span><span class="o">.</span><span class="n">shape</span>
     <span class="c1"># mlon = number of longitude values = number of wavenumbers</span>
 
@@ -1110,9 +1108,10 @@
     <span class="nb">print</span><span class="p">(</span><span class="n">nshape</span><span class="p">)</span>
 
     <span class="c1"># Set up empty array</span>
-    <span class="n">pow_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">nshape</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">type</span><span class="p">(</span><span class="n">var_fft</span><span class="p">))</span>
-
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+
+<span class="sd">    pow_arr = np.full(nshape, np.nan, dtype=type(var_fft))</span>
+
 
 <span class="sd">    n_i = N // 2</span>
 <span class="sd">    mlon_i = mlon // 2</span>
@@ -1135,13 +1134,14 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># example data</span>
-<span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">lon</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">360</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 
 <span class="c1"># wave moves east (progressive)</span>
-<span class="n">wave</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span>  <span class="o">*</span> <span class="p">(</span><span class="mf">0.1</span> <span class="o">*</span> <span class="n">time</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.05</span> <span class="o">*</span> <span class="n">lon</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]))</span>
-<span class="n">example_data</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">wave</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;lon&#39;</span><span class="p">),</span>
-                            <span class="n">coords</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="n">time</span><span class="p">,</span> <span class="s1">&#39;lon&#39;</span><span class="p">:</span> <span class="n">lon</span><span class="p">})</span>
+<span class="n">wave</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mf">0.1</span> <span class="o">*</span> <span class="n">time</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.05</span> <span class="o">*</span> <span class="n">lon</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]))</span>
+<span class="n">example_data</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span>
+    <span class="n">wave</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;lon&#39;</span><span class="p">),</span> <span class="n">coords</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="n">time</span><span class="p">,</span> <span class="s1">&#39;lon&#39;</span><span class="p">:</span> <span class="n">lon</span><span class="p">}</span>
+<span class="p">)</span>
 
 <span class="n">resolveWavesHayashi</span><span class="p">(</span><span class="n">example_data</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -1154,22 +1154,22 @@
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">10</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">wave</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span>  <span class="o">*</span> <span class="p">(</span><span class="mf">0.1</span> <span class="o">*</span> <span class="n">time</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.05</span> <span class="o">*</span> <span class="n">lon</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]))</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">example_data</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">wave</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;lon&#39;</span><span class="p">),</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span>                             <span class="n">coords</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="n">time</span><span class="p">,</span> <span class="s1">&#39;lon&#39;</span><span class="p">:</span> <span class="n">lon</span><span class="p">})</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> 
-<span class="ne">---&gt; </span><span class="mi">10</span> <span class="n">resolveWavesHayashi</span><span class="p">(</span><span class="n">example_data</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">11</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">example_data</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">wave</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;lon&#39;</span><span class="p">),</span> <span class="n">coords</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="n">time</span><span class="p">,</span> <span class="s1">&#39;lon&#39;</span><span class="p">:</span> <span class="n">lon</span><span class="p">}</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> 
+<span class="ne">---&gt; </span><span class="mi">11</span> <span class="n">resolveWavesHayashi</span><span class="p">(</span><span class="n">example_data</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
-<span class="nn">Cell In[9], line 13,</span> in <span class="ni">resolveWavesHayashi</span><span class="nt">(var_fft, nDayWin, spd)</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> 
-<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="n">N</span><span class="p">,</span> <span class="n">mlon</span> <span class="o">=</span> <span class="n">var_fft</span><span class="o">.</span><span class="n">shape</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="c1"># mlon = number of longitude values = number of wavenumbers</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> 
-<span class="ne">---&gt; </span><span class="mi">13</span>     <span class="n">nshape</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">var_fft</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="n">nshape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="n">nshape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span>     <span class="nb">print</span><span class="p">(</span><span class="n">nshape</span><span class="p">)</span>
+<span class="nn">Cell In[9], line 11,</span> in <span class="ni">resolveWavesHayashi</span><span class="nt">(var_fft, nDayWin, spd)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> 
+<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">N</span><span class="p">,</span> <span class="n">mlon</span> <span class="o">=</span> <span class="n">var_fft</span><span class="o">.</span><span class="n">shape</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="c1"># mlon = number of longitude values = number of wavenumbers</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> 
+<span class="ne">---&gt; </span><span class="mi">11</span>     <span class="n">nshape</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">var_fft</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span>     <span class="n">nshape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="n">nshape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="nb">print</span><span class="p">(</span><span class="n">nshape</span><span class="p">)</span>
 
 <span class="ne">TypeError</span>: can only concatenate list (not &quot;int&quot;) to list
 </pre></div>
