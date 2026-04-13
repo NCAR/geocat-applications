@@ -30,49 +30,56 @@ nbclient.exceptions.CellExecutionError: An error occurred while executing the fo
 ------------------
 import geocat.datafiles as gcd
 import xarray as xr
-from osgeo import gdal
-import geopandas as gpd # shapefiles
+import geopandas as gpd  # shapefiles
 
 # netCDF file format family: netCDF, HDF5, and HDF-EOS5
 netCDF_datafile = xr.open_dataset(gcd.get("netcdf_files/1994_256_FSD.nc"))
 assert isinstance(netCDF_datafile, xr.Dataset), "netCDF file failed to load into Xarray"
 assert netCDF_datafile, "netCDF files failed to load"
-assert not netCDF_datafile is None, "netCDF file is empty"
+assert netCDF_datafile is not None, "netCDF file is empty"
 
 CDF_datafile = xr.open_dataset(gcd.get("netcdf_files/941110_P.cdf"))
 assert isinstance(CDF_datafile, xr.Dataset), "CDF file failed to load into Xarray"
 assert CDF_datafile, "CDF files failed to load"
-assert not CDF_datafile is None, "CDF file is empty"
+assert CDF_datafile is not None, "CDF file is empty"
 
 # Non-HDF5 file format family: HDF and HDF-EOS
 HDF_datafile = xr.open_dataset(gcd.get("hdf_files/avhrr.hdf"), engine="netcdf4")
 assert isinstance(HDF_datafile, xr.Dataset), "HDF file failed to load into Xarray"
 assert HDF_datafile, "HDF files failed to load"
-assert not HDF_datafile is None, "HDF file is empty"
+assert HDF_datafile is not None, "HDF file is empty"
 
-HE2_datafile = xr.open_dataset(gcd.get("hdf_files/MOD04_L2.A2001066.0000.004.2003078090622.he2"), engine="netcdf4")
+HE2_datafile = xr.open_dataset(
+    gcd.get("hdf_files/MOD04_L2.A2001066.0000.004.2003078090622.he2"), engine="netcdf4"
+)
 assert isinstance(HE2_datafile, xr.Dataset), "he2 file failed to load into Xarray"
 assert HE2_datafile, "he2 files failed to load"
-assert not HE2_datafile is None, "he2 file is empty"
+assert HE2_datafile is not None, "he2 file is empty"
 
 # GRIB file format family
 grib_datafile = xr.open_dataset(gcd.get("grib_files/POT.grb"), engine="cfgrib")
 assert isinstance(grib_datafile, xr.Dataset), "GRIB file failed to load into Xarray"
 assert grib_datafile, "GRIB files failed to load"
-assert not grib_datafile is None, "GRIB file is empty"
+assert grib_datafile is not None, "GRIB file is empty"
 
-grb2_datafile = xr.open_dataset(gcd.get("grib_files/200711210135_NCV_CEILING_A.grb2"), engine="cfgrib")
+grb2_datafile = xr.open_dataset(
+    gcd.get("grib_files/200711210135_NCV_CEILING_A.grb2"), engine="cfgrib"
+)
 assert isinstance(grb2_datafile, xr.Dataset), "grb2 file failed to load into Xarray"
 assert grb2_datafile, "grb2 files failed to load"
-assert not grb2_datafile is None, "grb2 file is empty"
+assert grb2_datafile is not None, "grb2 file is empty"
 
 # Shapefile file format family
 shp_datafile = gpd.read_file(gcd.get("shape_files/states.shp"))
-assert isinstance(shp_datafile, gpd.GeoDataFrame), "shp file failed to load into GeoPandas"
+assert isinstance(shp_datafile, gpd.GeoDataFrame), (
+    "shp file failed to load into GeoPandas"
+)
 assert not shp_datafile.empty, "shp is empty"
 
 shx_datafile = gpd.read_file(gcd.get("shape_files/countyl010g.shx"))
-assert isinstance(shx_datafile, gpd.GeoDataFrame), "shx file failed to load into GeoPandas"
+assert isinstance(shx_datafile, gpd.GeoDataFrame), (
+    "shx file failed to load into GeoPandas"
+)
 assert not shx_datafile.empty, "shx is empty"
 ------------------
 
@@ -88,14 +95,15 @@ Downloading file 'shape_files/countyl010g.shx' from 'https://github.com/NCAR/geo
 
 [31m---------------------------------------------------------------------------[39m
 [31mDataSourceError[39m                           Traceback (most recent call last)
-[36mCell[39m[36m [39m[32mIn[1][39m[32m, line 44[39m
-[32m     40[39m shp_datafile = gpd.read_file(gcd.get([33m"shape_files/states.shp"[39m))
-[32m     41[39m [38;5;28;01massert[39;00m isinstance(shp_datafile, gpd.GeoDataFrame), [33m"shp file failed to load into GeoPandas"[39m
-[32m     42[39m [38;5;28;01massert[39;00m [38;5;28;01mnot[39;00m shp_datafile.empty, [33m"shp is empty"[39m
-[32m     43[39m 
-[32m---> [39m[32m44[39m shx_datafile = gpd.read_file(gcd.get([33m"shape_files/countyl010g.shx"[39m))
-[32m     45[39m [38;5;28;01massert[39;00m isinstance(shx_datafile, gpd.GeoDataFrame), [33m"shx file failed to load into GeoPandas"[39m
-[32m     46[39m [38;5;28;01massert[39;00m [38;5;28;01mnot[39;00m shx_datafile.empty, [33m"shx is empty"[39m
+[36mCell[39m[36m [39m[32mIn[1][39m[32m, line 49[39m
+[32m     45[39m     [33m"shp file failed to load into GeoPandas"[39m
+[32m     46[39m )
+[32m     47[39m [38;5;28;01massert[39;00m [38;5;28;01mnot[39;00m shp_datafile.empty, [33m"shp is empty"[39m
+[32m     48[39m 
+[32m---> [39m[32m49[39m shx_datafile = gpd.read_file(gcd.get([33m"shape_files/countyl010g.shx"[39m))
+[32m     50[39m assert isinstance(shx_datafile, gpd.GeoDataFrame), (
+[32m     51[39m     [33m"shx file failed to load into GeoPandas"[39m
+[32m     52[39m )
 
 [36mFile [39m[32m~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/geopandas/io/file.py:316[39m, in [36m_read_file[39m[34m(filename, bbox, mask, columns, rows, engine, **kwargs)[39m
 [32m    313[39m             filename = response.read()

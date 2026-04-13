@@ -420,45 +420,13 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">;</span> <span class="n">addfile</span>
 <span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span><span class="w"> </span><span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">ncl</span><span class="o">.</span><span class="n">ucar</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Built</span><span class="o">-</span><span class="ow">in</span><span class="o">/</span><span class="n">addfile</span><span class="o">.</span><span class="n">shtml</span>
 
-<span class="p">;</span> <span class="n">NetCDF</span>
-<span class="p">;</span> <span class="o">.</span><span class="n">nc</span>
-<span class="p">;</span> <span class="o">.</span><span class="n">cdf</span>
-<span class="p">;</span> <span class="o">.</span><span class="n">netcdf</span>
+<span class="p">;</span> <span class="n">netCDF</span> <span class="n">file</span> <span class="nb">format</span> <span class="n">family</span><span class="p">:</span> <span class="n">netCDF</span><span class="p">,</span> <span class="n">HDF5</span><span class="p">,</span> <span class="ow">and</span> <span class="n">HDF</span><span class="o">-</span><span class="n">EOS5</span>
 
-<span class="p">;</span> <span class="n">GRIB</span> <span class="n">v1</span> <span class="ow">and</span> <span class="n">v2</span>
-<span class="p">;</span> <span class="o">.</span><span class="n">gr</span>
-<span class="p">;</span> <span class="o">.</span><span class="n">gr1</span>
-<span class="p">;</span> <span class="o">.</span><span class="n">grb</span>
-<span class="p">;</span> <span class="o">.</span><span class="n">grib</span>
-<span class="p">;</span> <span class="o">.</span><span class="n">grb1</span>
-<span class="p">;</span> <span class="o">.</span><span class="n">grib1</span>
-<span class="p">;</span> <span class="o">.</span><span class="n">gr2</span>
-<span class="p">;</span> <span class="n">grb2</span>
-<span class="p">;</span> <span class="n">grib2</span>
+<span class="p">;</span> <span class="n">Non</span><span class="o">-</span><span class="n">HDF5</span> <span class="n">file</span> <span class="nb">format</span> <span class="n">family</span><span class="p">:</span> <span class="n">HDF</span> <span class="ow">and</span> <span class="n">HDF</span><span class="o">-</span><span class="n">EOS</span>
 
-<span class="p">;</span> <span class="n">HDF</span>
-<span class="p">;</span> <span class="o">.</span><span class="n">hdf</span>
-<span class="p">;</span> <span class="o">.</span><span class="n">hd</span>
+<span class="p">;</span> <span class="n">GRIB</span> <span class="n">file</span> <span class="nb">format</span> <span class="n">family</span> <span class="n">v1</span> <span class="ow">and</span> <span class="n">v2</span>
 
-<span class="p">;</span> <span class="n">HDF</span><span class="o">-</span><span class="n">EOS</span>
-<span class="p">;</span> <span class="o">.</span><span class="n">hdfeos</span>
-<span class="p">;</span> <span class="o">.</span><span class="n">he2</span>
-<span class="p">;</span> <span class="o">.</span><span class="n">he4</span>
-
-<span class="p">;</span> <span class="n">HDF5</span>
-<span class="p">;</span> <span class="o">.</span><span class="n">h5</span>
-
-<span class="p">;</span> <span class="n">HDF</span><span class="o">-</span><span class="n">EOS5</span>
-<span class="p">;</span> <span class="o">.</span><span class="n">he5</span>
-
-<span class="p">;</span> <span class="n">CCM</span>
-<span class="p">;</span> <span class="o">.</span><span class="n">ccm</span>
-
-<span class="p">;</span> <span class="n">Shapefile</span>
-<span class="p">;</span> <span class="o">.</span><span class="n">shp</span> <span class="p">(</span><span class="n">shapefile</span><span class="p">)</span>
-<span class="p">;</span> <span class="o">.</span><span class="n">mif</span> <span class="p">(</span><span class="n">MapInfo</span><span class="p">)</span>
-<span class="p">;</span> <span class="o">.</span><span class="n">gmt</span> <span class="p">(</span><span class="n">Generic</span> <span class="n">Mapping</span> <span class="n">Tools</span><span class="p">)</span>
-<span class="p">;</span> <span class="o">.</span><span class="n">rt1</span> <span class="p">(</span><span class="n">TIGER</span><span class="p">)</span>
+<span class="p">;</span> <span class="n">Shapefile</span> <span class="n">file</span> <span class="nb">format</span> <span class="n">family</span>
 </pre></div>
 </div>
 </section>
@@ -468,49 +436,56 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">geocat.datafiles</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gcd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">osgeo</span><span class="w"> </span><span class="kn">import</span> <span class="n">gdal</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">geopandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gpd</span> <span class="c1"># shapefiles</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geopandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gpd</span>  <span class="c1"># shapefiles</span>
 
 <span class="c1"># netCDF file format family: netCDF, HDF5, and HDF-EOS5</span>
 <span class="n">netCDF_datafile</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;netcdf_files/1994_256_FSD.nc&quot;</span><span class="p">))</span>
 <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">netCDF_datafile</span><span class="p">,</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">),</span> <span class="s2">&quot;netCDF file failed to load into Xarray&quot;</span>
 <span class="k">assert</span> <span class="n">netCDF_datafile</span><span class="p">,</span> <span class="s2">&quot;netCDF files failed to load&quot;</span>
-<span class="k">assert</span> <span class="ow">not</span> <span class="n">netCDF_datafile</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;netCDF file is empty&quot;</span>
+<span class="k">assert</span> <span class="n">netCDF_datafile</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;netCDF file is empty&quot;</span>
 
 <span class="n">CDF_datafile</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;netcdf_files/941110_P.cdf&quot;</span><span class="p">))</span>
 <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">CDF_datafile</span><span class="p">,</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">),</span> <span class="s2">&quot;CDF file failed to load into Xarray&quot;</span>
 <span class="k">assert</span> <span class="n">CDF_datafile</span><span class="p">,</span> <span class="s2">&quot;CDF files failed to load&quot;</span>
-<span class="k">assert</span> <span class="ow">not</span> <span class="n">CDF_datafile</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;CDF file is empty&quot;</span>
+<span class="k">assert</span> <span class="n">CDF_datafile</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;CDF file is empty&quot;</span>
 
 <span class="c1"># Non-HDF5 file format family: HDF and HDF-EOS</span>
 <span class="n">HDF_datafile</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;hdf_files/avhrr.hdf&quot;</span><span class="p">),</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;netcdf4&quot;</span><span class="p">)</span>
 <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">HDF_datafile</span><span class="p">,</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">),</span> <span class="s2">&quot;HDF file failed to load into Xarray&quot;</span>
 <span class="k">assert</span> <span class="n">HDF_datafile</span><span class="p">,</span> <span class="s2">&quot;HDF files failed to load&quot;</span>
-<span class="k">assert</span> <span class="ow">not</span> <span class="n">HDF_datafile</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;HDF file is empty&quot;</span>
+<span class="k">assert</span> <span class="n">HDF_datafile</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;HDF file is empty&quot;</span>
 
-<span class="n">HE2_datafile</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;hdf_files/MOD04_L2.A2001066.0000.004.2003078090622.he2&quot;</span><span class="p">),</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;netcdf4&quot;</span><span class="p">)</span>
+<span class="n">HE2_datafile</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
+    <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;hdf_files/MOD04_L2.A2001066.0000.004.2003078090622.he2&quot;</span><span class="p">),</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;netcdf4&quot;</span>
+<span class="p">)</span>
 <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">HE2_datafile</span><span class="p">,</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">),</span> <span class="s2">&quot;he2 file failed to load into Xarray&quot;</span>
 <span class="k">assert</span> <span class="n">HE2_datafile</span><span class="p">,</span> <span class="s2">&quot;he2 files failed to load&quot;</span>
-<span class="k">assert</span> <span class="ow">not</span> <span class="n">HE2_datafile</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;he2 file is empty&quot;</span>
+<span class="k">assert</span> <span class="n">HE2_datafile</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;he2 file is empty&quot;</span>
 
 <span class="c1"># GRIB file format family</span>
 <span class="n">grib_datafile</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;grib_files/POT.grb&quot;</span><span class="p">),</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;cfgrib&quot;</span><span class="p">)</span>
 <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">grib_datafile</span><span class="p">,</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">),</span> <span class="s2">&quot;GRIB file failed to load into Xarray&quot;</span>
 <span class="k">assert</span> <span class="n">grib_datafile</span><span class="p">,</span> <span class="s2">&quot;GRIB files failed to load&quot;</span>
-<span class="k">assert</span> <span class="ow">not</span> <span class="n">grib_datafile</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;GRIB file is empty&quot;</span>
+<span class="k">assert</span> <span class="n">grib_datafile</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;GRIB file is empty&quot;</span>
 
-<span class="n">grb2_datafile</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;grib_files/200711210135_NCV_CEILING_A.grb2&quot;</span><span class="p">),</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;cfgrib&quot;</span><span class="p">)</span>
+<span class="n">grb2_datafile</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
+    <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;grib_files/200711210135_NCV_CEILING_A.grb2&quot;</span><span class="p">),</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;cfgrib&quot;</span>
+<span class="p">)</span>
 <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">grb2_datafile</span><span class="p">,</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">),</span> <span class="s2">&quot;grb2 file failed to load into Xarray&quot;</span>
 <span class="k">assert</span> <span class="n">grb2_datafile</span><span class="p">,</span> <span class="s2">&quot;grb2 files failed to load&quot;</span>
-<span class="k">assert</span> <span class="ow">not</span> <span class="n">grb2_datafile</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;grb2 file is empty&quot;</span>
+<span class="k">assert</span> <span class="n">grb2_datafile</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;grb2 file is empty&quot;</span>
 
 <span class="c1"># Shapefile file format family</span>
 <span class="n">shp_datafile</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;shape_files/states.shp&quot;</span><span class="p">))</span>
-<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">shp_datafile</span><span class="p">,</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">),</span> <span class="s2">&quot;shp file failed to load into GeoPandas&quot;</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">shp_datafile</span><span class="p">,</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">),</span> <span class="p">(</span>
+    <span class="s2">&quot;shp file failed to load into GeoPandas&quot;</span>
+<span class="p">)</span>
 <span class="k">assert</span> <span class="ow">not</span> <span class="n">shp_datafile</span><span class="o">.</span><span class="n">empty</span><span class="p">,</span> <span class="s2">&quot;shp is empty&quot;</span>
 
 <span class="n">shx_datafile</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;shape_files/countyl010g.shx&quot;</span><span class="p">))</span>
-<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">shx_datafile</span><span class="p">,</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">),</span> <span class="s2">&quot;shx file failed to load into GeoPandas&quot;</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">shx_datafile</span><span class="p">,</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">),</span> <span class="p">(</span>
+    <span class="s2">&quot;shx file failed to load into GeoPandas&quot;</span>
+<span class="p">)</span>
 <span class="k">assert</span> <span class="ow">not</span> <span class="n">shx_datafile</span><span class="o">.</span><span class="n">empty</span><span class="p">,</span> <span class="s2">&quot;shx is empty&quot;</span>
 </pre></div>
 </div>
@@ -530,14 +505,15 @@ This notebook is part of the process we have for adding entries to the NCL Index
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">DataSourceError</span><span class="g g-Whitespace">                           </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">44</span>
-<span class="g g-Whitespace">     </span><span class="mi">40</span> <span class="n">shp_datafile</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;shape_files/states.shp&quot;</span><span class="p">))</span>
-<span class="g g-Whitespace">     </span><span class="mi">41</span> <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">shp_datafile</span><span class="p">,</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">),</span> <span class="s2">&quot;shp file failed to load into GeoPandas&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span> <span class="k">assert</span> <span class="ow">not</span> <span class="n">shp_datafile</span><span class="o">.</span><span class="n">empty</span><span class="p">,</span> <span class="s2">&quot;shp is empty&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span> 
-<span class="ne">---&gt; </span><span class="mi">44</span> <span class="n">shx_datafile</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;shape_files/countyl010g.shx&quot;</span><span class="p">))</span>
-<span class="g g-Whitespace">     </span><span class="mi">45</span> <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">shx_datafile</span><span class="p">,</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">),</span> <span class="s2">&quot;shx file failed to load into GeoPandas&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">46</span> <span class="k">assert</span> <span class="ow">not</span> <span class="n">shx_datafile</span><span class="o">.</span><span class="n">empty</span><span class="p">,</span> <span class="s2">&quot;shx is empty&quot;</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">49</span>
+<span class="g g-Whitespace">     </span><span class="mi">45</span>     <span class="s2">&quot;shp file failed to load into GeoPandas&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">46</span> <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">47</span> <span class="k">assert</span> <span class="ow">not</span> <span class="n">shp_datafile</span><span class="o">.</span><span class="n">empty</span><span class="p">,</span> <span class="s2">&quot;shp is empty&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">48</span> 
+<span class="ne">---&gt; </span><span class="mi">49</span> <span class="n">shx_datafile</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;shape_files/countyl010g.shx&quot;</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">50</span> <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">shx_datafile</span><span class="p">,</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">),</span> <span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">51</span>     <span class="s2">&quot;shx file failed to load into GeoPandas&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">52</span> <span class="p">)</span>
 
 <span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/geopandas/io/file.py:316,</span> in <span class="ni">_read_file</span><span class="nt">(filename, bbox, mask, columns, rows, engine, **kwargs)</span>
 <span class="g g-Whitespace">    </span><span class="mi">313</span>             <span class="n">filename</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
