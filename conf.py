@@ -390,3 +390,11 @@ linkcheck_ignore = [
     r'https://www.mathworks.com/help/matlab/ref/double.sign.html',
     r'https://doi.org/10.5065/6w2c-a132',
 ]
+
+# Set mime type for linkcheck
+# Removes --> WARNING: No mime type available in priority list for builder 'linkcheck' ('text/html') [mystnb.mime_priority] [mystnb.mime_priority]
+nb_mime_priority_overrides = {
+    "linkcheck": [
+        "text/plain",
+    ]
+}
