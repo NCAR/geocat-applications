@@ -3,6 +3,8 @@ on:
   workflow_dispatch:
   schedule:
      - cron: '30 0 * * *' # Daily “At 00:30”
+  pull_request:
+     types: [labeled]
   push:
     branches:
       - main
@@ -13,6 +15,7 @@ concurrency:
 
 jobs:
   build:
+    if: ${{ github.event.label.name == 'run-linkcheck' }}
     runs-on: ubuntu-latest
     defaults:
       run:
