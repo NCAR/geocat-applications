@@ -441,7 +441,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="nb">print</span><span class="p">(</span><span class="n">he2_f</span><span class="p">)</span>
 
 <span class="p">;</span> <span class="n">GRIB</span> <span class="n">file</span> <span class="nb">format</span> <span class="n">family</span> <span class="n">v1</span> <span class="ow">and</span> <span class="n">v2</span>
-<span class="n">grib_datafile</span> <span class="o">=</span> <span class="s2">&quot;POT.grb&quot;</span>
+<span class="n">grib_datafile</span> <span class="o">=</span> <span class="s2">&quot;ST4.2002030112.06h.grb&quot;</span>
 <span class="n">grib_f</span> <span class="o">=</span> <span class="n">addfile</span><span class="p">(</span><span class="n">grib_datafile</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">grib_f</span><span class="p">)</span>
 
@@ -490,7 +490,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="k">assert</span> <span class="n">HE2_datafile</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;he2 file is empty&quot;</span>
 
 <span class="c1"># GRIB file format family v1 and v2</span>
-<span class="n">grib_datafile</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;grib_files/POT.grb&quot;</span><span class="p">),</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;cfgrib&quot;</span><span class="p">)</span>
+<span class="n">grib_datafile</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;grib_files/ST4.2002030112.06h.grb&quot;</span><span class="p">),</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;cfgrib&quot;</span><span class="p">)</span>
 <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">grib_datafile</span><span class="p">,</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">),</span> <span class="s2">&quot;GRIB file failed to load into Xarray&quot;</span>
 <span class="k">assert</span> <span class="n">grib_datafile</span><span class="p">,</span> <span class="s2">&quot;GRIB files failed to load&quot;</span>
 <span class="k">assert</span> <span class="n">grib_datafile</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;GRIB file is empty&quot;</span>
