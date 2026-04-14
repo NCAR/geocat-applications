@@ -22,7 +22,7 @@ he2_f = addfile(HE2_datafile, "r")
 print(he2_f)
 
 ; GRIB file format family v1 and v2
-grib_datafile = "POT.grb"
+grib_datafile = "ST4.2002030112.06h.grb"
 grib_f = addfile(grib_datafile, "r")
 print(grib_f)
 
