@@ -29,6 +29,8 @@ consider the following points:
 
 - When merging, we prefer to use squash commits.
 
+- By default, the linkcheck is not run on each PR. To activate the linkcheck, add
+`run-linkcheck` from the list of available PR labels
 
 **PR Etiquette Reminders**
 - This PR should be listed as a draft PR until you are ready to request reviewers
