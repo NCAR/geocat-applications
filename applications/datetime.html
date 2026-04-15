@@ -420,7 +420,7 @@
 <p>Working with dates and times in Python is a common task in geoscience workflows. This notebook will cover:</p>
 <ul class="simple">
 <li><p>Working with the <a class="reference external" href="https://docs.python.org/3/library/datetime.html"><code class="docutils literal notranslate"><span class="pre">datetime</span></code></a> module from the Python Standard Library</p></li>
-<li><p><a class="reference external" href="https://unidata.github.io/cftime/index.html"><code class="docutils literal notranslate"><span class="pre">cftime</span></code></a>, <a class="reference external" href="https://cfconventions.org/">CF Conventions</a>, and how they are related to working with geoscience data</p></li>
+<li><p><a class="reference external" href="https://unidata.github.io/cftime/index.html"><code class="docutils literal notranslate"><span class="pre">cftime</span></code></a>, <a class="reference external" href="https://cf-convention.github.io">CF Conventions</a>, and how they are related to working with geoscience data</p></li>
 <li><p>A resource guide to point you to more detailed information depending on your use case</p></li>
 </ul>
 </section>
@@ -444,7 +444,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.date.today() -&gt; 	 2026-04-15
-datetime.datetime.now() -&gt; 	 2026-04-15 00:22:04.411166
+datetime.datetime.now() -&gt; 	 2026-04-15 19:15:29.186558
 </pre></div>
 </div>
 </div>
@@ -475,10 +475,10 @@ datetime.datetime.now() -&gt; 	 2026-04-15 00:22:04.411166
 2026
 
 now.strftime(&#39;%A, %B %d %Y %I:%M:%S %p&#39;)
-Wednesday, April 15 2026 12:22:04 AM
+Wednesday, April 15 2026 07:15:29 PM
 
 now.strftime(&#39;%c&#39;)
-Wed Apr 15 00:22:04 2026
+Wed Apr 15 19:15:29 2026
 </pre></div>
 </div>
 </div>
@@ -488,7 +488,7 @@ Wed Apr 15 00:22:04 2026
 </section>
 <section id="cftime">
 <h2>cftime<a class="headerlink" href="#cftime" title="Link to this heading">#</a></h2>
-<p><a class="reference external" href="https://unidata.github.io/cftime/"><code class="docutils literal notranslate"><span class="pre">cftime</span></code></a> is another library for working with dates and times in Python that conforms to the <a class="reference external" href="https://cfconventions.org/cf-conventions/cf-conventions#time-coordinate">Climate and Forecasting (CF) metadata conventions</a>.</p>
+<p><a class="reference external" href="https://unidata.github.io/cftime/"><code class="docutils literal notranslate"><span class="pre">cftime</span></code></a> is another library for working with dates and times in Python that conforms to the <a class="reference external" href="https://cf-convention.github.io/cf-conventions/cf-conventions#time-coordinate">Climate and Forecasting (CF) metadata conventions</a>.</p>
 <p>Importantly, <code class="docutils literal notranslate"><span class="pre">cftime</span></code> supports all the calendars defined in the CF conventions, including <code class="docutils literal notranslate"><span class="pre">gregorian</span></code> or <code class="docutils literal notranslate"><span class="pre">standard</span></code>, which is the mixed Gregorian/Julian calendar defined by <a class="reference external" href="https://www.unidata.ucar.edu/software/udunits/">Udunits</a>, <code class="docutils literal notranslate"><span class="pre">proleptic_gregorian</span></code>, <code class="docutils literal notranslate"><span class="pre">noleap</span></code> or <code class="docutils literal notranslate"><span class="pre">365_day</span></code>, <code class="docutils literal notranslate"><span class="pre">all_leap</span></code> or <code class="docutils literal notranslate"><span class="pre">366_day</span></code>, <code class="docutils literal notranslate"><span class="pre">360_day</span></code>, and <code class="docutils literal notranslate"><span class="pre">julian</span></code>.</p>
 <p><code class="docutils literal notranslate"><span class="pre">cftime</span></code> is often useful for working with geoscience data and can be used with <a class="reference external" href="https://docs.xarray.dev/en/stable/generated/xarray.CFTimeIndex.html"><code class="docutils literal notranslate"><span class="pre">xarray</span></code></a>.</p>
 </section>
