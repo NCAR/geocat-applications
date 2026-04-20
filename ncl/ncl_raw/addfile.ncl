@@ -20,18 +20,3 @@ print(hdf_f)
 HE2_datafile = "MOD04_L2.A2001066.0000.004.2003078090622.he2"
 he2_f = addfile(HE2_datafile, "r")
 print(he2_f)
-
-; GRIB file format family v1 and v2
-grib_datafile = "ST4.2002030112.06h.grb"
-grib_f = addfile(grib_datafile, "r")
-print(grib_f)
-
-grb2_datafile = "200711210135_NCV_CEILING_A.grb2"
-grb2_f = addfile(grb2_datafile, "r")
-print(grb2_f)
-
-; Shapefile file format family
-; export SHAPE_RESTORE_SHX=YES
-shp_datafile = "states.shp"
-shp_f = addfile(shp_datafile, "r")
-print(shp_f)
