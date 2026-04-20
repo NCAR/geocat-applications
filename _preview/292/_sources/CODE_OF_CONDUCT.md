@@ -48,13 +48,13 @@ Project administrators are also expected to keep this Code of Conduct updated wi
 Instances of unacceptable behavior can be brought to the attention of the project administrator(s) who may take any reasonable and necessary action to address and stop the behavior. However, making a report to a project administrator is not considered an ‘official report’ to UCAR.
 
 Instances of unacceptable behavior may also be reported:
-- To [The Chief Human Resources Officer](chro@ucar.edu) who serves as UCAR’s Section 504, Title VI, VII and IX Coordinator;
+- To [The Chief Human Resources Officer](mailto:chro@ucar.edu) who serves as UCAR’s Section 504, Title VI, VII and IX Coordinator;
 - Through [UCAR’s Reporting a Concern website](https://www.ucar.edu/who-we-are/ethics); or
 - Anonymously through [UCAR’s EthicsPoint Hotline](https://www.ucar.edu/who-we-are/ethics).
 
 Complaints received by UCAR will be handled pursuant to the procedures outlined in [UCAR’s Complaint and Investigations Procedures](https://sundog.ucar.edu/Interact/Pages/Content/Document.aspx?id=5140). Complaints to UCAR will be held as confidential as practicable under the circumstances, and retaliation against a person who initiates a complaint or an inquiry about inappropriate behavior will not be tolerated.
 
-If you require a reasonable accommodation due to a disability or for assistance as an individual with Limited English Proficiency (LEP), please contact UCAR's [Chief Human Resources Officer](chro@ucar.edu).
+If you require a reasonable accommodation due to a disability or for assistance as an individual with Limited English Proficiency (LEP), please contact UCAR's [Chief Human Resources Officer](mailto:chro@ucar.edu).
 
 Any Contributor can use these reporting methods even if they are not directly affiliated with UCAR. The Frequently Asked Questions (FAQ) page for reporting is [here](https://www.ucar.edu/who-we-are/ethics).
 

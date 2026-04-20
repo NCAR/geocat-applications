@@ -439,21 +439,6 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="n">HE2_datafile</span> <span class="o">=</span> <span class="s2">&quot;MOD04_L2.A2001066.0000.004.2003078090622.he2&quot;</span>
 <span class="n">he2_f</span> <span class="o">=</span> <span class="n">addfile</span><span class="p">(</span><span class="n">HE2_datafile</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">he2_f</span><span class="p">)</span>
-
-<span class="p">;</span> <span class="n">GRIB</span> <span class="n">file</span> <span class="nb">format</span> <span class="n">family</span> <span class="n">v1</span> <span class="ow">and</span> <span class="n">v2</span>
-<span class="n">grib_datafile</span> <span class="o">=</span> <span class="s2">&quot;ST4.2002030112.06h.grb&quot;</span>
-<span class="n">grib_f</span> <span class="o">=</span> <span class="n">addfile</span><span class="p">(</span><span class="n">grib_datafile</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">grib_f</span><span class="p">)</span>
-
-<span class="n">grb2_datafile</span> <span class="o">=</span> <span class="s2">&quot;200711210135_NCV_CEILING_A.grb2&quot;</span>
-<span class="n">grb2_f</span> <span class="o">=</span> <span class="n">addfile</span><span class="p">(</span><span class="n">grb2_datafile</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">grb2_f</span><span class="p">)</span>
-
-<span class="p">;</span> <span class="n">Shapefile</span> <span class="n">file</span> <span class="nb">format</span> <span class="n">family</span>
-<span class="p">;</span> <span class="n">export</span> <span class="n">SHAPE_RESTORE_SHX</span><span class="o">=</span><span class="n">YES</span>
-<span class="n">shp_datafile</span> <span class="o">=</span> <span class="s2">&quot;states.shp&quot;</span>
-<span class="n">shp_f</span> <span class="o">=</span> <span class="n">addfile</span><span class="p">(</span><span class="n">shp_datafile</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">shp_f</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -488,28 +473,6 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">HE2_datafile</span><span class="p">,</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">),</span> <span class="s2">&quot;he2 file failed to load into Xarray&quot;</span>
 <span class="k">assert</span> <span class="n">HE2_datafile</span><span class="p">,</span> <span class="s2">&quot;he2 files failed to load&quot;</span>
 <span class="k">assert</span> <span class="n">HE2_datafile</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;he2 file is empty&quot;</span>
-
-<span class="c1"># GRIB file format family v1 and v2</span>
-<span class="n">grib_datafile</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
-    <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;grib_files/ST4.2002030112.06h.grb&quot;</span><span class="p">),</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;cfgrib&quot;</span>
-<span class="p">)</span>
-<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">grib_datafile</span><span class="p">,</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">),</span> <span class="s2">&quot;GRIB file failed to load into Xarray&quot;</span>
-<span class="k">assert</span> <span class="n">grib_datafile</span><span class="p">,</span> <span class="s2">&quot;GRIB files failed to load&quot;</span>
-<span class="k">assert</span> <span class="n">grib_datafile</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;GRIB file is empty&quot;</span>
-
-<span class="n">grb2_datafile</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
-    <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;grib_files/200711210135_NCV_CEILING_A.grb2&quot;</span><span class="p">),</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;cfgrib&quot;</span>
-<span class="p">)</span>
-<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">grb2_datafile</span><span class="p">,</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">),</span> <span class="s2">&quot;grb2 file failed to load into Xarray&quot;</span>
-<span class="k">assert</span> <span class="n">grb2_datafile</span><span class="p">,</span> <span class="s2">&quot;grb2 files failed to load&quot;</span>
-<span class="k">assert</span> <span class="n">grb2_datafile</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;grb2 file is empty&quot;</span>
-
-<span class="c1"># Shapefile file format family</span>
-<span class="n">shp_datafile</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;shape_files/states.shp&quot;</span><span class="p">))</span>
-<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">shp_datafile</span><span class="p">,</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">),</span> <span class="p">(</span>
-    <span class="s2">&quot;shp file failed to load into GeoPandas&quot;</span>
-<span class="p">)</span>
-<span class="k">assert</span> <span class="ow">not</span> <span class="n">shp_datafile</span><span class="o">.</span><span class="n">empty</span><span class="p">,</span> <span class="s2">&quot;shp is empty&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -518,9 +481,6 @@ This notebook is part of the process we have for adding entries to the NCL Index
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;hdf_files/MOD04_L2.A2001066.0000.004.2003078090622.he2&#39; from &#39;https://github.com/NCAR/geocat-datafiles/raw/main/hdf_files/MOD04_L2.A2001066.0000.004.2003078090622.he2&#39; to &#39;/home/runner/.cache/geocat&#39;.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;grib_files/200711210135_NCV_CEILING_A.grb2&#39; from &#39;https://github.com/NCAR/geocat-datafiles/raw/main/grib_files/200711210135_NCV_CEILING_A.grb2&#39; to &#39;/home/runner/.cache/geocat&#39;.
 </pre></div>
 </div>
 </div>
