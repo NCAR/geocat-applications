@@ -4,9 +4,7 @@ on:
   schedule:
      - cron: '30 0 * * *' # Daily “At 00:30”
   pull_request:
-  push:
-    branches:
-      - main
+     types: [labeled] # only runs on PR's with label `run-linkcheck`
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -14,6 +12,7 @@ concurrency:
 
 jobs:
   build:
+    if: ${{ github.event.label.name == 'run-linkcheck' || github.event_name == 'workflow_dispatch' || github.event_name == 'schedule' }}
     runs-on: ubuntu-latest
     defaults:
       run:
