@@ -476,7 +476,91 @@
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/inputs/CMIP6_sea_ice_daily_subset.nc&#39; from &#39;https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/inputs/CMIP6_sea_ice_daily_subset.nc&#39; to &#39;/home/runner/.cache/geocat&#39;.
 </pre></div>
 </div>
-<img alt="../../_images/228f52b6150f12c6a87d5c80dcd12e53a1416da6482553fa9642510d2a21ed59.png" src="../../_images/228f52b6150f12c6a87d5c80dcd12e53a1416da6482553fa9642510d2a21ed59.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Failed to download &#39;CMIP6_sea_ice_daily_subset.nc&#39;. Will attempt the download again 10 more times.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Failed to download &#39;CMIP6_sea_ice_daily_subset.nc&#39;. Will attempt the download again 9 more times.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Failed to download &#39;CMIP6_sea_ice_daily_subset.nc&#39;. Will attempt the download again 8 more times.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Failed to download &#39;CMIP6_sea_ice_daily_subset.nc&#39;. Will attempt the download again 7 more times.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Failed to download &#39;CMIP6_sea_ice_daily_subset.nc&#39;. Will attempt the download again 6 more times.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Failed to download &#39;CMIP6_sea_ice_daily_subset.nc&#39;. Will attempt the download again 5 more times.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Failed to download &#39;CMIP6_sea_ice_daily_subset.nc&#39;. Will attempt the download again 4 more times.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Failed to download &#39;CMIP6_sea_ice_daily_subset.nc&#39;. Will attempt the download again 3 more times.
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">HTTPError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/pooch/core.py:823,</span> in <span class="ni">stream_download</span><span class="nt">(url, fname, known_hash, downloader, pooch, retry_if_failed)</span>
+<span class="g g-Whitespace">    </span><span class="mi">822</span> <span class="k">with</span> <span class="n">temporary_file</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">fname</span><span class="o">.</span><span class="n">parent</span><span class="p">))</span> <span class="k">as</span> <span class="n">tmp</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">823</span>     <span class="n">downloader</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">tmp</span><span class="p">,</span> <span class="n">pooch</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">824</span>     <span class="n">hash_matches</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">known_hash</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">fname</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+
+<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/pooch/downloaders.py:231,</span> in <span class="ni">HTTPDownloader.__call__</span><span class="nt">(self, url, output_file, pooch, check_only)</span>
+<span class="g g-Whitespace">    </span><span class="mi">230</span> <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">231</span> <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">232</span> <span class="n">content</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">iter_content</span><span class="p">(</span><span class="n">chunk_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">chunk_size</span><span class="p">)</span>
+
+<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/requests/models.py:1028,</span> in <span class="ni">Response.raise_for_status</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1027</span> <span class="k">if</span> <span class="n">http_error_msg</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1028</span>     <span class="k">raise</span> <span class="n">HTTPError</span><span class="p">(</span><span class="n">http_error_msg</span><span class="p">,</span> <span class="n">response</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
+
+<span class="ne">HTTPError</span>: 502 Server Error: Bad Gateway or Proxy Error for url: https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/inputs/CMIP6_sea_ice_daily_subset.nc
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">geocat.datafiles</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gcd</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;applications_files/inputs/CMIP6_sea_ice_daily_subset.nc&quot;</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> 
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">DayTLL</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">aice_d</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;time.dayofyear&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">clmDayTLL</span> <span class="o">=</span> <span class="n">DayTLL</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+
+<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/geocat/datafiles/__init__.py:41,</span> in <span class="ni">get</span><span class="nt">(fname)</span>
+<span class="g g-Whitespace">     </span><span class="mi">40</span> <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">41</span>     <span class="k">return</span> <span class="n">POOCH</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+
+<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/pooch/core.py:598,</span> in <span class="ni">Pooch.fetch</span><span class="nt">(self, fname, processor, downloader, progressbar)</span>
+<span class="g g-Whitespace">    </span><span class="mi">595</span>     <span class="k">if</span> <span class="n">downloader</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">596</span>         <span class="n">downloader</span> <span class="o">=</span> <span class="n">choose_downloader</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">progressbar</span><span class="o">=</span><span class="n">progressbar</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">598</span>     <span class="n">stream_download</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">599</span>         <span class="n">url</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">600</span>         <span class="n">full_path</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">601</span>         <span class="n">known_hash</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">602</span>         <span class="n">downloader</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">603</span>         <span class="n">pooch</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">604</span>         <span class="n">retry_if_failed</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">retry_if_failed</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">605</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">607</span> <span class="k">if</span> <span class="n">processor</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">608</span>     <span class="k">return</span> <span class="n">processor</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">full_path</span><span class="p">),</span> <span class="n">action</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+
+<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/pooch/core.py:838,</span> in <span class="ni">stream_download</span><span class="nt">(url, fname, known_hash, downloader, pooch, retry_if_failed)</span>
+<span class="g g-Whitespace">    </span><span class="mi">830</span> <span class="n">retries_left</span> <span class="o">=</span> <span class="n">download_attempts</span> <span class="o">-</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">831</span> <span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">832</span>     <span class="s2">&quot;Failed to download &#39;</span><span class="si">%s</span><span class="s2">&#39;. &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">833</span>     <span class="s2">&quot;Will attempt the download again </span><span class="si">%d</span><span class="s2"> more time</span><span class="si">%s</span><span class="s2">.&quot;</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>    <span class="mi">836</span>     <span class="s2">&quot;s&quot;</span> <span class="k">if</span> <span class="n">retries_left</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">837</span> <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">838</span> <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">max_wait</span><span class="p">))</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -516,12 +600,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/inputs/CMIP6_sea_ice_monthly_subset.nc&#39; from &#39;https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/inputs/CMIP6_sea_ice_monthly_subset.nc&#39; to &#39;/home/runner/.cache/geocat&#39;.
-</pre></div>
-</div>
-<img alt="../../_images/d3db57f2c69e229d958fe0a02f99e9186ff6d248867b79d825c0ba3bed7acf0e.png" src="../../_images/d3db57f2c69e229d958fe0a02f99e9186ff6d248867b79d825c0ba3bed7acf0e.png" />
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -560,9 +638,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/4db6d9c414f74acd8b9e62a4a966bcbedbc91f4999c8f0e89a8d50c28fd318f4.png" src="../../_images/4db6d9c414f74acd8b9e62a4a966bcbedbc91f4999c8f0e89a8d50c28fd318f4.png" />
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -600,9 +675,6 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;sea ice area&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/c60734ce48282c176c952bd519f8eaf2ce148515da1562408ccaf7d225e6ca07.png" src="../../_images/c60734ce48282c176c952bd519f8eaf2ce148515da1562408ccaf7d225e6ca07.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -648,9 +720,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/ab32612a67a0a5293c89f2a39b076736aa25f76107a9221b17459bc71c014959.png" src="../../_images/ab32612a67a0a5293c89f2a39b076736aa25f76107a9221b17459bc71c014959.png" />
-</div>
 </div>
 </section>
 </section>
@@ -678,9 +747,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/181408dbe554cfb39998bd8495f272322c694266c9ba5a112eaaa3e4ce9f6f64.png" src="../../_images/181408dbe554cfb39998bd8495f272322c694266c9ba5a112eaaa3e4ce9f6f64.png" />
-</div>
 </div>
 </section>
 </section>
@@ -703,9 +769,6 @@
 <span class="n">stdMonTLL</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/f1e3778e91d870eb9878edb246f263d99cd3830c2519c43de7c0fc15fea3cfff.png" src="../../_images/f1e3778e91d870eb9878edb246f263d99cd3830c2519c43de7c0fc15fea3cfff.png" />
 </div>
 </div>
 </section>
