@@ -40,3 +40,12 @@ and links to additional resources and references.
                 - `Climatology <climatology.ipynb>`_
                 - `Meteorology <meteorology.ipynb>`_
                 - `Great circle <great_circle.ipynb>`_
+
+    .. grid-item::
+
+        .. grid:: 1
+            :gutter: 1
+
+            .. card:: File I/O
+
+                - `Reading Files <file_io.ipynb>`_
