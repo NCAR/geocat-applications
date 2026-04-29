@@ -239,6 +239,7 @@ html_theme_options = {
     "use_repository_button": True,
     "use_issues_button": True,
     "home_page_in_toc": False,
+    "show_toc_level": 2,
     "analytics": {
         "google_analytics_id": "G-EQMBXF1D2V",
     },
