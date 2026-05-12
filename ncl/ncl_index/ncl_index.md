@@ -25,11 +25,11 @@ itables.init_notebook_mode(connected=True)
 ```{code-cell} ipython3
 :tags: [remove-input, full-width]
 
-df = pd.read_csv('ncl-index-table-demo.csv')
+df = pd.read_csv('ncl-index-table.csv')
 ```
 
 ```{code-cell} ipython3
 :tags: [remove-input, full-width]
 
-itables.show(df, allow_html=True)
+itables.show(df, allow_html=True, classes='wrap')
 ```
