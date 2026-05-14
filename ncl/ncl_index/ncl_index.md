@@ -34,4 +34,3 @@ df = pd.read_csv('ncl-index-table.csv')
 
 itables.show(df, allow_html=True, classes='wrap')
 ```
-
