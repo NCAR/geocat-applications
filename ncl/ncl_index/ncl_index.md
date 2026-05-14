@@ -34,4 +34,3 @@ display(HTML(f"<style>{css}</style>" ""))
 
 itables.show(df, allow_html=True, classes='wrap', style='whitespace:pre')
 ```
-
