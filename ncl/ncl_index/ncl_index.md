@@ -20,10 +20,6 @@ from IPython.display import HTML, display
 import itables
 import pandas as pd
 
-itables.init_notebook_mode(connected=True)
-
-df = pd.read_csv('ncl-index-table.csv')
-
 css = """
 .dt-length {
   white-space: pre;
@@ -32,5 +28,10 @@ css = """
 
 display(HTML(f"<style>{css}</style>" ""))
 
-itables.show(df, allow_html=True, classes='wrap', style='whitespace:pre')
+itables.init_notebook_mode(connected=True)
+
+df = pd.read_csv('ncl-index-table.csv')
+
+itables.show(df, allow_html=True, classes='wrap')
 ```
+
