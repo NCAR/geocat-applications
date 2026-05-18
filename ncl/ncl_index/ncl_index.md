@@ -16,17 +16,9 @@ kernelspec:
 ```{code-cell} ipython3
 :tags: [remove-input, full-width]
 
-from IPython.display import HTML, display
 import itables
 import pandas as pd
 
-css = """
-.dt-length {
-  white-space: pre;
-}
-"""
-
-display(HTML(f"<style>{css}</style>" ""))
 
 itables.init_notebook_mode(connected=True)
 
