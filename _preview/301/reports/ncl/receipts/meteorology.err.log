@@ -1,0 +1,74 @@
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/geocat-applications/lib/python3.14/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+    ~~~~~~~~~^
+        nb,
+        ^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/home/runner/micromamba/envs/geocat-applications/lib/python3.14/site-packages/nbclient/client.py", line 1323, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/runner/micromamba/envs/geocat-applications/lib/python3.14/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/home/runner/micromamba/envs/geocat-applications/lib/python3.14/asyncio/base_events.py", line 719, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/home/runner/micromamba/envs/geocat-applications/lib/python3.14/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+        cell, index, execution_count=self.code_cells_executed + 1
+    )
+  File "/home/runner/micromamba/envs/geocat-applications/lib/python3.14/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/runner/micromamba/envs/geocat-applications/lib/python3.14/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+### Collect Temperature, Mixing Ratio, Pressure
+temp_mr_press = []
+for temp in range(173, 273 + 1):
+    for mr in np.arange(0.01, 0.05 + 0.01, 0.01):
+        for press in range(10000, 15000 + 1, 500):
+            temp_mr_press.append((temp, mr, press))
+
+### Calculate GeoCAT-Comp `relhum_ice` value and temp/mixing ratio/pressure
+from geocat.comp import relhum_ice
+
+geocat_relhum_ice = {}
+
+for i, variables in enumerate(temp_mr_press):
+    temp, mr, press = variables
+    geocat_relhum_ice[variables] = relhum_ice(temp, mr, press)
+------------------
+
+----- stderr -----
+/home/runner/micromamba/envs/geocat-applications/lib/python3.14/site-packages/geocat/comp/meteorology.py:1270: SyntaxWarning: "\D" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\D"? A raw string is also an option.
+  \Delta p = p_{k+1/2} - p_{k-1/2}
+------------------
+
+[31m---------------------------------------------------------------------------[39m
+[31mTypeError[39m                                 Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[24][39m[32m, line 15[39m
+[32m     11[39m geocat_relhum_ice = {}
+[32m     12[39m 
+[32m     13[39m [38;5;28;01mfor[39;00m i, variables [38;5;28;01min[39;00m enumerate(temp_mr_press):
+[32m     14[39m     temp, mr, press = variables
+[32m---> [39m[32m15[39m     geocat_relhum_ice[variables] = relhum_ice(temp, mr, press)
+
+[36mFile [39m[32m~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/geocat/comp/meteorology.py:650[39m, in [36mrelhum_ice[39m[34m(temperature, mixing_ratio, pressure)[39m
+[32m    648[39m [38;5;66;03m# ensure all same input type[39;00m
+[32m    649[39m [38;5;28;01mif[39;00m [38;5;28mlen[39m([38;5;28mset[39m(in_types)) != [32m1[39m:
+[32m--> [39m[32m650[39m     [38;5;28;01mraise[39;00m [38;5;167;01mTypeError[39;00m(
+[32m    651[39m         [33mf[39m[33m"[39m[33mrelhum_ice: input types are not the same, received [39m[38;5;132;01m{[39;00min_types[38;5;132;01m}[39;00m[33m"[39m
+[32m    652[39m     )
+[32m    654[39m [38;5;66;03m# if inputs not xarray or numpy (float, int, list), elevate to np[39;00m
+[32m    655[39m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28misinstance[39m(temperature, xr.DataArray) [38;5;129;01mand[39;00m [38;5;129;01mnot[39;00m [38;5;28misinstance[39m(
+[32m    656[39m     temperature, np.ndarray
+[32m    657[39m ):
+
+[31mTypeError[39m: relhum_ice: input types are not the same, received [<class 'int'>, <class 'numpy.float64'>, <class 'int'>]
+
