@@ -385,7 +385,6 @@ nb_execution_excludepatterns = ['templates/*']
 linkcheck_anchors = False
 
 # ignore some links that work, but are disliked by linkcheck
-# Temporary removed while Code of Conduct is updated: https://doi.org/10.5065/6w2c-a132 -> https://www.ucar.edu/who-we-are/ethics-integrity/codes-conduct/contributors
 linkcheck_ignore = [
     r'https://doi.org/*',
     r'https://www.mathworks.com/help/matlab/ref/double.sign.html',
