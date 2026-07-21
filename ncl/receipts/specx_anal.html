@@ -27,21 +27,21 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=4418a689" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../_static/style.css?v=0fa5d2bc" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
@@ -51,7 +51,6 @@
     <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-EQMBXF1D2V"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){ dataLayer.push(arguments); }
@@ -61,6 +60,11 @@
                     'ad_personalization': 'denied',
                     'analytics_storage': 'denied'
                 });
+            </script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-EQMBXF1D2V"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
                 gtag('config', 'G-EQMBXF1D2V');
             </script>
@@ -412,11 +416,18 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div>
 
 
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -1095,7 +1106,7 @@ Attributes:
     creation_date:  Tue Mar 30 09:29:20 MST 1999
     references:     Trenberth, Mon. Wea. Rev: 2/1984
     time_span:      1882 - 1998
-    conventions:    None</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-c026e647-b1c1-4176-aebd-11c105142bbb' class='xr-section-summary-in' type='checkbox' disabled /><label for='section-c026e647-b1c1-4176-aebd-11c105142bbb' class='xr-section-summary'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 1404</li></ul></div></li><li class='xr-section-item'><input id='section-b12f1f9e-eb1f-4559-95d3-844ffab599d6' class='xr-section-summary-in' type='checkbox' checked /><label for='section-b12f1f9e-eb1f-4559-95d3-844ffab599d6' class='xr-section-summary' title='Expand/collapse section'>Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>0 1 2 3 4 ... 1400 1401 1402 1403</div><input id='attrs-509113ae-699c-4060-b95f-d576ae3133c7' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-509113ae-699c-4060-b95f-d576ae3133c7' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-52beb396-f653-4b68-899d-1de2db81f0d4' class='xr-var-data-in' type='checkbox'><label for='data-52beb396-f653-4b68-899d-1de2db81f0d4' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Months Since January 1882</dd><dt><span>units :</span></dt><dd>months</dd></dl></div><div class='xr-var-data'><pre>array([   0,    1,    2, ..., 1401, 1402, 1403], shape=(1404,), dtype=int32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-bef36f28-66a7-4b3c-af00-5e4f10b1c86c' class='xr-section-summary-in' type='checkbox' checked /><label for='section-bef36f28-66a7-4b3c-af00-5e4f10b1c86c' class='xr-section-summary' title='Expand/collapse section'>Data variables: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>date</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-dc1dff47-fe31-447b-a850-967211118a04' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-dc1dff47-fe31-447b-a850-967211118a04' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a5ab25c1-f207-4661-b763-eb045795f1aa' class='xr-var-data-in' type='checkbox'><label for='data-a5ab25c1-f207-4661-b763-eb045795f1aa' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>short_name :</span></dt><dd>Yr-Mo</dd><dt><span>long_name :</span></dt><dd>Year-Month</dd><dt><span>units :</span></dt><dd>YYYYMM</dd></dl></div><div class='xr-var-data'><pre>[1404 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>DSOI</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-2d50ddf5-c692-4f52-8c96-8f6ddc4eedc0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-2d50ddf5-c692-4f52-8c96-8f6ddc4eedc0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6eb35915-51c1-4d50-a42c-de958471a95b' class='xr-var-data-in' type='checkbox'><label for='data-6eb35915-51c1-4d50-a42c-de958471a95b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>short_name :</span></dt><dd>DSOI</dd><dt><span>long_name :</span></dt><dd>Darwin Southern Oscillation Index</dd><dt><span>units :</span></dt><dd>dimensionless</dd></dl></div><div class='xr-var-data'><pre>[1404 values with dtype=float32]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-1730cb94-e455-4867-b3c6-45e2f89676e1' class='xr-section-summary-in' type='checkbox' checked /><label for='section-1730cb94-e455-4867-b3c6-45e2f89676e1' class='xr-section-summary' title='Expand/collapse section'>Attributes: <span>(7)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>title :</span></dt><dd>Darwin Southern Oscillation Index</dd><dt><span>source :</span></dt><dd>Climate Analysis Section, NCAR</dd><dt><span>history :</span></dt><dd>
+    conventions:    None</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-857711e0-173e-4821-b372-ba3d1083ffe5' class='xr-section-summary-in' type='checkbox' disabled /><label for='section-857711e0-173e-4821-b372-ba3d1083ffe5' class='xr-section-summary'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 1404</li></ul></div></li><li class='xr-section-item'><input id='section-d5cfadf7-e4a1-49b6-9fe4-867b3f363d7b' class='xr-section-summary-in' type='checkbox' checked /><label for='section-d5cfadf7-e4a1-49b6-9fe4-867b3f363d7b' class='xr-section-summary' title='Expand/collapse section'>Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>0 1 2 3 4 ... 1400 1401 1402 1403</div><input id='attrs-dcbfd2fa-e9c9-4fc6-95a5-a871dca8982b' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-dcbfd2fa-e9c9-4fc6-95a5-a871dca8982b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0e8ee3d5-8c89-474e-a794-8218e21db111' class='xr-var-data-in' type='checkbox'><label for='data-0e8ee3d5-8c89-474e-a794-8218e21db111' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Months Since January 1882</dd><dt><span>units :</span></dt><dd>months</dd></dl></div><div class='xr-var-data'><pre>array([   0,    1,    2, ..., 1401, 1402, 1403], shape=(1404,), dtype=int32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-5b8d74e8-540b-4c1b-a39b-b436a14d800c' class='xr-section-summary-in' type='checkbox' checked /><label for='section-5b8d74e8-540b-4c1b-a39b-b436a14d800c' class='xr-section-summary' title='Expand/collapse section'>Data variables: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>date</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-fb05f9e3-a891-4417-a7c4-20fcebc14a77' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-fb05f9e3-a891-4417-a7c4-20fcebc14a77' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-cf010e5f-11b6-48e1-b248-3f1779642c3f' class='xr-var-data-in' type='checkbox'><label for='data-cf010e5f-11b6-48e1-b248-3f1779642c3f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>short_name :</span></dt><dd>Yr-Mo</dd><dt><span>long_name :</span></dt><dd>Year-Month</dd><dt><span>units :</span></dt><dd>YYYYMM</dd></dl></div><div class='xr-var-data'><pre>[1404 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>DSOI</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-6d7252b9-9e55-4b57-9e83-1b502927b0dc' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-6d7252b9-9e55-4b57-9e83-1b502927b0dc' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4dfab4c3-70e1-4cc9-9fd1-38849063fda9' class='xr-var-data-in' type='checkbox'><label for='data-4dfab4c3-70e1-4cc9-9fd1-38849063fda9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>short_name :</span></dt><dd>DSOI</dd><dt><span>long_name :</span></dt><dd>Darwin Southern Oscillation Index</dd><dt><span>units :</span></dt><dd>dimensionless</dd></dl></div><div class='xr-var-data'><pre>[1404 values with dtype=float32]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-79e86f02-c09d-4895-88e8-509471aac696' class='xr-section-summary-in' type='checkbox' checked /><label for='section-79e86f02-c09d-4895-88e8-509471aac696' class='xr-section-summary' title='Expand/collapse section'>Attributes: <span>(7)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>title :</span></dt><dd>Darwin Southern Oscillation Index</dd><dt><span>source :</span></dt><dd>Climate Analysis Section, NCAR</dd><dt><span>history :</span></dt><dd>
 DSOI = - Normalized Darwin
 Normalized sea level pressure is used.
 The normalization is done using Trenberth&#x27;s method.
@@ -1140,7 +1151,7 @@ see  http://www.cgd.ucar.edu/cas/climind/soi.html</dd><dt><span>creation_date :<
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a9f51ae5858226a72a58baef611defd5ea8f3c3a9e26cec75be7ea016c38e1e9.png" src="../../_images/a9f51ae5858226a72a58baef611defd5ea8f3c3a9e26cec75be7ea016c38e1e9.png" />
+<img alt="../../_images/c6a5a58debf46382af89bee8a6afd2da53262f95066e40bd999e3a3536cacc7f.png" src="../../_images/c6a5a58debf46382af89bee8a6afd2da53262f95066e40bd999e3a3536cacc7f.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1225,7 +1236,7 @@ see  http://www.cgd.ucar.edu/cas/climind/soi.html</dd><dt><span>creation_date :<
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/30335559b0a49342e653e971e8972e93a5238b21521fac9f444940b94047b83e.png" src="../../_images/30335559b0a49342e653e971e8972e93a5238b21521fac9f444940b94047b83e.png" />
+<img alt="../../_images/6bf0009556761362e435dd22a2485f34d183493097855585b43e4ea885ab755a.png" src="../../_images/6bf0009556761362e435dd22a2485f34d183493097855585b43e4ea885ab755a.png" />
 </div>
 </div>
 </section>
@@ -1259,7 +1270,7 @@ see  http://www.cgd.ucar.edu/cas/climind/soi.html</dd><dt><span>creation_date :<
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8d0d19ec8b5819199230a4242792d048ff41ae518310b73be909dc0093d56ddc.png" src="../../_images/8d0d19ec8b5819199230a4242792d048ff41ae518310b73be909dc0093d56ddc.png" />
+<img alt="../../_images/d5190f40e7afef94f7d1fcd26e1d361e430b7c904c9192e85c29bf6dcab1c432.png" src="../../_images/d5190f40e7afef94f7d1fcd26e1d361e430b7c904c9192e85c29bf6dcab1c432.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1272,7 +1283,7 @@ see  http://www.cgd.ucar.edu/cas/climind/soi.html</dd><dt><span>creation_date :<
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a7de581bc858a1865ba0c4c9b19709734b78d12acd8a06d057b82959a7a07ef0.png" src="../../_images/a7de581bc858a1865ba0c4c9b19709734b78d12acd8a06d057b82959a7a07ef0.png" />
+<img alt="../../_images/16ada71679ae28d9b407b982c430589dff424ee381bce5f6062e2a8266ac667e.png" src="../../_images/16ada71679ae28d9b407b982c430589dff424ee381bce5f6062e2a8266ac667e.png" />
 </div>
 </div>
 </section>
@@ -1338,7 +1349,7 @@ see  http://www.cgd.ucar.edu/cas/climind/soi.html</dd><dt><span>creation_date :<
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/bd5a0f03b13623de8e0a99c8aaa294511ccef66b8d69d78fab03261b31b6f210.png" src="../../_images/bd5a0f03b13623de8e0a99c8aaa294511ccef66b8d69d78fab03261b31b6f210.png" />
+<img alt="../../_images/4639ef392e4058b413a4a61a3145531e3b7683bf4926082d5198b36f74bdd3c9.png" src="../../_images/4639ef392e4058b413a4a61a3145531e3b7683bf4926082d5198b36f74bdd3c9.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1352,7 +1363,7 @@ see  http://www.cgd.ucar.edu/cas/climind/soi.html</dd><dt><span>creation_date :<
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d1ed5e98b56517b819edc9fe175852aceb76c310d04732111aaca55ae3e3e0d1.png" src="../../_images/d1ed5e98b56517b819edc9fe175852aceb76c310d04732111aaca55ae3e3e0d1.png" />
+<img alt="../../_images/a41327d7a712af81448b2e73181edb649ff42d3aeb0de46a41671f4017d247c2.png" src="../../_images/a41327d7a712af81448b2e73181edb649ff42d3aeb0de46a41671f4017d247c2.png" />
 </div>
 </div>
 </section>
@@ -1442,8 +1453,8 @@ By GeoCAT
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
 
   <footer class="bd-footer">
   </footer>

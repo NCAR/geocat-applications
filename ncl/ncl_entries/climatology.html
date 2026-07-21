@@ -27,21 +27,21 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=4418a689" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../_static/style.css?v=0fa5d2bc" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
@@ -51,7 +51,6 @@
     <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-EQMBXF1D2V"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){ dataLayer.push(arguments); }
@@ -61,6 +60,11 @@
                     'ad_personalization': 'denied',
                     'analytics_storage': 'denied'
                 });
+            </script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-EQMBXF1D2V"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
                 gtag('config', 'G-EQMBXF1D2V');
             </script>
@@ -414,11 +418,18 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div>
 
 
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -533,7 +544,7 @@
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/inputs/CMIP6_sea_ice_daily_subset.nc&#39; from &#39;https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/inputs/CMIP6_sea_ice_daily_subset.nc&#39; to &#39;/home/runner/.cache/geocat&#39;.
 </pre></div>
 </div>
-<img alt="../../_images/f5bf97724edcb5a8f5f79c861d0550e1835f1ea3ecad195b73bcbe917850cc80.png" src="../../_images/f5bf97724edcb5a8f5f79c861d0550e1835f1ea3ecad195b73bcbe917850cc80.png" />
+<img alt="../../_images/b75ad09fb34722848cff8f29ca38240de277685951b6f955b6a720d421fb3b56.png" src="../../_images/b75ad09fb34722848cff8f29ca38240de277685951b6f955b6a720d421fb3b56.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -577,7 +588,7 @@
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/inputs/CMIP6_sea_ice_monthly_subset.nc&#39; from &#39;https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/inputs/CMIP6_sea_ice_monthly_subset.nc&#39; to &#39;/home/runner/.cache/geocat&#39;.
 </pre></div>
 </div>
-<img alt="../../_images/add1f622015b66750f1e6e2f9fdf1403afafc26fcd6faf166b35f802411486e1.png" src="../../_images/add1f622015b66750f1e6e2f9fdf1403afafc26fcd6faf166b35f802411486e1.png" />
+<img alt="../../_images/6a3a85a1217294a4495ad520da422f8ad151f54b1cc325c90ab05f4674fa14ca.png" src="../../_images/6a3a85a1217294a4495ad520da422f8ad151f54b1cc325c90ab05f4674fa14ca.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -618,7 +629,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/17cebebf4a85251ecd148bfcc571798e5d2ba5daeacabbfd7a82ddf223e2c6fd.png" src="../../_images/17cebebf4a85251ecd148bfcc571798e5d2ba5daeacabbfd7a82ddf223e2c6fd.png" />
+<img alt="../../_images/cf8850b16b299cbb1c133722b9fafdff72f3d55f7768f2f634912e663d343210.png" src="../../_images/cf8850b16b299cbb1c133722b9fafdff72f3d55f7768f2f634912e663d343210.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -659,7 +670,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/4acac287cc46b29a18d457dc21faa09d8651bdd298cb0ef5af5c41d4dc78cfa5.png" src="../../_images/4acac287cc46b29a18d457dc21faa09d8651bdd298cb0ef5af5c41d4dc78cfa5.png" />
+<img alt="../../_images/96f7ed12849cdafa4f0f2616672f8e2dcff9e4a6cfe2acc50f5b05fa09af22f6.png" src="../../_images/96f7ed12849cdafa4f0f2616672f8e2dcff9e4a6cfe2acc50f5b05fa09af22f6.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -706,7 +717,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b56a23177b26f52d9258c7a0d4ca22435cd828357ca94d6721a3d78f8d1c904c.png" src="../../_images/b56a23177b26f52d9258c7a0d4ca22435cd828357ca94d6721a3d78f8d1c904c.png" />
+<img alt="../../_images/f1a3f1e35b8193d17722456a37a8d339d8d1c7007de77fb9b4f4a00d538d5ce8.png" src="../../_images/f1a3f1e35b8193d17722456a37a8d339d8d1c7007de77fb9b4f4a00d538d5ce8.png" />
 </div>
 </div>
 </section>
@@ -736,7 +747,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/61a0acbbcbf3c8c1f5276c1e20889c481181d25153539fb177f263ae24ee71a1.png" src="../../_images/61a0acbbcbf3c8c1f5276c1e20889c481181d25153539fb177f263ae24ee71a1.png" />
+<img alt="../../_images/ea34ee6c0c968e77aeaf40aab70b6870de599d2e2e4e1f0a02a8c058708a4bb8.png" src="../../_images/ea34ee6c0c968e77aeaf40aab70b6870de599d2e2e4e1f0a02a8c058708a4bb8.png" />
 </div>
 </div>
 </section>
@@ -762,7 +773,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/965530199dbfb553b5e5d1415c856150a4846cd0780b5a20c096d8a31d30d1ef.png" src="../../_images/965530199dbfb553b5e5d1415c856150a4846cd0780b5a20c096d8a31d30d1ef.png" />
+<img alt="../../_images/1a1ae830cd0b1636b226219b46eeee76826fe1bc2e14a1bafacaf48a7145812c.png" src="../../_images/1a1ae830cd0b1636b226219b46eeee76826fe1bc2e14a1bafacaf48a7145812c.png" />
 </div>
 </div>
 </section>
@@ -893,8 +904,8 @@ By GeoCAT
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
 
   <footer class="bd-footer">
   </footer>
