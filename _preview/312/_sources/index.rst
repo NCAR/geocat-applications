@@ -54,6 +54,7 @@ Python Applications
 
                 - `General applied math <./applications/general_applied_math.ipynb>`__
                 - `Spectral analysis <./applications/spectral_analysis.ipynb>`__
+                - `Curly vector <curly_vector.ipynb>`__
 
     .. grid-item::
 
