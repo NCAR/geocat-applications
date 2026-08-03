@@ -697,6 +697,7 @@ Show the python code that replicates the NCL functionality. Don't worry about pr
 --><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">results_math</span> <span class="o">=</span> <span class="p">{}</span>
@@ -865,13 +866,13 @@ Show the python code that replicates the NCL functionality. Don't worry about pr
     <span class="s2">&quot;sum&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
 <span class="p">}</span>
 
-<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ncl_results</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ncl_results</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;sqsort&quot;</span><span class="p">:</span>
         <span class="c1"># compare string outputs</span>
         <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">ncl_results</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">==</span> <span class="n">results_math</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
         <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">ncl_results</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">==</span> <span class="n">results_np</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
         <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">results_math</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">==</span> <span class="n">results_np</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
-    <span class="k">elif</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">results_math</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">results_np</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">elif</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">results_math</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">results_np</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span>
             <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="se">\n\t</span><span class="s2">ncl:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">ncl_results</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n\t</span><span class="s2">python (math):</span><span class="se">\t</span><span class="si">{</span><span class="n">results_math</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n\t</span><span class="s2">python (numpy):</span><span class="se">\t</span><span class="si">{</span><span class="n">results_np</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="p">)</span>
@@ -895,7 +896,7 @@ Show the python code that replicates the NCL functionality. Don't worry about pr
             <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span>
                 <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">ncl_results</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">results_np</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-06</span><span class="p">)</span>
             <span class="p">)</span>  <span class="c1"># within 6 decimal points</span>
-    <span class="k">elif</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">results_math</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">results_np</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">elif</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">results_math</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">results_np</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span>
             <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="se">\n\t</span><span class="s2">ncl:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">ncl_results</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n\t</span><span class="s2">python (math):</span><span class="se">\t</span><span class="si">{</span><span class="n">results_math</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="p">)</span>
@@ -907,7 +908,7 @@ Show the python code that replicates the NCL functionality. Don't worry about pr
             <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span>
                 <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">ncl_results</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">results_np</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-06</span><span class="p">)</span>
             <span class="p">)</span>  <span class="c1"># within 6 decimal points</span>
-    <span class="k">elif</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">results_np</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">results_math</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">elif</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">results_np</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">results_math</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span>
             <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="se">\n\t</span><span class="s2">ncl:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">ncl_results</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n\t</span><span class="s2">python (numpy):</span><span class="se">\t</span><span class="si">{</span><span class="n">results_np</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="p">)</span>
@@ -1061,18 +1062,18 @@ sum:
 <h2>Differences<a class="headerlink" href="#differences" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ncl_results</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ncl_results</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;sqsort&quot;</span><span class="p">:</span>
         <span class="c1"># ignore string comparison</span>
         <span class="k">continue</span>
-    <span class="k">elif</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">results_math</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">results_np</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">elif</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">results_math</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">results_np</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="si">{</span><span class="n">results_math</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">ncl_results</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="si">{</span><span class="n">results_np</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">ncl_results</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">results_math</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">results_np</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">elif</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">results_math</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">results_np</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="si">{</span><span class="n">results_math</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">ncl_results</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">results_np</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">results_math</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">elif</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">results_np</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">results_math</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="si">{</span><span class="n">results_np</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">ncl_results</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
@@ -1162,60 +1163,60 @@ sqrt:
 sum:
 	0
 	0
-abs:
-	0
-	0
-ceil:
-	0
-	0.0
-get_r2d:
-	0.0
-	0.0
 round:
 	0
-	0.0
-log:
-	-1.5453793578146247e-07
-	-1.5453793578146247e-07
-floor:
-	0
-	0.0
-get_d2r:
-	-3.469446951953614e-18
-	-3.469446951953614e-18
-max:
-	0.0
 	0.0
 qsort:
 	[0. 0. 0. 0. 0. 0. 0.]
 	[0. 0. 0. 0. 0. 0. 0.]
-mod:
-	0
-	0
+max:
+	0.0
+	0.0
 sqrt:
 	-9.406726242389141e-08
 	-9.406726242389141e-08
+log:
+	-1.5453793578146247e-07
+	-1.5453793578146247e-07
+abs:
+	0
+	0
 exp:
 	-4.6922018159811785e-08
 	-4.6922018159811785e-08
-min:
-	0.0
-	0.0
 decimalPlaces:
 	0.0
 	0.0
 sum:
 	0
 	0
+floor:
+	0
+	0.0
 product:
 	0
 	0
-get_pi:
-	0.0
-	0.0
+get_d2r:
+	-3.469446951953614e-18
+	-3.469446951953614e-18
 log10:
 	1.704225516263591e-08
 	1.704225516263591e-08
+ceil:
+	0
+	0.0
+min:
+	0.0
+	0.0
+get_pi:
+	0.0
+	0.0
+get_r2d:
+	0.0
+	0.0
+mod:
+	0
+	0
 </pre></div>
 </div>
 </div>
