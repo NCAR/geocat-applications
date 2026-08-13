@@ -1,0 +1,253 @@
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/geocat-applications/lib/python3.14/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+    ~~~~~~~~~^
+        nb,
+        ^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/home/runner/micromamba/envs/geocat-applications/lib/python3.14/site-packages/nbclient/client.py", line 1323, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/runner/micromamba/envs/geocat-applications/lib/python3.14/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/home/runner/micromamba/envs/geocat-applications/lib/python3.14/asyncio/base_events.py", line 719, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/home/runner/micromamba/envs/geocat-applications/lib/python3.14/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+        cell, index, execution_count=self.code_cells_executed + 1
+    )
+  File "/home/runner/micromamba/envs/geocat-applications/lib/python3.14/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/runner/micromamba/envs/geocat-applications/lib/python3.14/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import xarray as xr
+import geocat.datafiles as gcd
+from matplotlib import pyplot as plt
+
+ds = xr.open_dataset(gcd.get("applications_files/inputs/CMIP6_sea_ice_daily_subset.nc"))
+
+DayTLL = ds.aice_d.groupby("time.dayofyear")
+clmDayTLL = DayTLL.mean("time")
+calcDayAnomTLL = DayTLL - clmDayTLL
+
+calcDayAnomTLL[0, :, :].assign_attrs(long_name="sea ice anomaly").plot();
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mRemoteDisconnected[39m                        Traceback (most recent call last)
+[36mFile [39m[32m~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/urllib3/connectionpool.py:788[39m, in [36mHTTPConnectionPool.urlopen[39m[34m(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, preload_content, decode_content, **response_kw)[39m
+[32m    787[39m [38;5;66;03m# Make the request on the HTTPConnection object[39;00m
+[32m--> [39m[32m788[39m response = [30;43mself[39;49m[30;43m.[39;49m[30;43m_make_request[39;49m[30;43m([39;49m
+[32m    789[39m [30;43m    [39;49m[30;43mconn[39;49m[30;43m,[39;49m
+[32m    790[39m [30;43m    [39;49m[30;43mmethod[39;49m[30;43m,[39;49m
+[32m    791[39m [30;43m    [39;49m[30;43murl[39;49m[30;43m,[39;49m
+[32m    792[39m [30;43m    [39;49m[30;43mtimeout[39;49m[30;43m=[39;49m[30;43mtimeout_obj[39;49m[30;43m,[39;49m
+[32m    793[39m [30;43m    [39;49m[30;43mbody[39;49m[30;43m=[39;49m[30;43mbody[39;49m[30;43m,[39;49m
+[32m    794[39m [30;43m    [39;49m[30;43mheaders[39;49m[30;43m=[39;49m[30;43mheaders[39;49m[30;43m,[39;49m
+[32m    795[39m [30;43m    [39;49m[30;43mchunked[39;49m[30;43m=[39;49m[30;43mchunked[39;49m[30;43m,[39;49m
+[32m    796[39m [30;43m    [39;49m[30;43mretries[39;49m[30;43m=[39;49m[30;43mretries[39;49m[30;43m,[39;49m
+[32m    797[39m [30;43m    [39;49m[30;43mresponse_conn[39;49m[30;43m=[39;49m[30;43mresponse_conn[39;49m[30;43m,[39;49m
+[32m    798[39m [30;43m    [39;49m[30;43mpreload_content[39;49m[30;43m=[39;49m[30;43mpreload_content[39;49m[30;43m,[39;49m
+[32m    799[39m [30;43m    [39;49m[30;43mdecode_content[39;49m[30;43m=[39;49m[30;43mdecode_content[39;49m[30;43m,[39;49m
+[32m    800[39m [30;43m    [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mresponse_kw[39;49m[30;43m,[39;49m
+[32m    801[39m [30;43m[39;49m[30;43m)[39;49m
+[32m    803[39m [38;5;66;03m# Everything went great![39;00m
+
+[36mFile [39m[32m~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/urllib3/connectionpool.py:534[39m, in [36mHTTPConnectionPool._make_request[39m[34m(self, conn, method, url, body, headers, retries, timeout, chunked, response_conn, preload_content, decode_content, enforce_content_length)[39m
+[32m    533[39m [38;5;28;01mtry[39;00m:
+[32m--> [39m[32m534[39m     response = [30;43mconn[39;49m[30;43m.[39;49m[30;43mgetresponse[39;49m[30;43m([39;49m[30;43m)[39;49m
+[32m    535[39m [38;5;28;01mexcept[39;00m (BaseSSLError, [38;5;167;01mOSError[39;00m) [38;5;28;01mas[39;00m e:
+
+[36mFile [39m[32m~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/urllib3/connection.py:571[39m, in [36mHTTPConnection.getresponse[39m[34m(self)[39m
+[32m    570[39m [38;5;66;03m# Get the response from http.client.HTTPConnection[39;00m
+[32m--> [39m[32m571[39m httplib_response = [30;43msuper[39;49m[30;43m([39;49m[30;43m)[39;49m[30;43m.[39;49m[30;43mgetresponse[39;49m[30;43m([39;49m[30;43m)[39;49m
+[32m    573[39m [38;5;28;01mtry[39;00m:
+
+[36mFile [39m[32m~/micromamba/envs/geocat-applications/lib/python3.14/http/client.py:1459[39m, in [36mHTTPConnection.getresponse[39m[34m(self)[39m
+[32m   1458[39m [38;5;28;01mtry[39;00m:
+[32m-> [39m[32m1459[39m     [30;43mresponse[39;49m[30;43m.[39;49m[30;43mbegin[39;49m[30;43m([39;49m[30;43m)[39;49m
+[32m   1460[39m [38;5;28;01mexcept[39;00m [38;5;167;01mConnectionError[39;00m:
+
+[36mFile [39m[32m~/micromamba/envs/geocat-applications/lib/python3.14/http/client.py:336[39m, in [36mHTTPResponse.begin[39m[34m(self)[39m
+[32m    335[39m [38;5;28;01mwhile[39;00m [38;5;28;01mTrue[39;00m:
+[32m--> [39m[32m336[39m     version, status, reason = [30;43mself[39;49m[30;43m.[39;49m[30;43m_read_status[39;49m[30;43m([39;49m[30;43m)[39;49m
+[32m    337[39m     [38;5;28;01mif[39;00m status != CONTINUE:
+
+[36mFile [39m[32m~/micromamba/envs/geocat-applications/lib/python3.14/http/client.py:305[39m, in [36mHTTPResponse._read_status[39m[34m(self)[39m
+[32m    302[39m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m line:
+[32m    303[39m     [38;5;66;03m# Presumably, the server closed the connection before[39;00m
+[32m    304[39m     [38;5;66;03m# sending a valid response.[39;00m
+[32m--> [39m[32m305[39m     [38;5;28;01mraise[39;00m RemoteDisconnected([33m"[39m[33mRemote end closed connection without[39m[33m"[39m
+[32m    306[39m                              [33m"[39m[33m response[39m[33m"[39m)
+[32m    307[39m [38;5;28;01mtry[39;00m:
+
+[31mRemoteDisconnected[39m: Remote end closed connection without response
+
+During handling of the above exception, another exception occurred:
+
+[31mProtocolError[39m                             Traceback (most recent call last)
+[36mFile [39m[32m~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/requests/adapters.py:696[39m, in [36mHTTPAdapter.send[39m[34m(self, request, stream, timeout, verify, cert, proxies)[39m
+[32m    695[39m [38;5;28;01mtry[39;00m:
+[32m--> [39m[32m696[39m     resp = [30;43mconn[39;49m[30;43m.[39;49m[30;43murlopen[39;49m[30;43m([39;49m
+[32m    697[39m [30;43m        [39;49m[30;43mmethod[39;49m[30;43m=[39;49m[30;43mrequest[39;49m[30;43m.[39;49m[30;43mmethod[39;49m[30;43m,[39;49m
+[32m    698[39m [30;43m        [39;49m[30;43murl[39;49m[30;43m=[39;49m[30;43murl[39;49m[30;43m,[39;49m
+[32m    699[39m [30;43m        [39;49m[30;43mbody[39;49m[30;43m=[39;49m[30;43mrequest[39;49m[30;43m.[39;49m[30;43mbody[39;49m[30;43m,[39;49m[30;43m  [39;49m[30;43;03m# type: ignore[arg-type]  # urllib3 stubs don't accept Iterable[bytes | str][39;49;00m
+[32m    700[39m [30;43m        [39;49m[30;43mheaders[39;49m[30;43m=[39;49m[30;43mrequest[39;49m[30;43m.[39;49m[30;43mheaders[39;49m[30;43m,[39;49m[30;43m  [39;49m[30;43;03m# type: ignore[arg-type]  # urllib3#3072[39;49;00m
+[32m    701[39m [30;43m        [39;49m[30;43mredirect[39;49m[30;43m=[39;49m[30;43;01mFalse[39;49;00m[30;43m,[39;49m
+[32m    702[39m [30;43m        [39;49m[30;43massert_same_host[39;49m[30;43m=[39;49m[30;43;01mFalse[39;49;00m[30;43m,[39;49m
+[32m    703[39m [30;43m        [39;49m[30;43mpreload_content[39;49m[30;43m=[39;49m[30;43;01mFalse[39;49;00m[30;43m,[39;49m
+[32m    704[39m [30;43m        [39;49m[30;43mdecode_content[39;49m[30;43m=[39;49m[30;43;01mFalse[39;49;00m[30;43m,[39;49m
+[32m    705[39m [30;43m        [39;49m[30;43mretries[39;49m[30;43m=[39;49m[30;43mself[39;49m[30;43m.[39;49m[30;43mmax_retries[39;49m[30;43m,[39;49m
+[32m    706[39m [30;43m        [39;49m[30;43mtimeout[39;49m[30;43m=[39;49m[30;43mresolved_timeout[39;49m[30;43m,[39;49m
+[32m    707[39m [30;43m        [39;49m[30;43mchunked[39;49m[30;43m=[39;49m[30;43mchunked[39;49m[30;43m,[39;49m
+[32m    708[39m [30;43m    [39;49m[30;43m)[39;49m
+[32m    710[39m [38;5;28;01mexcept[39;00m (ProtocolError, [38;5;167;01mOSError[39;00m) [38;5;28;01mas[39;00m err:
+
+[36mFile [39m[32m~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/urllib3/connectionpool.py:842[39m, in [36mHTTPConnectionPool.urlopen[39m[34m(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, preload_content, decode_content, **response_kw)[39m
+[32m    840[39m     new_e = ProtocolError([33m"[39m[33mConnection aborted.[39m[33m"[39m, new_e)
+[32m--> [39m[32m842[39m retries = [30;43mretries[39;49m[30;43m.[39;49m[30;43mincrement[39;49m[30;43m([39;49m
+[32m    843[39m [30;43m    [39;49m[30;43mmethod[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43murl[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43merror[39;49m[30;43m=[39;49m[30;43mnew_e[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m_pool[39;49m[30;43m=[39;49m[30;43mself[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m_stacktrace[39;49m[30;43m=[39;49m[30;43msys[39;49m[30;43m.[39;49m[30;43mexc_info[39;49m[30;43m([39;49m[30;43m)[39;49m[30;43m[[39;49m[30;43m2[39;49m[30;43m][39;49m
+[32m    844[39m [30;43m[39;49m[30;43m)[39;49m
+[32m    845[39m retries.sleep()
+
+[36mFile [39m[32m~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/urllib3/util/retry.py:498[39m, in [36mRetry.increment[39m[34m(self, method, url, response, error, _pool, _stacktrace)[39m
+[32m    497[39m [38;5;28;01mif[39;00m read [38;5;129;01mis[39;00m [38;5;28;01mFalse[39;00m [38;5;129;01mor[39;00m method [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m [38;5;129;01mor[39;00m [38;5;129;01mnot[39;00m [38;5;28mself[39m._is_method_retryable(method):
+[32m--> [39m[32m498[39m     [38;5;28;01mraise[39;00m [30;43mreraise[39;49m[30;43m([39;49m[30;43mtype[39;49m[30;43m([39;49m[30;43merror[39;49m[30;43m)[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43merror[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m_stacktrace[39;49m[30;43m)[39;49m
+[32m    499[39m [38;5;28;01melif[39;00m read [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+
+[36mFile [39m[32m~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/urllib3/util/util.py:38[39m, in [36mreraise[39m[34m(tp, value, tb)[39m
+[32m     37[39m [38;5;28;01mif[39;00m value.__traceback__ [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m tb:
+[32m---> [39m[32m38[39m     [38;5;28;01mraise[39;00m value.with_traceback(tb)
+[32m     39[39m [38;5;28;01mraise[39;00m value
+
+[36mFile [39m[32m~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/urllib3/connectionpool.py:788[39m, in [36mHTTPConnectionPool.urlopen[39m[34m(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, preload_content, decode_content, **response_kw)[39m
+[32m    787[39m [38;5;66;03m# Make the request on the HTTPConnection object[39;00m
+[32m--> [39m[32m788[39m response = [30;43mself[39;49m[30;43m.[39;49m[30;43m_make_request[39;49m[30;43m([39;49m
+[32m    789[39m [30;43m    [39;49m[30;43mconn[39;49m[30;43m,[39;49m
+[32m    790[39m [30;43m    [39;49m[30;43mmethod[39;49m[30;43m,[39;49m
+[32m    791[39m [30;43m    [39;49m[30;43murl[39;49m[30;43m,[39;49m
+[32m    792[39m [30;43m    [39;49m[30;43mtimeout[39;49m[30;43m=[39;49m[30;43mtimeout_obj[39;49m[30;43m,[39;49m
+[32m    793[39m [30;43m    [39;49m[30;43mbody[39;49m[30;43m=[39;49m[30;43mbody[39;49m[30;43m,[39;49m
+[32m    794[39m [30;43m    [39;49m[30;43mheaders[39;49m[30;43m=[39;49m[30;43mheaders[39;49m[30;43m,[39;49m
+[32m    795[39m [30;43m    [39;49m[30;43mchunked[39;49m[30;43m=[39;49m[30;43mchunked[39;49m[30;43m,[39;49m
+[32m    796[39m [30;43m    [39;49m[30;43mretries[39;49m[30;43m=[39;49m[30;43mretries[39;49m[30;43m,[39;49m
+[32m    797[39m [30;43m    [39;49m[30;43mresponse_conn[39;49m[30;43m=[39;49m[30;43mresponse_conn[39;49m[30;43m,[39;49m
+[32m    798[39m [30;43m    [39;49m[30;43mpreload_content[39;49m[30;43m=[39;49m[30;43mpreload_content[39;49m[30;43m,[39;49m
+[32m    799[39m [30;43m    [39;49m[30;43mdecode_content[39;49m[30;43m=[39;49m[30;43mdecode_content[39;49m[30;43m,[39;49m
+[32m    800[39m [30;43m    [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mresponse_kw[39;49m[30;43m,[39;49m
+[32m    801[39m [30;43m[39;49m[30;43m)[39;49m
+[32m    803[39m [38;5;66;03m# Everything went great![39;00m
+
+[36mFile [39m[32m~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/urllib3/connectionpool.py:534[39m, in [36mHTTPConnectionPool._make_request[39m[34m(self, conn, method, url, body, headers, retries, timeout, chunked, response_conn, preload_content, decode_content, enforce_content_length)[39m
+[32m    533[39m [38;5;28;01mtry[39;00m:
+[32m--> [39m[32m534[39m     response = [30;43mconn[39;49m[30;43m.[39;49m[30;43mgetresponse[39;49m[30;43m([39;49m[30;43m)[39;49m
+[32m    535[39m [38;5;28;01mexcept[39;00m (BaseSSLError, [38;5;167;01mOSError[39;00m) [38;5;28;01mas[39;00m e:
+
+[36mFile [39m[32m~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/urllib3/connection.py:571[39m, in [36mHTTPConnection.getresponse[39m[34m(self)[39m
+[32m    570[39m [38;5;66;03m# Get the response from http.client.HTTPConnection[39;00m
+[32m--> [39m[32m571[39m httplib_response = [30;43msuper[39;49m[30;43m([39;49m[30;43m)[39;49m[30;43m.[39;49m[30;43mgetresponse[39;49m[30;43m([39;49m[30;43m)[39;49m
+[32m    573[39m [38;5;28;01mtry[39;00m:
+
+[36mFile [39m[32m~/micromamba/envs/geocat-applications/lib/python3.14/http/client.py:1459[39m, in [36mHTTPConnection.getresponse[39m[34m(self)[39m
+[32m   1458[39m [38;5;28;01mtry[39;00m:
+[32m-> [39m[32m1459[39m     [30;43mresponse[39;49m[30;43m.[39;49m[30;43mbegin[39;49m[30;43m([39;49m[30;43m)[39;49m
+[32m   1460[39m [38;5;28;01mexcept[39;00m [38;5;167;01mConnectionError[39;00m:
+
+[36mFile [39m[32m~/micromamba/envs/geocat-applications/lib/python3.14/http/client.py:336[39m, in [36mHTTPResponse.begin[39m[34m(self)[39m
+[32m    335[39m [38;5;28;01mwhile[39;00m [38;5;28;01mTrue[39;00m:
+[32m--> [39m[32m336[39m     version, status, reason = [30;43mself[39;49m[30;43m.[39;49m[30;43m_read_status[39;49m[30;43m([39;49m[30;43m)[39;49m
+[32m    337[39m     [38;5;28;01mif[39;00m status != CONTINUE:
+
+[36mFile [39m[32m~/micromamba/envs/geocat-applications/lib/python3.14/http/client.py:305[39m, in [36mHTTPResponse._read_status[39m[34m(self)[39m
+[32m    302[39m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m line:
+[32m    303[39m     [38;5;66;03m# Presumably, the server closed the connection before[39;00m
+[32m    304[39m     [38;5;66;03m# sending a valid response.[39;00m
+[32m--> [39m[32m305[39m     [38;5;28;01mraise[39;00m RemoteDisconnected([33m"[39m[33mRemote end closed connection without[39m[33m"[39m
+[32m    306[39m                              [33m"[39m[33m response[39m[33m"[39m)
+[32m    307[39m [38;5;28;01mtry[39;00m:
+
+[31mProtocolError[39m: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
+During handling of the above exception, another exception occurred:
+
+[31mConnectionError[39m                           Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[1][39m[32m, line 2[39m
+[32m      1[39m [38;5;28;01mimport[39;00m xarray [38;5;28;01mas[39;00m xr
+[32m----> [39m[32m2[39m [38;5;28;01mimport[39;00m geocat.datafiles [38;5;28;01mas[39;00m gcd
+[32m      3[39m [38;5;28;01mfrom[39;00m matplotlib [38;5;28;01mimport[39;00m pyplot [38;5;28;01mas[39;00m plt
+[32m      4[39m 
+[32m      5[39m ds = xr.open_dataset(gcd.get([33m"applications_files/inputs/CMIP6_sea_ice_daily_subset.nc"[39m))
+
+[36mFile [39m[32m~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/geocat/datafiles/__init__.py:38[39m
+[32m     35[39m [38;5;28;01mif[39;00m dev_data_path [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m [38;5;129;01mand[39;00m os.path.exists(dev_data_path):
+[32m     36[39m     POOCH.path = dev_data_path
+[32m---> [39m[32m38[39m [30;43m_update_registry[39;49m[30;43m([39;49m[30;43mPOOCH[39;49m[30;43m)[39;49m
+[32m     40[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mget[39m(fname):
+[32m     41[39m     [38;5;28;01mreturn[39;00m POOCH.fetch(fname)
+
+[36mFile [39m[32m~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/geocat/datafiles/__init__.py:28[39m, in [36m_update_registry[39m[34m(p)[39m
+[32m     24[39m [38;5;250m[39m[33;03m"""[39;00m
+[32m     25[39m [33;03mUpdates pooch registry.txt[39;00m
+[32m     26[39m [33;03m"""[39;00m
+[32m     27[39m old_sha256 = p.registry[[33m"[39m[33mregistry.txt[39m[33m"[39m]
+[32m---> [39m[32m28[39m new_sha256 = hashlib.sha256([30;43mrequests[39;49m[30;43m.[39;49m[30;43mget[39;49m[30;43m([39;49m[30;43mp[39;49m[30;43m.[39;49m[30;43mget_url[39;49m[30;43m([39;49m[30;43m"[39;49m[30;43mregistry.txt[39;49m[30;43m"[39;49m[30;43m)[39;49m[30;43m)[39;49m.content).hexdigest()
+[32m     29[39m [38;5;28;01mif[39;00m old_sha256 != new_sha256:
+[32m     30[39m     p.registry[[33m"[39m[33mregistry.txt[39m[33m"[39m] = new_sha256
+
+[36mFile [39m[32m~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/requests/api.py:87[39m, in [36mget[39m[34m(url, params, **kwargs)[39m
+[32m     74[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mget[39m(
+[32m     75[39m     url: _t.UriType, params: _t.ParamsType = [38;5;28;01mNone[39;00m, **kwargs: Unpack[_t.GetKwargs]
+[32m     76[39m ) -> Response:
+[32m     77[39m [38;5;250m    [39m[33mr[39m[33;03m"""Sends a GET request.[39;00m
+[32m     78[39m 
+[32m     79[39m [33;03m    :param url: URL for the new :class:`Request` object.[39;00m
+[32m   (...)[39m[32m     84[39m [33;03m    :rtype: requests.Response[39;00m
+[32m     85[39m [33;03m    """[39;00m
+[32m---> [39m[32m87[39m     [38;5;28;01mreturn[39;00m [30;43mrequest[39;49m[30;43m([39;49m[30;43m"[39;49m[30;43mget[39;49m[30;43m"[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43murl[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mparams[39;49m[30;43m=[39;49m[30;43mparams[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m[30;43m)[39;49m
+
+[36mFile [39m[32m~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/requests/api.py:71[39m, in [36mrequest[39m[34m(method, url, **kwargs)[39m
+[32m     67[39m [38;5;66;03m# By using the 'with' statement we are sure the session is closed, thus we[39;00m
+[32m     68[39m [38;5;66;03m# avoid leaving sockets open which can trigger a ResourceWarning in some[39;00m
+[32m     69[39m [38;5;66;03m# cases, and look like a memory leak in others.[39;00m
+[32m     70[39m [38;5;28;01mwith[39;00m sessions.Session() [38;5;28;01mas[39;00m session:
+[32m---> [39m[32m71[39m     [38;5;28;01mreturn[39;00m [30;43msession[39;49m[30;43m.[39;49m[30;43mrequest[39;49m[30;43m([39;49m[30;43mmethod[39;49m[30;43m=[39;49m[30;43mmethod[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43murl[39;49m[30;43m=[39;49m[30;43murl[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m[30;43m)[39;49m
+
+[36mFile [39m[32m~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/requests/sessions.py:651[39m, in [36mSession.request[39m[34m(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)[39m
+[32m    646[39m send_kwargs = {
+[32m    647[39m     [33m"[39m[33mtimeout[39m[33m"[39m: timeout,
+[32m    648[39m     [33m"[39m[33mallow_redirects[39m[33m"[39m: allow_redirects,
+[32m    649[39m }
+[32m    650[39m send_kwargs.update(settings)
+[32m--> [39m[32m651[39m resp = [30;43mself[39;49m[30;43m.[39;49m[30;43msend[39;49m[30;43m([39;49m[30;43mprep[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43msend_kwargs[39;49m[30;43m)[39;49m
+[32m    653[39m [38;5;28;01mreturn[39;00m resp
+
+[36mFile [39m[32m~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/requests/sessions.py:784[39m, in [36mSession.send[39m[34m(self, request, **kwargs)[39m
+[32m    781[39m start = preferred_clock()
+[32m    783[39m [38;5;66;03m# Send the request[39;00m
+[32m--> [39m[32m784[39m r = [30;43madapter[39;49m[30;43m.[39;49m[30;43msend[39;49m[30;43m([39;49m[30;43mrequest[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m[30;43m)[39;49m
+[32m    786[39m [38;5;66;03m# Total elapsed time of the request (approximately)[39;00m
+[32m    787[39m elapsed = preferred_clock() - start
+
+[36mFile [39m[32m~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/requests/adapters.py:711[39m, in [36mHTTPAdapter.send[39m[34m(self, request, stream, timeout, verify, cert, proxies)[39m
+[32m    696[39m     resp = conn.urlopen(
+[32m    697[39m         method=request.method,
+[32m    698[39m         url=url,
+[32m   (...)[39m[32m    707[39m         chunked=chunked,
+[32m    708[39m     )
+[32m    710[39m [38;5;28;01mexcept[39;00m (ProtocolError, [38;5;167;01mOSError[39;00m) [38;5;28;01mas[39;00m err:
+[32m--> [39m[32m711[39m     [38;5;28;01mraise[39;00m [38;5;167;01mConnectionError[39;00m(err, request=request)
+[32m    713[39m [38;5;28;01mexcept[39;00m MaxRetryError [38;5;28;01mas[39;00m e:
+[32m    714[39m     [38;5;28;01mif[39;00m [38;5;28misinstance[39m(e.reason, ConnectTimeoutError):
+[32m    715[39m         [38;5;66;03m# TODO: Remove this in 3.0.0: see #2811[39;00m
+
+[31mConnectionError[39m: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+
