@@ -541,216 +541,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">RemoteDisconnected</span><span class="g g-Whitespace">                        </span>Traceback (most recent call last)
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/urllib3/connectionpool.py:788,</span> in <span class="ni">HTTPConnectionPool.urlopen</span><span class="nt">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, preload_content, decode_content, **response_kw)</span>
-<span class="g g-Whitespace">    </span><span class="mi">787</span> <span class="c1"># Make the request on the HTTPConnection object</span>
-<span class="ne">--&gt; </span><span class="mi">788</span> <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_request</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">789</span>     <span class="n">conn</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">790</span>     <span class="n">method</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">791</span>     <span class="n">url</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">792</span>     <span class="n">timeout</span><span class="o">=</span><span class="n">timeout_obj</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">793</span>     <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">794</span>     <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">795</span>     <span class="n">chunked</span><span class="o">=</span><span class="n">chunked</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">796</span>     <span class="n">retries</span><span class="o">=</span><span class="n">retries</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">797</span>     <span class="n">response_conn</span><span class="o">=</span><span class="n">response_conn</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">798</span>     <span class="n">preload_content</span><span class="o">=</span><span class="n">preload_content</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">799</span>     <span class="n">decode_content</span><span class="o">=</span><span class="n">decode_content</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">800</span>     <span class="o">**</span><span class="n">response_kw</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">801</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">803</span> <span class="c1"># Everything went great!</span>
-
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/urllib3/connectionpool.py:534,</span> in <span class="ni">HTTPConnectionPool._make_request</span><span class="nt">(self, conn, method, url, body, headers, retries, timeout, chunked, response_conn, preload_content, decode_content, enforce_content_length)</span>
-<span class="g g-Whitespace">    </span><span class="mi">533</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">534</span>     <span class="n">response</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">getresponse</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">535</span> <span class="k">except</span> <span class="p">(</span><span class="n">BaseSSLError</span><span class="p">,</span> <span class="ne">OSError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/urllib3/connection.py:571,</span> in <span class="ni">HTTPConnection.getresponse</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">570</span> <span class="c1"># Get the response from http.client.HTTPConnection</span>
-<span class="ne">--&gt; </span><span class="mi">571</span> <span class="n">httplib_response</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">getresponse</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">573</span> <span class="k">try</span><span class="p">:</span>
-
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.14/http/client.py:1459,</span> in <span class="ni">HTTPConnection.getresponse</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1458</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1459</span>     <span class="n">response</span><span class="o">.</span><span class="n">begin</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1460</span> <span class="k">except</span> <span class="ne">ConnectionError</span><span class="p">:</span>
-
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.14/http/client.py:336,</span> in <span class="ni">HTTPResponse.begin</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">335</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">336</span>     <span class="n">version</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">reason</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_status</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">337</span>     <span class="k">if</span> <span class="n">status</span> <span class="o">!=</span> <span class="n">CONTINUE</span><span class="p">:</span>
-
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.14/http/client.py:305,</span> in <span class="ni">HTTPResponse._read_status</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">302</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">303</span>     <span class="c1"># Presumably, the server closed the connection before</span>
-<span class="g g-Whitespace">    </span><span class="mi">304</span>     <span class="c1"># sending a valid response.</span>
-<span class="ne">--&gt; </span><span class="mi">305</span>     <span class="k">raise</span> <span class="n">RemoteDisconnected</span><span class="p">(</span><span class="s2">&quot;Remote end closed connection without&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">306</span>                              <span class="s2">&quot; response&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">307</span> <span class="k">try</span><span class="p">:</span>
-
-<span class="ne">RemoteDisconnected</span>: Remote end closed connection without response
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
-<span class="ne">ProtocolError</span><span class="g g-Whitespace">                             </span>Traceback (most recent call last)
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/requests/adapters.py:696,</span> in <span class="ni">HTTPAdapter.send</span><span class="nt">(self, request, stream, timeout, verify, cert, proxies)</span>
-<span class="g g-Whitespace">    </span><span class="mi">695</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">696</span>     <span class="n">resp</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">697</span>         <span class="n">method</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">698</span>         <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">699</span>         <span class="n">body</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">body</span><span class="p">,</span>  <span class="c1"># type: ignore[arg-type]  # urllib3 stubs don&#39;t accept Iterable[bytes | str]</span>
-<span class="g g-Whitespace">    </span><span class="mi">700</span>         <span class="n">headers</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="p">,</span>  <span class="c1"># type: ignore[arg-type]  # urllib3#3072</span>
-<span class="g g-Whitespace">    </span><span class="mi">701</span>         <span class="n">redirect</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">702</span>         <span class="n">assert_same_host</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">703</span>         <span class="n">preload_content</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">704</span>         <span class="n">decode_content</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">705</span>         <span class="n">retries</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_retries</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">706</span>         <span class="n">timeout</span><span class="o">=</span><span class="n">resolved_timeout</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">707</span>         <span class="n">chunked</span><span class="o">=</span><span class="n">chunked</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">708</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">710</span> <span class="k">except</span> <span class="p">(</span><span class="n">ProtocolError</span><span class="p">,</span> <span class="ne">OSError</span><span class="p">)</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/urllib3/connectionpool.py:842,</span> in <span class="ni">HTTPConnectionPool.urlopen</span><span class="nt">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, preload_content, decode_content, **response_kw)</span>
-<span class="g g-Whitespace">    </span><span class="mi">840</span>     <span class="n">new_e</span> <span class="o">=</span> <span class="n">ProtocolError</span><span class="p">(</span><span class="s2">&quot;Connection aborted.&quot;</span><span class="p">,</span> <span class="n">new_e</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">842</span> <span class="n">retries</span> <span class="o">=</span> <span class="n">retries</span><span class="o">.</span><span class="n">increment</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">843</span>     <span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="n">new_e</span><span class="p">,</span> <span class="n">_pool</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">_stacktrace</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">2</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">844</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">845</span> <span class="n">retries</span><span class="o">.</span><span class="n">sleep</span><span class="p">()</span>
-
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/urllib3/util/retry.py:498,</span> in <span class="ni">Retry.increment</span><span class="nt">(self, method, url, response, error, _pool, _stacktrace)</span>
-<span class="g g-Whitespace">    </span><span class="mi">497</span> <span class="k">if</span> <span class="n">read</span> <span class="ow">is</span> <span class="kc">False</span> <span class="ow">or</span> <span class="n">method</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_method_retryable</span><span class="p">(</span><span class="n">method</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">498</span>     <span class="k">raise</span> <span class="n">reraise</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">error</span><span class="p">),</span> <span class="n">error</span><span class="p">,</span> <span class="n">_stacktrace</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">499</span> <span class="k">elif</span> <span class="n">read</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/urllib3/util/util.py:38,</span> in <span class="ni">reraise</span><span class="nt">(tp, value, tb)</span>
-<span class="g g-Whitespace">     </span><span class="mi">37</span> <span class="k">if</span> <span class="n">value</span><span class="o">.</span><span class="n">__traceback__</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">tb</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">38</span>     <span class="k">raise</span> <span class="n">value</span><span class="o">.</span><span class="n">with_traceback</span><span class="p">(</span><span class="n">tb</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">39</span> <span class="k">raise</span> <span class="n">value</span>
-
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/urllib3/connectionpool.py:788,</span> in <span class="ni">HTTPConnectionPool.urlopen</span><span class="nt">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, preload_content, decode_content, **response_kw)</span>
-<span class="g g-Whitespace">    </span><span class="mi">787</span> <span class="c1"># Make the request on the HTTPConnection object</span>
-<span class="ne">--&gt; </span><span class="mi">788</span> <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_request</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">789</span>     <span class="n">conn</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">790</span>     <span class="n">method</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">791</span>     <span class="n">url</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">792</span>     <span class="n">timeout</span><span class="o">=</span><span class="n">timeout_obj</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">793</span>     <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">794</span>     <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">795</span>     <span class="n">chunked</span><span class="o">=</span><span class="n">chunked</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">796</span>     <span class="n">retries</span><span class="o">=</span><span class="n">retries</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">797</span>     <span class="n">response_conn</span><span class="o">=</span><span class="n">response_conn</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">798</span>     <span class="n">preload_content</span><span class="o">=</span><span class="n">preload_content</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">799</span>     <span class="n">decode_content</span><span class="o">=</span><span class="n">decode_content</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">800</span>     <span class="o">**</span><span class="n">response_kw</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">801</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">803</span> <span class="c1"># Everything went great!</span>
-
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/urllib3/connectionpool.py:534,</span> in <span class="ni">HTTPConnectionPool._make_request</span><span class="nt">(self, conn, method, url, body, headers, retries, timeout, chunked, response_conn, preload_content, decode_content, enforce_content_length)</span>
-<span class="g g-Whitespace">    </span><span class="mi">533</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">534</span>     <span class="n">response</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">getresponse</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">535</span> <span class="k">except</span> <span class="p">(</span><span class="n">BaseSSLError</span><span class="p">,</span> <span class="ne">OSError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/urllib3/connection.py:571,</span> in <span class="ni">HTTPConnection.getresponse</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">570</span> <span class="c1"># Get the response from http.client.HTTPConnection</span>
-<span class="ne">--&gt; </span><span class="mi">571</span> <span class="n">httplib_response</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">getresponse</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">573</span> <span class="k">try</span><span class="p">:</span>
-
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.14/http/client.py:1459,</span> in <span class="ni">HTTPConnection.getresponse</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1458</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1459</span>     <span class="n">response</span><span class="o">.</span><span class="n">begin</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1460</span> <span class="k">except</span> <span class="ne">ConnectionError</span><span class="p">:</span>
-
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.14/http/client.py:336,</span> in <span class="ni">HTTPResponse.begin</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">335</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">336</span>     <span class="n">version</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">reason</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_status</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">337</span>     <span class="k">if</span> <span class="n">status</span> <span class="o">!=</span> <span class="n">CONTINUE</span><span class="p">:</span>
-
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.14/http/client.py:305,</span> in <span class="ni">HTTPResponse._read_status</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">302</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">303</span>     <span class="c1"># Presumably, the server closed the connection before</span>
-<span class="g g-Whitespace">    </span><span class="mi">304</span>     <span class="c1"># sending a valid response.</span>
-<span class="ne">--&gt; </span><span class="mi">305</span>     <span class="k">raise</span> <span class="n">RemoteDisconnected</span><span class="p">(</span><span class="s2">&quot;Remote end closed connection without&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">306</span>                              <span class="s2">&quot; response&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">307</span> <span class="k">try</span><span class="p">:</span>
-
-<span class="ne">ProtocolError</span>: (&#39;Connection aborted.&#39;, RemoteDisconnected(&#39;Remote end closed connection without response&#39;))
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
-<span class="ne">ConnectionError</span><span class="g g-Whitespace">                           </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">geocat.datafiles</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gcd</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;applications_files/inputs/CMIP6_sea_ice_daily_subset.nc&quot;</span><span class="p">))</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">micromamba</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">geocat</span><span class="o">-</span><span class="n">applications</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.14</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">geocat</span><span class="o">/</span><span class="n">datafiles</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">38</span>
-<span class="g g-Whitespace">     </span><span class="mi">35</span> <span class="k">if</span> <span class="n">dev_data_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">dev_data_path</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">36</span>     <span class="n">POOCH</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">dev_data_path</span>
-<span class="ne">---&gt; </span><span class="mi">38</span> <span class="n">_update_registry</span><span class="p">(</span><span class="n">POOCH</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">40</span> <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">41</span>     <span class="k">return</span> <span class="n">POOCH</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
-
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/geocat/datafiles/__init__.py:28,</span> in <span class="ni">_update_registry</span><span class="nt">(p)</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">25</span><span class="sd"> Updates pooch registry.txt</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="n">old_sha256</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">registry</span><span class="p">[</span><span class="s2">&quot;registry.txt&quot;</span><span class="p">]</span>
-<span class="ne">---&gt; </span><span class="mi">28</span> <span class="n">new_sha256</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">get_url</span><span class="p">(</span><span class="s2">&quot;registry.txt&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">content</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">29</span> <span class="k">if</span> <span class="n">old_sha256</span> <span class="o">!=</span> <span class="n">new_sha256</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">30</span>     <span class="n">p</span><span class="o">.</span><span class="n">registry</span><span class="p">[</span><span class="s2">&quot;registry.txt&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_sha256</span>
-
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/requests/api.py:87,</span> in <span class="ni">get</span><span class="nt">(url, params, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">74</span> <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">75</span>     <span class="n">url</span><span class="p">:</span> <span class="n">_t</span><span class="o">.</span><span class="n">UriType</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="n">_t</span><span class="o">.</span><span class="n">ParamsType</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Unpack</span><span class="p">[</span><span class="n">_t</span><span class="o">.</span><span class="n">GetKwargs</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">76</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Response</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">77</span><span class="w">     </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Sends a GET request.</span>
-<span class="g g-Whitespace">     </span><span class="mi">78</span><span class="sd"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">79</span><span class="sd">     :param url: URL for the new :class:`Request` object.</span>
-<span class="sd">   (...)     84     :rtype: requests.Response</span>
-<span class="g g-Whitespace">     </span><span class="mi">85</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">---&gt; </span><span class="mi">87</span>     <span class="k">return</span> <span class="n">request</span><span class="p">(</span><span class="s2">&quot;get&quot;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/requests/api.py:71,</span> in <span class="ni">request</span><span class="nt">(method, url, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">67</span> <span class="c1"># By using the &#39;with&#39; statement we are sure the session is closed, thus we</span>
-<span class="g g-Whitespace">     </span><span class="mi">68</span> <span class="c1"># avoid leaving sockets open which can trigger a ResourceWarning in some</span>
-<span class="g g-Whitespace">     </span><span class="mi">69</span> <span class="c1"># cases, and look like a memory leak in others.</span>
-<span class="g g-Whitespace">     </span><span class="mi">70</span> <span class="k">with</span> <span class="n">sessions</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">71</span>     <span class="k">return</span> <span class="n">session</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/requests/sessions.py:651,</span> in <span class="ni">Session.request</span><span class="nt">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
-<span class="g g-Whitespace">    </span><span class="mi">646</span> <span class="n">send_kwargs</span> <span class="o">=</span> <span class="p">{</span>
-<span class="g g-Whitespace">    </span><span class="mi">647</span>     <span class="s2">&quot;timeout&quot;</span><span class="p">:</span> <span class="n">timeout</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">648</span>     <span class="s2">&quot;allow_redirects&quot;</span><span class="p">:</span> <span class="n">allow_redirects</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">649</span> <span class="p">}</span>
-<span class="g g-Whitespace">    </span><span class="mi">650</span> <span class="n">send_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">651</span> <span class="n">resp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">prep</span><span class="p">,</span> <span class="o">**</span><span class="n">send_kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">653</span> <span class="k">return</span> <span class="n">resp</span>
-
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/requests/sessions.py:784,</span> in <span class="ni">Session.send</span><span class="nt">(self, request, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">781</span> <span class="n">start</span> <span class="o">=</span> <span class="n">preferred_clock</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">783</span> <span class="c1"># Send the request</span>
-<span class="ne">--&gt; </span><span class="mi">784</span> <span class="n">r</span> <span class="o">=</span> <span class="n">adapter</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">786</span> <span class="c1"># Total elapsed time of the request (approximately)</span>
-<span class="g g-Whitespace">    </span><span class="mi">787</span> <span class="n">elapsed</span> <span class="o">=</span> <span class="n">preferred_clock</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
-
-<span class="nn">File ~/micromamba/envs/geocat-applications/lib/python3.14/site-packages/requests/adapters.py:711,</span> in <span class="ni">HTTPAdapter.send</span><span class="nt">(self, request, stream, timeout, verify, cert, proxies)</span>
-<span class="g g-Whitespace">    </span><span class="mi">696</span>     <span class="n">resp</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">697</span>         <span class="n">method</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">698</span>         <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>    <span class="mi">707</span>         <span class="n">chunked</span><span class="o">=</span><span class="n">chunked</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">708</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">710</span> <span class="k">except</span> <span class="p">(</span><span class="n">ProtocolError</span><span class="p">,</span> <span class="ne">OSError</span><span class="p">)</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">711</span>     <span class="k">raise</span> <span class="ne">ConnectionError</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">713</span> <span class="k">except</span> <span class="n">MaxRetryError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">714</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">reason</span><span class="p">,</span> <span class="n">ConnectTimeoutError</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">715</span>         <span class="c1"># TODO: Remove this in 3.0.0: see #2811</span>
-
-<span class="ne">ConnectionError</span>: (&#39;Connection aborted.&#39;, RemoteDisconnected(&#39;Remote end closed connection without response&#39;))
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/inputs/CMIP6_sea_ice_daily_subset.nc&#39; from &#39;https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/inputs/CMIP6_sea_ice_daily_subset.nc&#39; to &#39;/home/runner/.cache/geocat&#39;.
 </pre></div>
 </div>
+<img alt="../../_images/b75ad09fb34722848cff8f29ca38240de277685951b6f955b6a720d421fb3b56.png" src="../../_images/b75ad09fb34722848cff8f29ca38240de277685951b6f955b6a720d421fb3b56.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -790,6 +584,12 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/inputs/CMIP6_sea_ice_monthly_subset.nc&#39; from &#39;https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/inputs/CMIP6_sea_ice_monthly_subset.nc&#39; to &#39;/home/runner/.cache/geocat&#39;.
+</pre></div>
+</div>
+<img alt="../../_images/6a3a85a1217294a4495ad520da422f8ad151f54b1cc325c90ab05f4674fa14ca.png" src="../../_images/6a3a85a1217294a4495ad520da422f8ad151f54b1cc325c90ab05f4674fa14ca.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -828,6 +628,9 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/cf8850b16b299cbb1c133722b9fafdff72f3d55f7768f2f634912e663d343210.png" src="../../_images/cf8850b16b299cbb1c133722b9fafdff72f3d55f7768f2f634912e663d343210.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -865,6 +668,9 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;sea ice area&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/96f7ed12849cdafa4f0f2616672f8e2dcff9e4a6cfe2acc50f5b05fa09af22f6.png" src="../../_images/96f7ed12849cdafa4f0f2616672f8e2dcff9e4a6cfe2acc50f5b05fa09af22f6.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -910,6 +716,9 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/f1a3f1e35b8193d17722456a37a8d339d8d1c7007de77fb9b4f4a00d538d5ce8.png" src="../../_images/f1a3f1e35b8193d17722456a37a8d339d8d1c7007de77fb9b4f4a00d538d5ce8.png" />
+</div>
 </div>
 </section>
 </section>
@@ -937,6 +746,9 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/ea34ee6c0c968e77aeaf40aab70b6870de599d2e2e4e1f0a02a8c058708a4bb8.png" src="../../_images/ea34ee6c0c968e77aeaf40aab70b6870de599d2e2e4e1f0a02a8c058708a4bb8.png" />
+</div>
 </div>
 </section>
 </section>
@@ -959,6 +771,9 @@
 <span class="n">stdMonTLL</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1a1ae830cd0b1636b226219b46eeee76826fe1bc2e14a1bafacaf48a7145812c.png" src="../../_images/1a1ae830cd0b1636b226219b46eeee76826fe1bc2e14a1bafacaf48a7145812c.png" />
 </div>
 </div>
 </section>
