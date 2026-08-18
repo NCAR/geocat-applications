@@ -527,12 +527,12 @@ This notebook is part of the process we have for adding entries to the NCL Index
 
 <span class="p">;</span> <span class="n">ncl</span> <span class="o">-</span><span class="n">n</span> <span class="n">daylight_fao56</span><span class="o">.</span><span class="n">ncl</span> <span class="o">&gt;&gt;</span> <span class="n">daylight_fao56_output</span><span class="o">.</span><span class="n">txt</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;DOY, Latitude (Degrees), Daylight Hours&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"DOY, Latitude (Degrees), Daylight Hours"</span><span class="p">)</span>
 <span class="n">do</span> <span class="n">doy</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="mi">365</span>
 	<span class="n">do</span> <span class="n">lat</span><span class="o">=-</span><span class="mi">66</span><span class="p">,</span><span class="mi">66</span>
 		<span class="n">begin</span>
 		<span class="n">daylight_hours</span> <span class="o">=</span> <span class="n">daylight_fao56</span><span class="p">(</span><span class="n">doy</span><span class="p">,</span> <span class="n">lat</span><span class="p">)</span>
-		<span class="nb">print</span> <span class="p">(</span><span class="n">doy</span> <span class="o">+</span><span class="s2">&quot;,&quot;</span><span class="o">+</span> <span class="n">lat</span> <span class="o">+</span><span class="s2">&quot;,&quot;</span><span class="o">+</span> <span class="n">daylight_hours</span><span class="p">)</span>
+		<span class="nb">print</span> <span class="p">(</span><span class="n">doy</span> <span class="o">+</span><span class="s2">","</span><span class="o">+</span> <span class="n">lat</span> <span class="o">+</span><span class="s2">","</span><span class="o">+</span> <span class="n">daylight_hours</span><span class="p">)</span>
 		<span class="n">end</span>
 	<span class="n">end</span> <span class="n">do</span>
 <span class="n">end</span> <span class="n">do</span>
@@ -542,12 +542,12 @@ This notebook is part of the process we have for adding entries to the NCL Index
 
 <span class="p">;</span> <span class="n">ncl</span> <span class="o">-</span><span class="n">n</span> <span class="n">dewtemp_trh</span><span class="o">.</span><span class="n">ncl</span> <span class="o">&gt;&gt;</span> <span class="n">dewtemp_trh_output</span><span class="o">.</span><span class="n">txt</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperature (K), Relative Humidity (%), Dew Temperature (C)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Temperature (K), Relative Humidity (%), Dew Temperature (C)"</span><span class="p">)</span>
 <span class="n">do</span> <span class="n">tk</span><span class="o">=</span><span class="mi">273</span><span class="p">,</span><span class="mi">374</span>
 	<span class="n">do</span> <span class="n">rh</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span>
 		<span class="n">begin</span>
 		<span class="n">dewtemp</span> <span class="o">=</span> <span class="n">dewtemp_trh</span><span class="p">(</span><span class="n">tk</span><span class="p">,</span><span class="n">rh</span><span class="p">)</span><span class="o">-</span><span class="mf">273.15</span>
-		<span class="nb">print</span> <span class="p">(</span><span class="n">tk</span> <span class="o">+</span><span class="s2">&quot;,&quot;</span><span class="o">+</span> <span class="n">rh</span> <span class="o">+</span><span class="s2">&quot;,&quot;</span><span class="o">+</span> <span class="n">dewtemp</span><span class="p">)</span>
+		<span class="nb">print</span> <span class="p">(</span><span class="n">tk</span> <span class="o">+</span><span class="s2">","</span><span class="o">+</span> <span class="n">rh</span> <span class="o">+</span><span class="s2">","</span><span class="o">+</span> <span class="n">dewtemp</span><span class="p">)</span>
 		<span class="n">end</span>
 	<span class="n">end</span> <span class="n">do</span>
 <span class="n">end</span> <span class="n">do</span>
@@ -557,11 +557,11 @@ This notebook is part of the process we have for adding entries to the NCL Index
 
 <span class="p">;</span> <span class="n">ncl</span> <span class="o">-</span><span class="n">n</span> <span class="n">satvpr_temp_fao56</span><span class="o">.</span><span class="n">ncl</span> <span class="o">&gt;&gt;</span> <span class="n">satvpr_temp_fao56_output</span><span class="o">.</span><span class="n">txt</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperature (F), Saturation Vapor Pressure (kPa)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Temperature (F), Saturation Vapor Pressure (kPa)"</span><span class="p">)</span>
 <span class="n">do</span> <span class="n">temp</span><span class="o">=</span><span class="mi">33</span><span class="p">,</span><span class="mi">212</span>
 	<span class="n">begin</span>
 		<span class="n">sat_vpr_pressure</span> <span class="o">=</span> <span class="n">satvpr_temp_fao56</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="p">(</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="o">/</span><span class="p">))</span>
-		<span class="nb">print</span> <span class="p">(</span><span class="n">temp</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">sat_vpr_pressure</span><span class="p">)</span>
+		<span class="nb">print</span> <span class="p">(</span><span class="n">temp</span> <span class="o">+</span> <span class="s2">","</span> <span class="o">+</span> <span class="n">sat_vpr_pressure</span><span class="p">)</span>
 	<span class="n">end</span>
 <span class="n">end</span> <span class="n">do</span>
 
@@ -570,11 +570,11 @@ This notebook is part of the process we have for adding entries to the NCL Index
 
 <span class="p">;</span> <span class="n">ncl</span> <span class="o">-</span><span class="n">n</span> <span class="n">satvpr_tdew_fao56</span><span class="o">.</span><span class="n">ncl</span> <span class="o">&gt;&gt;</span> <span class="n">satvpr_tdew_fao56_output</span><span class="o">.</span><span class="n">txt</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperature (F), Actual Saturation Vapor Pressure (kPa)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Temperature (F), Actual Saturation Vapor Pressure (kPa)"</span><span class="p">)</span>
 <span class="n">do</span> <span class="n">temp</span><span class="o">=</span><span class="mi">33</span><span class="p">,</span><span class="mi">212</span>
 	<span class="n">begin</span>
 		<span class="n">act_sat_vpr_pressure</span> <span class="o">=</span> <span class="n">satvpr_tdew_fao56</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="p">(</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="o">/</span><span class="p">))</span>
-		<span class="nb">print</span> <span class="p">(</span><span class="n">temp</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">act_sat_vpr_pressure</span><span class="p">)</span>
+		<span class="nb">print</span> <span class="p">(</span><span class="n">temp</span> <span class="o">+</span> <span class="s2">","</span> <span class="o">+</span> <span class="n">act_sat_vpr_pressure</span><span class="p">)</span>
 	<span class="n">end</span>
 <span class="n">end</span> <span class="n">do</span>
 
@@ -583,11 +583,11 @@ This notebook is part of the process we have for adding entries to the NCL Index
 
 <span class="p">;</span> <span class="n">ncl</span> <span class="o">-</span><span class="n">n</span> <span class="n">satvpr_slope_fao56</span><span class="o">.</span><span class="n">ncl</span> <span class="o">&gt;&gt;</span> <span class="n">satvpr_slope_fao56_output</span><span class="o">.</span><span class="n">txt</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperature (F), Slope of Saturation Vapor Pressure Curve (kPa)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Temperature (F), Slope of Saturation Vapor Pressure Curve (kPa)"</span><span class="p">)</span>
 <span class="n">do</span> <span class="n">temp</span><span class="o">=</span><span class="mi">33</span><span class="p">,</span><span class="mi">212</span>
 	<span class="n">begin</span>
 		<span class="n">slope_satvpr</span> <span class="o">=</span> <span class="n">satvpr_slope_fao56</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="p">(</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="o">/</span><span class="p">))</span>
-		<span class="nb">print</span> <span class="p">(</span><span class="n">temp</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">slope_satvpr</span><span class="p">)</span>
+		<span class="nb">print</span> <span class="p">(</span><span class="n">temp</span> <span class="o">+</span> <span class="s2">","</span> <span class="o">+</span> <span class="n">slope_satvpr</span><span class="p">)</span>
 	<span class="n">end</span>
 <span class="n">end</span> <span class="n">do</span>
 
@@ -596,9 +596,9 @@ This notebook is part of the process we have for adding entries to the NCL Index
 
 <span class="p">;</span> <span class="n">ncl</span> <span class="o">-</span><span class="n">n</span> <span class="n">coriolis_param</span><span class="o">.</span><span class="n">ncl</span> <span class="o">&gt;&gt;</span> <span class="n">coriolis_param_output</span><span class="o">.</span><span class="n">txt</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Latitude (Degree), Coriolis Parameter&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Latitude (Degree), Coriolis Parameter"</span><span class="p">)</span>
 <span class="n">do</span> <span class="n">lat</span><span class="o">=-</span><span class="mi">90</span><span class="p">,</span><span class="mi">90</span>
-	<span class="nb">print</span><span class="p">(</span><span class="n">lat</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">coriolis_param</span><span class="p">(</span><span class="n">lat</span><span class="p">))</span>
+	<span class="nb">print</span><span class="p">(</span><span class="n">lat</span> <span class="o">+</span> <span class="s2">","</span> <span class="o">+</span> <span class="n">coriolis_param</span><span class="p">(</span><span class="n">lat</span><span class="p">))</span>
 <span class="n">end</span> <span class="n">do</span>
 
 <span class="p">;</span> <span class="n">relhum</span>
@@ -606,13 +606,13 @@ This notebook is part of the process we have for adding entries to the NCL Index
 
 <span class="p">;</span> <span class="n">ncl</span> <span class="o">-</span><span class="n">n</span> <span class="n">relhum</span><span class="o">.</span><span class="n">ncl</span> <span class="o">&gt;&gt;</span> <span class="n">relhum_output</span><span class="o">.</span><span class="n">txt</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperature (K), Mixing Ratio (KG/KG), Pressure (Pa)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Temperature (K), Mixing Ratio (KG/KG), Pressure (Pa)"</span><span class="p">)</span>
 <span class="n">do</span> <span class="n">tk</span><span class="o">=</span><span class="mi">273</span><span class="p">,</span><span class="mi">290</span>
 	<span class="n">do</span> <span class="n">mr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.01</span>
 		<span class="n">do</span> <span class="n">ppa</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span><span class="mi">15000</span><span class="p">,</span><span class="mi">500</span>
 			<span class="n">begin</span>
 				<span class="n">rh</span> <span class="o">=</span> <span class="n">relhum</span><span class="p">(</span><span class="n">tk</span><span class="p">,</span> <span class="n">mr</span><span class="p">,</span> <span class="n">ppa</span><span class="p">)</span>
-				<span class="nb">print</span> <span class="p">(</span><span class="n">tk</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">mr</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">ppa</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">rh</span><span class="p">)</span>
+				<span class="nb">print</span> <span class="p">(</span><span class="n">tk</span> <span class="o">+</span> <span class="s2">","</span> <span class="o">+</span> <span class="n">mr</span> <span class="o">+</span> <span class="s2">","</span> <span class="o">+</span> <span class="n">ppa</span> <span class="o">+</span> <span class="s2">","</span> <span class="o">+</span> <span class="n">rh</span><span class="p">)</span>
 			<span class="n">end</span>
 		<span class="n">end</span> <span class="n">do</span>
 	<span class="n">end</span> <span class="n">do</span>
@@ -623,13 +623,13 @@ This notebook is part of the process we have for adding entries to the NCL Index
 
 <span class="p">;</span> <span class="n">ncl</span> <span class="o">-</span><span class="n">n</span> <span class="n">relhum_ice</span><span class="o">.</span><span class="n">ncl</span> <span class="o">&gt;&gt;</span> <span class="n">relhum_ice_output</span><span class="o">.</span><span class="n">txt</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperature (K), Mixing Ratio (KG/KG), Pressure (Pa)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Temperature (K), Mixing Ratio (KG/KG), Pressure (Pa)"</span><span class="p">)</span>
 <span class="n">do</span> <span class="n">tk</span><span class="o">=</span><span class="mi">173</span><span class="p">,</span><span class="mi">273</span>
 	<span class="n">do</span> <span class="n">mr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.01</span>
 		<span class="n">do</span> <span class="n">ppa</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span><span class="mi">15000</span><span class="p">,</span><span class="mi">500</span>
 			<span class="n">begin</span>
 				<span class="n">rh</span> <span class="o">=</span> <span class="n">relhum_ice</span><span class="p">(</span><span class="n">tk</span><span class="p">,</span> <span class="n">mr</span><span class="p">,</span> <span class="n">ppa</span><span class="p">)</span>
-				<span class="nb">print</span> <span class="p">(</span><span class="n">tk</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">mr</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">ppa</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">rh</span><span class="p">)</span>
+				<span class="nb">print</span> <span class="p">(</span><span class="n">tk</span> <span class="o">+</span> <span class="s2">","</span> <span class="o">+</span> <span class="n">mr</span> <span class="o">+</span> <span class="s2">","</span> <span class="o">+</span> <span class="n">ppa</span> <span class="o">+</span> <span class="s2">","</span> <span class="o">+</span> <span class="n">rh</span><span class="p">)</span>
 			<span class="n">end</span>
 		<span class="n">end</span> <span class="n">do</span>
 	<span class="n">end</span> <span class="n">do</span>
@@ -640,13 +640,13 @@ This notebook is part of the process we have for adding entries to the NCL Index
 
 <span class="p">;</span> <span class="n">ncl</span> <span class="o">-</span><span class="n">n</span> <span class="n">relhum_water</span><span class="o">.</span><span class="n">ncl</span> <span class="o">&gt;&gt;</span> <span class="n">relhum_water_output</span><span class="o">.</span><span class="n">txt</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperature (K), Mixing Ratio (KG/KG), Pressure (Pa)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Temperature (K), Mixing Ratio (KG/KG), Pressure (Pa)"</span><span class="p">)</span>
 <span class="n">do</span> <span class="n">tk</span><span class="o">=</span><span class="mi">273</span><span class="p">,</span><span class="mi">373</span>
 	<span class="n">do</span> <span class="n">mr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.01</span>
 		<span class="n">do</span> <span class="n">ppa</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span><span class="mi">15000</span><span class="p">,</span><span class="mi">500</span>
 			<span class="n">begin</span>
 				<span class="n">rh</span> <span class="o">=</span> <span class="n">relhum_water</span><span class="p">(</span><span class="n">tk</span><span class="p">,</span> <span class="n">mr</span><span class="p">,</span> <span class="n">ppa</span><span class="p">)</span>
-				<span class="nb">print</span> <span class="p">(</span><span class="n">tk</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">mr</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">ppa</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">rh</span><span class="p">)</span>
+				<span class="nb">print</span> <span class="p">(</span><span class="n">tk</span> <span class="o">+</span> <span class="s2">","</span> <span class="o">+</span> <span class="n">mr</span> <span class="o">+</span> <span class="s2">","</span> <span class="o">+</span> <span class="n">ppa</span> <span class="o">+</span> <span class="s2">","</span> <span class="o">+</span> <span class="n">rh</span><span class="p">)</span>
 			<span class="n">end</span>
 		<span class="n">end</span> <span class="n">do</span>
 	<span class="n">end</span> <span class="n">do</span>
@@ -657,7 +657,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 
 <span class="p">;</span> <span class="n">ncl</span> <span class="o">-</span><span class="n">n</span> <span class="n">dpres_plevel</span><span class="o">.</span><span class="n">ncl</span> <span class="o">&gt;&gt;</span> <span class="n">dpres_plevel_output</span><span class="o">.</span><span class="n">txt</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Surface Pressure (hpa), Pressure Level (hPa), Delta Pressure (hPa)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Surface Pressure (hpa), Pressure Level (hPa), Delta Pressure (hPa)"</span><span class="p">)</span>
 <span class="n">plev</span> <span class="o">=</span> <span class="p">(</span><span class="o">/</span> <span class="mf">1000.</span><span class="p">,</span><span class="mf">950.</span><span class="p">,</span><span class="mf">900.</span><span class="p">,</span><span class="mf">850.</span><span class="p">,</span><span class="mf">800.</span><span class="p">,</span><span class="mf">750.</span><span class="p">,</span><span class="mf">700.</span><span class="p">,</span><span class="mf">650.</span><span class="p">,</span><span class="mf">600.</span><span class="p">,</span> \
           <span class="mf">550.</span><span class="p">,</span><span class="mf">500.</span><span class="p">,</span><span class="mf">450.</span><span class="p">,</span><span class="mf">400.</span><span class="p">,</span><span class="mf">350.</span><span class="p">,</span><span class="mf">300.</span><span class="p">,</span><span class="mf">250.</span><span class="p">,</span><span class="mf">200.</span><span class="p">,</span> \
           <span class="mf">175.</span><span class="p">,</span><span class="mf">150.</span><span class="p">,</span><span class="mf">125.</span><span class="p">,</span><span class="mf">100.</span><span class="p">,</span> <span class="mf">80.</span><span class="p">,</span> <span class="mf">70.</span><span class="p">,</span> <span class="mf">60.</span><span class="p">,</span> <span class="mf">50.</span><span class="p">,</span> \
@@ -667,7 +667,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 	<span class="n">begin</span>
 		<span class="n">dp</span> <span class="o">=</span> <span class="n">dpres_plevel</span><span class="p">(</span><span class="n">plev</span><span class="p">,</span><span class="n">psfc</span><span class="p">,</span><span class="nb">min</span><span class="p">(</span><span class="n">plev</span><span class="p">),</span><span class="mi">0</span><span class="p">)</span>
 		<span class="n">do</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">dimsizes</span><span class="p">(</span><span class="n">plev</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
-			<span class="nb">print</span> <span class="p">(</span><span class="n">psfc</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">plev</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">dp</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+			<span class="nb">print</span> <span class="p">(</span><span class="n">psfc</span> <span class="o">+</span> <span class="s2">","</span> <span class="o">+</span> <span class="n">plev</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">","</span> <span class="o">+</span> <span class="n">dp</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
 		<span class="n">end</span> <span class="n">do</span>
 	<span class="n">end</span>
 <span class="n">end</span> <span class="n">do</span>
@@ -677,12 +677,12 @@ This notebook is part of the process we have for adding entries to the NCL Index
 
 <span class="p">;</span> <span class="n">ncl</span> <span class="o">-</span><span class="n">n</span> <span class="n">psychro_fao56</span><span class="o">.</span><span class="n">ncl</span> <span class="o">&gt;&gt;</span> <span class="n">psychro_fao56_output</span><span class="o">.</span><span class="n">txt</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Pressure (kPa), Psychrometric Constant (kPa/C)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Pressure (kPa), Psychrometric Constant (kPa/C)"</span><span class="p">)</span>
 
 <span class="n">do</span> <span class="n">press</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="mi">3000</span>
 	<span class="n">begin</span>
 		<span class="n">pc</span> <span class="o">=</span> <span class="n">psychro_fao56</span><span class="p">(</span><span class="n">press</span><span class="p">,</span> <span class="p">(</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="o">/</span><span class="p">))</span>
-		<span class="nb">print</span><span class="p">(</span><span class="n">press</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">pc</span><span class="p">)</span>
+		<span class="nb">print</span><span class="p">(</span><span class="n">press</span> <span class="o">+</span> <span class="s2">","</span> <span class="o">+</span> <span class="n">pc</span><span class="p">)</span>
 	<span class="n">end</span>
 <span class="n">end</span> <span class="n">do</span>
 </pre></div>
@@ -698,13 +698,13 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="kn">import</span><span class="w"> </span><span class="nn">geocat.datafiles</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gcd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="n">dewtemp_data</span> <span class="o">=</span> <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;applications_files/ncl_outputs/dewtemp_trh_output.txt&#39;</span><span class="p">)</span>
-<span class="n">dewtemp_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">dewtemp_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">dewtemp_data</span> <span class="o">=</span> <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'applications_files/ncl_outputs/dewtemp_trh_output.txt'</span><span class="p">)</span>
+<span class="n">dewtemp_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">dewtemp_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">','</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/ncl_outputs/dewtemp_trh_output.txt&#39; from &#39;https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/ncl_outputs/dewtemp_trh_output.txt&#39; to &#39;/home/runner/.cache/geocat&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file 'applications_files/ncl_outputs/dewtemp_trh_output.txt' from 'https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/ncl_outputs/dewtemp_trh_output.txt' to '/home/runner/.cache/geocat'.
 </pre></div>
 </div>
 </div>
@@ -749,13 +749,13 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="kn">import</span><span class="w"> </span><span class="nn">geocat.datafiles</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gcd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="n">daylight_data</span> <span class="o">=</span> <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;applications_files/ncl_outputs/daylight_fao56_output.txt&#39;</span><span class="p">)</span>
-<span class="n">daylight_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">daylight_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">daylight_data</span> <span class="o">=</span> <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'applications_files/ncl_outputs/daylight_fao56_output.txt'</span><span class="p">)</span>
+<span class="n">daylight_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">daylight_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">','</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/ncl_outputs/daylight_fao56_output.txt&#39; from &#39;https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/ncl_outputs/daylight_fao56_output.txt&#39; to &#39;/home/runner/.cache/geocat&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file 'applications_files/ncl_outputs/daylight_fao56_output.txt' from 'https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/ncl_outputs/daylight_fao56_output.txt' to '/home/runner/.cache/geocat'.
 </pre></div>
 </div>
 </div>
@@ -792,7 +792,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba/envs/geocat-applications/lib/python3.14/site-packages/geocat/comp/meteorology.py:847: UserWarning: WARNING: max_daylight has limited validity for abs(lat) &gt; 55 
-  warnings.warn(&quot;WARNING: max_daylight has limited validity for abs(lat) &gt; 55 &quot;)
+  warnings.warn("WARNING: max_daylight has limited validity for abs(lat) &gt; 55 ")
 </pre></div>
 </div>
 </div>
@@ -807,14 +807,14 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">satvpr_temp_fao56_data</span> <span class="o">=</span> <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
-    <span class="s1">&#39;applications_files/ncl_outputs/satvpr_temp_fao56_output.txt&#39;</span>
+    <span class="s1">'applications_files/ncl_outputs/satvpr_temp_fao56_output.txt'</span>
 <span class="p">)</span>
-<span class="n">satvpr_temp_fao56_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">satvpr_temp_fao56_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">satvpr_temp_fao56_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">satvpr_temp_fao56_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">','</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/ncl_outputs/satvpr_temp_fao56_output.txt&#39; from &#39;https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/ncl_outputs/satvpr_temp_fao56_output.txt&#39; to &#39;/home/runner/.cache/geocat&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file 'applications_files/ncl_outputs/satvpr_temp_fao56_output.txt' from 'https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/ncl_outputs/satvpr_temp_fao56_output.txt' to '/home/runner/.cache/geocat'.
 </pre></div>
 </div>
 </div>
@@ -852,14 +852,14 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">satvpr_tdew_fao56_data</span> <span class="o">=</span> <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
-    <span class="s1">&#39;applications_files/ncl_outputs/satvpr_tdew_fao56_output.txt&#39;</span>
+    <span class="s1">'applications_files/ncl_outputs/satvpr_tdew_fao56_output.txt'</span>
 <span class="p">)</span>
-<span class="n">satvpr_tdew_fao56_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">satvpr_tdew_fao56_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">satvpr_tdew_fao56_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">satvpr_tdew_fao56_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">','</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/ncl_outputs/satvpr_tdew_fao56_output.txt&#39; from &#39;https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/ncl_outputs/satvpr_tdew_fao56_output.txt&#39; to &#39;/home/runner/.cache/geocat&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file 'applications_files/ncl_outputs/satvpr_tdew_fao56_output.txt' from 'https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/ncl_outputs/satvpr_tdew_fao56_output.txt' to '/home/runner/.cache/geocat'.
 </pre></div>
 </div>
 </div>
@@ -897,14 +897,14 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">satvpr_slope_fao56_data</span> <span class="o">=</span> <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
-    <span class="s1">&#39;applications_files/ncl_outputs/satvpr_slope_fao56_output.txt&#39;</span>
+    <span class="s1">'applications_files/ncl_outputs/satvpr_slope_fao56_output.txt'</span>
 <span class="p">)</span>
-<span class="n">satvpr_slope_fao56_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">satvpr_slope_fao56_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">satvpr_slope_fao56_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">satvpr_slope_fao56_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">','</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/ncl_outputs/satvpr_slope_fao56_output.txt&#39; from &#39;https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/ncl_outputs/satvpr_slope_fao56_output.txt&#39; to &#39;/home/runner/.cache/geocat&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file 'applications_files/ncl_outputs/satvpr_slope_fao56_output.txt' from 'https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/ncl_outputs/satvpr_slope_fao56_output.txt' to '/home/runner/.cache/geocat'.
 </pre></div>
 </div>
 </div>
@@ -942,14 +942,14 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">coriolis_param_data</span> <span class="o">=</span> <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
-    <span class="s1">&#39;applications_files/ncl_outputs/coriolis_param_output.txt&#39;</span>
+    <span class="s1">'applications_files/ncl_outputs/coriolis_param_output.txt'</span>
 <span class="p">)</span>
-<span class="n">coriolis_param_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">coriolis_param_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">coriolis_param_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">coriolis_param_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">','</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/ncl_outputs/coriolis_param_output.txt&#39; from &#39;https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/ncl_outputs/coriolis_param_output.txt&#39; to &#39;/home/runner/.cache/geocat&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file 'applications_files/ncl_outputs/coriolis_param_output.txt' from 'https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/ncl_outputs/coriolis_param_output.txt' to '/home/runner/.cache/geocat'.
 </pre></div>
 </div>
 </div>
@@ -964,7 +964,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Calculate MetPy &quot;coriolis_parameter&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Calculate MetPy "coriolis_parameter"</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">metpy.calc</span><span class="w"> </span><span class="kn">import</span> <span class="n">coriolis_parameter</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">metpy.units</span><span class="w"> </span><span class="kn">import</span> <span class="n">units</span>
 
@@ -985,13 +985,13 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="kn">import</span><span class="w"> </span><span class="nn">geocat.datafiles</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gcd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="n">relhum_data</span> <span class="o">=</span> <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;applications_files/ncl_outputs/relhum_output.txt&#39;</span><span class="p">)</span>
-<span class="n">relhum_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">relhum_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">relhum_data</span> <span class="o">=</span> <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'applications_files/ncl_outputs/relhum_output.txt'</span><span class="p">)</span>
+<span class="n">relhum_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">relhum_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">','</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/ncl_outputs/relhum_output.txt&#39; from &#39;https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/ncl_outputs/relhum_output.txt&#39; to &#39;/home/runner/.cache/geocat&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file 'applications_files/ncl_outputs/relhum_output.txt' from 'https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/ncl_outputs/relhum_output.txt' to '/home/runner/.cache/geocat'.
 </pre></div>
 </div>
 </div>
@@ -1037,13 +1037,13 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="kn">import</span><span class="w"> </span><span class="nn">geocat.datafiles</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gcd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="n">relhum_ice_data</span> <span class="o">=</span> <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;applications_files/ncl_outputs/relhum_ice_output.txt&#39;</span><span class="p">)</span>
-<span class="n">relhum_ice_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">relhum_ice_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">relhum_ice_data</span> <span class="o">=</span> <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'applications_files/ncl_outputs/relhum_ice_output.txt'</span><span class="p">)</span>
+<span class="n">relhum_ice_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">relhum_ice_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">','</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/ncl_outputs/relhum_ice_output.txt&#39; from &#39;https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/ncl_outputs/relhum_ice_output.txt&#39; to &#39;/home/runner/.cache/geocat&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file 'applications_files/ncl_outputs/relhum_ice_output.txt' from 'https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/ncl_outputs/relhum_ice_output.txt' to '/home/runner/.cache/geocat'.
 </pre></div>
 </div>
 </div>
@@ -1080,7 +1080,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba/envs/geocat-applications/lib/python3.14/site-packages/geocat/comp/meteorology.py:1270: SyntaxWarning: &quot;\D&quot; is an invalid escape sequence. Such sequences will not work in the future. Did you mean &quot;\\D&quot;? A raw string is also an option.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba/envs/geocat-applications/lib/python3.14/site-packages/geocat/comp/meteorology.py:1270: SyntaxWarning: "\D" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\D"? A raw string is also an option.
   \Delta p = p_{k+1/2} - p_{k-1/2}
 </pre></div>
 </div>
@@ -1097,14 +1097,14 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="g g-Whitespace">    </span><span class="mi">648</span> <span class="c1"># ensure all same input type</span>
 <span class="g g-Whitespace">    </span><span class="mi">649</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">in_types</span><span class="p">))</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
 <span class="ne">--&gt; </span><span class="mi">650</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">651</span>         <span class="sa">f</span><span class="s2">&quot;relhum_ice: input types are not the same, received </span><span class="si">{</span><span class="n">in_types</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">651</span>         <span class="sa">f</span><span class="s2">"relhum_ice: input types are not the same, received </span><span class="si">{</span><span class="n">in_types</span><span class="si">}</span><span class="s2">"</span>
 <span class="g g-Whitespace">    </span><span class="mi">652</span>     <span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">654</span> <span class="c1"># if inputs not xarray or numpy (float, int, list), elevate to np</span>
 <span class="g g-Whitespace">    </span><span class="mi">655</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">temperature</span><span class="p">,</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span>
 <span class="g g-Whitespace">    </span><span class="mi">656</span>     <span class="n">temperature</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
 <span class="g g-Whitespace">    </span><span class="mi">657</span> <span class="p">):</span>
 
-<span class="ne">TypeError</span>: relhum_ice: input types are not the same, received [&lt;class &#39;int&#39;&gt;, &lt;class &#39;numpy.float64&#39;&gt;, &lt;class &#39;int&#39;&gt;]
+<span class="ne">TypeError</span>: relhum_ice: input types are not the same, received [&lt;class 'int'&gt;, &lt;class 'numpy.float64'&gt;, &lt;class 'int'&gt;]
 </pre></div>
 </div>
 </div>
@@ -1118,8 +1118,8 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="kn">import</span><span class="w"> </span><span class="nn">geocat.datafiles</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gcd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="n">relhum_water_data</span> <span class="o">=</span> <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;applications_files/ncl_outputs/relhum_water_output.txt&#39;</span><span class="p">)</span>
-<span class="n">relhum_water_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">relhum_water_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">relhum_water_data</span> <span class="o">=</span> <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'applications_files/ncl_outputs/relhum_water_output.txt'</span><span class="p">)</span>
+<span class="n">relhum_water_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">relhum_water_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">','</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1165,8 +1165,8 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="kn">import</span><span class="w"> </span><span class="nn">geocat.datafiles</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gcd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="n">dpres_plevel_data</span> <span class="o">=</span> <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;applications_files/ncl_outputs/dpres_plevel_output.txt&#39;</span><span class="p">)</span>
-<span class="n">dpres_plevel_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">dpres_plevel_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">dpres_plevel_data</span> <span class="o">=</span> <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'applications_files/ncl_outputs/dpres_plevel_output.txt'</span><span class="p">)</span>
+<span class="n">dpres_plevel_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">dpres_plevel_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">','</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1237,8 +1237,8 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="kn">import</span><span class="w"> </span><span class="nn">geocat.datafiles</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gcd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="n">psychro_fao56_data</span> <span class="o">=</span> <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;applications_files/ncl_outputs/psychro_fao56_output.txt&#39;</span><span class="p">)</span>
-<span class="n">psychro_fao56_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">psychro_fao56_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">psychro_fao56_data</span> <span class="o">=</span> <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'applications_files/ncl_outputs/psychro_fao56_output.txt'</span><span class="p">)</span>
+<span class="n">psychro_fao56_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">psychro_fao56_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">','</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1282,9 +1282,9 @@ This notebook is part of the process we have for adding entries to the NCL Index
         <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span>
             <span class="n">ncl_dewtemp</span><span class="p">[</span><span class="n">pair</span><span class="p">],</span> <span class="n">geocat_dewtemp</span><span class="p">[</span><span class="n">pair</span><span class="p">],</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-02</span>
         <span class="p">)</span>  <span class="c1"># within 2 decimal points</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pair</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="si">{</span><span class="n">ncl_dewtemp</span><span class="p">[</span><span class="n">pair</span><span class="p">]</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">geocat_dewtemp</span><span class="p">[</span><span class="n">pair</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Difference: </span><span class="si">{</span><span class="n">ncl_dewtemp</span><span class="p">[</span><span class="n">pair</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">geocat_dewtemp</span><span class="p">[</span><span class="n">pair</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">pair</span><span class="si">}</span><span class="s2">:"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\t</span><span class="si">{</span><span class="n">ncl_dewtemp</span><span class="p">[</span><span class="n">pair</span><span class="p">]</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">geocat_dewtemp</span><span class="p">[</span><span class="n">pair</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\t</span><span class="s2">Difference: </span><span class="si">{</span><span class="n">ncl_dewtemp</span><span class="p">[</span><span class="n">pair</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">geocat_dewtemp</span><span class="p">[</span><span class="n">pair</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1427,10 +1427,10 @@ This notebook is part of the process we have for adding entries to the NCL Index
     <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">ncl_dp_value</span> <span class="o">&lt;</span> <span class="nb">float</span><span class="p">(</span><span class="mf">9e36</span><span class="p">)</span> <span class="ow">and</span> <span class="n">geocat_dp_value</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># ignore nan</span>
             <span class="nb">print</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;Pressure Level: </span><span class="si">{</span><span class="n">key</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">, Surface Pressure: </span><span class="si">{</span><span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">:&quot;</span>
+                <span class="sa">f</span><span class="s2">"Pressure Level: </span><span class="si">{</span><span class="n">key</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">, Surface Pressure: </span><span class="si">{</span><span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">:"</span>
             <span class="p">)</span>  <span class="c1"># delta_pressure(plev,psfc)</span>
             <span class="nb">print</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Difference: </span><span class="si">{</span><span class="n">ncl_dp_value</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">geocat_dp_value</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">ncl_dp_value</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">geocat_dp_value</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">"</span><span class="se">\t</span><span class="s2">Difference: </span><span class="si">{</span><span class="n">ncl_dp_value</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">geocat_dp_value</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">ncl_dp_value</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">geocat_dp_value</span><span class="si">}</span><span class="s2">"</span>
             <span class="p">)</span>
 </pre></div>
 </div>
