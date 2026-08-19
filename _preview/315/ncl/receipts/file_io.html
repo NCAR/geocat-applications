@@ -491,21 +491,21 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="p">;</span> <span class="n">datafiles</span> <span class="n">downloaded</span> <span class="n">from</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">NCAR</span><span class="o">/</span><span class="n">geocat</span><span class="o">-</span><span class="n">datafiles</span>
 
 <span class="p">;</span> <span class="n">netCDF</span> <span class="n">file</span> <span class="nb">format</span> <span class="n">family</span><span class="p">:</span> <span class="n">netCDF</span><span class="p">,</span> <span class="n">HDF5</span><span class="p">,</span> <span class="ow">and</span> <span class="n">HDF</span><span class="o">-</span><span class="n">EOS5</span>
-<span class="n">netCDF_datafile</span> <span class="o">=</span> <span class="s2">&quot;1994_256_FSD.nc&quot;</span>
-<span class="n">netcdf_f</span> <span class="o">=</span> <span class="n">addfile</span><span class="p">(</span><span class="n">netCDF_datafile</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">netCDF_datafile</span> <span class="o">=</span> <span class="s2">"1994_256_FSD.nc"</span>
+<span class="n">netcdf_f</span> <span class="o">=</span> <span class="n">addfile</span><span class="p">(</span><span class="n">netCDF_datafile</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">netcdf_f</span><span class="p">)</span>
 
-<span class="n">CDF_datafile</span> <span class="o">=</span> <span class="s2">&quot;941110_P.cdf&quot;</span>
-<span class="n">cdf_f</span> <span class="o">=</span> <span class="n">addfile</span><span class="p">(</span><span class="n">CDF_datafile</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">CDF_datafile</span> <span class="o">=</span> <span class="s2">"941110_P.cdf"</span>
+<span class="n">cdf_f</span> <span class="o">=</span> <span class="n">addfile</span><span class="p">(</span><span class="n">CDF_datafile</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">cdf_f</span><span class="p">)</span>
 
 <span class="p">;</span> <span class="n">Non</span><span class="o">-</span><span class="n">HDF5</span> <span class="n">file</span> <span class="nb">format</span> <span class="n">family</span><span class="p">:</span> <span class="n">HDF</span> <span class="ow">and</span> <span class="n">HDF</span><span class="o">-</span><span class="n">EOS</span>
-<span class="n">HDF_datafile</span> <span class="o">=</span> <span class="s2">&quot;avhrr.hdf&quot;</span>
-<span class="n">hdf_f</span> <span class="o">=</span> <span class="n">addfile</span><span class="p">(</span><span class="n">HDF_datafile</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">HDF_datafile</span> <span class="o">=</span> <span class="s2">"avhrr.hdf"</span>
+<span class="n">hdf_f</span> <span class="o">=</span> <span class="n">addfile</span><span class="p">(</span><span class="n">HDF_datafile</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">hdf_f</span><span class="p">)</span>
 
-<span class="n">HE2_datafile</span> <span class="o">=</span> <span class="s2">&quot;MOD04_L2.A2001066.0000.004.2003078090622.he2&quot;</span>
-<span class="n">he2_f</span> <span class="o">=</span> <span class="n">addfile</span><span class="p">(</span><span class="n">HE2_datafile</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">HE2_datafile</span> <span class="o">=</span> <span class="s2">"MOD04_L2.A2001066.0000.004.2003078090622.he2"</span>
+<span class="n">he2_f</span> <span class="o">=</span> <span class="n">addfile</span><span class="p">(</span><span class="n">HE2_datafile</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">he2_f</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -518,36 +518,36 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
 
 <span class="c1"># netCDF file format family: netCDF, HDF5, and HDF-EOS5</span>
-<span class="n">netCDF_datafile</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;netcdf_files/1994_256_FSD.nc&quot;</span><span class="p">))</span>
-<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">netCDF_datafile</span><span class="p">,</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">),</span> <span class="s2">&quot;netCDF file failed to load into Xarray&quot;</span>
-<span class="k">assert</span> <span class="n">netCDF_datafile</span><span class="p">,</span> <span class="s2">&quot;netCDF files failed to load&quot;</span>
-<span class="k">assert</span> <span class="n">netCDF_datafile</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;netCDF file is empty&quot;</span>
+<span class="n">netCDF_datafile</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"netcdf_files/1994_256_FSD.nc"</span><span class="p">))</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">netCDF_datafile</span><span class="p">,</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">),</span> <span class="s2">"netCDF file failed to load into Xarray"</span>
+<span class="k">assert</span> <span class="n">netCDF_datafile</span><span class="p">,</span> <span class="s2">"netCDF files failed to load"</span>
+<span class="k">assert</span> <span class="n">netCDF_datafile</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">"netCDF file is empty"</span>
 
-<span class="n">CDF_datafile</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;netcdf_files/941110_P.cdf&quot;</span><span class="p">))</span>
-<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">CDF_datafile</span><span class="p">,</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">),</span> <span class="s2">&quot;CDF file failed to load into Xarray&quot;</span>
-<span class="k">assert</span> <span class="n">CDF_datafile</span><span class="p">,</span> <span class="s2">&quot;CDF files failed to load&quot;</span>
-<span class="k">assert</span> <span class="n">CDF_datafile</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;CDF file is empty&quot;</span>
+<span class="n">CDF_datafile</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"netcdf_files/941110_P.cdf"</span><span class="p">))</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">CDF_datafile</span><span class="p">,</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">),</span> <span class="s2">"CDF file failed to load into Xarray"</span>
+<span class="k">assert</span> <span class="n">CDF_datafile</span><span class="p">,</span> <span class="s2">"CDF files failed to load"</span>
+<span class="k">assert</span> <span class="n">CDF_datafile</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">"CDF file is empty"</span>
 
 <span class="c1"># Non-HDF5 file format family: HDF and HDF-EOS</span>
-<span class="n">HDF_datafile</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;hdf_files/avhrr.hdf&quot;</span><span class="p">),</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;netcdf4&quot;</span><span class="p">)</span>
-<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">HDF_datafile</span><span class="p">,</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">),</span> <span class="s2">&quot;HDF file failed to load into Xarray&quot;</span>
-<span class="k">assert</span> <span class="n">HDF_datafile</span><span class="p">,</span> <span class="s2">&quot;HDF files failed to load&quot;</span>
-<span class="k">assert</span> <span class="n">HDF_datafile</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;HDF file is empty&quot;</span>
+<span class="n">HDF_datafile</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"hdf_files/avhrr.hdf"</span><span class="p">),</span> <span class="n">engine</span><span class="o">=</span><span class="s2">"netcdf4"</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">HDF_datafile</span><span class="p">,</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">),</span> <span class="s2">"HDF file failed to load into Xarray"</span>
+<span class="k">assert</span> <span class="n">HDF_datafile</span><span class="p">,</span> <span class="s2">"HDF files failed to load"</span>
+<span class="k">assert</span> <span class="n">HDF_datafile</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">"HDF file is empty"</span>
 
 <span class="n">HE2_datafile</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
-    <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;hdf_files/MOD04_L2.A2001066.0000.004.2003078090622.he2&quot;</span><span class="p">),</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;netcdf4&quot;</span>
+    <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"hdf_files/MOD04_L2.A2001066.0000.004.2003078090622.he2"</span><span class="p">),</span> <span class="n">engine</span><span class="o">=</span><span class="s2">"netcdf4"</span>
 <span class="p">)</span>
-<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">HE2_datafile</span><span class="p">,</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">),</span> <span class="s2">&quot;he2 file failed to load into Xarray&quot;</span>
-<span class="k">assert</span> <span class="n">HE2_datafile</span><span class="p">,</span> <span class="s2">&quot;he2 files failed to load&quot;</span>
-<span class="k">assert</span> <span class="n">HE2_datafile</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;he2 file is empty&quot;</span>
+<span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">HE2_datafile</span><span class="p">,</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">),</span> <span class="s2">"he2 file failed to load into Xarray"</span>
+<span class="k">assert</span> <span class="n">HE2_datafile</span><span class="p">,</span> <span class="s2">"he2 files failed to load"</span>
+<span class="k">assert</span> <span class="n">HE2_datafile</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">"he2 file is empty"</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;netcdf_files/941110_P.cdf&#39; from &#39;https://github.com/NCAR/geocat-datafiles/raw/main/netcdf_files/941110_P.cdf&#39; to &#39;/home/runner/.cache/geocat&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file 'netcdf_files/941110_P.cdf' from 'https://github.com/NCAR/geocat-datafiles/raw/main/netcdf_files/941110_P.cdf' to '/home/runner/.cache/geocat'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;hdf_files/MOD04_L2.A2001066.0000.004.2003078090622.he2&#39; from &#39;https://github.com/NCAR/geocat-datafiles/raw/main/hdf_files/MOD04_L2.A2001066.0000.004.2003078090622.he2&#39; to &#39;/home/runner/.cache/geocat&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file 'hdf_files/MOD04_L2.A2001066.0000.004.2003078090622.he2' from 'https://github.com/NCAR/geocat-datafiles/raw/main/hdf_files/MOD04_L2.A2001066.0000.004.2003078090622.he2' to '/home/runner/.cache/geocat'.
 </pre></div>
 </div>
 </div>

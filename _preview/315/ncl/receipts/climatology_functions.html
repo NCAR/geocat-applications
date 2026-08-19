@@ -497,17 +497,17 @@ This notebook is part of the process we have for adding entries to the NCL Index
 
 <span class="p">;</span> <span class="n">calcDayAnomTLL</span>
 <span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span><span class="w"> </span><span class="nn">www.ncl.ucar.edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Contributed</span><span class="o">/</span><span class="n">calcDayanomTLL</span><span class="o">.</span><span class="n">shtml</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">addfile</span><span class="p">(</span><span class="s2">&quot;CMIP6_sea_ice_daily_subset.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">addfile</span><span class="p">(</span><span class="s2">"CMIP6_sea_ice_daily_subset.nc"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span>
 <span class="n">time</span> <span class="o">=</span> <span class="n">f</span><span class="o">-&gt;</span><span class="n">time</span>
-<span class="n">time</span><span class="nd">@calendar</span> <span class="o">=</span> <span class="s2">&quot;noleap&quot;</span>
+<span class="n">time</span><span class="nd">@calendar</span> <span class="o">=</span> <span class="s2">"noleap"</span>
 <span class="n">TIME</span> <span class="o">=</span> <span class="n">cd_calendar</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">year</span> <span class="o">=</span> <span class="n">toint</span><span class="p">(</span><span class="n">TIME</span><span class="p">(:,</span><span class="mi">0</span><span class="p">))</span>
-<span class="n">year</span><span class="nd">@calendar</span> <span class="o">=</span> <span class="s2">&quot;noleap&quot;</span>
+<span class="n">year</span><span class="nd">@calendar</span> <span class="o">=</span> <span class="s2">"noleap"</span>
 <span class="n">month</span> <span class="o">=</span> <span class="n">toint</span><span class="p">(</span><span class="n">TIME</span><span class="p">(:,</span><span class="mi">1</span><span class="p">))</span>
 <span class="n">day</span> <span class="o">=</span> <span class="n">toint</span><span class="p">(</span><span class="n">TIME</span><span class="p">(:,</span><span class="mi">2</span><span class="p">))</span>
 <span class="n">ddd</span> <span class="o">=</span> <span class="n">day_of_year</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">)</span>
 <span class="n">yyyyddd</span> <span class="o">=</span> <span class="n">year</span><span class="o">*</span><span class="mi">1000</span><span class="o">+</span><span class="n">ddd</span>
-<span class="n">yyyyddd</span><span class="nd">@calendar</span> <span class="o">=</span> <span class="s2">&quot;noleap&quot;</span>
+<span class="n">yyyyddd</span><span class="nd">@calendar</span> <span class="o">=</span> <span class="s2">"noleap"</span>
 <span class="n">aice_d</span> <span class="o">=</span> <span class="n">f</span><span class="o">-&gt;</span><span class="n">aice_d</span>
 <span class="n">aiceClmDay</span> <span class="o">=</span> <span class="n">clmDayTLL</span><span class="p">(</span><span class="n">aice_d</span><span class="p">,</span> <span class="n">yyyyddd</span><span class="p">)</span>
 <span class="n">aiceDayAnom</span> <span class="o">=</span> <span class="n">calcDayAnomTLL</span><span class="p">(</span><span class="n">aice_d</span><span class="p">,</span> <span class="n">yyyyddd</span><span class="p">,</span> <span class="n">aiceClmDay</span><span class="p">)</span>
@@ -515,7 +515,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 
 <span class="p">;</span> <span class="n">calcMonAnomTLL</span>
 <span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span><span class="w"> </span><span class="nn">www.ncl.ucar.edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Contributed</span><span class="o">/</span><span class="n">calcMonAnomTLL</span><span class="o">.</span><span class="n">shtml</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">addfile</span><span class="p">(</span><span class="s2">&quot;CMIP6_sea_ice_monthly_subset.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">addfile</span><span class="p">(</span><span class="s2">"CMIP6_sea_ice_monthly_subset.nc"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span>
 <span class="n">aice</span> <span class="o">=</span> <span class="n">f</span><span class="o">-&gt;</span><span class="n">aice</span>
 <span class="n">aiceClmMon</span> <span class="o">=</span> <span class="n">clmMonTLL</span><span class="p">(</span><span class="n">aice</span><span class="p">)</span>
 <span class="n">aiceMonAnom</span> <span class="o">=</span> <span class="n">calcMonAnomTLL</span><span class="p">(</span><span class="n">aice</span><span class="p">,</span><span class="n">aiceClmMon</span><span class="p">)</span>
@@ -523,45 +523,45 @@ This notebook is part of the process we have for adding entries to the NCL Index
 
 <span class="p">;</span> <span class="n">clmDayTLL</span>
 <span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span><span class="w"> </span><span class="nn">www.ncl.ucar.edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Contributed</span><span class="o">/</span><span class="n">clmDayTLL</span><span class="o">.</span><span class="n">shtml</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">addfile</span><span class="p">(</span><span class="s2">&quot;CMIP6_sea_ice_daily_subset.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">addfile</span><span class="p">(</span><span class="s2">"CMIP6_sea_ice_daily_subset.nc"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span>
 <span class="n">time</span> <span class="o">=</span> <span class="n">f</span><span class="o">-&gt;</span><span class="n">time</span>
-<span class="n">time</span><span class="nd">@calendar</span> <span class="o">=</span> <span class="s2">&quot;noleap&quot;</span>
+<span class="n">time</span><span class="nd">@calendar</span> <span class="o">=</span> <span class="s2">"noleap"</span>
 <span class="n">TIME</span> <span class="o">=</span> <span class="n">cd_calendar</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">year</span> <span class="o">=</span> <span class="n">toint</span><span class="p">(</span><span class="n">TIME</span><span class="p">(:,</span><span class="mi">0</span><span class="p">))</span>
-<span class="n">year</span><span class="nd">@calendar</span> <span class="o">=</span> <span class="s2">&quot;noleap&quot;</span>
+<span class="n">year</span><span class="nd">@calendar</span> <span class="o">=</span> <span class="s2">"noleap"</span>
 <span class="n">month</span> <span class="o">=</span> <span class="n">toint</span><span class="p">(</span><span class="n">TIME</span><span class="p">(:,</span><span class="mi">1</span><span class="p">))</span>
 <span class="n">day</span> <span class="o">=</span> <span class="n">toint</span><span class="p">(</span><span class="n">TIME</span><span class="p">(:,</span><span class="mi">2</span><span class="p">))</span>
 <span class="n">ddd</span> <span class="o">=</span> <span class="n">day_of_year</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">)</span>
 <span class="n">yyyyddd</span> <span class="o">=</span> <span class="n">year</span><span class="o">*</span><span class="mi">1000</span><span class="o">+</span><span class="n">ddd</span>
-<span class="n">yyyyddd</span><span class="nd">@calendar</span> <span class="o">=</span> <span class="s2">&quot;noleap&quot;</span>
+<span class="n">yyyyddd</span><span class="nd">@calendar</span> <span class="o">=</span> <span class="s2">"noleap"</span>
 <span class="n">aice_d</span> <span class="o">=</span> <span class="n">f</span><span class="o">-&gt;</span><span class="n">aice_d</span>
 <span class="n">aiceClmDay</span> <span class="o">=</span> <span class="n">clmDayTLL</span><span class="p">(</span><span class="n">aice_d</span><span class="p">,</span> <span class="n">yyyyddd</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">aiceClmDay</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 
 <span class="p">;</span> <span class="n">clmMonTLL</span>
 <span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span><span class="w"> </span><span class="nn">www.ncl.ucar.edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Contributed</span><span class="o">/</span><span class="n">clmMonTLL</span><span class="o">.</span><span class="n">shtml</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">addfile</span><span class="p">(</span><span class="s2">&quot;CMIP6_sea_ice_monthly_subset.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">addfile</span><span class="p">(</span><span class="s2">"CMIP6_sea_ice_monthly_subset.nc"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span>
 <span class="n">aice</span> <span class="o">=</span> <span class="n">f</span><span class="o">-&gt;</span><span class="n">aice</span>
 <span class="n">aiceClmMon</span> <span class="o">=</span> <span class="n">clmMonTLL</span><span class="p">(</span><span class="n">aice</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">aiceClmMon</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 
 <span class="p">;</span> <span class="n">month_to_season</span>
 <span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span><span class="w"> </span><span class="nn">www.ncl.ucar.edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Contributed</span><span class="o">/</span><span class="n">calcDayAnomTLL</span><span class="o">.</span><span class="n">shtml</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">addfile</span><span class="p">(</span><span class="s2">&quot;CMIP6_sea_ice_monthly_subset.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">addfile</span><span class="p">(</span><span class="s2">"CMIP6_sea_ice_monthly_subset.nc"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span>
 <span class="n">aice</span> <span class="o">=</span> <span class="n">f</span><span class="o">-&gt;</span><span class="n">aice</span>
-<span class="n">aiceSeason</span> <span class="o">=</span> <span class="n">month_to_season</span><span class="p">(</span><span class="n">aice</span><span class="p">,</span> <span class="s2">&quot;ASO&quot;</span><span class="p">)</span>
+<span class="n">aiceSeason</span> <span class="o">=</span> <span class="n">month_to_season</span><span class="p">(</span><span class="n">aice</span><span class="p">,</span> <span class="s2">"ASO"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">aiceSeason</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 
 <span class="p">;</span> <span class="n">rmMonAnnCycTLL</span>
 <span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span><span class="w"> </span><span class="nn">www.ncl.ucar.edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Contributed</span><span class="o">/</span><span class="n">month_to_season</span><span class="o">.</span><span class="n">shtml</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">addfile</span><span class="p">(</span><span class="s2">&quot;CMIP6_sea_ice_monthly_subset.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">addfile</span><span class="p">(</span><span class="s2">"CMIP6_sea_ice_monthly_subset.nc"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span>
 <span class="n">aice</span> <span class="o">=</span> <span class="n">f</span><span class="o">-&gt;</span><span class="n">aice</span>
 <span class="n">aiceRmMonAnnCyc</span> <span class="o">=</span> <span class="n">rmMonAnnCycTLL</span><span class="p">(</span><span class="n">aice</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">aiceRmMonAnnCyc</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 
 <span class="p">;</span> <span class="n">stdMonTLL</span>
 <span class="p">;</span> <span class="n">Adapted</span> <span class="kn">from</span><span class="w"> </span><span class="nn">www.ncl.ucar.edu</span><span class="o">/</span><span class="n">Document</span><span class="o">/</span><span class="n">Functions</span><span class="o">/</span><span class="n">Contributed</span><span class="o">/</span><span class="n">stdMonTLL</span><span class="o">.</span><span class="n">shtml</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">addfile</span><span class="p">(</span><span class="s2">&quot;CMIP6_sea_ice_monthly_subset.nc&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">addfile</span><span class="p">(</span><span class="s2">"CMIP6_sea_ice_monthly_subset.nc"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span>
 <span class="n">aice</span> <span class="o">=</span> <span class="n">f</span><span class="o">-&gt;</span><span class="n">aice</span>
 <span class="n">aiceStdMon</span> <span class="o">=</span> <span class="n">stdMonTLL</span><span class="p">(</span><span class="n">aice</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">aiceStdMon</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
@@ -581,55 +581,55 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
 
 <span class="n">ds_m</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
-    <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;applications_files/inputs/CMIP6_sea_ice_monthly_subset.nc&quot;</span><span class="p">)</span>
+    <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"applications_files/inputs/CMIP6_sea_ice_monthly_subset.nc"</span><span class="p">)</span>
 <span class="p">)</span>
 <span class="n">ds_d</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
-    <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;applications_files/inputs/CMIP6_sea_ice_daily_subset.nc&quot;</span><span class="p">)</span>
+    <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"applications_files/inputs/CMIP6_sea_ice_daily_subset.nc"</span><span class="p">)</span>
 <span class="p">)</span>
 
 <span class="c1"># calcDayAnomTLL</span>
 <span class="n">aice</span> <span class="o">=</span> <span class="n">ds_d</span><span class="o">.</span><span class="n">aice_d</span><span class="p">[:,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
 <span class="n">DayTLL</span> <span class="o">=</span> <span class="n">aice</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">aice</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">dayofyear</span><span class="p">)</span>
-<span class="n">clmDayTLL</span> <span class="o">=</span> <span class="n">DayTLL</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+<span class="n">clmDayTLL</span> <span class="o">=</span> <span class="n">DayTLL</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">"time"</span><span class="p">)</span>
 <span class="n">calcDayAnomTLL</span> <span class="o">=</span> <span class="n">DayTLL</span> <span class="o">-</span> <span class="n">clmDayTLL</span>
-<span class="n">results</span><span class="p">[</span><span class="s2">&quot;calcDayAnomTLL&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">calcDayAnomTLL</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">"calcDayAnomTLL"</span><span class="p">]</span> <span class="o">=</span> <span class="n">calcDayAnomTLL</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># calcMonAnomTLL</span>
 <span class="n">aice</span> <span class="o">=</span> <span class="n">ds_m</span><span class="o">.</span><span class="n">aice</span><span class="p">[:,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
 <span class="n">MonTLL</span> <span class="o">=</span> <span class="n">aice</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">aice</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span><span class="p">)</span>
-<span class="n">clmMonTLL</span> <span class="o">=</span> <span class="n">MonTLL</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+<span class="n">clmMonTLL</span> <span class="o">=</span> <span class="n">MonTLL</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">"time"</span><span class="p">)</span>
 <span class="n">calcMonAnomTLL</span> <span class="o">=</span> <span class="n">MonTLL</span> <span class="o">-</span> <span class="n">clmMonTLL</span>
-<span class="n">results</span><span class="p">[</span><span class="s2">&quot;calcMonAnomTLL&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">calcMonAnomTLL</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">"calcMonAnomTLL"</span><span class="p">]</span> <span class="o">=</span> <span class="n">calcMonAnomTLL</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># clmDayTLL</span>
 <span class="n">aice</span> <span class="o">=</span> <span class="n">ds_d</span><span class="o">.</span><span class="n">aice_d</span><span class="p">[:,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
 <span class="n">DayTLL</span> <span class="o">=</span> <span class="n">aice</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">aice</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">dayofyear</span><span class="p">)</span>
-<span class="n">clmDayTLL</span> <span class="o">=</span> <span class="n">DayTLL</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
-<span class="n">results</span><span class="p">[</span><span class="s2">&quot;clmDayTLL&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">clmDayTLL</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">clmDayTLL</span> <span class="o">=</span> <span class="n">DayTLL</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">"time"</span><span class="p">)</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">"clmDayTLL"</span><span class="p">]</span> <span class="o">=</span> <span class="n">clmDayTLL</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># clmMonTLL</span>
 <span class="n">aice</span> <span class="o">=</span> <span class="n">ds_m</span><span class="o">.</span><span class="n">aice</span><span class="p">[:,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
 <span class="n">MonTLL</span> <span class="o">=</span> <span class="n">aice</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">aice</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span><span class="p">)</span>
-<span class="n">clmMonTLL</span> <span class="o">=</span> <span class="n">MonTLL</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
-<span class="n">results</span><span class="p">[</span><span class="s2">&quot;clmMonTLL&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">clmMonTLL</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">clmMonTLL</span> <span class="o">=</span> <span class="n">MonTLL</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">"time"</span><span class="p">)</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">"clmMonTLL"</span><span class="p">]</span> <span class="o">=</span> <span class="n">clmMonTLL</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># month_to_season</span>
 <span class="n">aice</span> <span class="o">=</span> <span class="n">ds_m</span><span class="o">.</span><span class="n">aice</span><span class="p">[:,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
-<span class="n">mon_to_season</span> <span class="o">=</span> <span class="n">month_to_season</span><span class="p">(</span><span class="n">aice</span><span class="p">,</span> <span class="s2">&quot;ASO&quot;</span><span class="p">)</span>
-<span class="n">results</span><span class="p">[</span><span class="s2">&quot;month_to_season&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mon_to_season</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">mon_to_season</span> <span class="o">=</span> <span class="n">month_to_season</span><span class="p">(</span><span class="n">aice</span><span class="p">,</span> <span class="s2">"ASO"</span><span class="p">)</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">"month_to_season"</span><span class="p">]</span> <span class="o">=</span> <span class="n">mon_to_season</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># rmMonAnnCycTLL</span>
 <span class="n">aice</span> <span class="o">=</span> <span class="n">ds_m</span><span class="o">.</span><span class="n">aice</span><span class="p">[:,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
 <span class="n">MonTLL</span> <span class="o">=</span> <span class="n">aice</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">aice</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span><span class="p">)</span>
-<span class="n">clmMonTLL</span> <span class="o">=</span> <span class="n">MonTLL</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+<span class="n">clmMonTLL</span> <span class="o">=</span> <span class="n">MonTLL</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">"time"</span><span class="p">)</span>
 <span class="n">rmMonAnnCycTLL</span> <span class="o">=</span> <span class="n">MonTLL</span> <span class="o">-</span> <span class="n">clmMonTLL</span>
-<span class="n">results</span><span class="p">[</span><span class="s2">&quot;rmMonAnnCycTLL&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rmMonAnnCycTLL</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">"rmMonAnnCycTLL"</span><span class="p">]</span> <span class="o">=</span> <span class="n">rmMonAnnCycTLL</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># stdMonTLL</span>
 <span class="n">aice</span> <span class="o">=</span> <span class="n">ds_m</span><span class="o">.</span><span class="n">aice</span><span class="p">[:,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
 <span class="n">MonTLL</span> <span class="o">=</span> <span class="n">aice</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">aice</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span><span class="p">)</span>
 <span class="n">stdMonTLL</span> <span class="o">=</span> <span class="n">MonTLL</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">results</span><span class="p">[</span><span class="s2">&quot;stdMonTLL&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stdMonTLL</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">results</span><span class="p">[</span><span class="s2">"stdMonTLL"</span><span class="p">]</span> <span class="o">=</span> <span class="n">stdMonTLL</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -641,49 +641,49 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dictionary of climatology functions results</span>
 <span class="n">ncl_results</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;calcDayAnomTLL&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.02774364</span><span class="p">,</span>
-    <span class="s2">&quot;calcMonAnomTLL&quot;</span><span class="p">:</span> <span class="mf">0.003319263</span><span class="p">,</span>
-    <span class="s2">&quot;clmDayTLL&quot;</span><span class="p">:</span> <span class="mf">0.7408184</span><span class="p">,</span>
-    <span class="s2">&quot;clmMonTLL&quot;</span><span class="p">:</span> <span class="mf">0.8063018</span><span class="p">,</span>
-    <span class="s2">&quot;month_to_season&quot;</span><span class="p">:</span> <span class="mf">0.9931215</span><span class="p">,</span>
-    <span class="s2">&quot;rmMonAnnCycTLL&quot;</span><span class="p">:</span> <span class="mf">0.003319263</span><span class="p">,</span>
-    <span class="s2">&quot;stdMonTLL&quot;</span><span class="p">:</span> <span class="mf">0.07392025</span><span class="p">,</span>
+    <span class="s2">"calcDayAnomTLL"</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.02774364</span><span class="p">,</span>
+    <span class="s2">"calcMonAnomTLL"</span><span class="p">:</span> <span class="mf">0.003319263</span><span class="p">,</span>
+    <span class="s2">"clmDayTLL"</span><span class="p">:</span> <span class="mf">0.7408184</span><span class="p">,</span>
+    <span class="s2">"clmMonTLL"</span><span class="p">:</span> <span class="mf">0.8063018</span><span class="p">,</span>
+    <span class="s2">"month_to_season"</span><span class="p">:</span> <span class="mf">0.9931215</span><span class="p">,</span>
+    <span class="s2">"rmMonAnnCycTLL"</span><span class="p">:</span> <span class="mf">0.003319263</span><span class="p">,</span>
+    <span class="s2">"stdMonTLL"</span><span class="p">:</span> <span class="mf">0.07392025</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">ncl_results</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">results</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">: </span><span class="se">\n\t</span><span class="s2">python:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">results</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="si">}</span><span class="se">\n\t</span><span class="s2">ncl:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">ncl_results</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">: </span><span class="se">\n\t</span><span class="s2">python:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">results</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="si">}</span><span class="se">\n\t</span><span class="s2">ncl:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">ncl_results</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
     <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">ncl_results</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="n">results</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-06</span><span class="p">,</span> <span class="n">abs_tol</span><span class="o">=</span><span class="mf">1e-06</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>calcDayAnomTLL: 
-	python:		-0.02774369716644287
-	ncl:		-0.02774364
-
-rmMonAnnCycTLL: 
-	python:		0.0033192038536071777
-	ncl:		0.003319263
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>month_to_season: 
+	python:		0.9931214451789856
+	ncl:		0.9931215
 
 clmDayTLL: 
 	python:		0.7408185005187988
 	ncl:		0.7408184
 
-stdMonTLL: 
-	python:		0.07392024993896484
-	ncl:		0.07392025
-
-month_to_season: 
-	python:		0.9931214451789856
-	ncl:		0.9931215
-
-clmMonTLL: 
-	python:		0.8063018918037415
-	ncl:		0.8063018
+calcDayAnomTLL: 
+	python:		-0.02774369716644287
+	ncl:		-0.02774364
 
 calcMonAnomTLL: 
 	python:		0.0033192038536071777
 	ncl:		0.003319263
+
+stdMonTLL: 
+	python:		0.07392024993896484
+	ncl:		0.07392025
+
+rmMonAnnCycTLL: 
+	python:		0.0033192038536071777
+	ncl:		0.003319263
+
+clmMonTLL: 
+	python:		0.8063018918037415
+	ncl:		0.8063018
 </pre></div>
 </div>
 </div>
@@ -694,26 +694,26 @@ calcMonAnomTLL:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">ncl_results</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">results</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="si">{</span><span class="n">results</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">ncl_results</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">:"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\t</span><span class="si">{</span><span class="n">results</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">ncl_results</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>calcDayAnomTLL:
-	-5.7166442871126044e-08
-rmMonAnnCycTLL:
-	-5.9146392822079924e-08
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>month_to_season:
+	-5.482101439469034e-08
 clmDayTLL:
 	1.0051879884009907e-07
-stdMonTLL:
-	-6.103516303479495e-11
-month_to_season:
-	-5.482101439469034e-08
-clmMonTLL:
-	9.180374149764248e-08
+calcDayAnomTLL:
+	-5.7166442871126044e-08
 calcMonAnomTLL:
 	-5.9146392822079924e-08
+stdMonTLL:
+	-6.103516303479495e-11
+rmMonAnnCycTLL:
+	-5.9146392822079924e-08
+clmMonTLL:
+	9.180374149764248e-08
 </pre></div>
 </div>
 </div>
