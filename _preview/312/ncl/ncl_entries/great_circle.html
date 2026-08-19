@@ -553,7 +553,7 @@
 <span class="n">latitudes</span> <span class="o">=</span> <span class="p">[</span><span class="mf">40.0150</span><span class="p">,</span> <span class="mf">42.3601</span><span class="p">,</span> <span class="mf">29.5518</span><span class="p">]</span>  <span class="c1"># degrees</span>
 <span class="n">longitudes</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">105.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">71.0589</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.0982</span><span class="p">]</span>  <span class="c1"># degrees</span>
 
-<span class="n">geod</span> <span class="o">=</span> <span class="n">Geod</span><span class="p">(</span><span class="n">ellps</span><span class="o">=</span><span class="s2">&quot;sphere&quot;</span><span class="p">)</span>  <span class="c1"># radius = 6370997 m</span>
+<span class="n">geod</span> <span class="o">=</span> <span class="n">Geod</span><span class="p">(</span><span class="n">ellps</span><span class="o">=</span><span class="s2">"sphere"</span><span class="p">)</span>  <span class="c1"># radius = 6370997 m</span>
 <span class="n">poly_area_m</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">geod</span><span class="o">.</span><span class="n">polygon_area_perimeter</span><span class="p">(</span><span class="n">longitudes</span><span class="p">,</span> <span class="n">latitudes</span><span class="p">)</span>
 <span class="n">poly_area_km2</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">poly_area_m</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e-6</span>
 <span class="n">poly_area_km2</span>
@@ -583,9 +583,9 @@
 
 <span class="n">spherical_coords</span> <span class="o">=</span> <span class="n">UnitSphericalRepresentation</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="n">lat</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span> <span class="n">lon</span><span class="o">=</span><span class="n">lon</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">deg</span><span class="p">)</span>
 <span class="n">cart_coords</span> <span class="o">=</span> <span class="n">spherical_coords</span><span class="o">.</span><span class="n">to_cartesian</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;X = </span><span class="si">{</span><span class="n">cart_coords</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Y = </span><span class="si">{</span><span class="n">cart_coords</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Z = </span><span class="si">{</span><span class="n">cart_coords</span><span class="o">.</span><span class="n">z</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"X = </span><span class="si">{</span><span class="n">cart_coords</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Y = </span><span class="si">{</span><span class="n">cart_coords</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Z = </span><span class="si">{</span><span class="n">cart_coords</span><span class="o">.</span><span class="n">z</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -625,8 +625,8 @@ Z = 0.6429881376224998
     <span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">spherical_coords</span><span class="o">.</span><span class="n">lon</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="o">+</span> <span class="mi">180</span>
 <span class="p">)</span> <span class="o">%</span> <span class="mi">360</span> <span class="o">-</span> <span class="mi">180</span>  <span class="c1"># keep longitude between -180 to 180</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Latitude = </span><span class="si">{</span><span class="n">lat_deg</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Longitude = </span><span class="si">{</span><span class="n">lon_deg</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Latitude = </span><span class="si">{</span><span class="n">lat_deg</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Longitude = </span><span class="si">{</span><span class="n">lon_deg</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -669,7 +669,7 @@ Longitude = -105.27049999999997
 <span class="kn">from</span><span class="w"> </span><span class="nn">uxarray.grid.arcs</span><span class="w"> </span><span class="kn">import</span> <span class="n">point_within_gca</span>
 
 <span class="nb">print</span><span class="p">(</span>
-    <span class="sa">f</span><span class="s2">&quot;Boulder lies within the great circle arc = </span><span class="si">{</span><span class="n">point_within_gca</span><span class="p">(</span><span class="n">pt_within</span><span class="p">,</span><span class="w"> </span><span class="n">vertex_a</span><span class="p">,</span><span class="w"> </span><span class="n">vertex_b</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="sa">f</span><span class="s2">"Boulder lies within the great circle arc = </span><span class="si">{</span><span class="n">point_within_gca</span><span class="p">(</span><span class="n">pt_within</span><span class="p">,</span><span class="w"> </span><span class="n">vertex_a</span><span class="p">,</span><span class="w"> </span><span class="n">vertex_b</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -732,7 +732,7 @@ Longitude = -105.27049999999997
 <span class="n">latitudes</span> <span class="o">=</span> <span class="p">[</span><span class="mf">41.00488</span><span class="p">,</span> <span class="mf">41.00203</span><span class="p">,</span> <span class="mf">37.00540</span><span class="p">,</span> <span class="mf">37.00051</span><span class="p">]</span>  <span class="c1"># degrees</span>
 <span class="n">longitudes</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">109.05001</span><span class="p">,</span> <span class="o">-</span><span class="mf">102.05348</span><span class="p">,</span> <span class="o">-</span><span class="mf">103.04633</span><span class="p">,</span> <span class="o">-</span><span class="mf">109.04720</span><span class="p">]</span>  <span class="c1"># degrees</span>
 
-<span class="n">geod</span> <span class="o">=</span> <span class="n">Geod</span><span class="p">(</span><span class="n">ellps</span><span class="o">=</span><span class="s2">&quot;sphere&quot;</span><span class="p">)</span>  <span class="c1"># radius = 6370997 m</span>
+<span class="n">geod</span> <span class="o">=</span> <span class="n">Geod</span><span class="p">(</span><span class="n">ellps</span><span class="o">=</span><span class="s2">"sphere"</span><span class="p">)</span>  <span class="c1"># radius = 6370997 m</span>
 <span class="n">poly_area_m</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">geod</span><span class="o">.</span><span class="n">polygon_area_perimeter</span><span class="p">(</span><span class="n">longitudes</span><span class="p">,</span> <span class="n">latitudes</span><span class="p">)</span>
 <span class="n">poly_area_km2</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">poly_area_m</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e-6</span>
 <span class="n">poly_area_km2</span>
@@ -798,7 +798,7 @@ Longitude = -105.27049999999997
 <span class="n">latitudes</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">90.0</span><span class="p">]</span>  <span class="c1"># degrees</span>
 <span class="n">longitudes</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">90.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>  <span class="c1"># degrees</span>
 
-<span class="n">geod</span> <span class="o">=</span> <span class="n">Geod</span><span class="p">(</span><span class="n">ellps</span><span class="o">=</span><span class="s2">&quot;sphere&quot;</span><span class="p">)</span>  <span class="c1"># radius = 6370997 m</span>
+<span class="n">geod</span> <span class="o">=</span> <span class="n">Geod</span><span class="p">(</span><span class="n">ellps</span><span class="o">=</span><span class="s2">"sphere"</span><span class="p">)</span>  <span class="c1"># radius = 6370997 m</span>
 <span class="n">poly_area_m</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">geod</span><span class="o">.</span><span class="n">polygon_area_perimeter</span><span class="p">(</span><span class="n">longitudes</span><span class="p">,</span> <span class="n">latitudes</span><span class="p">)</span>
 <span class="n">poly_area_km2</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">poly_area_m</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e-6</span>
 <span class="n">poly_area_km2</span>
@@ -833,10 +833,10 @@ Longitude = -105.27049999999997
 <span class="n">lat1</span><span class="p">,</span> <span class="n">lon1</span> <span class="o">=</span> <span class="mf">40.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span>  <span class="c1"># Boulder</span>
 <span class="n">lat2</span><span class="p">,</span> <span class="n">lon2</span> <span class="o">=</span> <span class="mf">42.3601</span><span class="p">,</span> <span class="o">-</span><span class="mf">71.0589</span>  <span class="c1"># Boston</span>
 
-<span class="n">geodesic</span> <span class="o">=</span> <span class="n">Geod</span><span class="p">(</span><span class="n">ellps</span><span class="o">=</span><span class="s2">&quot;sphere&quot;</span><span class="p">)</span>
+<span class="n">geodesic</span> <span class="o">=</span> <span class="n">Geod</span><span class="p">(</span><span class="n">ellps</span><span class="o">=</span><span class="s2">"sphere"</span><span class="p">)</span>
 <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">distance_m</span> <span class="o">=</span> <span class="n">geodesic</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">lon1</span><span class="p">,</span> <span class="n">lat1</span><span class="p">,</span> <span class="n">lon2</span><span class="p">,</span> <span class="n">lat2</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Distance = </span><span class="si">{</span><span class="n">distance_m</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1000</span><span class="si">}</span><span class="s2"> km&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Distance = </span><span class="si">{</span><span class="n">distance_m</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1000</span><span class="si">}</span><span class="s2"> km"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -861,13 +861,13 @@ Longitude = -105.27049999999997
 <span class="n">lat1</span><span class="p">,</span> <span class="n">lon1</span> <span class="o">=</span> <span class="mf">40.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span>  <span class="c1"># Boulder</span>
 <span class="n">lat2</span><span class="p">,</span> <span class="n">lon2</span> <span class="o">=</span> <span class="mf">42.3601</span><span class="p">,</span> <span class="o">-</span><span class="mf">71.0589</span>  <span class="c1"># Boston</span>
 
-<span class="n">geodesic</span> <span class="o">=</span> <span class="n">Geod</span><span class="p">(</span><span class="n">ellps</span><span class="o">=</span><span class="s2">&quot;sphere&quot;</span><span class="p">)</span>
+<span class="n">geodesic</span> <span class="o">=</span> <span class="n">Geod</span><span class="p">(</span><span class="n">ellps</span><span class="o">=</span><span class="s2">"sphere"</span><span class="p">)</span>
 <span class="n">pts</span> <span class="o">=</span> <span class="n">geodesic</span><span class="o">.</span><span class="n">npts</span><span class="p">(</span><span class="n">lon1</span><span class="p">,</span> <span class="n">lat1</span><span class="p">,</span> <span class="n">lon2</span><span class="p">,</span> <span class="n">lat2</span><span class="p">,</span> <span class="n">npts</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 
 <span class="c1"># pts returned in list of longtiude/latitude pairs</span>
 <span class="k">for</span> <span class="n">latlon</span> <span class="ow">in</span> <span class="n">pts</span><span class="p">:</span>
     <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="n">latlon</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">latlon</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;(</span><span class="si">{</span><span class="n">lat</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">lon</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"(</span><span class="si">{</span><span class="n">lat</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">lon</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

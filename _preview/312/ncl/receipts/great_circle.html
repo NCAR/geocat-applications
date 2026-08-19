@@ -597,12 +597,12 @@ This notebook is part of the process we have for adding entries to the NCL Index
 
 <span class="p">;</span> <span class="n">ncl</span> <span class="o">-</span><span class="n">n</span> <span class="n">css2c</span><span class="o">.</span><span class="n">ncl</span> <span class="o">&gt;&gt;</span> <span class="n">css2c_output</span><span class="o">.</span><span class="n">txt</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Latitude (Degree), Longitude (Degree), Cartesian X, Cartesian Y, Cartesian Z&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Latitude (Degree), Longitude (Degree), Cartesian X, Cartesian Y, Cartesian Z"</span><span class="p">)</span>
 <span class="n">do</span> <span class="n">lat</span><span class="o">=-</span><span class="mi">90</span><span class="p">,</span><span class="mi">90</span>
 	<span class="n">do</span> <span class="n">lon</span><span class="o">=-</span><span class="mi">180</span><span class="p">,</span><span class="mi">180</span>
 		<span class="n">begin</span>
 		<span class="n">cart</span> <span class="o">=</span> <span class="n">css2c</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">)</span>
-		<span class="nb">print</span> <span class="p">(</span><span class="n">lat</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">lon</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">cart</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">cart</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">cart</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+		<span class="nb">print</span> <span class="p">(</span><span class="n">lat</span> <span class="o">+</span> <span class="s2">","</span> <span class="o">+</span> <span class="n">lon</span> <span class="o">+</span> <span class="s2">","</span> <span class="o">+</span> <span class="n">cart</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="s2">","</span> <span class="o">+</span> <span class="n">cart</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="s2">","</span> <span class="o">+</span> <span class="n">cart</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
 		<span class="n">end</span>
 	<span class="n">end</span> <span class="n">do</span>
 <span class="n">end</span> <span class="n">do</span>
@@ -612,7 +612,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 
 <span class="p">;</span> <span class="n">ncl</span> <span class="o">-</span><span class="n">n</span> <span class="n">csc2s</span><span class="o">.</span><span class="n">ncl</span> <span class="o">&gt;&gt;</span> <span class="n">csc2s_output</span><span class="o">.</span><span class="n">txt</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Input Latitude (Degree), Input Longitude (Degree), Cartesian X, Cartesian Y, Cartesian Z, Output Latitude (Degree), Output Longitude (Degree)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Input Latitude (Degree), Input Longitude (Degree), Cartesian X, Cartesian Y, Cartesian Z, Output Latitude (Degree), Output Longitude (Degree)"</span><span class="p">)</span>
 <span class="n">do</span> <span class="n">lat</span><span class="o">=-</span><span class="mi">90</span><span class="p">,</span><span class="mi">90</span>
 	<span class="n">do</span> <span class="n">lon</span><span class="o">=-</span><span class="mi">180</span><span class="p">,</span><span class="mi">180</span>
 		<span class="n">begin</span>
@@ -622,7 +622,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 		<span class="n">y</span> <span class="o">=</span> <span class="n">cart</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 		<span class="n">z</span> <span class="o">=</span> <span class="n">cart</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 		<span class="n">sph</span> <span class="o">=</span> <span class="n">csc2s</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
-		<span class="nb">print</span><span class="p">(</span><span class="n">lat</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">lon</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">z</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">sph</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">sph</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+		<span class="nb">print</span><span class="p">(</span><span class="n">lat</span> <span class="o">+</span> <span class="s2">","</span> <span class="o">+</span> <span class="n">lon</span> <span class="o">+</span> <span class="s2">","</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="s2">","</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="s2">","</span> <span class="o">+</span> <span class="n">z</span> <span class="o">+</span> <span class="s2">","</span> <span class="o">+</span> <span class="n">sph</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="s2">","</span> <span class="o">+</span> <span class="n">sph</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
 		<span class="n">end</span>
 	<span class="n">end</span> <span class="n">do</span>
 <span class="n">end</span> <span class="n">do</span>
@@ -990,14 +990,14 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="n">ncl_results</span> <span class="o">=</span> <span class="p">{}</span>
 
 <span class="n">poly_name</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s2">&quot;Boulder, Boston, Houston&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Four Corners of Colorado&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Caltech, Alberta, Greenwich, Paris, Madrid&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Crossing the Equator&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Crossing the Prime Meridian&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Half of the World&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Single Point -&gt; Invalid NCL&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Single Degree&quot;</span><span class="p">,</span>
+    <span class="s2">"Boulder, Boston, Houston"</span><span class="p">,</span>
+    <span class="s2">"Four Corners of Colorado"</span><span class="p">,</span>
+    <span class="s2">"Caltech, Alberta, Greenwich, Paris, Madrid"</span><span class="p">,</span>
+    <span class="s2">"Crossing the Equator"</span><span class="p">,</span>
+    <span class="s2">"Crossing the Prime Meridian"</span><span class="p">,</span>
+    <span class="s2">"Half of the World"</span><span class="p">,</span>
+    <span class="s2">"Single Point -&gt; Invalid NCL"</span><span class="p">,</span>
+    <span class="s2">"Single Degree"</span><span class="p">,</span>
 <span class="p">]</span>
 
 <span class="n">ncl_lat</span> <span class="o">=</span> <span class="p">[</span>
@@ -1032,7 +1032,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="kn">from</span><span class="w"> </span><span class="nn">pyproj</span><span class="w"> </span><span class="kn">import</span> <span class="n">Geod</span>
 
 <span class="n">python_results</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="n">geod</span> <span class="o">=</span> <span class="n">Geod</span><span class="p">(</span><span class="n">ellps</span><span class="o">=</span><span class="s2">&quot;sphere&quot;</span><span class="p">)</span>  <span class="c1"># radius = 6370997 m</span>
+<span class="n">geod</span> <span class="o">=</span> <span class="n">Geod</span><span class="p">(</span><span class="n">ellps</span><span class="o">=</span><span class="s2">"sphere"</span><span class="p">)</span>  <span class="c1"># radius = 6370997 m</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">poly_name</span><span class="p">)):</span>
     <span class="n">poly_area_m</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">geod</span><span class="o">.</span><span class="n">polygon_area_perimeter</span><span class="p">(</span><span class="n">ncl_lon</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ncl_lat</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
     <span class="n">poly_area_km2</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">poly_area_m</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e-6</span>
@@ -1051,8 +1051,8 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="kn">from</span><span class="w"> </span><span class="nn">astropy.coordinates.representation</span><span class="w"> </span><span class="kn">import</span> <span class="n">UnitSphericalRepresentation</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">astropy</span><span class="w"> </span><span class="kn">import</span> <span class="n">units</span>
 
-<span class="n">css2c_data</span> <span class="o">=</span> <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;applications_files/ncl_outputs/css2c_output.txt&#39;</span><span class="p">)</span>
-<span class="n">css2c_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">css2c_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">css2c_data</span> <span class="o">=</span> <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'applications_files/ncl_outputs/css2c_output.txt'</span><span class="p">)</span>
+<span class="n">css2c_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">css2c_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">','</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 
 <span class="n">lat_lon</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="p">(</span><span class="n">css2c_data</span><span class="p">[::,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])))</span>
 <span class="n">cart_values</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">css2c_data</span><span class="p">[::,</span> <span class="mi">2</span><span class="p">:])</span>
@@ -1061,7 +1061,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/ncl_outputs/css2c_output.txt&#39; from &#39;https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/ncl_outputs/css2c_output.txt&#39; to &#39;/home/runner/.cache/geocat&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file 'applications_files/ncl_outputs/css2c_output.txt' from 'https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/ncl_outputs/css2c_output.txt' to '/home/runner/.cache/geocat'.
 </pre></div>
 </div>
 </div>
@@ -1099,8 +1099,8 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="p">)</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="n">csc2s_data</span> <span class="o">=</span> <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;applications_files/ncl_outputs/csc2s_output.txt&#39;</span><span class="p">)</span>
-<span class="n">csc2s_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">csc2s_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">csc2s_data</span> <span class="o">=</span> <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'applications_files/ncl_outputs/csc2s_output.txt'</span><span class="p">)</span>
+<span class="n">csc2s_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">csc2s_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">','</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 
 <span class="n">input_lat_lon</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="n">csc2s_data</span><span class="p">[::,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]))</span>
 <span class="n">cart_values</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="p">(</span><span class="n">csc2s_data</span><span class="p">[::,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">])))</span>
@@ -1111,7 +1111,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/ncl_outputs/csc2s_output.txt&#39; from &#39;https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/ncl_outputs/csc2s_output.txt&#39; to &#39;/home/runner/.cache/geocat&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file 'applications_files/ncl_outputs/csc2s_output.txt' from 'https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/ncl_outputs/csc2s_output.txt' to '/home/runner/.cache/geocat'.
 </pre></div>
 </div>
 </div>
@@ -1240,7 +1240,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 
 <span class="n">python_gc_qarea</span> <span class="o">=</span> <span class="p">{}</span>
 
-<span class="n">geod</span> <span class="o">=</span> <span class="n">Geod</span><span class="p">(</span><span class="n">ellps</span><span class="o">=</span><span class="s2">&quot;sphere&quot;</span><span class="p">)</span>  <span class="c1"># radius = 6370997 m</span>
+<span class="n">geod</span> <span class="o">=</span> <span class="n">Geod</span><span class="p">(</span><span class="n">ellps</span><span class="o">=</span><span class="s2">"sphere"</span><span class="p">)</span>  <span class="c1"># radius = 6370997 m</span>
 <span class="k">for</span> <span class="n">lat_lon</span> <span class="ow">in</span> <span class="n">ncl_gc_qarea</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
     <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="n">lat_lon</span>
     <span class="n">poly_area_m</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">geod</span><span class="o">.</span><span class="n">polygon_area_perimeter</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">)</span>
@@ -1296,7 +1296,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 
 <span class="n">python_gc_tarea</span> <span class="o">=</span> <span class="p">{}</span>
 
-<span class="n">geod</span> <span class="o">=</span> <span class="n">Geod</span><span class="p">(</span><span class="n">ellps</span><span class="o">=</span><span class="s2">&quot;sphere&quot;</span><span class="p">)</span>  <span class="c1"># radius = 6370997 m</span>
+<span class="n">geod</span> <span class="o">=</span> <span class="n">Geod</span><span class="p">(</span><span class="n">ellps</span><span class="o">=</span><span class="s2">"sphere"</span><span class="p">)</span>  <span class="c1"># radius = 6370997 m</span>
 <span class="k">for</span> <span class="n">lat_lon</span> <span class="ow">in</span> <span class="n">ncl_gc_tarea</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
     <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="n">lat_lon</span>
     <span class="n">poly_area_m</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">geod</span><span class="o">.</span><span class="n">polygon_area_perimeter</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">)</span>
@@ -1367,7 +1367,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="n">python_gc_latlon_dist</span> <span class="o">=</span> <span class="p">{}</span>
 
 <span class="k">for</span> <span class="n">latlon</span> <span class="ow">in</span> <span class="n">ncl_gc_latlon_dist</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-    <span class="n">geodesic</span> <span class="o">=</span> <span class="n">Geod</span><span class="p">(</span><span class="n">ellps</span><span class="o">=</span><span class="s2">&quot;sphere&quot;</span><span class="p">)</span>
+    <span class="n">geodesic</span> <span class="o">=</span> <span class="n">Geod</span><span class="p">(</span><span class="n">ellps</span><span class="o">=</span><span class="s2">"sphere"</span><span class="p">)</span>
     <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">distance_m</span> <span class="o">=</span> <span class="n">geodesic</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">latlon</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">latlon</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">latlon</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">latlon</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
     <span class="n">distance_km</span> <span class="o">=</span> <span class="n">distance_m</span> <span class="o">/</span> <span class="mi">1000</span>
     <span class="n">python_gc_latlon_dist</span><span class="p">[</span><span class="n">latlon</span><span class="p">]</span> <span class="o">=</span> <span class="n">distance_km</span>
@@ -1556,7 +1556,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="n">python_gc_latlon_npts</span> <span class="o">=</span> <span class="p">{}</span>
 
 <span class="k">for</span> <span class="n">latlon</span> <span class="ow">in</span> <span class="n">ncl_gc_latlon_dist</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-    <span class="n">geodesic</span> <span class="o">=</span> <span class="n">Geod</span><span class="p">(</span><span class="n">ellps</span><span class="o">=</span><span class="s2">&quot;sphere&quot;</span><span class="p">)</span>
+    <span class="n">geodesic</span> <span class="o">=</span> <span class="n">Geod</span><span class="p">(</span><span class="n">ellps</span><span class="o">=</span><span class="s2">"sphere"</span><span class="p">)</span>
     <span class="n">pts</span> <span class="o">=</span> <span class="n">geodesic</span><span class="o">.</span><span class="n">npts</span><span class="p">(</span><span class="n">latlon</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">latlon</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">latlon</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">latlon</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="mi">8</span><span class="p">)</span>
     <span class="n">python_gc_latlon_npts</span><span class="p">[</span><span class="n">latlon</span><span class="p">]</span> <span class="o">=</span> <span class="p">[[</span><span class="n">pt</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">pt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">%</span> <span class="mi">360</span><span class="p">]</span> <span class="k">for</span> <span class="n">pt</span> <span class="ow">in</span> <span class="n">pts</span><span class="p">]</span>
 
@@ -1596,28 +1596,28 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="n">pt_lat_lon</span> <span class="o">=</span> <span class="p">[</span><span class="mf">40.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">]</span>
 <span class="n">lat_pts</span> <span class="o">=</span> <span class="p">[</span><span class="mf">42.3601</span><span class="p">,</span> <span class="mf">41.4017</span><span class="p">,</span> <span class="mf">29.5518</span><span class="p">]</span>
 <span class="n">lon_pts</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">71.0589</span><span class="p">,</span> <span class="o">-</span><span class="mf">124.0417</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.0982</span><span class="p">]</span>
-<span class="n">python_gc_inout</span><span class="p">[</span><span class="s2">&quot;Center of Diamond - Single Point&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_inside</span><span class="p">(</span>
+<span class="n">python_gc_inout</span><span class="p">[</span><span class="s2">"Center of Diamond - Single Point"</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_inside</span><span class="p">(</span>
     <span class="n">pt_lat_lon</span><span class="p">,</span> <span class="n">lat_pts</span><span class="p">,</span> <span class="n">lon_pts</span>
 <span class="p">)</span>
-<span class="n">ncl_gc_inout</span><span class="p">[</span><span class="s2">&quot;Center of Diamond - Single Point&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">ncl_gc_inout</span><span class="p">[</span><span class="s2">"Center of Diamond - Single Point"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
 
 <span class="c1"># Single Point - Center of Rectangle</span>
 <span class="n">pt_lat_lon</span> <span class="o">=</span> <span class="p">[</span><span class="mf">40.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">]</span>
 <span class="n">lat_pts</span> <span class="o">=</span> <span class="p">[</span><span class="mf">30.0150</span><span class="p">,</span> <span class="mf">30.0150</span><span class="p">,</span> <span class="mf">50.0150</span><span class="p">,</span> <span class="mf">50.0150</span><span class="p">]</span>
 <span class="n">lon_pts</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">115.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">115.2705</span><span class="p">]</span>
-<span class="n">python_gc_inout</span><span class="p">[</span><span class="s2">&quot;Center of Rectangle - Single Point&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_inside</span><span class="p">(</span>
+<span class="n">python_gc_inout</span><span class="p">[</span><span class="s2">"Center of Rectangle - Single Point"</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_inside</span><span class="p">(</span>
     <span class="n">pt_lat_lon</span><span class="p">,</span> <span class="n">lat_pts</span><span class="p">,</span> <span class="n">lon_pts</span>
 <span class="p">)</span>
-<span class="n">ncl_gc_inout</span><span class="p">[</span><span class="s2">&quot;Center of Rectangle - Single Point&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">ncl_gc_inout</span><span class="p">[</span><span class="s2">"Center of Rectangle - Single Point"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
 
 <span class="c1"># Single Point - Center of Triangle</span>
 <span class="n">pt_lat_lon</span> <span class="o">=</span> <span class="p">[</span><span class="mf">40.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">]</span>
 <span class="n">lat_pts</span> <span class="o">=</span> <span class="p">[</span><span class="mf">30.0150</span><span class="p">,</span> <span class="mf">30.0150</span><span class="p">,</span> <span class="mf">50.0150</span><span class="p">]</span>
 <span class="n">lon_pts</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">115.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">]</span>
-<span class="n">python_gc_inout</span><span class="p">[</span><span class="s2">&quot;Center of Triangle - Single Point&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_inside</span><span class="p">(</span>
+<span class="n">python_gc_inout</span><span class="p">[</span><span class="s2">"Center of Triangle - Single Point"</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_inside</span><span class="p">(</span>
     <span class="n">pt_lat_lon</span><span class="p">,</span> <span class="n">lat_pts</span><span class="p">,</span> <span class="n">lon_pts</span>
 <span class="p">)</span>
-<span class="n">ncl_gc_inout</span><span class="p">[</span><span class="s2">&quot;Center of Triangle - Single Point&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">ncl_gc_inout</span><span class="p">[</span><span class="s2">"Center of Triangle - Single Point"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
 
 <span class="c1"># Multiple Points - Inside/Outside of Diamond</span>
 <span class="n">pt_lat_lon</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">10.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">],</span> <span class="p">[</span><span class="mf">40.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">],</span> <span class="p">[</span><span class="mf">60.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">]]</span>
@@ -1626,8 +1626,8 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="n">pt_contains</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">latlon</span> <span class="ow">in</span> <span class="n">pt_lat_lon</span><span class="p">:</span>
     <span class="n">pt_contains</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">is_inside</span><span class="p">(</span><span class="n">latlon</span><span class="p">,</span> <span class="n">lat_pts</span><span class="p">,</span> <span class="n">lon_pts</span><span class="p">))</span>
-<span class="n">python_gc_inout</span><span class="p">[</span><span class="s2">&quot;Inside/Outside of Diamond - Multiple Points&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pt_contains</span>
-<span class="n">ncl_gc_inout</span><span class="p">[</span><span class="s2">&quot;Inside/Outside of Diamond - Multiple Points&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">]</span>
+<span class="n">python_gc_inout</span><span class="p">[</span><span class="s2">"Inside/Outside of Diamond - Multiple Points"</span><span class="p">]</span> <span class="o">=</span> <span class="n">pt_contains</span>
+<span class="n">ncl_gc_inout</span><span class="p">[</span><span class="s2">"Inside/Outside of Diamond - Multiple Points"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">]</span>
 
 <span class="c1"># Multiple Points - Inside/Outside of Rectangle</span>
 <span class="n">pt_lat_lon</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">10.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">],</span> <span class="p">[</span><span class="mf">40.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">],</span> <span class="p">[</span><span class="mf">60.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">]]</span>
@@ -1636,8 +1636,8 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="n">pt_contains</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">latlon</span> <span class="ow">in</span> <span class="n">pt_lat_lon</span><span class="p">:</span>
     <span class="n">pt_contains</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">is_inside</span><span class="p">(</span><span class="n">latlon</span><span class="p">,</span> <span class="n">lat_pts</span><span class="p">,</span> <span class="n">lon_pts</span><span class="p">))</span>
-<span class="n">python_gc_inout</span><span class="p">[</span><span class="s2">&quot;Inside/Outside of Rectangle - Multiple Points&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pt_contains</span>
-<span class="n">ncl_gc_inout</span><span class="p">[</span><span class="s2">&quot;Inside/Outside of Rectangle - Multiple Points&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">]</span>
+<span class="n">python_gc_inout</span><span class="p">[</span><span class="s2">"Inside/Outside of Rectangle - Multiple Points"</span><span class="p">]</span> <span class="o">=</span> <span class="n">pt_contains</span>
+<span class="n">ncl_gc_inout</span><span class="p">[</span><span class="s2">"Inside/Outside of Rectangle - Multiple Points"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">]</span>
 
 <span class="c1"># Multiple Points - Inside/Outside of Triangle</span>
 <span class="n">pt_lat_lon</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">10.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">],</span> <span class="p">[</span><span class="mf">40.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">],</span> <span class="p">[</span><span class="mf">60.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">]]</span>
@@ -1646,35 +1646,35 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="n">pt_contains</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">latlon</span> <span class="ow">in</span> <span class="n">pt_lat_lon</span><span class="p">:</span>
     <span class="n">pt_contains</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">is_inside</span><span class="p">(</span><span class="n">latlon</span><span class="p">,</span> <span class="n">lat_pts</span><span class="p">,</span> <span class="n">lon_pts</span><span class="p">))</span>
-<span class="n">python_gc_inout</span><span class="p">[</span><span class="s2">&quot;Inside/Outside of Triangle - Multiple Points&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pt_contains</span>
-<span class="n">ncl_gc_inout</span><span class="p">[</span><span class="s2">&quot;Inside/Outside of Triangle - Multiple Points&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">]</span>
+<span class="n">python_gc_inout</span><span class="p">[</span><span class="s2">"Inside/Outside of Triangle - Multiple Points"</span><span class="p">]</span> <span class="o">=</span> <span class="n">pt_contains</span>
+<span class="n">ncl_gc_inout</span><span class="p">[</span><span class="s2">"Inside/Outside of Triangle - Multiple Points"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">]</span>
 
 <span class="c1"># Single Point - Along Edge of Rectangle</span>
 <span class="n">pt_lat_lon</span> <span class="o">=</span> <span class="p">[</span><span class="mf">40.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">]</span>
 <span class="n">lat_pts</span> <span class="o">=</span> <span class="p">[</span><span class="mf">40.0150</span><span class="p">,</span> <span class="mf">40.0150</span><span class="p">,</span> <span class="mf">50.0150</span><span class="p">,</span> <span class="mf">50.0150</span><span class="p">]</span>
 <span class="n">lon_pts</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">115.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">95.2705</span><span class="p">,</span> <span class="o">-</span><span class="mf">115.2705</span><span class="p">]</span>
-<span class="n">python_gc_inout</span><span class="p">[</span><span class="s2">&quot;Along Edge of Rectangle - Single Point&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_inside</span><span class="p">(</span>
+<span class="n">python_gc_inout</span><span class="p">[</span><span class="s2">"Along Edge of Rectangle - Single Point"</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_inside</span><span class="p">(</span>
     <span class="n">pt_lat_lon</span><span class="p">,</span> <span class="n">lat_pts</span><span class="p">,</span> <span class="n">lon_pts</span>
 <span class="p">)</span>
-<span class="n">ncl_gc_inout</span><span class="p">[</span><span class="s2">&quot;Along Edge of Rectangle - Single Point&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">ncl_gc_inout</span><span class="p">[</span><span class="s2">"Along Edge of Rectangle - Single Point"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
 
 <span class="c1"># Single Point - Point on Boundary Arc</span>
 <span class="n">pt_lat_lon</span> <span class="o">=</span> <span class="p">[</span><span class="mf">20.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
 <span class="n">lat_pts</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">45.0</span><span class="p">,</span> <span class="mf">45.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
 <span class="n">lon_pts</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">45.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
-<span class="n">python_gc_inout</span><span class="p">[</span><span class="s2">&quot;Point on Boundary Arc - Single Point&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_inside</span><span class="p">(</span>
+<span class="n">python_gc_inout</span><span class="p">[</span><span class="s2">"Point on Boundary Arc - Single Point"</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_inside</span><span class="p">(</span>
     <span class="n">pt_lat_lon</span><span class="p">,</span> <span class="n">lat_pts</span><span class="p">,</span> <span class="n">lon_pts</span>
 <span class="p">)</span>
-<span class="n">ncl_gc_inout</span><span class="p">[</span><span class="s2">&quot;Point on Boundary Arc - Single Point&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">ncl_gc_inout</span><span class="p">[</span><span class="s2">"Point on Boundary Arc - Single Point"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
 
 <span class="c1"># Single Point - Across the Antimeridian</span>
 <span class="n">pt_lat_lon</span> <span class="o">=</span> <span class="p">[</span><span class="mf">40.0150</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.2705</span><span class="p">]</span>
 <span class="n">lat_pts</span> <span class="o">=</span> <span class="p">[</span><span class="mf">49.0</span><span class="p">,</span> <span class="mf">49.0</span><span class="p">,</span> <span class="mf">11.0</span><span class="p">,</span> <span class="mf">11.0</span><span class="p">]</span>
 <span class="n">lon_pts</span> <span class="o">=</span> <span class="p">[</span><span class="mf">175.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">65.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">65.0</span><span class="p">,</span> <span class="mf">175.0</span><span class="p">]</span>
-<span class="n">python_gc_inout</span><span class="p">[</span><span class="s2">&quot;Across the Antimeridian - Single Point&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_inside</span><span class="p">(</span>
+<span class="n">python_gc_inout</span><span class="p">[</span><span class="s2">"Across the Antimeridian - Single Point"</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_inside</span><span class="p">(</span>
     <span class="n">pt_lat_lon</span><span class="p">,</span> <span class="n">lat_pts</span><span class="p">,</span> <span class="n">lon_pts</span>
 <span class="p">)</span>
-<span class="n">ncl_gc_inout</span><span class="p">[</span><span class="s2">&quot;Across the Antimeridian - Single Point&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">ncl_gc_inout</span><span class="p">[</span><span class="s2">"Across the Antimeridian - Single Point"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
 </div>
@@ -1698,13 +1698,13 @@ This notebook is part of the process we have for adding entries to the NCL Index
                 <span class="n">ncl_results</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">python_results</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-5</span>
             <span class="p">)</span>  <span class="c1"># within 4 decimal points</span>
             <span class="nb">print</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;VALID:</span><span class="se">\n\t</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="se">\n\t</span><span class="s2">ncl:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">ncl_results</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n\t</span><span class="s2">python:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">python_results</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">"VALID:</span><span class="se">\n\t</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="se">\n\t</span><span class="s2">ncl:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">ncl_results</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n\t</span><span class="s2">python:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">python_results</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span>
             <span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;INVALID:</span><span class="se">\n\t</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="se">\n\t\t</span><span class="s2">ncl:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">ncl_results</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n\t\t</span><span class="s2">python:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">python_results</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">"INVALID:</span><span class="se">\n\t</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="se">\n\t\t</span><span class="s2">ncl:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">ncl_results</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n\t\t</span><span class="s2">python:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">python_results</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span>
             <span class="p">)</span>
-            <span class="k">if</span> <span class="n">key</span> <span class="o">!=</span> <span class="s2">&quot;Single Point -&gt; Invalid NCL&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="o">!=</span> <span class="s2">"Single Point -&gt; Invalid NCL"</span><span class="p">:</span>
                 <span class="k">assert</span> <span class="kc">False</span>
 </pre></div>
 </div>
@@ -1926,11 +1926,11 @@ ncl 5&gt; print(csc2s(cart(0,0), cart(1,0), cart(2,0)))
             <span class="k">assert</span> <span class="n">ncl_gc_inout</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">==</span> <span class="n">python_gc_inout</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;INVALID:</span><span class="se">\n\t</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="se">\n\t\t</span><span class="s2">ncl:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">ncl_gc_inout</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n\t\t</span><span class="s2">python:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">python_gc_inout</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">"INVALID:</span><span class="se">\n\t</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="se">\n\t\t</span><span class="s2">ncl:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">ncl_gc_inout</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n\t\t</span><span class="s2">python:</span><span class="se">\t\t</span><span class="si">{</span><span class="n">python_gc_inout</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span>
             <span class="p">)</span>
             <span class="k">if</span> <span class="p">(</span>
-                <span class="n">key</span> <span class="o">!=</span> <span class="s2">&quot;Point on Boundary Arc - Single Point&quot;</span>
-                <span class="ow">and</span> <span class="n">key</span> <span class="o">!=</span> <span class="s2">&quot;Across the Antimeridian - Single Point&quot;</span>
+                <span class="n">key</span> <span class="o">!=</span> <span class="s2">"Point on Boundary Arc - Single Point"</span>
+                <span class="ow">and</span> <span class="n">key</span> <span class="o">!=</span> <span class="s2">"Across the Antimeridian - Single Point"</span>
             <span class="p">):</span>
                 <span class="k">assert</span> <span class="kc">False</span>
 </pre></div>

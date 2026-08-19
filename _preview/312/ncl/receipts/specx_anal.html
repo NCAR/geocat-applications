@@ -500,15 +500,15 @@ This notebook is part of the process we have for adding entries to the NCL Index
 ;************************************************
 ;
 ; These files are loaded by default in NCL V6.2.0 and newer
-; load &quot;$NCARG_ROOT/lib/ncarg/nclscripts/csm/gsn_code.ncl&quot;
-; load &quot;$NCARG_ROOT/lib/ncarg/nclscripts/csm/gsn_csm.ncl&quot; 
+; load "$NCARG_ROOT/lib/ncarg/nclscripts/csm/gsn_code.ncl"
+; load "$NCARG_ROOT/lib/ncarg/nclscripts/csm/gsn_csm.ncl" 
 ;************************************************
 begin
 ;************************************************
 ; variable and file handling
 ;************************************************
-   fn  = &quot;SOI_Darwin.nc&quot; ; define filename
-   in  = addfile(fn,&quot;r&quot;)                                 ; open netcdf file
+   fn  = "SOI_Darwin.nc" ; define filename
+   in  = addfile(fn,"r")                                 ; open netcdf file
    soi  = in-&gt;DSOI                                       ; get data
 ;************************************************
 ; set function arguments
@@ -526,12 +526,12 @@ begin
 ;************************************************
 ; plotting
 ;************************************************
-   wks  = gsn_open_wks(&quot;png&quot;,&quot;spec&quot;)               ; send graphics to PNG file 
+   wks  = gsn_open_wks("png","spec")               ; send graphics to PNG file 
 
    res = True					   ; plot mods desired
-   res@tiMainString = &quot;SOI&quot;		           ; title
-   res@tiXAxisString = &quot;Frequency (cycles/month)&quot;  ; xaxis
-   res@tiYAxisString = &quot;Variance&quot;                  ; yaxis
+   res@tiMainString = "SOI"		           ; title
+   res@tiXAxisString = "Frequency (cycles/month)"  ; xaxis
+   res@tiYAxisString = "Variance"                  ; yaxis
 
    plot=gsn_csm_xy(wks,spec@frq,spec@spcx,res)     ; create plot   
 ;***********************************************
@@ -543,7 +543,7 @@ end
 <h2>Python Functionality<a class="headerlink" href="#python-functionality" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soi_darwin</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;netcdf_files/SOI_Darwin.nc&#39;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soi_darwin</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'netcdf_files/SOI_Darwin.nc'</span><span class="p">))</span>
 
 <span class="n">soi_darwin</span>
 </pre></div>
@@ -1106,7 +1106,7 @@ Attributes:
     creation_date:  Tue Mar 30 09:29:20 MST 1999
     references:     Trenberth, Mon. Wea. Rev: 2/1984
     time_span:      1882 - 1998
-    conventions:    None</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-3636f1b4-fd37-45f2-8e94-09151555a096' class='xr-section-summary-in' type='checkbox' disabled /><label for='section-3636f1b4-fd37-45f2-8e94-09151555a096' class='xr-section-summary'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 1404</li></ul></div></li><li class='xr-section-item'><input id='section-36f61c4d-d5c4-4974-ab1d-e269f2a11ea4' class='xr-section-summary-in' type='checkbox' checked /><label for='section-36f61c4d-d5c4-4974-ab1d-e269f2a11ea4' class='xr-section-summary' title='Expand/collapse section'>Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>0 1 2 3 4 ... 1400 1401 1402 1403</div><input id='attrs-34df548d-d44a-49ce-9f86-99895baef694' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-34df548d-d44a-49ce-9f86-99895baef694' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-72182e59-8305-4a87-80a8-1c3c0268503b' class='xr-var-data-in' type='checkbox'><label for='data-72182e59-8305-4a87-80a8-1c3c0268503b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Months Since January 1882</dd><dt><span>units :</span></dt><dd>months</dd></dl></div><div class='xr-var-data'><pre>array([   0,    1,    2, ..., 1401, 1402, 1403], shape=(1404,), dtype=int32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-89c86ecd-d7bc-4d64-a09c-45da3b69b546' class='xr-section-summary-in' type='checkbox' checked /><label for='section-89c86ecd-d7bc-4d64-a09c-45da3b69b546' class='xr-section-summary' title='Expand/collapse section'>Data variables: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>date</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-c33de487-a4f5-447f-86f0-6348bf35ff1b' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c33de487-a4f5-447f-86f0-6348bf35ff1b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2c7c5851-2d14-4ed2-85ae-80616c74078a' class='xr-var-data-in' type='checkbox'><label for='data-2c7c5851-2d14-4ed2-85ae-80616c74078a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>short_name :</span></dt><dd>Yr-Mo</dd><dt><span>long_name :</span></dt><dd>Year-Month</dd><dt><span>units :</span></dt><dd>YYYYMM</dd></dl></div><div class='xr-var-data'><pre>[1404 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>DSOI</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-485ff4b6-57fb-4dde-9f0b-5d7c83369a50' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-485ff4b6-57fb-4dde-9f0b-5d7c83369a50' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-794cbad6-8721-4a2e-9d79-66de4655b5a4' class='xr-var-data-in' type='checkbox'><label for='data-794cbad6-8721-4a2e-9d79-66de4655b5a4' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>short_name :</span></dt><dd>DSOI</dd><dt><span>long_name :</span></dt><dd>Darwin Southern Oscillation Index</dd><dt><span>units :</span></dt><dd>dimensionless</dd></dl></div><div class='xr-var-data'><pre>[1404 values with dtype=float32]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-9d59493c-24d6-44eb-b63d-268c9e948a8f' class='xr-section-summary-in' type='checkbox' checked /><label for='section-9d59493c-24d6-44eb-b63d-268c9e948a8f' class='xr-section-summary' title='Expand/collapse section'>Attributes: <span>(7)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>title :</span></dt><dd>Darwin Southern Oscillation Index</dd><dt><span>source :</span></dt><dd>Climate Analysis Section, NCAR</dd><dt><span>history :</span></dt><dd>
+    conventions:    None</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-a1597848-0263-410e-91e1-25670b34b1e8' class='xr-section-summary-in' type='checkbox' disabled /><label for='section-a1597848-0263-410e-91e1-25670b34b1e8' class='xr-section-summary'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 1404</li></ul></div></li><li class='xr-section-item'><input id='section-d3525dfa-8372-4aef-b15f-94a47970d99d' class='xr-section-summary-in' type='checkbox' checked /><label for='section-d3525dfa-8372-4aef-b15f-94a47970d99d' class='xr-section-summary' title='Expand/collapse section'>Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>0 1 2 3 4 ... 1400 1401 1402 1403</div><input id='attrs-f58b14bc-e591-4732-bbf2-008d39e4e740' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f58b14bc-e591-4732-bbf2-008d39e4e740' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a038ed36-be52-49e5-9e76-891e885c87c8' class='xr-var-data-in' type='checkbox'><label for='data-a038ed36-be52-49e5-9e76-891e885c87c8' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Months Since January 1882</dd><dt><span>units :</span></dt><dd>months</dd></dl></div><div class='xr-var-data'><pre>array([   0,    1,    2, ..., 1401, 1402, 1403], shape=(1404,), dtype=int32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-5a90cf61-b454-412e-a4de-5535ae63577d' class='xr-section-summary-in' type='checkbox' checked /><label for='section-5a90cf61-b454-412e-a4de-5535ae63577d' class='xr-section-summary' title='Expand/collapse section'>Data variables: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>date</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-a1702f8f-5550-4652-a401-421f029b032c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a1702f8f-5550-4652-a401-421f029b032c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-63c5b6a4-f2a4-4b19-a9d8-c7884964df34' class='xr-var-data-in' type='checkbox'><label for='data-63c5b6a4-f2a4-4b19-a9d8-c7884964df34' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>short_name :</span></dt><dd>Yr-Mo</dd><dt><span>long_name :</span></dt><dd>Year-Month</dd><dt><span>units :</span></dt><dd>YYYYMM</dd></dl></div><div class='xr-var-data'><pre>[1404 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>DSOI</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-1f748598-6c99-45b9-aa85-e5c2a3e3216b' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-1f748598-6c99-45b9-aa85-e5c2a3e3216b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a2dfef71-7fb5-41e9-a92e-7f78d634f003' class='xr-var-data-in' type='checkbox'><label for='data-a2dfef71-7fb5-41e9-a92e-7f78d634f003' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>short_name :</span></dt><dd>DSOI</dd><dt><span>long_name :</span></dt><dd>Darwin Southern Oscillation Index</dd><dt><span>units :</span></dt><dd>dimensionless</dd></dl></div><div class='xr-var-data'><pre>[1404 values with dtype=float32]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-caac4649-6ec6-4a60-bccf-9df4c546a0ca' class='xr-section-summary-in' type='checkbox' checked /><label for='section-caac4649-6ec6-4a60-bccf-9df4c546a0ca' class='xr-section-summary' title='Expand/collapse section'>Attributes: <span>(7)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>title :</span></dt><dd>Darwin Southern Oscillation Index</dd><dt><span>source :</span></dt><dd>Climate Analysis Section, NCAR</dd><dt><span>history :</span></dt><dd>
 DSOI = - Normalized Darwin
 Normalized sea level pressure is used.
 The normalization is done using Trenberth&#x27;s method.
@@ -1117,10 +1117,10 @@ see  http://www.cgd.ucar.edu/cas/climind/soi.html</dd><dt><span>creation_date :<
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start_date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;1882-01-01&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start_date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">'1882-01-01'</span><span class="p">)</span>
 <span class="n">dates</span> <span class="o">=</span> <span class="p">[</span>
     <span class="n">start_date</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">DateOffset</span><span class="p">(</span><span class="n">months</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">month</span><span class="p">))</span>
-    <span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="n">soi_darwin</span><span class="o">.</span><span class="n">indexes</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="n">soi_darwin</span><span class="o">.</span><span class="n">indexes</span><span class="p">[</span><span class="s1">'time'</span><span class="p">]</span>
 <span class="p">]</span>
 <span class="n">datetime_index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">dates</span><span class="p">)</span>
 
@@ -1129,14 +1129,14 @@ see  http://www.cgd.ucar.edu/cas/climind/soi.html</dd><dt><span>creation_date :<
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DatetimeIndex([&#39;1882-01-01&#39;, &#39;1882-02-01&#39;, &#39;1882-03-01&#39;, &#39;1882-04-01&#39;,
-               &#39;1882-05-01&#39;, &#39;1882-06-01&#39;, &#39;1882-07-01&#39;, &#39;1882-08-01&#39;,
-               &#39;1882-09-01&#39;, &#39;1882-10-01&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DatetimeIndex(['1882-01-01', '1882-02-01', '1882-03-01', '1882-04-01',
+               '1882-05-01', '1882-06-01', '1882-07-01', '1882-08-01',
+               '1882-09-01', '1882-10-01',
                ...
-               &#39;1998-03-01&#39;, &#39;1998-04-01&#39;, &#39;1998-05-01&#39;, &#39;1998-06-01&#39;,
-               &#39;1998-07-01&#39;, &#39;1998-08-01&#39;, &#39;1998-09-01&#39;, &#39;1998-10-01&#39;,
-               &#39;1998-11-01&#39;, &#39;1998-12-01&#39;],
-              dtype=&#39;datetime64[us]&#39;, length=1404, freq=None)
+               '1998-03-01', '1998-04-01', '1998-05-01', '1998-06-01',
+               '1998-07-01', '1998-08-01', '1998-09-01', '1998-10-01',
+               '1998-11-01', '1998-12-01'],
+              dtype='datetime64[us]', length=1404, freq=None)
 </pre></div>
 </div>
 </div>
@@ -1144,7 +1144,7 @@ see  http://www.cgd.ucar.edu/cas/climind/soi.html</dd><dt><span>creation_date :<
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soi</span> <span class="o">=</span> <span class="n">soi_darwin</span><span class="o">.</span><span class="n">DSOI</span>
-<span class="n">soi</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">datetime_index</span>
+<span class="n">soi</span><span class="p">[</span><span class="s1">'time'</span><span class="p">]</span> <span class="o">=</span> <span class="n">datetime_index</span>
 
 <span class="n">soi</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
 </pre></div>
@@ -1156,7 +1156,7 @@ see  http://www.cgd.ucar.edu/cas/climind/soi.html</dd><dt><span>creation_date :<
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soi_detrended</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">detrend</span><span class="p">(</span><span class="n">soi</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;constant&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soi_detrended</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">detrend</span><span class="p">(</span><span class="n">soi</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">'constant'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1190,13 +1190,13 @@ see  http://www.cgd.ucar.edu/cas/climind/soi.html</dd><dt><span>creation_date :<
 
 <span class="n">kernel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>  <span class="c1"># Create a Daniel smoothing kernel</span>
 <span class="n">kernel</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="mf">0.5</span>  <span class="c1"># &quot;Modify&quot; kernel by making the endpoints have half the weight of the interior points</span>
+    <span class="mf">0.5</span>  <span class="c1"># "Modify" kernel by making the endpoints have half the weight of the interior points</span>
 <span class="p">)</span>
 <span class="n">kernel</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span>
 <span class="n">kernel</span> <span class="o">=</span> <span class="n">kernel</span> <span class="o">/</span> <span class="n">kernel</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 
 <span class="n">smoothed_psd</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span>
-    <span class="n">psd_soi</span><span class="p">,</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;same&#39;</span>
+    <span class="n">psd_soi</span><span class="p">,</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'same'</span>
 <span class="p">)</span>  <span class="c1"># Sets output array as the same length as the first input</span>
 </pre></div>
 </div>
@@ -1228,9 +1228,9 @@ see  http://www.cgd.ucar.edu/cas/climind/soi.html</dd><dt><span>creation_date :<
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq_soi</span><span class="p">,</span> <span class="n">normalized_psd</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency (Cycles / Month)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Variance (Pressure$^2$ / Frequency)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Darwin Southern Oscillation Index (1882 - 1998) - Power Spectral Density&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Frequency (Cycles / Month)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Variance (Pressure$^2$ / Frequency)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Darwin Southern Oscillation Index (1882 - 1998) - Power Spectral Density'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]);</span>
 </pre></div>
 </div>
@@ -1244,7 +1244,7 @@ see  http://www.cgd.ucar.edu/cas/climind/soi.html</dd><dt><span>creation_date :<
 <h2>Comparison<a class="headerlink" href="#comparison" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ncl</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;applications_files/ncl_outputs/spec_1_output.nc&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">spec</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ncl</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'applications_files/ncl_outputs/spec_1_output.nc'</span><span class="p">))</span><span class="o">.</span><span class="n">spec</span>
 
 <span class="n">frq</span> <span class="o">=</span> <span class="n">ncl</span><span class="o">.</span><span class="n">frq</span>
 <span class="n">spcx</span> <span class="o">=</span> <span class="n">ncl</span><span class="o">.</span><span class="n">spcx</span>
@@ -1252,18 +1252,18 @@ see  http://www.cgd.ucar.edu/cas/climind/soi.html</dd><dt><span>creation_date :<
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/ncl_outputs/spec_1_output.nc&#39; from &#39;https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/ncl_outputs/spec_1_output.nc&#39; to &#39;/home/runner/.cache/geocat&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file 'applications_files/ncl_outputs/spec_1_output.nc' from 'https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/ncl_outputs/spec_1_output.nc' to '/home/runner/.cache/geocat'.
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq_soi</span><span class="p">,</span> <span class="n">normalized_psd</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Python&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">frq</span><span class="p">,</span> <span class="n">spcx</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;NCL&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency (Cycles / Month)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Variance (Pressure$^2$ / Frequency)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Darwin Southern Oscillation Index (1882 - 1998) - Power Spectral Density&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq_soi</span><span class="p">,</span> <span class="n">normalized_psd</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Python'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">frq</span><span class="p">,</span> <span class="n">spcx</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'NCL'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Frequency (Cycles / Month)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Variance (Pressure$^2$ / Frequency)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Darwin Southern Oscillation Index (1882 - 1998) - Power Spectral Density'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
@@ -1277,8 +1277,8 @@ see  http://www.cgd.ucar.edu/cas/climind/soi.html</dd><dt><span>creation_date :<
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">frq</span><span class="p">,</span> <span class="n">normalized_psd</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">spcx</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Python - NCL&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency (Cycles / Month)&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Python - NCL'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Frequency (Cycles / Month)'</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -1296,14 +1296,14 @@ see  http://www.cgd.ucar.edu/cas/climind/soi.html</dd><dt><span>creation_date :<
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ncl_notaper</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
-    <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;applications_files/ncl_outputs/spec_1_output_notaper.nc&#39;</span><span class="p">)</span>
+    <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'applications_files/ncl_outputs/spec_1_output_notaper.nc'</span><span class="p">)</span>
 <span class="p">)</span><span class="o">.</span><span class="n">spec</span>
 <span class="n">spcx_nt</span> <span class="o">=</span> <span class="n">ncl_notaper</span><span class="o">.</span><span class="n">spcx</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;applications_files/ncl_outputs/spec_1_output_notaper.nc&#39; from &#39;https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/ncl_outputs/spec_1_output_notaper.nc&#39; to &#39;/home/runner/.cache/geocat&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file 'applications_files/ncl_outputs/spec_1_output_notaper.nc' from 'https://github.com/NCAR/geocat-datafiles/raw/main/applications_files/ncl_outputs/spec_1_output_notaper.nc' to '/home/runner/.cache/geocat'.
 </pre></div>
 </div>
 </div>
@@ -1318,7 +1318,7 @@ see  http://www.cgd.ucar.edu/cas/climind/soi.html</dd><dt><span>creation_date :<
 <span class="p">)</span>
 
 <span class="c1"># Smooth with the same modified Daniel kernel as before</span>
-<span class="n">smoothed_psd_nt</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">psd_soi_nt</span><span class="p">,</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">)</span>
+<span class="n">smoothed_psd_nt</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">psd_soi_nt</span><span class="p">,</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'same'</span><span class="p">)</span>
 
 <span class="c1"># Normalize</span>
 <span class="n">variance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">soi_detrended</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -1336,12 +1336,12 @@ see  http://www.cgd.ucar.edu/cas/climind/soi.html</dd><dt><span>creation_date :<
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq_soi</span><span class="p">,</span> <span class="n">normalized_psd_nt</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Python&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">frq</span><span class="p">,</span> <span class="n">spcx_nt</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;NCL No Tapering&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency (Cycles / Month)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Variance (Pressure$^2$ / Frequency)&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq_soi</span><span class="p">,</span> <span class="n">normalized_psd_nt</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Python'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">frq</span><span class="p">,</span> <span class="n">spcx_nt</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'NCL No Tapering'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Frequency (Cycles / Month)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Variance (Pressure$^2$ / Frequency)'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span>
-    <span class="s1">&#39;Darwin Southern Oscillation Index (1882 - 1998) - Power Spectral Density (No Tapering)&#39;</span>
+    <span class="s1">'Darwin Southern Oscillation Index (1882 - 1998) - Power Spectral Density (No Tapering)'</span>
 <span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
@@ -1356,9 +1356,9 @@ see  http://www.cgd.ucar.edu/cas/climind/soi.html</dd><dt><span>creation_date :<
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">frq</span><span class="p">,</span> <span class="n">normalized_psd_nt</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">spcx_nt</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Python - NCL (No Tapering)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Python - NCL (No Tapering)'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.00</span><span class="p">,</span> <span class="mf">0.005</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency (Cycles / Month)&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Frequency (Cycles / Month)'</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
