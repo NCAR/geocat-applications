@@ -558,9 +558,8 @@ This notebook is part of the process we have for adding entries to the NCL Index
 Show the python code that replicates the NCL functionality. Don't worry about providing narrative, just provide enough explanation that somebody with the knowledge level of another developer could follow along.
 --><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pprint</span><span class="w"> </span><span class="kn">import</span> <span class="n">pprint</span>
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">cftime</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">cftime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pprint</span><span class="w"> </span><span class="kn">import</span> <span class="n">pprint</span>
 
 <span class="n">day</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">cals</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">ncl_results</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
@@ -610,9 +609,17 @@ Show the python code that replicates the NCL functionality. Don't worry about pr
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>366_day: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>365_day: 
+	python:	[28, 28, 31, 28]
+	ncl:	[28, 28, 31, 28]
+
+366_day: 
 	python:	[29, 29, 31, 29]
 	ncl:	[29, 29, 31, 29]
+
+julian: 
+	python:	[29, 28, 31, 29]
+	ncl:	[29, 28, 31, 29]
 
 all_leap: 
 	python:	[29, 29, 31, 29]
@@ -622,14 +629,6 @@ noleap:
 	python:	[28, 28, 31, 28]
 	ncl:	[28, 28, 31, 28]
 
-julian: 
-	python:	[29, 28, 31, 29]
-	ncl:	[29, 28, 31, 29]
-
-gregorian: 
-	python:	[29, 28, 31, 29]
-	ncl:	[29, 28, 31, 28]
-
 360_day: 
 	python:	[30, 30, 30, 30]
 	ncl:	[30, 30, 30, 30]
@@ -638,9 +637,9 @@ standard:
 	python:	[29, 28, 31, 29]
 	ncl:	[29, 28, 31, 28]
 
-365_day: 
-	python:	[28, 28, 31, 28]
-	ncl:	[28, 28, 31, 28]
+gregorian: 
+	python:	[29, 28, 31, 29]
+	ncl:	[29, 28, 31, 28]
 
 none: 
 	ncl:	[29, 28, 31, 28]
@@ -667,9 +666,9 @@ proleptic_gregorian:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>proleptic_gregorian: calendar not available in ncl
+standard: [29, 28, 31, 29] != [29, 28, 31, 28]
 none: calendar not available in python
 gregorian: [29, 28, 31, 29] != [29, 28, 31, 28]
-standard: [29, 28, 31, 29] != [29, 28, 31, 28]
 </pre></div>
 </div>
 </div>

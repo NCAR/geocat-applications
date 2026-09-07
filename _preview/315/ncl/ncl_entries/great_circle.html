@@ -575,8 +575,8 @@
 <h4>Grab and Go<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">astropy</span><span class="w"> </span><span class="kn">import</span> <span class="n">units</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.coordinates.representation</span><span class="w"> </span><span class="kn">import</span> <span class="n">UnitSphericalRepresentation</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">astropy.coordinates.representation</span><span class="w"> </span><span class="kn">import</span> <span class="n">UnitSphericalRepresentation</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy</span><span class="w"> </span><span class="kn">import</span> <span class="n">units</span>
 
 <span class="n">lat</span> <span class="o">=</span> <span class="mf">40.0150</span>
 <span class="n">lon</span> <span class="o">=</span> <span class="o">-</span><span class="mf">105.2705</span>
@@ -606,11 +606,11 @@ Z = 0.6429881376224998
 <h4>Grab and Go<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.coordinates.representation</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">astropy.coordinates.representation</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">CartesianRepresentation</span><span class="p">,</span>
     <span class="n">SphericalRepresentation</span><span class="p">,</span>
 <span class="p">)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.20171369272651396</span>
 <span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.7388354627678497</span>
@@ -651,8 +651,8 @@ Longitude = -105.27049999999997
 
 <span class="c1"># Convert latitude and longitude points to Cartesian Points (see: css2c)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">latlon_to_cart</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">):</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">astropy</span><span class="w"> </span><span class="kn">import</span> <span class="n">units</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">astropy.coordinates.representation</span><span class="w"> </span><span class="kn">import</span> <span class="n">UnitSphericalRepresentation</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">astropy</span><span class="w"> </span><span class="kn">import</span> <span class="n">units</span>
 
     <span class="n">spherical_coords</span> <span class="o">=</span> <span class="n">UnitSphericalRepresentation</span><span class="p">(</span>
         <span class="n">lat</span><span class="o">=</span><span class="n">lat</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span> <span class="n">lon</span><span class="o">=</span><span class="n">lon</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">deg</span>

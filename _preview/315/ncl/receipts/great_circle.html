@@ -1048,8 +1048,8 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">geocat.datafiles</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gcd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">astropy</span><span class="w"> </span><span class="kn">import</span> <span class="n">units</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">astropy.coordinates.representation</span><span class="w"> </span><span class="kn">import</span> <span class="n">UnitSphericalRepresentation</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy</span><span class="w"> </span><span class="kn">import</span> <span class="n">units</span>
 
 <span class="n">css2c_data</span> <span class="o">=</span> <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'applications_files/ncl_outputs/css2c_output.txt'</span><span class="p">)</span>
 <span class="n">css2c_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">css2c_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">','</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
@@ -1093,11 +1093,11 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">geocat.datafiles</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gcd</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">astropy.coordinates.representation</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">CartesianRepresentation</span><span class="p">,</span>
     <span class="n">SphericalRepresentation</span><span class="p">,</span>
 <span class="p">)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">csc2s_data</span> <span class="o">=</span> <span class="n">gcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'applications_files/ncl_outputs/csc2s_output.txt'</span><span class="p">)</span>
 <span class="n">csc2s_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">csc2s_data</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">','</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
@@ -1175,8 +1175,8 @@ This notebook is part of the process we have for adding entries to the NCL Index
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">latlon_to_cart</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">):</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">astropy</span><span class="w"> </span><span class="kn">import</span> <span class="n">units</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">astropy.coordinates.representation</span><span class="w"> </span><span class="kn">import</span> <span class="n">UnitSphericalRepresentation</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">astropy</span><span class="w"> </span><span class="kn">import</span> <span class="n">units</span>
 
     <span class="n">spherical_coords</span> <span class="o">=</span> <span class="n">UnitSphericalRepresentation</span><span class="p">(</span>
         <span class="n">lat</span><span class="o">=</span><span class="n">lat</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span> <span class="n">lon</span><span class="o">=</span><span class="n">lon</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">deg</span>
@@ -1189,7 +1189,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">uxarray.grid.arcs</span><span class="w"> </span><span class="kn">import</span> <span class="n">point_within_gca</span>
 
-<span class="k">for</span> <span class="n">ncl_latlon</span> <span class="ow">in</span> <span class="n">ncl_gc_onarc</span><span class="p">:</span>
+<span class="k">for</span> <span class="n">ncl_latlon</span> <span class="ow">in</span> <span class="n">ncl_gc_onarc</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
     <span class="n">pt_within</span> <span class="o">=</span> <span class="n">latlon_to_cart</span><span class="p">(</span><span class="n">ncl_latlon</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">ncl_latlon</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
     <span class="n">vertex_a</span> <span class="o">=</span> <span class="n">latlon_to_cart</span><span class="p">(</span><span class="n">ncl_latlon</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">ncl_latlon</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
     <span class="n">vertex_b</span> <span class="o">=</span> <span class="n">latlon_to_cart</span><span class="p">(</span><span class="n">ncl_latlon</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span> <span class="n">ncl_latlon</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>
@@ -1241,7 +1241,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="n">python_gc_qarea</span> <span class="o">=</span> <span class="p">{}</span>
 
 <span class="n">geod</span> <span class="o">=</span> <span class="n">Geod</span><span class="p">(</span><span class="n">ellps</span><span class="o">=</span><span class="s2">"sphere"</span><span class="p">)</span>  <span class="c1"># radius = 6370997 m</span>
-<span class="k">for</span> <span class="n">lat_lon</span> <span class="ow">in</span> <span class="n">ncl_gc_qarea</span><span class="p">:</span>
+<span class="k">for</span> <span class="n">lat_lon</span> <span class="ow">in</span> <span class="n">ncl_gc_qarea</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
     <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="n">lat_lon</span>
     <span class="n">poly_area_m</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">geod</span><span class="o">.</span><span class="n">polygon_area_perimeter</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">)</span>
     <span class="n">poly_area_km2</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">poly_area_m</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e-6</span>
@@ -1297,7 +1297,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 <span class="n">python_gc_tarea</span> <span class="o">=</span> <span class="p">{}</span>
 
 <span class="n">geod</span> <span class="o">=</span> <span class="n">Geod</span><span class="p">(</span><span class="n">ellps</span><span class="o">=</span><span class="s2">"sphere"</span><span class="p">)</span>  <span class="c1"># radius = 6370997 m</span>
-<span class="k">for</span> <span class="n">lat_lon</span> <span class="ow">in</span> <span class="n">ncl_gc_tarea</span><span class="p">:</span>
+<span class="k">for</span> <span class="n">lat_lon</span> <span class="ow">in</span> <span class="n">ncl_gc_tarea</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
     <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="n">lat_lon</span>
     <span class="n">poly_area_m</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">geod</span><span class="o">.</span><span class="n">polygon_area_perimeter</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">)</span>
     <span class="n">poly_area_km2</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">poly_area_m</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e-6</span>
@@ -1366,7 +1366,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 
 <span class="n">python_gc_latlon_dist</span> <span class="o">=</span> <span class="p">{}</span>
 
-<span class="k">for</span> <span class="n">latlon</span> <span class="ow">in</span> <span class="n">ncl_gc_latlon_dist</span><span class="p">:</span>
+<span class="k">for</span> <span class="n">latlon</span> <span class="ow">in</span> <span class="n">ncl_gc_latlon_dist</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
     <span class="n">geodesic</span> <span class="o">=</span> <span class="n">Geod</span><span class="p">(</span><span class="n">ellps</span><span class="o">=</span><span class="s2">"sphere"</span><span class="p">)</span>
     <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">distance_m</span> <span class="o">=</span> <span class="n">geodesic</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">latlon</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">latlon</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">latlon</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">latlon</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
     <span class="n">distance_km</span> <span class="o">=</span> <span class="n">distance_m</span> <span class="o">/</span> <span class="mi">1000</span>
@@ -1555,7 +1555,7 @@ This notebook is part of the process we have for adding entries to the NCL Index
 
 <span class="n">python_gc_latlon_npts</span> <span class="o">=</span> <span class="p">{}</span>
 
-<span class="k">for</span> <span class="n">latlon</span> <span class="ow">in</span> <span class="n">ncl_gc_latlon_dist</span><span class="p">:</span>
+<span class="k">for</span> <span class="n">latlon</span> <span class="ow">in</span> <span class="n">ncl_gc_latlon_dist</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
     <span class="n">geodesic</span> <span class="o">=</span> <span class="n">Geod</span><span class="p">(</span><span class="n">ellps</span><span class="o">=</span><span class="s2">"sphere"</span><span class="p">)</span>
     <span class="n">pts</span> <span class="o">=</span> <span class="n">geodesic</span><span class="o">.</span><span class="n">npts</span><span class="p">(</span><span class="n">latlon</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">latlon</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">latlon</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">latlon</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="mi">8</span><span class="p">)</span>
     <span class="n">python_gc_latlon_npts</span><span class="p">[</span><span class="n">latlon</span><span class="p">]</span> <span class="o">=</span> <span class="p">[[</span><span class="n">pt</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">pt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">%</span> <span class="mi">360</span><span class="p">]</span> <span class="k">for</span> <span class="n">pt</span> <span class="ow">in</span> <span class="n">pts</span><span class="p">]</span>
@@ -1691,8 +1691,8 @@ This notebook is part of the process we have for adding entries to the NCL Index
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ncl_results</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">python_results</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">python_results</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ncl_results</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">python_results</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">python_results</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span>
                 <span class="n">ncl_results</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">python_results</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-5</span>
@@ -1758,8 +1758,8 @@ VALID:
 <h3>css2c<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ncl_css2c</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">astropy_css2c</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ncl_css2c</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">astropy_css2c</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
         <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">ncl_css2c</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">astropy_css2c</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mf">0.000005</span>
         <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">ncl_css2c</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">astropy_css2c</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mf">0.000005</span>
         <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">ncl_css2c</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">astropy_css2c</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mf">0.000005</span>
@@ -1791,7 +1791,7 @@ ncl 5&gt; print(csc2s(cart(0,0), cart(1,0), cart(2,0)))
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Verify Latitude/Longitude Inputs match the Latitude/Longtiude Outputs</span>
-<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ncl_csc2s_input_output</span><span class="p">:</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ncl_csc2s_input_output</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="k">assert</span> <span class="n">ncl_csc2s_input_output</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="k">assert</span> <span class="n">ncl_csc2s_input_output</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">key</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -1838,7 +1838,7 @@ ncl 5&gt; print(csc2s(cart(0,0), cart(1,0), cart(2,0)))
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">latlon</span> <span class="ow">in</span> <span class="n">ncl_gc_onarc</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">latlon</span> <span class="ow">in</span> <span class="n">ncl_gc_onarc</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
     <span class="k">assert</span> <span class="n">ncl_gc_onarc</span><span class="p">[</span><span class="n">latlon</span><span class="p">]</span> <span class="ow">is</span> <span class="n">python_onarc</span><span class="p">[</span><span class="n">latlon</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -1851,7 +1851,7 @@ ncl 5&gt; print(csc2s(cart(0,0), cart(1,0), cart(2,0)))
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 
-<span class="k">for</span> <span class="n">latlon</span> <span class="ow">in</span> <span class="n">ncl_gc_qarea</span><span class="p">:</span>
+<span class="k">for</span> <span class="n">latlon</span> <span class="ow">in</span> <span class="n">ncl_gc_qarea</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
     <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span>
         <span class="n">ncl_gc_qarea</span><span class="p">[</span><span class="n">latlon</span><span class="p">],</span> <span class="n">python_gc_qarea</span><span class="p">[</span><span class="n">latlon</span><span class="p">],</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-2</span>
     <span class="p">)</span>  <span class="c1"># within 2 decimal points</span>
@@ -1866,7 +1866,7 @@ ncl 5&gt; print(csc2s(cart(0,0), cart(1,0), cart(2,0)))
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 
-<span class="k">for</span> <span class="n">latlon</span> <span class="ow">in</span> <span class="n">ncl_gc_tarea</span><span class="p">:</span>
+<span class="k">for</span> <span class="n">latlon</span> <span class="ow">in</span> <span class="n">ncl_gc_tarea</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
     <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span>
         <span class="n">ncl_gc_tarea</span><span class="p">[</span><span class="n">latlon</span><span class="p">],</span> <span class="n">python_gc_tarea</span><span class="p">[</span><span class="n">latlon</span><span class="p">],</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-2</span>
     <span class="p">)</span>  <span class="c1"># within 2 decimal points</span>
@@ -1883,7 +1883,7 @@ ncl 5&gt; print(csc2s(cart(0,0), cart(1,0), cart(2,0)))
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 
-<span class="k">for</span> <span class="n">latlon</span> <span class="ow">in</span> <span class="n">ncl_gc_latlon_dist</span><span class="p">:</span>
+<span class="k">for</span> <span class="n">latlon</span> <span class="ow">in</span> <span class="n">ncl_gc_latlon_dist</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
     <span class="k">assert</span> <span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span>
         <span class="n">ncl_gc_latlon_dist</span><span class="p">[</span><span class="n">latlon</span><span class="p">],</span> <span class="n">python_gc_latlon_dist</span><span class="p">[</span><span class="n">latlon</span><span class="p">],</span> <span class="n">rel_tol</span><span class="o">=</span><span class="mf">1e-2</span>
     <span class="p">)</span>  <span class="c1"># within 2 decimal points</span>
@@ -1898,7 +1898,7 @@ ncl 5&gt; print(csc2s(cart(0,0), cart(1,0), cart(2,0)))
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 
-<span class="k">for</span> <span class="n">latlon</span> <span class="ow">in</span> <span class="n">ncl_gc_latlon_npts</span><span class="p">:</span>
+<span class="k">for</span> <span class="n">latlon</span> <span class="ow">in</span> <span class="n">ncl_gc_latlon_npts</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">pts</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ncl_gc_latlon_npts</span><span class="p">[</span><span class="n">latlon</span><span class="p">]):</span>
         <span class="k">assert</span> <span class="p">(</span>
             <span class="n">ncl_gc_latlon_npts</span><span class="p">[</span><span class="n">latlon</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
@@ -1920,8 +1920,8 @@ ncl 5&gt; print(csc2s(cart(0,0), cart(1,0), cart(2,0)))
 <h3>gc_inout<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ncl_gc_inout</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">python_gc_inout</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ncl_gc_inout</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ncl_gc_inout</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">python_gc_inout</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ncl_gc_inout</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="k">assert</span> <span class="n">ncl_gc_inout</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">==</span> <span class="n">python_gc_inout</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
