@@ -493,6 +493,8 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">ultraplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">uplot</span>
 
+<span class="n">uplot</span><span class="o">.</span><span class="n">rc</span><span class="p">[</span><span class="s2">"cmap"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"inferno"</span>
+
 <span class="c1"># Sample data</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
@@ -512,7 +514,8 @@
     <span class="n">arrow_at_end</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">arrowsize</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
     <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-    <span class="n">density</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">scale</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">density</span><span class="o">=</span><span class="mi">3</span>
 <span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">suptitle</span><span class="o">=</span><span class="s1">'UltraPlot - Curly Vector Plot'</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">'x'</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">'y'</span><span class="p">)</span>
@@ -522,11 +525,11 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba/envs/geocat-applications/lib/python3.14/site-packages/ultraplot/__init__.py:221: UltraPlotWarning: Rebuilding font cache. This usually happens after installing or updating ultraplot.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba/envs/geocat-applications/lib/python3.14/site-packages/ultraplot/__init__.py:223: UltraPlotWarning: Rebuilding font cache. This usually happens after installing or updating ultraplot.
   register_fonts(default=True)
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../_images/5888d84a009ade77f82612bdbb509c0c2d0185898468cb9c914d353b3ac74d41.png"><img alt="../_images/5888d84a009ade77f82612bdbb509c0c2d0185898468cb9c914d353b3ac74d41.png" height="800" src="../_images/5888d84a009ade77f82612bdbb509c0c2d0185898468cb9c914d353b3ac74d41.png" width="800" />
+<a class="reference internal image-reference" href="../_images/63e634df45713e83ac2dc0487d43462383e973861084d6b2701fbc99b8ffff50.png"><img alt="../_images/63e634df45713e83ac2dc0487d43462383e973861084d6b2701fbc99b8ffff50.png" height="800" src="../_images/63e634df45713e83ac2dc0487d43462383e973861084d6b2701fbc99b8ffff50.png" width="800" />
 </a>
 </div>
 </div>
@@ -606,11 +609,11 @@
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file 'netcdf_files/uv300.nc' from 'https://github.com/NCAR/geocat-datafiles/raw/main/netcdf_files/uv300.nc' to '/home/runner/.cache/geocat'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba/envs/geocat-applications/lib/python3.14/site-packages/cartopy/io/__init__.py:242: DownloadWarning: Downloading: https://naturalearth.s3.amazonaws.com/110m_physical/ne_110m_land.zip
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba/envs/geocat-applications/lib/python3.14/site-packages/cartopy/io/__init__.py:263: DownloadWarning: Downloading: https://naturalearth.s3.amazonaws.com/110m_physical/ne_110m_land.zip
   warnings.warn(f'Downloading: {url}', DownloadWarning)
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../_images/fdc0cc41d51851dc8ceeffdf180886df4e9caaa4d21f6b1e7d4f85a0a9f3064d.png"><img alt="../_images/fdc0cc41d51851dc8ceeffdf180886df4e9caaa4d21f6b1e7d4f85a0a9f3064d.png" height="800" src="../_images/fdc0cc41d51851dc8ceeffdf180886df4e9caaa4d21f6b1e7d4f85a0a9f3064d.png" width="800" />
+<a class="reference internal image-reference" href="../_images/c536a1bab3707182fd5604affe580e90d6bdc8dc6caa04545eec65772ffeb609.png"><img alt="../_images/c536a1bab3707182fd5604affe580e90d6bdc8dc6caa04545eec65772ffeb609.png" height="800" src="../_images/c536a1bab3707182fd5604affe580e90d6bdc8dc6caa04545eec65772ffeb609.png" width="800" />
 </a>
 </div>
 </div>
@@ -699,11 +702,11 @@
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file 'netcdf_files/uvt.nc' from 'https://github.com/NCAR/geocat-datafiles/raw/main/netcdf_files/uvt.nc' to '/home/runner/.cache/geocat'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba/envs/geocat-applications/lib/python3.14/site-packages/cartopy/io/__init__.py:242: DownloadWarning: Downloading: https://naturalearth.s3.amazonaws.com/50m_physical/ne_50m_land.zip
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba/envs/geocat-applications/lib/python3.14/site-packages/cartopy/io/__init__.py:263: DownloadWarning: Downloading: https://naturalearth.s3.amazonaws.com/50m_physical/ne_50m_land.zip
   warnings.warn(f'Downloading: {url}', DownloadWarning)
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../_images/7797ee40c4c782dde09291f5d92c9d1a0a6b54bc04577d01ea0153895d06d4cc.png"><img alt="../_images/7797ee40c4c782dde09291f5d92c9d1a0a6b54bc04577d01ea0153895d06d4cc.png" height="800" src="../_images/7797ee40c4c782dde09291f5d92c9d1a0a6b54bc04577d01ea0153895d06d4cc.png" width="800" />
+<a class="reference internal image-reference" href="../_images/5465463b0da28c880f203598ccf3cc1fa1334db70fe4e9e81c1681c9834e9344.png"><img alt="../_images/5465463b0da28c880f203598ccf3cc1fa1334db70fe4e9e81c1681c9834e9344.png" height="800" src="../_images/5465463b0da28c880f203598ccf3cc1fa1334db70fe4e9e81c1681c9834e9344.png" width="800" />
 </a>
 </div>
 </div>
